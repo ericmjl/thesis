@@ -1,2 +1,2 @@
 introduction.md
-Algorithm__.md
+algorithm.md
