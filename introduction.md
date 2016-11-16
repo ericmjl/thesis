@@ -1,4 +1,4 @@
-# Chapter 1: A Primer on the Influenza A Virus
+# A Primer on the Influenza A Virus
 
 This thesis describes the development and application of a phylogenetic heuristic for detecting reassortant influenza viruses.
 
