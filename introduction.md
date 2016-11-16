@@ -9,7 +9,7 @@ The influenza A virus is a negative strand RNA virus, comprised of 8 genomic RNA
 Being an RNA virus means that influenza is prone to copying errors during replication inside a host cell (#cite). This 'sloppiness' allows the influenza virus to evolve rapidly. In particular, the HA and NA genes are thought to be under immune selection, as they are the external proteins that are targeted by the immune system. 
 
 
-The HA and NA proteins, therefore, evolve under dual constraints: they have to continue functioning for cellular entry and release, while also evolve novel epitopes that can successfully evade immune system detection. The internal proteins do not function under such constraints, and as
+The HA and NA proteins, therefore, evolve under dual constraints: they have to continue functioning for cellular entry and release, while also evolve novel epitopes that can successfully evade immune system detection. The internal proteins do not function under such constraints, and as such 
 
 ----
 
