@@ -1,1 +1,1 @@
-Thesis
+What's your project title?
