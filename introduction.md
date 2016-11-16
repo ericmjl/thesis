@@ -6,7 +6,7 @@ This thesis describes the development and application of a phylogenetic heuristi
 
 ## Genome Structure & Evolution
 
-The influenza A virus is a negative strand RNA virus, comprised of 8 genomic RNA segments. Each RNA segment encodes one major protein, and its segment names correspond to the protein. 
+The influenza A virus is a negative strand RNA virus, comprised of 8 genomic RNA segments. Together, the RNA segments encode its polymerase (PB2, PB1, PA, NP), viral entry and release proteins (HA, NA), 
 
 1. Influenza genome structure
     1. Segmented -ve strand RNA virus
