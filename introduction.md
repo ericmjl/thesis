@@ -10,7 +10,7 @@ Being an RNA virus means that influenza is prone to copying errors during replic
 
 Evolutionary drift coupled with selection contributes to the difference in evolutionary rates that are observed between the external and internal genes. The HA and NA genes are thought to be under immune selection, as they are the external proteins that are targeted by the immune system. The HA and NA proteins, therefore, evolve under dual constraints: they have to continue functioning for cellular entry and release, while also evolve novel epitopes that can successfully evade immune system detection. Evolutionary drift in the HA and NA genes contribute to **antigenic drift**, in which the antigenic characteristics of these two proteins slowly evolve over time; under the assumption that current immunity does not adapt, the current strains gradually become non-targetable by standing population immunity.
 
-The internal proteins do not function under such selective pressures, and as such are much more highly conserved. Taken together, this accounts for the 
+On the other han,d The internal proteins do not function under such selective pressures, and as such are much more highly conserved. Taken together, this accounts for the 
 
 ----
 
