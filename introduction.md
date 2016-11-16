@@ -1,7 +1,27 @@
-# Outline
+# Introduction
 
-1. Introduction
-    1. Influenza ecology
-    2. Reticulate evolution - in general, and then for flu.
-    3. Detecting reticulate evolutionary events
-4. 
+1. Influenza genome structure
+    1. Segmented -ve strand RNA virus
+1. Flu genome evolution:
+    1. external vs. internal genes have different rates of evolution
+    1. Capability for reassortment because of segmented genome structure
+1. Current best knowledge on reassortment mechanism at the cellular level.
+    1. Summarize at a higher level of abstraction that the “host” level is what is necessary for understanding the problem.
+1. Phylogenetic trees: inference, structure, interpretation.
+    1. Concepts to cover: patristic distance (branch length from isolate to isolate), very important for understanding algorithm claim 1.
+    1. Inference of branching, meaning of “time of most recent common ancestor”, how it’s inferred - evolutionary rate models.
+1. Reticulate evolution & reassortment: inference by tree discordance.
+    1. Current software available for doing so, and a brief summary of their logic.
+        1. GiRaF
+        1. Reassortment Networks
+        1. 3rd codon biases
+1. Importance of reassortant viruses: pandemics, immune evasion.
+    1. Measures of fitness - “what is a “fit” virus?” relative to others? Quasispecies concept.
+    1. What barriers to replication and infection do the host provide that the virus needs to overcome?
+1. Influenza geographical distribution & host range - provides necessary background knowledge for Application 2.
+    1. Reservoir hosts - wild animals
+    1. Spillover hosts - humans
+    1. Intermediate hosts - farm animals
+1. Problem description:
+    1. Can we identify reassortant viruses at scale?
+    1. What can we learn from the detection of reassortant viruses at scale?
