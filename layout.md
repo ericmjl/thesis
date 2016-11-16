@@ -1,4 +1,4 @@
 introduction.md
 algorithm.md
-Application__.md
+applications.md
 Future_Work__.md
