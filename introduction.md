@@ -6,7 +6,7 @@ This thesis describes the development and application of a phylogenetic heuristi
 
 The influenza A virus is a negative strand RNA virus, comprised of 8 genomic RNA segments. Together, the RNA segments encode its polymerase (PB2, PB1, PA, NP), viral entry and release proteins (HA, NA), a matrix protein (M) and a non-structural protein (NS) (#figure). 
 
-Being an RNA virus means that influenza is prone to copying errors during replication inside a host cell (#cite). This 'sloppiness' allows the influenza virus to evolve rapidly, and can be thought of as an **evolutionary "drift"** that constitutes 
+Being an RNA virus means that influenza is prone to copying errors during replication inside a host cell (#cite). This 'sloppiness' allows the influenza virus to evolve rapidly, and can be thought of as an **evolutionary "drift"** that constitutes the 
 
 
 In particular, the HA and NA genes are thought to be under immune selection, as they are the external proteins that are targeted by the immune system. The HA and NA proteins, therefore, evolve under dual constraints: they have to continue functioning for cellular entry and release, while also evolve novel epitopes that can successfully evade immune system detection. This contributes to the greater diversity of HA and NA sequences observed in nature. The internal proteins do not function under such selective pressures, and as such are much more highly conserved. Taken together, this accounts for the 
