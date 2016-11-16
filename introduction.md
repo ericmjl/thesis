@@ -1,4 +1,8 @@
-# Introduction
+# Chapter 1: A Primer on the Influenza A Virus
+
+
+## Genome Structure & Evolution
+The influenza A virus is a negative strand RNA virus, comprised of 8 genomic RNA segments. Each RNA segment encodes one 
 
 1. Influenza genome structure
     1. Segmented -ve strand RNA virus
