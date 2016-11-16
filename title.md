@@ -1,1 +1,1 @@
-Network-Based Methods for Identifying Reassortant Influenza Viruses
+Network-Based Methods for Identifying Reassortant Influenza Viruses: Algorithm and Applications
