@@ -28,7 +28,7 @@ Phylogenetic inference is core to this thesis, thus I will outline the usual met
 
 ## Inferring Reassortment
 
-Reassortment is classically inferred by **tree incongruence**. Tree incongruence can be visualized as in Figure X (#figure). The core logic behind tree incongruence is as such.
+Reassortment is classically inferred by **tree incongruence**. Tree incongruence can be visualized as in Figure X (#figure). Let us consider the example in Figure X as a 
 
 ## Genome Packaging
 
