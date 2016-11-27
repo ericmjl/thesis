@@ -5,6 +5,7 @@ Purpose: A script to concatenate my thesis chapters together into a single
          documents, something that the bash `cat` command doesn't do.
 """
 
+
 order = ['title.md',
          'introduction.md',
          'algorithm.md',
