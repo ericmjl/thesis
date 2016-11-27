@@ -5,6 +5,9 @@ Purpose: A script to concatenate my thesis chapters together into a single
          documents, something that the bash `cat` command doesn't do.
 """
 
+import os
+
+os.chdir('./text/')
 
 order = ['title.md',
          'introduction.md',
@@ -19,5 +22,5 @@ for text in order:
         thesis += f.read()
         thesis += "\n"
 
-with open('thesis.md', 'w+') as f:
+with open('../thesis.md', 'w+') as f:
     f.write(thesis)
