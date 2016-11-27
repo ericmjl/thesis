@@ -1,12 +1,7 @@
-cat \
-    title.md \
-    introduction.md \
-    algorithm.md \
-    applications.md \
-    future-work.md \
-    appendices.md \
-> thesis.md
+python build.py
 
 pandoc thesis.md \
     --template=default.latex \
     -o thesis.pdf
+
+open thesis.pdf
