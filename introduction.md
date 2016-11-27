@@ -16,13 +16,15 @@ Evolutionary drift is not the only mechanism by which influenza evolves. Its seg
 
 ## Phylogenies
 
-The evolutionary history of the influenza virus can be visualized using phylogenies. Phylogenetic trees are a reconstruction of the life history of a virus, and is based on two core concepts in evolutionary biology: common ancestry and descent with modification.
-
-Phylogenetic inference is core to this thesis, thus I will outline the usual methods in more detail here. In the history of phylogenetic inference, there have been three major advances:
+The evolutionary history of the influenza virus can be visualized using phylogenies. Phylogenetic trees are a reconstruction of the life history of a virus, and is based on two core concepts in evolutionary biology: common ancestry and descent with modification. There have been three major advances in the history of inference of phylogenies using gene sequence data:
 
 1. Maximum parsimony (non-statistical reconstruction)
 2. Maximum likelihood (statistical point estimation of a tree)
 3. Bayesian inference (statistical reconstruction of ensemble of trees).
+
+### Maximum Parsimony
+
+Maximum parsimony methods 
 
 <!-- to be continued, lots of detail needs to go inside here that I need continuous time to read up on -->
 
