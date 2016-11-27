@@ -8,7 +8,7 @@
 
 ## Application 2: Viral persistence.
 - Research question: is reassortment a favoured strategy for viral gene persistence across wintering seasons?
-    - Lead author: Nichola Hill (post-doc in lab). 
+    - Lead author: Nichola Hill (post-doc in lab).
 - Results: reassortment is over-represented for persistence through winter, relative to random chance. Describe statistical test.
 
 Caveats common to both applications: always will have sampling issues with the current sequence database.
