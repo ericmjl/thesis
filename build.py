@@ -9,12 +9,7 @@ import os
 
 os.chdir('./text/')
 
-order = ['title.md',
-         'introduction.md',
-         'algorithm.md',
-         'applications.md',
-         'future-work.md',
-         'appendices.md']
+order = os.listdir()
 
 thesis = ''
 for text in order:
