@@ -29,6 +29,4 @@ for each edge in graph:
             replace single-source edge(s) with two-source edge(s)
 ```
 
-With this, we are able to achieve our goal of explaining the existence of a virus' segments while minimizing the number of sources needed to explain its existence.
-
-We implemented this using a combination of graph objects in `NetworkX` (#cite) and matrix summation in Python 3.5. The source code is available online (#cite Zenodo).
+We implemented this using a combination of graph objects in `NetworkX` (#cite) and matrix summation in Python 3.5. The source code is available online (#cite Zenodo). To take advantage of vectorization, I used a combination of `numpy` and `pandas` to accomplish the matrix summation steps.
