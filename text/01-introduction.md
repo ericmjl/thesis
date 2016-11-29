@@ -16,6 +16,8 @@ Evolutionary drift is not the only mechanism by which influenza evolves. Its seg
 
 ## Phylogenies
 
+*note to self: this section I'm quite weak on. Need to read more on history of phylogenies to make it stronger.*
+
 The evolutionary history of the influenza virus can be visualized using phylogenies. Phylogenetic trees are a reconstruction of the life history of a virus, and is based on two core concepts in evolutionary biology: common ancestry and descent with modification. There have been three major advances in the history of inference of phylogenies using gene sequence data:
 
 1. Maximum parsimony (non-statistical reconstruction)
@@ -27,6 +29,17 @@ The evolutionary history of the influenza virus can be visualized using phylogen
 Maximum parsimony methods for phylogenetic reconstruction follow the logic of "the more similar we look, the closer our common ancestor is".
 
 <!-- to be continued, lots of detail needs to go inside here that I need continuous time to read up on -->
+
+### Maximum Likelihood
+
+One of the problems with maximum parsimony methods is that mutational reversions can occur. When a nucleotide changes from A to T, it can continue to mutate to a G or a C, or can revert back to an A. Many generations of replication forward, the edit distance (Hamming or Levenshtein) between the progeny and the original plateaus (#figure). When reversions occur, using maximum parsimony to infer evolutionary history masks these reversion events.
+
+Hence, maximum likelihood approaches were developed, in which the nucleotide substitution rate, including mutations and reversions, are factored in as a parameter for tree construction, thus allowing for a more accurate reconstruction. (#references needed)
+
+### Bayesian Inference
+
+- molecular clock
+- Alexi Drummond's key paper in 2001
 
 ## Inferring Reassortment
 
