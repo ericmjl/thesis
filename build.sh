@@ -1,3 +1,5 @@
+# Script to compile thesis text files into a single PDF that is uploaded.
+
 python build.py
 
 pandoc thesis.md \
