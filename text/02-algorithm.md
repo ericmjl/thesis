@@ -30,7 +30,7 @@ for each edge in graph:
             replace single-source edge(s) with two-source edge(s)
 ```
 
-Pairwise identities were computed using Clustal Omega (version 1.2.1)(#cite). I implemented the algorithm in the Python programming language (version 3.5); main packages used included NetworkX, `numpy`, `pandas`, and `matplotlib` for visualization. The source code is available online (#cite Zenodo).
+Pairwise identities were computed using Clustal Omega (version 1.2.1)(#cite). The algorithm is implemented in the Python programming language (version 3.5); main packages used included NetworkX, `numpy`, `pandas`, and `matplotlib` for visualization. The source code is archived on Zenodo (DOI: 10.5281/zenodo.33421).
 
 # Simulation Studies
 
@@ -40,4 +40,6 @@ Regardless of replication or reassortment, the progeny virus was subjected to mu
 
 The number of unique starting genotypes and total number of viral isolates being considered was much smaller than the real-world data. Therefore, our graph reconstruction procedure captured the essential parts of the method used in the global analysis, but differed in the details. Here, “full complements” involve only two segments. We did not perform affinity propagation clustering, as we started with completely randomly generated sequences of equal length. Our “null model” graph is where source isolates are chosen uniformly at random from the set of nodes occurring before the sink isolates.
 
-To assess the accuracy of our reconstruction, we defined the path accuracy and reassortant path identification accuracy metrics. Edge accuracy, which is not used for evaluation here, is whether a particular reconstruction transmission between two isolates exists in the simulation. Path accuracy is a generalization of edge accuracy, where a path existing between the source and sink nodes (without considering the direction of edges) in the reconstruction is sufficient for being considered accurate. Reassortant path identification accuracy measures how accurately we identified the reassortant paths, analogous to the regular path accuracy.
+To assess the accuracy of our reconstruction, we defined the path accuracy and reassortant path identification accuracy metrics (#figure). Edge accuracy, which is not used for evaluation here, is whether a particular reconstruction transmission between two isolates exists in the simulation. Path accuracy is a generalization of edge accuracy, where a path existing between the source and sink nodes (without considering the direction of edges) in the reconstruction is sufficient for being considered accurate. Reassortant path identification accuracy measures how accurately we identified the reassortant paths, analogous to the regular path accuracy.
+
+Source code for the simulation studies is availble on Zenodo (DOI: 10.5281/zenodo.33427).
