@@ -6,4 +6,8 @@ pandoc thesis.md \
     --template=default.latex \
     -o thesis.pdf
 
+pandoc thesis.md \
+    -o index.html \
+    -H styles.css
+
 scp thesis.pdf doroot:/var/www/html/cv/.
