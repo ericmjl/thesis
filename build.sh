@@ -1,6 +1,6 @@
 # Script to compile thesis text files into a single PDF that is uploaded.
 
-python build.py
+python concatenate.py
 
 pandoc thesis.md \
     --template=default.latex \
@@ -11,4 +11,9 @@ scp thesis.pdf doroot:/var/www/html/cv/.
 pandoc thesis.md \
     -o index.html \
     --template=default.html \
-    -H styles.css
+    -c styles.css \
+    -H header.html
+
+git add .
+git commit
+git push
