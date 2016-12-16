@@ -14,7 +14,7 @@ pandoc thesis.md \
     -c styles.css \
     --filter pandoc-fignos \
     --filter pandoc-citeproc \
-    --bibliography ../references-master/papers-library.bib
+    --bibliography ../references-master/papers-library.bib \
     -H header.html
 
 git add .
