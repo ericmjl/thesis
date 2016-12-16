@@ -88,7 +88,7 @@
 </ol>
 <h1 id="algorithm">Algorithm</h1>
 <p>At a high level, the reassortment detection algorithm works as such. Given a set of sequences, we wish to identify, using the rule of maximal similarity on some given metric, the most likely source of each segment in a virus. Sources, by definition, have to occur prior in time to the virus under consideration. We try to maximize the source similarity score of a virus while minimizing the number of sources needed to explain its existence.</p>
-<p>We adapted the SeqTrack algorithm (#cite) to perform graph construction. Sequences were aligned using Clustal Omega 1.2.1 (#cite), and the resultant distance matrix was converted into a similarity matrix by taking 1 - distance. Affinity propagation (#cite) clustering was performed on each segment’s similarity matrix to determine a threshold cutoff similarity value, defined as the minimum (across all clusters for that segment) of minimum in-cluster pairwise identities, below which we deemed it implausible for an evolutionary descent (clonal or reassortment) to have occurred (#figure). Because the affinity propagation algorithm does not scale well with sample size, we treated the threshold computation as an estimation problem, and the final threshold was computed as the median threshold of 50 random subsamples of 500 isolates.</p>
+<p>We adapted the SeqTrack algorithm <span class="citation">(Jombart et al. 2011)</span> to perform graph construction. Sequences were aligned using Clustal Omega 1.2.1 <span class="citation">(Sievers et al. 2011)</span>, and the resultant distance matrix was converted into a similarity matrix by taking 1 - distance. Affinity propagation <span class="citation">(Frey and Dueck 2007)</span> clustering was performed on each segment’s similarity matrix to determine a threshold cutoff similarity value, defined as the minimum (across all clusters for that segment) of minimum in-cluster pairwise identities, below which we deemed it implausible for an evolutionary descent (clonal or reassortment) to have occurred (#figure). Because the affinity propagation algorithm does not scale well with sample size, we treated the threshold computation as an estimation problem, and the final threshold was computed as the median threshold of 50 random subsamples of 500 isolates.</p>
 <p>We then thresholded each segment’s similarity matrix on the basis of its segment’s threshold value, summed all eight thresholded similarity matrices, and then for each isolate, we identified the most similar isolate that occurred before it in time. This yielded the initial “full complement” graph without reassortant viruses. Each edge in this graph has an attached pair- wise identity (PWI), which is the sum of PWIs across all eight segments. Within this graph, there are isolates for which no “full complement” of segments could be identified, which are candidate reassortant viruses. In addition, among the isolates for which a full complement of segments could be found from another source, we identified those whose in-edges were weighted at the bottom 10% of all edges present in the graph, which we also identified as candidate reassortant viruses (1,357 of 1,368 such viruses were eventually identified as reassortant; the other 11 were considered to be clonally descended). For these viruses, we performed source pair searches, where we identified sources for a part of the genome from one virus and sources for the complementary part of the genome from another virus. If the summed PWI across the segments for the two viruses was greater than the single-source search, we accepted the source pair as the candidate reassortant.</p>
 <p>The algorithm is also expressed in the following three-part pseudocode.</p>
 <pre><code># Part 1: Compute pairwise identities between all viral isolates&#39; segments.
@@ -114,7 +114,7 @@ for each edge in graph:
         find pair of isolates whose complementary segments maximizes PWI
         if new max PWI score &gt; existing edge PWI score:
             replace single-source edge(s) with two-source edge(s)</code></pre>
-<p>Pairwise identities were computed using Clustal Omega (version 1.2.1)(#cite). The algorithm is implemented in the Python programming language (version 3.5); main packages used included NetworkX, <code>numpy</code>, <code>pandas</code>, and <code>matplotlib</code> for visualization. The source code is archived on Zenodo (DOI: 10.5281/zenodo.33421).</p>
+<p>Pairwise identities were computed using Clustal Omega (version 1.2.1) <span class="citation">(Sievers et al. 2011)</span>. The algorithm is implemented in the Python programming language (version 3.5); main packages used included NetworkX, <code>numpy</code>, <code>pandas</code>, and <code>matplotlib</code> for visualization. The source code is archived on Zenodo (DOI: 10.5281/zenodo.33421).</p>
 <h1 id="simulation-studies">Simulation Studies</h1>
 <p>To check whether the algorithm was capable of correctly identifying reassortant viruses, simulation studies were conducted. To simplify the problem, we considered the case of a two-segment virus, with each of the two segments having a different nucleotide substitution rate, mirroring the different substitution rates on each of the influenza genome segments. Each simulation run was initialized with anywhere between one and five viruses. At each time step, one virus was chosen at random to replicate (with 0.75 probability) or reassort with another virus (with 0.25 probability). Simulations were run for 50 time steps.</p>
 <p>Regardless of replication or reassortment, the progeny virus was subjected to mutations, with the number of mutations in each segment being drawn from a binomial distribution with probability equal to the segment's substitution rate, and the exact positions drawn uniformly across the segment. This process is outlined in figure X (#figure).</p>
@@ -147,6 +147,17 @@ for each edge in graph:
 <h1 id="appendices">Appendices</h1>
 <h2 id="influenza-packaging">Influenza Packaging</h2>
 <!-- insert here our current best knowledge on influenza packaging -->
+<div id="refs" class="references">
+<div id="ref-Frey:2007hs">
+<p>Frey, Brendan J, and Delbert Dueck. 2007. “Clustering by passing messages between data points.” <em>Science (New York, N.Y.)</em> 315 (5814): 972–76.</p>
+</div>
+<div id="ref-Jombart:2011iu">
+<p>Jombart, T, R M Eggo, P J Dodd, and F Balloux. 2011. “Reconstructing disease outbreaks from genetic data: a graph approach.” <em>Heredity</em> 106 (2): 383–90.</p>
+</div>
+<div id="ref-Sievers:2011fn">
+<p>Sievers, Fabian, Andreas Wilm, David Dineen, Toby J Gibson, Kevin Karplus, Weizhong Li, Rodrigo Lopez, et al. 2011. “Fast, scalable generation of high-quality protein multiple sequence alignments using Clustal Omega.” <em>Molecular Systems Biology</em> 7 (1): 539–39.</p>
+</div>
+</div>
 <div class="footnotes">
 <hr />
 <ol>
