@@ -2,6 +2,10 @@
 
 python concatenate.py
 
+# Copy over PNAS stylesheet
+
+cp ../styles/pnas.csl .
+
 # pandoc thesis.md \
 #     --template=default.latex \
 #     -o thesis.pdf
@@ -12,6 +16,7 @@ pandoc thesis.md \
     -o index.html \
     --template=default.html \
     -c styles.css \
+    --csl pnas.csl \
     --filter pandoc-fignos \
     --filter pandoc-citeproc \
     --bibliography ../references-master/papers-library.bib \
