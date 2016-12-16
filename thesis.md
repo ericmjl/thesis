@@ -168,3 +168,5 @@ Caveats common to both applications: always will have sampling issues with the c
 
 <!-- insert here our current best knowledge on influenza packaging -->
 
+# References
+
