@@ -15,6 +15,7 @@ pandoc thesis.md \
     --filter pandoc-fignos \
     --filter pandoc-citeproc \
     --bibliography ../references-master/papers-library.bib \
+    --toc \
     -H header.html
 
 git add .
