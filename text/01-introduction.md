@@ -66,6 +66,8 @@ In the study of the process of reassortment, one cannot escape from the topic of
 
 
 ![](./figures/packaging.jpg){#fig:packaging}
+
+
 ----
 
 1. Current best knowledge on reassortment mechanism at the cellular level.
