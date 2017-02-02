@@ -28,9 +28,11 @@ The evolutionary history of the influenza virus can be visualized using phylogen
 2. Maximum likelihood (statistical point estimation of a tree)
 3. Bayesian inference (statistical reconstruction of ensemble of trees)
 
+Tree construction is done as follows: given a matrix of **character states** (columns) against **samples** (rows) that are assumed to be independently evolving, we want to find the tree representation of the distance matrix that best reconstructs the evolutionary history of the samples. Prior to the advent of molecular sequence information, the character states that were used were morphological features, such as wings span and bone sizes. With molecular information, multiple sequence alignments are used as the input data, with the character states being the 
+
 ### Maximum Parsimony
 
-Maximum parsimony methods for phylogenetic reconstruction follow the logic of "the more similar we look, the closer our common ancestor is".
+Maximum parsimony methods for phylogenetic reconstruction follow the logic of "the more similar we look, the closer our common ancestor is". A toy example is shown below.
 
 <!-- to be continued, lots of detail needs to go inside here that I need continuous time to read up on -->
 

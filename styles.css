@@ -4,6 +4,7 @@ body{
     padding-right: 2rem;
     padding-top: 2rem;
     padding-bottom: 2rem;
+    max-width: 800px;
 }
 
 h1.title{
