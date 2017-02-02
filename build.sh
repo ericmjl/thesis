@@ -12,6 +12,8 @@ cp ../styles/pnas.csl .
 #
 # scp thesis.pdf doroot:/var/www/html/cv/.
 
+convert -density 300 figures/packaging.pdf figures/packaging.png
+
 pandoc thesis.md \
     -o index.html \
     --template=default.html \
