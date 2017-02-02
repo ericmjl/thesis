@@ -16,3 +16,7 @@ h1.title{
 pre code {
     background-color: #e8e8e8;
 }
+
+img {
+    width: 100%;
+}

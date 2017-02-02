@@ -74,16 +74,18 @@
 <p>Maximum parsimony methods for phylogenetic reconstruction follow the logic of &quot;the more similar we look, the closer our common ancestor is&quot;. A toy example is shown below. (#figure)</p>
 <!-- to be continued, lots of detail needs to go inside here that I need continuous time to read up on -->
 <h3 id="maximum-likelihood">Maximum Likelihood</h3>
-<p>One of the problems with maximum parsimony methods is that mutational reversions can occur. When a nucleotide changes from A to T, it can continue to mutate to a G or a C, or can revert back to an A. Many generations of replication forward, the edit distance (Hamming or Levenshtein) between the progeny and the original reaches a plateau fig. <a href="#fig:hamming">1</a>. When reversions occur, using maximum parsimony to infer evolutionary history masks these reversion events.</p>
+<p>One of the problems with maximum parsimony methods is that mutational reversions can occur. When a nucleotide changes from A to T, it can continue to mutate to a G or a C, or can revert back to an A. Many generations of replication forward, the edit distance (Hamming or Levenshtein) between the progeny and the original reaches a plateau (fig. <a href="#fig:hamming">1</a>). When reversions occur, using maximum parsimony to infer evolutionary history masks these reversion events.</p>
 <a name="fig:hamming"></a>
 <div class="figure">
 <img src="./figures/hamming.png" alt="Figure 1: " />
 <p class="caption">Figure 1: </p>
 </div>
-<p>Hence, maximum likelihood approaches were developed, in which the nucleotide substitution rate, including mutations and reversions, are factored in as a parameter for tree construction, thus allowing for a more accurate reconstruction (#cite).</p>
-<h3 id="bayesian-inference">Bayesian Inference</h3>
+<p>Hence, maximum likelihood approaches were developed, in which the nucleotide substitution rate, including mutations and reversions, are factored in as a parameter for tree construction, thus allowing for a more accurate computation of the distance matrix (#cite).</p>
 <ul>
 <li>molecular clock</li>
+</ul>
+<h3 id="bayesian-inference">Bayesian Inference</h3>
+<ul>
 <li>Alexi Drummond's key paper in 2001</li>
 </ul>
 <h2 id="inferring-reassortment">Inferring Reassortment</h2>
@@ -91,9 +93,10 @@
 <h2 id="genome-packaging">Genome Packaging</h2>
 <p>In the study of the process of reassortment, one cannot escape from the topic of &quot;how viruses are packaged&quot;. I have detailed the current best knowledge in the field in the appendix, as it is not a central and necessary piece of knowledge for understanding influenza reassortment at a global scale. However, for the uninitiated, the major key points are as follows:</p>
 <ol style="list-style-type: decimal">
-<li>There are &quot;packaging signals&quot; located in the coding sequence (imposing a further evolutionary constraint) that determine whether a piece of RNA is selectively packaged into the viral genome.</li>
-<li>Selective packaging is shown via electron microscopy, where the vast majority of viral particles have a distinct &quot;7+1&quot; arrangement of segments.</li>
-<li>Packaging signals have been exploited to generate influenza viruses that carry GFP rather than one of the genomic segments, allowing for tracking of viral replication.</li>
+<li>There are &quot;packaging signals&quot; located in the coding sequence (imposing a further evolutionary constraint) that determine whether a piece of RNA is selectively packaged into the viral genome. (#cite)</li>
+<li>Selective packaging is shown via electron microscopy, where the vast majority of viral particles have a distinct &quot;7+1&quot; arrangement of segments. (#cite)</li>
+<li>Packaging signals have been exploited to generate influenza viruses that carry GFP rather than one of the genomic segments, allowing for tracking of viral replication. (#cite) This remains, to date, the strongest evidence in favour of the presence of packaging signals that are part of the coding sequence of each of the 8 genes.</li>
+<li></li>
 </ol>
 <hr />
 <ol style="list-style-type: decimal">
