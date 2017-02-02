@@ -34,13 +34,15 @@ Tree construction is done as follows: given a matrix of **character states** (co
 
 ### Maximum Parsimony
 
-Maximum parsimony methods for phylogenetic reconstruction follow the logic of "the more similar we look, the closer our common ancestor is". A toy example is shown below.
+Maximum parsimony methods for phylogenetic reconstruction follow the logic of "the more similar we look, the closer our common ancestor is". A toy example is shown below. (#figure)
 
 <!-- to be continued, lots of detail needs to go inside here that I need continuous time to read up on -->
 
 ### Maximum Likelihood
 
-One of the problems with maximum parsimony methods is that mutational reversions can occur. When a nucleotide changes from A to T, it can continue to mutate to a G or a C, or can revert back to an A. Many generations of replication forward, the edit distance (Hamming or Levenshtein) between the progeny and the original plateaus (#figure). When reversions occur, using maximum parsimony to infer evolutionary history masks these reversion events.
+One of the problems with maximum parsimony methods is that mutational reversions can occur. When a nucleotide changes from A to T, it can continue to mutate to a G or a C, or can revert back to an A. Many generations of replication forward, the edit distance (Hamming or Levenshtein) between the progeny and the original reaches a plateau (#figure). When reversions occur, using maximum parsimony to infer evolutionary history masks these reversion events.
+
+![](./figures/hamming.png)
 
 Hence, maximum likelihood approaches were developed, in which the nucleotide substitution rate, including mutations and reversions, are factored in as a parameter for tree construction, thus allowing for a more accurate reconstruction (#cite).
 
