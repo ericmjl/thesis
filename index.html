@@ -75,9 +75,10 @@
 <!-- to be continued, lots of detail needs to go inside here that I need continuous time to read up on -->
 <h3 id="maximum-likelihood">Maximum Likelihood</h3>
 <p>One of the problems with maximum parsimony methods is that mutational reversions can occur. When a nucleotide changes from A to T, it can continue to mutate to a G or a C, or can revert back to an A. Many generations of replication forward, the edit distance (Hamming or Levenshtein) between the progeny and the original reaches a plateau (#figure). When reversions occur, using maximum parsimony to infer evolutionary history masks these reversion events.</p>
+<a name="fig:hamming"></a>
 <div class="figure">
-<img src="./figures/hamming.png" alt="" />
-
+<img src="./figures/hamming.png" alt="Figure 1: " />
+<p class="caption">Figure 1: </p>
 </div>
 <p>Hence, maximum likelihood approaches were developed, in which the nucleotide substitution rate, including mutations and reversions, are factored in as a parameter for tree construction, thus allowing for a more accurate reconstruction (#cite).</p>
 <h3 id="bayesian-inference">Bayesian Inference</h3>
