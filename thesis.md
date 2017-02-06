@@ -54,7 +54,7 @@ Using the principle of parsimony, we may compute a distance matrix as follows:
 
 There are two trees that may be reconstructed from this data:
 
-![](./figures/)
+![](./figures/parsimony-tree.jpg)
 
 ### Maximum Likelihood
 

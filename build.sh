@@ -20,7 +20,13 @@ cp ../styles/pnas.csl .
 #
 # scp thesis.pdf doroot:/var/www/html/cv/.
 
-convert -density 300 figures/packaging.pdf -quality 100 figures/packaging.jpg
+# Convert PDF images to JPG.
+cd figures
+for file in *.pdf;
+do
+    convert -density 300 $file -quality 100 ${file%%.*}.jpg;
+done
+cd ..
 
 pandoc thesis.md \
     -o index.html \
