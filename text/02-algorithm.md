@@ -50,12 +50,22 @@ To assess the accuracy of our reconstruction, we defined the path accuracy and r
 
 Source code for the simulation studies is availble on Zenodo (DOI: 10.5281/zenodo.33427).
 
-## Complexity Analysis
+## Analysis of Time Complexity
+
+### Tree Reconstruction Complexity
 
 According to Feltenstein [@Feltenstein:2004ws], given a set of `n` labelled sequences, the number of possible rooted, bifurcating trees (which are used for inferring tree inconrguence) is
 
 $$ \frac{(2n-3)!}{2^{n-2}(n-2)!} $$
 
-Under the assumption that a Bayesian reconstruction is only looking for the most optimal tree topologies and is not estimating times of divergence, then the worst case scenario is that the MCMC sampling algorithm has to search $2^n$ trees in order to find the best topology.
+Under the assumption that a Bayesian reconstruction is only looking for the most optimal tree topologies and is not estimating times of divergence for internal nodes, then the worst case scenario is that the MCMC sampling algorithm has to search $2^n$ trees in order to find the best topology. As such, tree reconstruction methods have a worst-case time complexity of $O(2^n)$.
 
-The algorithm I have developed requires the computation of pairwise distance matrices, which requires $n^2$ comparisons.
+This is necessarily a simplified view of Bayesian tree construction.
+
+### Algorithm Complexity
+
+For each of the major steps in the algorithm developed in this thesis, the time complexity is outlined below:
+
+- Pairwise distance matrix computations require $n^2$ comparisons.
+- Finding maximal edges again requires $n^2$ comparisons to be made.
+- In the 2nd search for source pairs, given `s` segments and `n` isolates, we require $s \choose 2(n^2)$ comparisons.

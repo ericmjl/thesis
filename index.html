@@ -232,7 +232,10 @@
 <li><a href="#algorithm">Algorithm</a><ul>
 <li><a href="#description">Description</a></li>
 <li><a href="#simulation-studies">Simulation Studies</a></li>
-<li><a href="#complexity-analysis">Complexity Analysis</a></li>
+<li><a href="#analysis-of-time-complexity">Analysis of Time Complexity</a><ul>
+<li><a href="#tree-reconstruction-complexity">Tree Reconstruction Complexity</a></li>
+<li><a href="#algorithm-complexity">Algorithm Complexity</a></li>
+</ul></li>
 </ul></li>
 <li><a href="#applications">Applications</a><ul>
 <li><a href="#application-1-global-reticulate-evolution-study.">Application 1: Global reticulate evolution study.</a><ul>
@@ -438,11 +441,19 @@ for each edge in graph:
 <p>The number of unique starting genotypes and total number of viral isolates being considered was much smaller than the real-world data. Therefore, our graph reconstruction procedure captured the essential parts of the method used in the global analysis, but differed in the details. Here, “full complements” involve only two segments. We did not perform affinity propagation clustering, as we started with completely randomly generated sequences of equal length. Our “null model” graph is where source isolates are chosen uniformly at random from the set of nodes occurring before the sink isolates.</p>
 <p>To assess the accuracy of our reconstruction, we defined the path accuracy and reassortant path identification accuracy metrics (#figure). Edge accuracy, which is not used for evaluation here, is whether a particular reconstruction transmission between two isolates exists in the simulation. Path accuracy is a generalization of edge accuracy, where a path existing between the source and sink nodes (without considering the direction of edges) in the reconstruction is sufficient for being considered accurate. Reassortant path identification accuracy measures how accurately we identified the reassortant paths, analogous to the regular path accuracy.</p>
 <p>Source code for the simulation studies is availble on Zenodo (DOI: 10.5281/zenodo.33427).</p>
-<h2 id="complexity-analysis">Complexity Analysis</h2>
+<h2 id="analysis-of-time-complexity">Analysis of Time Complexity</h2>
+<h3 id="tree-reconstruction-complexity">Tree Reconstruction Complexity</h3>
 <p>According to Feltenstein <span class="citation">(4)</span>, given a set of <code>n</code> labelled sequences, the number of possible rooted, bifurcating trees (which are used for inferring tree inconrguence) is</p>
 <p><span class="LaTeX">$$ \frac{(2n-3)!}{2^{n-2}(n-2)!} $$</span></p>
-<p>Under the assumption that a Bayesian reconstruction is only looking for the most optimal tree topologies and is not estimating times of divergence, then the worst case scenario is that the MCMC sampling algorithm has to search <span class="LaTeX">$2^n$</span> trees in order to find the best topology.</p>
-<p>The algorithm I have developed requires the computation of pairwise distance matrices, which requires <span class="LaTeX">$n^2$</span> comparisons.</p>
+<p>Under the assumption that a Bayesian reconstruction is only looking for the most optimal tree topologies and is not estimating times of divergence for internal nodes, then the worst case scenario is that the MCMC sampling algorithm has to search <span class="LaTeX">$2^n$</span> trees in order to find the best topology. As such, tree reconstruction methods have a worst-case time complexity of <span class="LaTeX">$O(2^n)$</span>.</p>
+<p>This is necessarily a simplified view of Bayesian tree construction.</p>
+<h3 id="algorithm-complexity">Algorithm Complexity</h3>
+<p>For each of the major steps in the algorithm developed in this thesis, the time complexity is outlined below:</p>
+<ul>
+<li>Pairwise distance matrix computations require <span class="LaTeX">$n^2$</span> comparisons.</li>
+<li>Finding maximal edges again requires <span class="LaTeX">$n^2$</span> comparisons to be made.</li>
+<li>In the 2nd search for source pairs, given <code>s</code> segments and <code>n</code> isolates, we require <span class="LaTeX">$s \choose 2(n^2)$</span> comparisons.</li>
+</ul>
 <h1 id="applications">Applications</h1>
 <h2 id="application-1-global-reticulate-evolution-study.">Application 1: Global reticulate evolution study.</h2>
 <h3 id="introduction">Introduction</h3>
