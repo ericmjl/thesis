@@ -44,7 +44,7 @@ Tree construction is done as follows: given a matrix of **character states** (co
 
 Maximum parsimony methods for phylogenetic reconstruction follow the logic of "the more similar we look, the closer our common ancestor is". A toy example is shown below. (#figure) Consider the example where we have the following three samples with 3 binary character states recorded:
 
-```{include.table=../tables/phylogenetics.md}
+```{include.table=./tables/phylogenetics.md}
 ```
 
 
@@ -113,7 +113,7 @@ We then thresholded each segment’s similarity matrix on the basis of its segme
 
 The algorithm is also expressed in the following three-part pseudocode.
 
-```
+```{include.none=none}
 # Part 1: Compute pairwise identities between all viral isolates' segments.
 for each segment in all_segments:
     compute all pairwise identities (PWIs) between each pair of viral isolates

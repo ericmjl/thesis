@@ -10,7 +10,7 @@ We then thresholded each segment’s similarity matrix on the basis of its segme
 
 The algorithm is also expressed in the following three-part pseudocode.
 
-```
+```{include.none=none}
 # Part 1: Compute pairwise identities between all viral isolates' segments.
 for each segment in all_segments:
     compute all pairwise identities (PWIs) between each pair of viral isolates

@@ -7,7 +7,7 @@ import logging
 import json
 import os
 
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.DEBUG)
 
 
 def include(key, value, fmt, meta):
