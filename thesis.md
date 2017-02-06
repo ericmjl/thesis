@@ -47,6 +47,14 @@ Maximum parsimony methods for phylogenetic reconstruction follow the logic of "t
 ```{include.table=./tables/phylogenetics.md}
 ```
 
+Using the principle of parsimony, we may compute a distance matrix as follows:
+
+```{include.table=./tables/phylogenetics-distmat.md}
+```
+
+There are two trees that may be reconstructed from this data:
+
+![](./figures/)
 
 ### Maximum Likelihood
 
@@ -113,7 +121,7 @@ We then thresholded each segment’s similarity matrix on the basis of its segme
 
 The algorithm is also expressed in the following three-part pseudocode.
 
-```{include.none=none}
+```
 # Part 1: Compute pairwise identities between all viral isolates' segments.
 for each segment in all_segments:
     compute all pairwise identities (PWIs) between each pair of viral isolates

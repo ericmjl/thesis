@@ -39,6 +39,14 @@ Maximum parsimony methods for phylogenetic reconstruction follow the logic of "t
 ```{include.table=./tables/phylogenetics.md}
 ```
 
+Using the principle of parsimony, we may compute a distance matrix as follows:
+
+```{include.table=./tables/phylogenetics-distmat.md}
+```
+
+There are two trees that may be reconstructed from this data:
+
+![](./figures/)
 
 ### Maximum Likelihood
 

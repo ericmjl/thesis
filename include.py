@@ -7,18 +7,20 @@ import logging
 import json
 import os
 
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.DEBUG)
 
 
 def include(key, value, fmt, meta):
     logging.debug(key)
-    if key == 'CodeBlock':
+    if key == 'CodeBlock' and len(value) == 2:
         logging.debug(value)
-        (ids, classes, [[k, v]]), content = value
-        if k == "include.table":
-            return table(v)
-        elif k == "include.text":
-            return plaintext(v)
+        (ids, classes, key_vals), content = value
+        if key_vals:
+            [[k, v]] = key_vals
+            if k == "include.table":
+                return table(v)
+            elif k == "include.text":
+                return plaintext(v)
 
 
 def plaintext(v):

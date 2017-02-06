@@ -102,6 +102,41 @@
 </tr>
 </tbody>
 </table>
+<p>Using the principle of parsimony, we may compute a distance matrix as follows:</p>
+<table>
+<thead>
+<tr class="header">
+<th>char1</th>
+<th>char2</th>
+<th>char3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>1</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>There are two trees that may be reconstructed from this data:</p>
+<div class="figure">
+<img src="./figures/" />
+
+</div>
 <h3 id="maximum-likelihood">Maximum Likelihood</h3>
 <p>One of the problems with maximum parsimony methods is that mutational reversions can occur. When a nucleotide changes from A to T, it can continue to mutate to a G or a C, or can revert back to an A. Many generations of replication forward, the edit distance (Hamming or Levenshtein) between the progeny and the original reaches a plateau (fig. <a href="#fig:hamming">1</a>). When reversions occur, using maximum parsimony to infer evolutionary history masks these reversion events.</p>
 <div class="figure">
@@ -172,7 +207,7 @@
 <p>We adapted the SeqTrack algorithm <span class="citation">(1)</span> to perform graph construction. Sequences were aligned using Clustal Omega 1.2.1 <span class="citation">(2)</span>, and the resultant distance matrix was converted into a similarity matrix by taking 1 - distance. Affinity propagation <span class="citation">(3)</span> clustering was performed on each segment’s similarity matrix to determine a threshold cutoff similarity value, defined as the minimum (across all clusters for that segment) of minimum in-cluster pairwise identities, below which we deemed it implausible for an evolutionary descent (clonal or reassortment) to have occurred (#figure). Because the affinity propagation algorithm does not scale well with sample size, we treated the threshold computation as an estimation problem, and the final threshold was computed as the median threshold of 50 random subsamples of 500 isolates.</p>
 <p>We then thresholded each segment’s similarity matrix on the basis of its segment’s threshold value, summed all eight thresholded similarity matrices, and then for each isolate, we identified the most similar isolate that occurred before it in time. This yielded the initial “full complement” graph without reassortant viruses. Each edge in this graph has an attached pair- wise identity (PWI), which is the sum of PWIs across all eight segments. Within this graph, there are isolates for which no “full complement” of segments could be identified, which are candidate reassortant viruses. In addition, among the isolates for which a full complement of segments could be found from another source, we identified those whose in-edges were weighted at the bottom 10% of all edges present in the graph, which we also identified as candidate reassortant viruses (1,357 of 1,368 such viruses were eventually identified as reassortant; the other 11 were considered to be clonally descended). For these viruses, we performed source pair searches, where we identified sources for a part of the genome from one virus and sources for the complementary part of the genome from another virus. If the summed PWI across the segments for the two viruses was greater than the single-source search, we accepted the source pair as the candidate reassortant.</p>
 <p>The algorithm is also expressed in the following three-part pseudocode.</p>
-<pre include.none="none"><code># Part 1: Compute pairwise identities between all viral isolates&#39; segments.
+<pre><code># Part 1: Compute pairwise identities between all viral isolates&#39; segments.
 for each segment in all_segments:
     compute all pairwise identities (PWIs) between each pair of viral isolates
     cluster all isolates based on segment&#39;s similarity scores
