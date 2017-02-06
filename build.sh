@@ -21,6 +21,7 @@ pandoc thesis.md \
     --csl pnas.csl \
     --filter pandoc-fignos \
     --filter pandoc-citeproc \
+    --filter include.py \
     --bibliography ../references-master/papers-library.bib \
     --toc \
     -H header.html

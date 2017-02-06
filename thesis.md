@@ -42,9 +42,11 @@ Tree construction is done as follows: given a matrix of **character states** (co
 
 ### Maximum Parsimony
 
-Maximum parsimony methods for phylogenetic reconstruction follow the logic of "the more similar we look, the closer our common ancestor is". A toy example is shown below. (#figure)
+Maximum parsimony methods for phylogenetic reconstruction follow the logic of "the more similar we look, the closer our common ancestor is". A toy example is shown below. (#figure) Consider the example where we have the following three samples with 3 binary character states recorded:
 
-<!-- to be continued, lots of detail needs to go inside here that I need continuous time to read up on -->
+```{include.table=../tables/phylogenetics.md}
+```
+
 
 ### Maximum Likelihood
 
