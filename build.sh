@@ -33,6 +33,7 @@ pandoc thesis.md \
     --template=default.html \
     -c styles.css \
     --csl pnas.csl \
+    -m \
     --filter pandoc-fignos \
     --filter pandoc-citeproc \
     --filter include.py \
