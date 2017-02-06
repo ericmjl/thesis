@@ -51,3 +51,7 @@ To assess the accuracy of our reconstruction, we defined the path accuracy and r
 Source code for the simulation studies is availble on Zenodo (DOI: 10.5281/zenodo.33427).
 
 ## Complexity Analysis
+
+According to Feltenstein [@Feltenstein:2004ws], given a set of `n` nodes, the number of possible rooted, bifurcating trees (which are used for inferring tree inconrguence) is
+
+$$ \frac_{2n-3!}{2^{n-2}(n-2)!} $$

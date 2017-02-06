@@ -54,7 +54,7 @@ One of the problems with maximum parsimony methods is that mutational reversions
 
 ![](./figures/hamming.png){#fig:hamming}
 
-Hence, maximum likelihood approaches were developed, in which the nucleotide substitution rate, including mutations and reversions, are factored in as a parameter for tree construction, thus allowing for a more accurate computation of the distance matrix (#cite).
+Thus the concept of a "molecular clock" was developed, allowing the statistical inference of relative divergence times given sequence data.
 
 - molecular clock
 
