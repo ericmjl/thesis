@@ -439,8 +439,10 @@ for each edge in graph:
 <p>To assess the accuracy of our reconstruction, we defined the path accuracy and reassortant path identification accuracy metrics (#figure). Edge accuracy, which is not used for evaluation here, is whether a particular reconstruction transmission between two isolates exists in the simulation. Path accuracy is a generalization of edge accuracy, where a path existing between the source and sink nodes (without considering the direction of edges) in the reconstruction is sufficient for being considered accurate. Reassortant path identification accuracy measures how accurately we identified the reassortant paths, analogous to the regular path accuracy.</p>
 <p>Source code for the simulation studies is availble on Zenodo (DOI: 10.5281/zenodo.33427).</p>
 <h2 id="complexity-analysis">Complexity Analysis</h2>
-<p>According to Feltenstein <span class="citation">(4)</span>, given a set of <code>n</code> nodes, the number of possible rooted, bifurcating trees (which are used for inferring tree inconrguence) is</p>
+<p>According to Feltenstein <span class="citation">(4)</span>, given a set of <code>n</code> labelled sequences, the number of possible rooted, bifurcating trees (which are used for inferring tree inconrguence) is</p>
 <p><span class="LaTeX">$$ \frac{(2n-3)!}{2^{n-2}(n-2)!} $$</span></p>
+<p>Under the assumption that a Bayesian reconstruction is only looking for the most optimal tree topologies and is not estimating times of divergence, then the worst case scenario is that the MCMC sampling algorithm has to search $ 2^n $ trees in order to find the best topology.</p>
+<p>The algorithm I have developed requires the computation of pairwise distance matrices, which requires <span class="LaTeX">$$ n^2 $$</span> comparisons.</p>
 <h1 id="applications">Applications</h1>
 <h2 id="application-1-global-reticulate-evolution-study.">Application 1: Global reticulate evolution study.</h2>
 <h3 id="introduction">Introduction</h3>

@@ -163,9 +163,13 @@ Source code for the simulation studies is availble on Zenodo (DOI: 10.5281/zenod
 
 ## Complexity Analysis
 
-According to Feltenstein [@Feltenstein:2004ws], given a set of `n` nodes, the number of possible rooted, bifurcating trees (which are used for inferring tree inconrguence) is
+According to Feltenstein [@Feltenstein:2004ws], given a set of `n` labelled sequences, the number of possible rooted, bifurcating trees (which are used for inferring tree inconrguence) is
 
 $$ \frac{(2n-3)!}{2^{n-2}(n-2)!} $$
+
+Under the assumption that a Bayesian reconstruction is only looking for the most optimal tree topologies and is not estimating times of divergence, then the worst case scenario is that the MCMC sampling algorithm has to search $ 2^n $ trees in order to find the best topology.
+
+The algorithm I have developed requires the computation of pairwise distance matrices, which requires $$ n^2 $$ comparisons.
 
 # Applications
 
