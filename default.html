@@ -44,37 +44,35 @@
     $for(include-before)$
         $include-before$
     $endfor$
-    <div class="foreground-paper">
 
-        $if(title)$
-            <div id="$idprefix$header">
-                <h1 class="title">$title$</h1>
+    $if(title)$
+        <div id="$idprefix$header">
+            <h1 class="title">$title$</h1>
 
-                $if(subtitle)$
-                    <h1 class="subtitle">$subtitle$</h1>
-                $endif$
+            $if(subtitle)$
+                <h1 class="subtitle">$subtitle$</h1>
+            $endif$
 
-                $if(author)$
-                    $for(author)$
-                        <h2 class="author">by $author.name$ ($author.affiliation$)</h2>
-                    $endfor$
-                $endif$
+            $if(author)$
+                $for(author)$
+                    <h2 class="author">by $author.name$ ($author.affiliation$)</h2>
+                $endfor$
+            $endif$
 
-                $if(date)$
-                    <h3 class="date">$date$</h3>
-                $endif$
-            </div>
-        $endif$
+            $if(date)$
+                <h3 class="date">$date$</h3>
+            $endif$
+        </div>
+    $endif$
 
-        $if(toc)$
-            <div class="TOC" id="$idprefix$TOC">
-            <h3 class="toc">Outline</h3>
-            $toc$
-            </div>
-        $endif$
+    $if(toc)$
+        <div class="TOC" id="$idprefix$TOC">
+        <h3 class="toc">Outline</h3>
+        $toc$
+        </div>
+    $endif$
 
-        $body$
-    </div>
+    $body$
 
     $for(include-after)$
         $include-after$
