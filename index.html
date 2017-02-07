@@ -228,6 +228,7 @@
     <p>We then thresholded each segment’s similarity matrix on the basis of its segment’s threshold value, summed all eight thresholded similarity matrices, and then for each isolate, we identified the most similar isolate that occurred before it in time. This yielded the initial “full complement” graph without reassortant viruses. Each edge in this graph has an attached pair- wise identity (PWI), which is the sum of PWIs across all eight segments. Within this graph, there are isolates for which no “full complement” of segments could be identified, which are candidate reassortant viruses. In addition, among the isolates for which a full complement of segments could be found from another source, we identified those whose in-edges were weighted at the bottom 10% of all edges present in the graph, which we also identified as candidate reassortant viruses (1,357 of 1,368 such viruses were eventually identified as reassortant; the other 11 were considered to be clonally descended). For these viruses, we performed source pair searches, where we identified sources for a part of the genome from one virus and sources for the complementary part of the genome from another virus. If the summed PWI across the segments for the two viruses was greater than the single-source search, we accepted the source pair as the candidate reassortant.</p>
     <p>The algorithm is also expressed in the following three-part pseudocode.</p>
     <pre><code># Part 1: Compute pairwise identities between all viral isolates&#39; segments.
+    
     for each segment in all_segments:
         compute all pairwise identities (PWIs) between each pair of viral isolates
         cluster all isolates based on segment&#39;s similarity scores
@@ -268,7 +269,7 @@
     <ul>
     <li>Pairwise distance matrix computations require <span class="math inline">\(n^2\)</span> comparisons.</li>
     <li>Finding maximal edges again requires <span class="math inline">\(n^2\)</span> comparisons to be made.</li>
-    <li>In the 2nd search for source pairs, given <code>s</code> segments and <code>n</code> isolates, we require <span class="math inline">\({s}\choose{2}\)</span><span class="math inline">\((n^2)\)</span> comparisons in the worst-case scenario. (#DOUBLECHECK!)</li>
+    <li>In the 2nd search for source pairs, given <code>s</code> segments and <code>n</code> isolates, we require <span class="math inline">\({s}\choose{2}\)</span><span class="math inline">\(n^2\)</span> comparisons in the worst-case scenario. (#DOUBLECHECK!)</li>
     </ul>
     <p>Given this analysis, the time complexity of the algorithm outlined in this thesis should be worst-case <span class="math inline">\(O(n^2)\)</span>.</p>
     <h1 id="applications">Applications</h1>
