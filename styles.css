@@ -1,6 +1,6 @@
 body{
-    /*font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;*/
-    font-family: "PT Sans";
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    /*font-family: "PT Sans";*/
     padding-left: 2rem;
     padding-right: 2rem;
     padding-top: 2rem;
@@ -20,6 +20,18 @@ pre code {
 
 img {
     width: 100%;
+}
+
+table {
+  width: 100%;
+  margin: 1.667em 0 1em;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 0.333em;
+  border: 0.5px solid #000000;
+  text-align: center;
 }
 
 
