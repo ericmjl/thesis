@@ -32,7 +32,7 @@ pandoc thesis.md \
     --template=default.html \
     -c styles.css \
     --csl pnas.csl \
-    --math \
+    --mathjax \
     --filter pandoc-fignos \
     --filter pandoc-citeproc \
     --filter include.py \
