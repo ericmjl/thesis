@@ -68,6 +68,6 @@ For each of the major steps in the algorithm developed in this thesis, the time 
 
 - Pairwise distance matrix computations require $n^2$ comparisons.
 - Finding maximal edges again requires $n^2$ comparisons to be made.
-- In the 2nd search for source pairs, given `s` segments and `n` isolates, we require ${s} \choose {2} (n^2)$ comparisons in the worst-case scenario. (#DOUBLECHECK!)
+- In the 2nd search for source pairs, given `s` segments and `n` isolates, we require ${s}\choose{2} (n^2)$ comparisons in the worst-case scenario. (#DOUBLECHECK!)
 
 Given this analysis, the time complexity of the algorithm outlined in this thesis should be worst-case $O(n^2)$.
