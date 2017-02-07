@@ -6,6 +6,7 @@ body{
     padding-bottom: 2rem;
     max-width: 800px;
     margin: 0 auto;
+    background-color: "grey";
 }
 
 h1.title{
@@ -19,4 +20,8 @@ pre code {
 
 img {
     width: 100%;
+}
+
+div.foreground-paper {
+    background-color: "white";
 }
