@@ -141,6 +141,8 @@ for each segment in all_segments:
     compute threshold score as the minimum of all minimum in-cluster PWI
     set to NULL all scores below threshold
 
+# Part 2: Find maximally similar isolates.
+
 initialize empty graph
 
 for each isolate in all_isolates:
@@ -149,7 +151,7 @@ for each isolate in all_isolates:
     sum up PWI values
     find maximally similar isolate(s) and add edge between isolate(s)
 
-# re-check isolates
+# Part 3: Re-check isolates for source pairs.
 for each edge in graph:
     if edge PWI less than 10th percentile of all PWI scores:
         get other isolates that occurred prior in time to this isolate
@@ -177,7 +179,7 @@ Source code for the simulation studies is availble on Zenodo (DOI: 10.5281/zenod
 
 ### Tree Reconstruction Complexity
 
-According to Feltenstein [@Feltenstein:2004ws], given a set of `n` labelled sequences, the number of possible rooted, bifurcating trees (which are used for inferring tree inconrguence) is
+According to Feltenstein [@Feltenstein:2004ws], given a set of $n$ labelled sequences, the number of possible rooted, bifurcating trees (which are used for inferring tree inconrguence) is
 
 $$ \frac{(2n-3)!}{2^{n-2}(n-2)!} $$
 
@@ -191,7 +193,7 @@ For each of the major steps in the algorithm developed in this thesis, the time 
 
 - Pairwise distance matrix computations require $n^2$ comparisons.
 - Finding maximal edges again requires $n^2$ comparisons to be made.
-- In the 2nd search for source pairs, given `s` segments and `n` isolates, we require ${s}\choose{2}$$n^2$ comparisons in the worst-case scenario. (#DOUBLECHECK!)
+- In the 2nd search for source pairs, given $s$ segments and $n$ isolates, in the worst case scenario, we have to check all isolates for the source pairs. Thus, we require ${s}\choose{2}$$n^2$ comparisons in the worst-case scenario. (#DOUBLECHECK!)
 
 Given this analysis, the time complexity of the algorithm outlined in this thesis should be worst-case $O(n^2)$.
 

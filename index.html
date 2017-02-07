@@ -242,6 +242,8 @@
         compute threshold score as the minimum of all minimum in-cluster PWI
         set to NULL all scores below threshold
     
+    # Part 2: Find maximally similar isolates.
+    
     initialize empty graph
     
     for each isolate in all_isolates:
@@ -250,7 +252,7 @@
         sum up PWI values
         find maximally similar isolate(s) and add edge between isolate(s)
     
-    # re-check isolates
+    # Part 3: Re-check isolates for source pairs.
     for each edge in graph:
         if edge PWI less than 10th percentile of all PWI scores:
             get other isolates that occurred prior in time to this isolate
@@ -267,7 +269,7 @@
     <p>Source code for the simulation studies is availble on Zenodo (DOI: 10.5281/zenodo.33427).</p>
     <h2 id="analysis-of-time-complexity">Analysis of Time Complexity</h2>
     <h3 id="tree-reconstruction-complexity">Tree Reconstruction Complexity</h3>
-    <p>According to Feltenstein <span class="citation">(4)</span>, given a set of <code>n</code> labelled sequences, the number of possible rooted, bifurcating trees (which are used for inferring tree inconrguence) is</p>
+    <p>According to Feltenstein <span class="citation">(4)</span>, given a set of <span class="math inline">\(n\)</span> labelled sequences, the number of possible rooted, bifurcating trees (which are used for inferring tree inconrguence) is</p>
     <p><span class="math display">\[ \frac{(2n-3)!}{2^{n-2}(n-2)!} \]</span></p>
     <p>Under the assumption that a Bayesian reconstruction is only looking for the most optimal tree topologies and is not estimating times of divergence for internal nodes, then the worst case scenario is that the MCMC sampling algorithm has to search <span class="math inline">\(2^n\)</span> trees in order to find the best topology. As such, tree reconstruction methods have a worst-case time complexity of <span class="math inline">\(O(2^n)\)</span>.</p>
     <p>This is necessarily a simplified view of Bayesian tree construction.</p>
@@ -276,7 +278,7 @@
     <ul>
     <li>Pairwise distance matrix computations require <span class="math inline">\(n^2\)</span> comparisons.</li>
     <li>Finding maximal edges again requires <span class="math inline">\(n^2\)</span> comparisons to be made.</li>
-    <li>In the 2nd search for source pairs, given <code>s</code> segments and <code>n</code> isolates, we require <span class="math inline">\({s}\choose{2}\)</span><span class="math inline">\(n^2\)</span> comparisons in the worst-case scenario. (#DOUBLECHECK!)</li>
+    <li>In the 2nd search for source pairs, given <span class="math inline">\(s\)</span> segments and <span class="math inline">\(n\)</span> isolates, in the worst case scenario, we have to check all isolates for the source pairs. Thus, we require <span class="math inline">\({s}\choose{2}\)</span><span class="math inline">\(n^2\)</span> comparisons in the worst-case scenario. (#DOUBLECHECK!)</li>
     </ul>
     <p>Given this analysis, the time complexity of the algorithm outlined in this thesis should be worst-case <span class="math inline">\(O(n^2)\)</span>.</p>
     <h1 id="applications">Applications</h1>
