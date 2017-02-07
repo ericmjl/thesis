@@ -40,8 +40,6 @@ Finally, we do not specifically identify whether reassortment occurs prior to or
 
 In summary, using data available from a model zoonotic viral pathogen, we have shown that reticulate evolutionary processes are important in enabling pathogen host switches. For the influenza virus, reticulate evolution predominates when crossing between hosts. More broadly, the greater the quantitative difference between ecological niches, the greater the importance of reticulate evolutionary processes in enabling niche switches. While the quantitative importance of reticulate evolution may differ for different organisms evolving in different niches, we expect that further sequencing efforts from across broad domains of microbial life, and a further characterization and definition of their ecological niches, will elucidate whether this principle holds more broadly. Beyond its relevance to evolutionary ecology, reticulate evolution also has public health consequences. Reassortant influenza viruses have been implicated in all past human pandemic strains for which we have sequence data (28-31)(#edit), and the ancestry of HIV-1 involved a hybrid SIV (32)(#edit). Hence, knowing how reticulate events shape disease emergence may help the ecology and evolution of infectious disease become a more predictive science, leading to insight important to disease prevention and mitigation (33)(#edit).
 
-- TODO: Need to describe statistical test, as this is required for a reader to understand how the statistical inference happened.
-
 ### Methods
 
 We describe here the methods specifically used for this application.
