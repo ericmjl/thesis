@@ -12,6 +12,9 @@ python concatenate.py
 # Copy over PNAS stylesheet
 cp ../styles/pnas.csl .
 
+# Copy over references-master
+cp ../references-master/papers-library.bib .
+
 # pandoc thesis.md \
 #     --template=default.latex \
 #     -o thesis.pdf
@@ -36,7 +39,7 @@ pandoc thesis.md \
     --filter pandoc-fignos \
     --filter pandoc-citeproc \
     --filter include.py \
-    --bibliography ../references-master/papers-library.bib \
+    --bibliography papers-library.bib \
     --toc \
     -H header.html
 
