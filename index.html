@@ -5,16 +5,16 @@
       <meta http-equiv="Content-Style-Type" content="text/css" />
       <meta name="generator" content="pandoc" />
 
-    
-    
-    
+
+
+
       <title>Identification of Reassortant Influenza Viruses At Scale - Algorithm and Applications</title>
       <style type="text/css">code{white-space: pre;}</style>
 
-    
-    
+
+
           <link rel="stylesheet" href="styles.css" type="text/css" />
-    
+
           <script type="text/javascript">/*<![CDATA[*/
       /*
       LaTeXMathML.js from http://math.etsu.edu/LaTeXMathML/
@@ -216,7 +216,7 @@
       {window.onload=generic;}}
       /*]]>*/
       </script>
-    
+
           <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet”></link>
     </head>
 <body>
@@ -225,11 +225,11 @@
                     <div id="header">
                 <h1 class="title">Identification of Reassortant Influenza Viruses At Scale - Algorithm and Applications</h1>
 
-                
+
                                                             <h2 class="author">by Eric J. Ma (Department of Biological Engineering, MIT)</h2>
-                                    
+
                             </div>
-        
+
                     <div class="TOC" id="TOC">
             <h3 class="toc">Outline</h3>
             <ul>
@@ -272,7 +272,7 @@
             <li><a href="#references">References</a></li>
             </ul>
             </div>
-        
+
         <h1 id="a-primer-on-the-influenza-a-virus">A Primer on the Influenza A Virus</h1>
         <h2 id="the-importance-of-studying-the-evolution-and-ecology-of-the-influenza-virus">The Importance of Studying the Evolution and Ecology of the Influenza Virus</h2>
         <p>The influenza A virus has inflicted economic and social damage annually on the order of X billions of dollars (#factcheck, #cite). Being a pathogen with zoonotic origins,<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> it is imperative to study its circulation, evolution and pathogenesis not only in humans, but also in animals (domestic and wild).</p>
@@ -355,7 +355,7 @@
         <p>There are two trees that may be reconstructed from this data:</p>
         <div class="figure">
         <img src="./figures/parsimony-tree.jpg" />
-        
+
         </div>
         <h3 id="maximum-likelihood">Maximum Likelihood</h3>
         <p>One of the problems with maximum parsimony methods is that mutational reversions can occur. When a nucleotide changes from A to T, it can continue to mutate to a G or a C, or can revert back to an A. Many generations of replication forward, the edit distance (Hamming or Levenshtein) between the progeny and the original reaches a plateau (fig. <a href="#fig:hamming">1</a>). When reversions occur, using maximum parsimony to infer evolutionary history masks these reversion events.</p>
@@ -433,15 +433,15 @@
             cluster all isolates based on segment&#39;s similarity scores
             compute threshold score as the minimum of all minimum in-cluster PWI
             set to NULL all scores below threshold
-        
+
         initialize empty graph
-        
+
         for each isolate in all_isolates:
             get other isolates that occurred prior in time to this isolate
             filter isolates such that there are no NULL PWI values
             sum up PWI values
             find maximally similar isolate(s) and add edge between isolate(s)
-        
+
         # re-check isolates
         for each edge in graph:
             if edge PWI less than 10th percentile of all PWI scores:

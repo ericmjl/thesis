@@ -22,7 +22,7 @@ The influenza A virus is a negative strand RNA virus, comprised of 8 genomic RNA
 
 Being an RNA virus that carries its own RNA-dependent RNA polymerase, the influenza A virus is prone to copying errors during replication inside a host cell (#cite). This 'sloppiness' allows the influenza virus to evolve rapidly, and can be thought of as an **evolutionary drift**.
 
-Evolutionary drift coupled with selection contributes to the difference in evolutionary rates that are observed between the external and internal genes. The HA and NA genes are thought to be under immune selection, as they are the external proteins that are targeted by the immune system. The HA and NA proteins, therefore, evolve under dual constraints: they have to continue functioning for cellular entry and release, while also evolve novel epitopes that can successfully evade immune system detection. Evolutionary drift in the HA and NA genes contribute to **antigenic drift**, in which the antigenic characteristics of these two proteins slowly evolve over time; under the assumption that current immunity does not adapt, the current strains gradually become non-targetable by standing population immunity. On the other hand, the internal proteins do not function under such selective pressures, and as such are much more highly conserved.
+Evolutionary drift coupled with selection contributes to the difference in evolutionary rates that are observed between the external and internal genes. The HA and NA genes are thought to be under immune selection, as they are the external proteins that are targeted by the immune system. The HA and NA proteins, therefore, evolve under dual constraints: they have to continue functioning for cellular entry and release, while also evolve novel epitopes that can successfully evade immune system detection. Evolutionary drift in the HA and NA genes contribute to **antigenic drift**, in which the antigenic characteristics of these two proteins slowly evolve over time. On the other hand, the internal proteins do not function under such selective pressures, and as such are much more highly conserved.
 
 Evolutionary drift is not the only mechanism by which influenza evolves. Its segmented and independently assorting genome allows for **reassortment** as a complementary mode of genomic evolution. Reassortment is thought to be the process resulting from co-infection of two viruses infecting the same host at the same time. If, for example, a red virus and a blue virus were to co-infect the same host cell, the progeny virus would contain any one of 2<sup>8</sup> combinations of red and blue segments (inclusive of the original viruses themselves) (#figure). Reassortment, thus, can be viewed as a form of **evolutionary shift**[^evoshift] in the genomic structure of the virus.
 
@@ -52,7 +52,7 @@ Using the principle of parsimony, we may compute a distance matrix as follows:
 ```{include.table=./tables/phylogenetics-distmat.md}
 ```
 
-There are two trees that may be reconstructed from this data:
+Of the three possible trees that can be reconstructed, there are two that fit the data best:
 
 ![](./figures/parsimony-tree.jpg)
 
@@ -62,7 +62,9 @@ One of the problems with maximum parsimony methods is that mutational reversions
 
 ![](./figures/hamming.png){#fig:hamming}
 
-Thus the concept of a "molecular clock" was developed, allowing the statistical inference of relative divergence times given sequence data.
+Thus the concept of a "molecular clock" was developed. Molecular clock theory essentially states that observed sequence divergences are approximately linear with time. DNA sequence transitions can be modelled using a continuous-time Markov chain[^markovchain]. Here, 
+
+[^markovchain]: A Markov Chain is a stochastic process parameterized by $n$ number of states and the probability of transitioning between each of the states after a forward step in time/space is taken.
 
 - molecular clock
 
