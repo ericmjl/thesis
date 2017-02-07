@@ -54,7 +54,16 @@ One of the problems with maximum parsimony methods is that mutational reversions
 
 ![](./figures/hamming.png){#fig:hamming}
 
-Thus the concept of a "molecular clock" was developed. Molecular clock theory essentially states that observed sequence divergences are approximately linear with time. DNA sequence transitions can be modelled using a continuous-time Markov chain[^markovchain]. Here,
+<!-- If we assume, under neutral selection conditions[^neutral], that:
+
+1. mutations occur at a constant and equal rate, and
+1. there is an equal probability of any nucleotide being mutated to any other nucleotide (including itself), then
+
+we arrive at the Jukes-Cantor model of nucleotide sequence evolution (#figure). -->
+
+Thus the concept of a "molecular clock" was developed. Molecular clock theory essentially states that observed sequence divergences are approximately linear with time.
+
+DNA sequence transitions can be modelled using a continuous-time Markov chain[^markovchain]. Here,
 
 [^markovchain]: A Markov Chain is a stochastic process parameterized by $n$ number of states and the probability of transitioning between each of the states after a forward step in time/space is taken.
 

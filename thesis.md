@@ -62,7 +62,16 @@ One of the problems with maximum parsimony methods is that mutational reversions
 
 ![](./figures/hamming.png){#fig:hamming}
 
-Thus the concept of a "molecular clock" was developed. Molecular clock theory essentially states that observed sequence divergences are approximately linear with time. DNA sequence transitions can be modelled using a continuous-time Markov chain[^markovchain]. Here,
+<!-- If we assume, under neutral selection conditions[^neutral], that:
+
+1. mutations occur at a constant and equal rate, and
+1. there is an equal probability of any nucleotide being mutated to any other nucleotide (including itself), then
+
+we arrive at the Jukes-Cantor model of nucleotide sequence evolution (#figure). -->
+
+Thus the concept of a "molecular clock" was developed. Molecular clock theory essentially states that observed sequence divergences are approximately linear with time.
+
+DNA sequence transitions can be modelled using a continuous-time Markov chain[^markovchain]. Here,
 
 [^markovchain]: A Markov Chain is a stochastic process parameterized by $n$ number of states and the probability of transitioning between each of the states after a forward step in time/space is taken.
 
@@ -200,11 +209,22 @@ Data yielded from influenza genome sequencing projects provide a unique opportun
 
 ### Method Validation
 
-We used the phylogenetic heuristic algorithm (described in the Algorithm section) to reconstruct an approximate global phylogeny for all 18,000+ fully-sequenced viruses in the dataset. In this network of viral isolates, clonal descent is mostly structured by host species, with known global patterns of human-to-human (H3N2 & H1N1, and rarer H5N1 & H7N9), chicken-to-chicken (H9N2, H7N9, H5N1) and swine-to-swine (H3N2, H1N1, H1N2) viral circulation captured in the network reconstruction (Figure S1)(#edit). Edges in the network connected viral isolates with a median genetic similarity of 99.7%, indicating a high degree of genetic similarity captured in the network-based reconstruction (Figure S2)(#cite). As expected, no clonal descent was identified between viruses of different subtypes. Moreover, the network recreates the phylogeny of known reassortant viruses, including the 2009 pandemic H1N1 and the recent 2013 H7N9 viruses, further validating the accuracy of our reconstruction (a browser-based d3.js visualization is available in Zenodo archive of the Github repository (Materials & Methods) (#edit)). Small-world simulation studies validated our method as being accurate in detecting reassortment events (Figure S4)(#edit), while a comparison of edges to a phylogenetic reconstruction on a subset of the data show that our method captures the shorter end of the distribution of patristic distances on a tree, indicating accurate approximation to phylogenetic reconstruction (Figure S3)(#edit). Hence, our method is capable of detecting reassortment events, which are classically inferred by observing incongruences in phylogenetic tree clustering.
+We used the phylogenetic heuristic algorithm (described in the Algorithm section) to reconstruct an approximate global phylogeny for all 18,000+ fully-sequenced viruses in the dataset. In this network of viral isolates, clonal descent is mostly structured by host species, with known global patterns of human-to-human (H3N2 & H1N1, and rarer H5N1 & H7N9), chicken-to-chicken (H9N2, H7N9, H5N1) and swine-to-swine (H3N2, H1N1, H1N2) viral circulation captured in the network reconstruction (Figure +@fig:fig-s1). Edges in the network connected viral isolates with a median genetic similarity of 99.7%, indicating a high degree of genetic similarity captured in the network-based reconstruction (Figure +@fig:fig-s2). As expected, no clonal descent was identified between viruses of different subtypes. Moreover, the network recreates the phylogeny of known reassortant viruses, including the 2009 pandemic H1N1 and the recent 2013 H7N9 viruses, further validating the accuracy of our reconstruction (a browser-based d3.js visualization is available in Zenodo archive of the Github repository (Materials & Methods) (#edit)). Small-world simulation studies validated our method as being accurate in detecting reassortment events (Figure +@fig:fig-s4), while a comparison of edges to a phylogenetic reconstruction on a subset of the data show that our method captures the shorter end of the distribution of patristic distances on a tree, indicating accurate approximation to phylogenetic reconstruction (Figure +@fig:fig-s3). Hence, our method is capable of detecting reassortment events, which are classically inferred by observing incongruences in phylogenetic tree clustering.
+
+![](./figures/pnas-fig-s1.jpg){#fig:fig-s1}
+
+![](./figures/pnas-fig-s2.jpg){#fig:fig-s2}
+
+![](./figures/pnas-fig-s3.jpg){#fig:fig-s3}
+
+![](./figures/pnas-fig-s4.jpg){#fig:fig-s4}
+
 
 ### Results
 
-To test whether reassortment or clonal descent was an advantageous strategy when switching hosts, we computed the weighted proportion of reassortant edges (out of all edges) occurring between hosts of the same or different species. When host species were different, reassortant edges were over-represented at 19 percentage points above a null permutation model (permutation test described in Materials & Methods)(#edit) (Figure 1a)(#edit), and when host species were the same, reassortant edges were under-represented by 7 percentage points relative to our null model. Thus, reassortment is a strongly favoured strategy when influenza crosses between different host species.
+To test whether reassortment or clonal descent was an advantageous strategy when switching hosts, we computed the weighted proportion of reassortant edges (out of all edges) occurring between hosts of the same or different species. When host species were different, reassortant edges were over-represented at 19 percentage points above a null permutation model (permutation test described in Materials & Methods)(#edit) (Figure +@fig:fig-1 (a)), and when host species were the same, reassortant edges were under-represented by 7 percentage points relative to our null model. Thus, reassortment is a strongly favoured strategy when influenza crosses between different host species.
+
+![](./figures/pnas-fig-1.jpg){#fig:fig-1}
 
 We further sought to explore whether the predominant use of reticulate evolutionary processes in host switch events were correlated with host phylogenetic relatedness and host ecology. To do this, we first computed the proportion of reassortment when switching between birds, non-human mammals, or humans, which are 3 divergent host groupings with distinct ecological behaviour. (For example, humans are the only known species to employ disease control measures, and affect the ecology of other species (birds and mammals through domestication) at scale.) We further sub-divided avian and mammalian categories into wild and domestic, to assess the impact of anthropological activity on the relative importance of reassortment in host switch interfaces (see Materials and Methods for how AIV was classified as domestic or wild). To ensure that the dataset was sufficient in scope to detect reassortant viruses, we only considered host group transitions with at least 1000 descent events (both clonal and reassortant), or at least 10 reassortment events (dashed yellow and green lines respectively in Figures 1b & c) (#edit). Nonetheless, all data are displayed for completeness.
 
