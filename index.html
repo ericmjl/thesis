@@ -125,7 +125,7 @@
     <table>
     <thead>
     <tr class="header">
-    <th>Sample</th>
+    <th>sample</th>
     <th>A</th>
     <th>B</th>
     <th>C</th>
@@ -154,14 +154,14 @@
     </table>
     <p>Of the three possible trees that can be reconstructed, there are two that fit the data best:</p>
     <div class="figure">
-    <img src="./figures/parsimony-tree.jpg" />
-    
+    <img src="./figures/parsimony-tree.jpg" alt="Figure 1: " id="fig:parsimony-tree" />
+    <p class="caption">Figure 1: </p>
     </div>
     <h3 id="maximum-likelihood">Maximum Likelihood</h3>
-    <p>One of the problems with maximum parsimony methods is that mutational reversions can occur. When a nucleotide changes from A to T, it can continue to mutate to a G or a C, or can revert back to an A. Many generations of replication forward, the edit distance (Hamming or Levenshtein) between the progeny and the original reaches a plateau (fig. <a href="#fig:hamming">1</a>). When reversions occur, using maximum parsimony to infer evolutionary history masks these reversion events.</p>
+    <p>One of the problems with maximum parsimony methods is that mutational reversions can occur. When a nucleotide changes from A to T, it can continue to mutate to a G or a C, or can revert back to an A. Many generations of replication forward, the edit distance (Hamming or Levenshtein) between the progeny and the original reaches a plateau (fig. <a href="#fig:hamming">2</a>). When reversions occur, using maximum parsimony to infer evolutionary history masks these reversion events.</p>
     <div class="figure">
-    <img src="./figures/hamming.png" alt="Figure 1: " id="fig:hamming" />
-    <p class="caption">Figure 1: </p>
+    <img src="./figures/hamming.png" alt="Figure 2: " id="fig:hamming" />
+    <p class="caption">Figure 2: </p>
     </div>
     <p>Thus the concept of a &quot;molecular clock&quot; was developed. Molecular clock theory essentially states that observed sequence divergences are approximately linear with time. DNA sequence transitions can be modelled using a continuous-time Markov chain<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>. Here,</p>
     <ul>
@@ -176,13 +176,13 @@
     <h2 id="genome-packaging">Genome Packaging</h2>
     <p>In the study of the process of reassortment, one cannot escape from the topic of &quot;how viruses are packaged&quot;. I have detailed the current best knowledge in the field in the appendix, as it is not a central and necessary piece of knowledge for understanding influenza reassortment at a global scale. However, for the uninitiated, the major key points are as follows:</p>
     <ol style="list-style-type: decimal">
-    <li>There are &quot;packaging signals&quot; located in the coding sequence (imposing a further evolutionary constraint) that determine whether a piece of RNA is selectively packaged into the viral genome. (#cite) (fig. <a href="#fig:packaging">2</a>)</li>
+    <li>There are &quot;packaging signals&quot; located in the coding sequence (imposing a further evolutionary constraint) that determine whether a piece of RNA is selectively packaged into the viral genome. (#cite) (fig. <a href="#fig:packaging">3</a>)</li>
     <li>Selective packaging is shown via electron microscopy, where the vast majority of viral particles have a distinct &quot;7+1&quot; arrangement of segments. (#cite)</li>
     <li>Packaging signals have been exploited to generate influenza viruses that carry GFP rather than one of the genomic segments, allowing for tracking of viral replication. (#cite) This remains, to date, the strongest evidence in favour of the presence of packaging signals that are part of the coding sequence of each of the 8 genes.</li>
     </ol>
     <div class="figure">
-    <img src="./figures/packaging.jpg" alt="Figure 2: " id="fig:packaging" />
-    <p class="caption">Figure 2: </p>
+    <img src="./figures/packaging.jpg" alt="Figure 3: " id="fig:packaging" />
+    <p class="caption">Figure 3: </p>
     </div>
     <hr />
     <ol style="list-style-type: decimal">

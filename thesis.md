@@ -54,7 +54,7 @@ Using the principle of parsimony, we may compute a distance matrix as follows:
 
 Of the three possible trees that can be reconstructed, there are two that fit the data best:
 
-![](./figures/parsimony-tree.jpg)
+![](./figures/parsimony-tree.jpg){#fig:parsimony-tree}
 
 ### Maximum Likelihood
 
@@ -62,7 +62,7 @@ One of the problems with maximum parsimony methods is that mutational reversions
 
 ![](./figures/hamming.png){#fig:hamming}
 
-Thus the concept of a "molecular clock" was developed. Molecular clock theory essentially states that observed sequence divergences are approximately linear with time. DNA sequence transitions can be modelled using a continuous-time Markov chain[^markovchain]. Here, 
+Thus the concept of a "molecular clock" was developed. Molecular clock theory essentially states that observed sequence divergences are approximately linear with time. DNA sequence transitions can be modelled using a continuous-time Markov chain[^markovchain]. Here,
 
 [^markovchain]: A Markov Chain is a stochastic process parameterized by $n$ number of states and the probability of transitioning between each of the states after a forward step in time/space is taken.
 
