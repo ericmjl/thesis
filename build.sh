@@ -7,11 +7,9 @@ done
 cd ..
 
 # Script to compile thesis text files into a single PDF that is uploaded.
-
 python concatenate.py
 
 # Copy over PNAS stylesheet
-
 cp ../styles/pnas.csl .
 
 # pandoc thesis.md \
@@ -28,6 +26,7 @@ do
 done
 cd ..
 
+# Convert Markdown to HTML
 pandoc thesis.md \
     -o index.html \
     --template=default.html \
@@ -41,6 +40,7 @@ pandoc thesis.md \
     --toc \
     -H header.html
 
+# Commit to repository.
 git add .
 git commit
 git push
