@@ -24,9 +24,9 @@
       <style type="text/css">q { quotes: "“" "”" "‘" "’"; }</style>
     $endif$
 
-    <!-- $if(highlighting-css)$
+    $if(highlighting-css)$
       <style type="text/css">$highlighting-css$</style>
-    $endif$ -->
+    $endif$
 
     $for(css)$
       <link rel="stylesheet" href="$css$" type="text/css" />
@@ -41,10 +41,10 @@
     $endfor$
 </head>
 <body>
-    <div class="foreground-paper">
-        $for(include-before)$
-            $include-before$
-        $endfor$
+    $for(include-before)$
+        $include-before$
+    $endfor$
+    <div class="foreground-paper>
 
         $if(title)$
             <div id="$idprefix$header">
@@ -74,10 +74,10 @@
         $endif$
 
         $body$
-
-        $for(include-after)$
-            $include-after$
-        $endfor$
     </div>
+
+    $for(include-after)$
+        $include-after$
+    $endfor$
 </body>
 </html>
