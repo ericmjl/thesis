@@ -20,3 +20,8 @@ pre code {
 img {
     width: 100%;
 }
+
+
+div.foreground-paper {
+    background-color: white;
+}
