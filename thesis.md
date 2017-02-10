@@ -84,7 +84,7 @@ We may compute the following log likelihood for each of the trees:
 
 $$L(T) = P(A_4 \rightarrow A_1) \times P(A_4 \rightarrow A_2) \times P(A_5 \rightarrow A_4) \times P(A_5 \rightarrow C_3)$$
 
-$$log_{10}(L(T)) = P(A_4 \rightarrow A_1) \plus P(A_4 \rightarrow A_2) \plus P(A_5 \rightarrow A_4) \plus P(A_5 \rightarrow C_3)$$
+$$log_{10}(L(T)) = log_{10}P(A_4 \rightarrow A_1) + log_{10}P(A_4 \rightarrow A_2) + log_{10}P(A_5 \rightarrow A_4) + log_{10}P(A_5 \rightarrow C_3)$$
 
 [^markovchain]: A Markov Chain is a stochastic process parameterized by $n$ number of states and the probability of transitioning between each of the states after a forward step in time/space is taken.
 
