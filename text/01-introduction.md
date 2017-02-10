@@ -56,7 +56,7 @@ One of the problems with maximum parsimony methods is that mutational reversions
 
 Maximum likelihood methods were developed to deal with this problem. Under the assumption that each site evolves independently, we require three ingredients to compute the likelihood of a given phylogeny: the structure of the tree, an assumed internal node sequence, and a probability of mutation between any given pair of nucleotide states.
 
-Purely for illustrative purposes, I show a concrete example below.
+Purely for illustrative purposes, and without going into further detail, I show an example with concrete numbers below.
 
 Given the following three samples with the following states:
 
@@ -72,17 +72,23 @@ and finally the following two possible trees for this given state:
 
 ![](./figures/max_likelihood_trees.jpg){#fig:mlt}
 
-We may compute the following log likelihood for each of the trees:
+We may compute the following log likelihood for each of the trees: (#factcheck check these calculations!)
 
 $$L_{tree1}(T) = P(A_4 \rightarrow A_1) \times P(A_4 \rightarrow A_2) \times P(A_5 \rightarrow A_4) \times P(A_5 \rightarrow C_3)$$
 
-$$log_{10}(L_{tree1}(T)) = log_{10}P(A_4 \rightarrow A_1) + log_{10}P(A_4 \rightarrow A_2) + log_{10}P(A_5 \rightarrow A_4) + log_{10}P(A_5 \rightarrow C_3)$$
+Taking a log transform to prevent underflow in computation:
 
-$$log_{10}(L_{tree1}(T)) = 3log_{10}0.4 + log_{10}0.2$$
+$$log(L_{tree1}(T)) = logP(A_4 \rightarrow A_1) + logP(A_4 \rightarrow A_2) + logP(A_5 \rightarrow A_4) + logP(A_5 \rightarrow C_3)$$
 
+And evaluating the result, we get:
 
+$$log(L_{tree1}(T)) = 3log0.4 + log0.2 = -1.89$$
 
-[^markovchain]: A Markov Chain is a stochastic process parameterized by $n$ number of states and the probability of transitioning between each of the states after a forward step in time/space is taken.
+Doing an analogous computation for tree 2 yields a log likelihood score of -2.19.
+
+In principle, this procedure has to be for every possible nucleotide in the internal nodes. The sum of all log likelihood scores gives the likelihood of the tree, given the sequence at a position $i$ in a multiple sequence alignment. This computation is then repeated for a new tree topology. This makes maximum likelihood methods computationally more expensive than maximum parsimony methods.
+
+In practice, the transition matrix is pre-specified, and the tree is iteratively built using a greedy algorithm, the details of which can be found in Feltenstein (2004) [@Feltenstein:2004ws]. Briefly, however, the steps  include greedily computing the best placement to add a new sequence, given the tree constructed for the existing sequences (#cite), and performing local rearrangements after addition of a sequence to see if there exists a better topology (#cite). In addition to finding the right topology, branch lengths (representing evolutionary distance) are also computed.
 
 ### Bayesian Phylogenetic Inference
 

@@ -164,7 +164,7 @@
     <p class="caption">Figure 2: </p>
     </div>
     <p>Maximum likelihood methods were developed to deal with this problem. Under the assumption that each site evolves independently, we require three ingredients to compute the likelihood of a given phylogeny: the structure of the tree, an assumed internal node sequence, and a probability of mutation between any given pair of nucleotide states.</p>
-    <p>Purely for illustrative purposes, I show a concrete example below.</p>
+    <p>Purely for illustrative purposes, and without going into further detail, I show an example with concrete numbers below.</p>
     <p>Given the following three samples with the following states:</p>
     <table>
     <thead>
@@ -234,10 +234,15 @@
     <img src="./figures/max_likelihood_trees.jpg" alt="Figure 3: " id="fig:mlt" />
     <p class="caption">Figure 3: </p>
     </div>
-    <p>We may compute the following log likelihood for each of the trees:</p>
+    <p>We may compute the following log likelihood for each of the trees: (#factcheck check these calculations!)</p>
     <p><span class="math display">\[L_{tree1}(T) = P(A_4 \rightarrow A_1) \times P(A_4 \rightarrow A_2) \times P(A_5 \rightarrow A_4) \times P(A_5 \rightarrow C_3)\]</span></p>
-    <p><span class="math display">\[log_{10}(L_{tree1}(T)) = log_{10}P(A_4 \rightarrow A_1) + log_{10}P(A_4 \rightarrow A_2) + log_{10}P(A_5 \rightarrow A_4) + log_{10}P(A_5 \rightarrow C_3)\]</span></p>
-    <p><span class="math display">\[log_{10}(L_{tree1}(T)) = 3log_{10}0.4 + log_{10}0.2\]</span></p>
+    <p>Taking a log transform to prevent underflow in computation:</p>
+    <p><span class="math display">\[log(L_{tree1}(T)) = logP(A_4 \rightarrow A_1) + logP(A_4 \rightarrow A_2) + logP(A_5 \rightarrow A_4) + logP(A_5 \rightarrow C_3)\]</span></p>
+    <p>And evaluating the result, we get:</p>
+    <p><span class="math display">\[log(L_{tree1}(T)) = 3log0.4 + log0.2 = -1.89\]</span></p>
+    <p>Doing an analogous computation for tree 2 yields a log likelihood score of -2.19.</p>
+    <p>In principle, this procedure has to be for every possible nucleotide in the internal nodes. The sum of all log likelihood scores gives the likelihood of the tree, given the sequence at a position <span class="math inline">\(i\)</span> in a multiple sequence alignment. This computation is then repeated for a new tree topology. This makes maximum likelihood methods computationally more expensive than maximum parsimony methods.</p>
+    <p>In practice, the transition matrix is pre-specified, and the tree is iteratively built using a greedy algorithm, the details of which can be found in Feltenstein (2004) <span class="citation">(1)</span>. Briefly, however, the steps include greedily computing the best placement to add a new sequence, given the tree constructed for the existing sequences (#cite), and performing local rearrangements after addition of a sequence to see if there exists a better topology (#cite). In addition to finding the right topology, branch lengths (representing evolutionary distance) are also computed.</p>
     <h3 id="bayesian-phylogenetic-inference">Bayesian Phylogenetic Inference</h3>
     <ul>
     <li>Alexi Drummond's key paper in 2001</li>
@@ -295,7 +300,7 @@
     <h1 id="algorithm">Algorithm</h1>
     <h2 id="description">Description</h2>
     <p>At a high level, the reassortment detection algorithm works as such. Given a set of sequences, we wish to identify, using the rule of maximal similarity on some given metric, the most likely source of each segment in a virus. Sources, by definition, have to occur prior in time to the virus under consideration. We try to maximize the source similarity score of a virus while minimizing the number of sources needed to explain its existence.</p>
-    <p>We adapted the SeqTrack algorithm <span class="citation">(1)</span> to perform graph construction. Sequences were aligned using Clustal Omega 1.2.1 <span class="citation">(2)</span>, and the resultant distance matrix was converted into a similarity matrix by taking 1 - distance. Affinity propagation <span class="citation">(3)</span> clustering was performed on each segment’s similarity matrix to determine a threshold cutoff similarity value, defined as the minimum (across all clusters for that segment) of minimum in-cluster pairwise identities, below which we deemed it implausible for an evolutionary descent (clonal or reassortment) to have occurred (#figure). Because the affinity propagation algorithm does not scale well with sample size, we treated the threshold computation as an estimation problem, and the final threshold was computed as the median threshold of 50 random subsamples of 500 isolates.</p>
+    <p>We adapted the SeqTrack algorithm <span class="citation">(2)</span> to perform graph construction. Sequences were aligned using Clustal Omega 1.2.1 <span class="citation">(3)</span>, and the resultant distance matrix was converted into a similarity matrix by taking 1 - distance. Affinity propagation <span class="citation">(4)</span> clustering was performed on each segment’s similarity matrix to determine a threshold cutoff similarity value, defined as the minimum (across all clusters for that segment) of minimum in-cluster pairwise identities, below which we deemed it implausible for an evolutionary descent (clonal or reassortment) to have occurred (#figure). Because the affinity propagation algorithm does not scale well with sample size, we treated the threshold computation as an estimation problem, and the final threshold was computed as the median threshold of 50 random subsamples of 500 isolates.</p>
     <p>We then thresholded each segment’s similarity matrix on the basis of its segment’s threshold value, summed all eight thresholded similarity matrices, and then for each isolate, we identified the most similar isolate that occurred before it in time. This yielded the initial “full complement” graph without reassortant viruses. Each edge in this graph has an attached pair- wise identity (PWI), which is the sum of PWIs across all eight segments. Within this graph, there are isolates for which no “full complement” of segments could be identified, which are candidate reassortant viruses. In addition, among the isolates for which a full complement of segments could be found from another source, we identified those whose in-edges were weighted at the bottom 10% of all edges present in the graph, which we also identified as candidate reassortant viruses (1,357 of 1,368 such viruses were eventually identified as reassortant; the other 11 were considered to be clonally descended). For these viruses, we performed source pair searches, where we identified sources for a part of the genome from one virus and sources for the complementary part of the genome from another virus. If the summed PWI across the segments for the two viruses was greater than the single-source search, we accepted the source pair as the candidate reassortant.</p>
     <p>The algorithm is also expressed in the following three-part pseudocode.</p>
     <pre><code># Part 1: Compute pairwise identities between all viral isolates&#39; segments.
@@ -324,7 +329,7 @@
             find pair of isolates whose complementary segments maximizes PWI
             if new max PWI score &gt; existing edge PWI score:
                 replace single-source edge(s) with two-source edge(s)</code></pre>
-    <p>Pairwise identities were computed using Clustal Omega (version 1.2.1) <span class="citation">(2)</span>. The algorithm is implemented in the Python programming language (version 3.5); main packages used included NetworkX, <code>numpy</code>, <code>pandas</code>, and <code>matplotlib</code> for visualization. The source code is archived on Zenodo (DOI: 10.5281/zenodo.33421).</p>
+    <p>Pairwise identities were computed using Clustal Omega (version 1.2.1) <span class="citation">(3)</span>. The algorithm is implemented in the Python programming language (version 3.5); main packages used included NetworkX, <code>numpy</code>, <code>pandas</code>, and <code>matplotlib</code> for visualization. The source code is archived on Zenodo (DOI: 10.5281/zenodo.33421).</p>
     <h2 id="simulation-studies">Simulation Studies</h2>
     <p>To check whether the algorithm was capable of correctly identifying reassortant viruses, simulation studies were conducted. To simplify the problem, we considered the case of a two-segment virus, with each of the two segments having a different nucleotide substitution rate, mirroring the different substitution rates on each of the influenza genome segments. Each simulation run was initialized with anywhere between one and five viruses. At each time step, one virus was chosen at random to replicate (with 0.75 probability) or reassort with another virus (with 0.25 probability). Simulations were run for 50 time steps.</p>
     <p>Regardless of replication or reassortment, the progeny virus was subjected to mutations, with the number of mutations in each segment being drawn from a binomial distribution with probability equal to the segment's substitution rate, and the exact positions drawn uniformly across the segment. This process is outlined in figure X (#figure).</p>
@@ -333,7 +338,7 @@
     <p>Source code for the simulation studies is availble on Zenodo (DOI: 10.5281/zenodo.33427).</p>
     <h2 id="analysis-of-time-complexity">Analysis of Time Complexity</h2>
     <h3 id="tree-reconstruction-complexity">Tree Reconstruction Complexity</h3>
-    <p>According to Feltenstein <span class="citation">(4)</span>, given a set of <span class="math inline">\(n\)</span> labelled sequences, the number of possible rooted, bifurcating trees (which are used for inferring tree inconrguence) is</p>
+    <p>According to Feltenstein <span class="citation">(1)</span>, given a set of <span class="math inline">\(n\)</span> labelled sequences, the number of possible rooted, bifurcating trees (which are used for inferring tree inconrguence) is</p>
     <p><span class="math display">\[ \frac{(2n-3)!}{2^{n-2}(n-2)!} \]</span></p>
     <p>Under the assumption that a Bayesian reconstruction is only looking for the most optimal tree topologies and is not estimating times of divergence for internal nodes, then the worst case scenario is that the MCMC sampling algorithm has to search <span class="math inline">\(2^n\)</span> trees in order to find the best topology. As such, tree reconstruction methods have a worst-case time complexity of <span class="math inline">\(O(2^n)\)</span>.</p>
     <p>This is necessarily a simplified view of Bayesian tree construction.</p>
@@ -395,7 +400,7 @@
     <p><strong>Permutation tests.</strong> Null models were constructed by permuting node labels; equal class size permutation was performed for host species (for fig. <a href="#fig:fig-1">9</a> (a)) and host group (for fig. <a href="#fig:fig-1">9</a> (b)). For example, if there were 9 ‘human’, 4 ‘swine’ and 2 ‘chicken’ nodes (15 total), labels would be randomly shuffled amongst the nodes such that each label were equally represented (5 each).</p>
     <p><strong>Host Group Labelling.</strong> Host species were manually classified into the “human”, “domestic animal” and “wild animal” groups, based on the country of isolation. For example, “ducks” would be considered a “wild animal” in North America, while it would be considered a “domestic animal” in East Asian countries. Ambiguous host species, while remaining in the dataset, were excluded from the analysis.</p>
     <p><strong>Host Evolutionary Distance.</strong> Host species’ scientific names were sourced from the Tree of Life database (www.tolweb.org). Only host species with unambiguous scientific names recorded were considered. Cytochrome oxidase I genes were sourced from the Barcode of Life Database (www.boldsystems.org) on 31 October 2015. Sequences had to be at least 600 n.t. long to be considered, and only positions with fewer than 3 gap characters were concatenated into the final trimmed alignment. Evolutionary distance was computed from the trimmed alignment as the proportion of mismatched nucleotides. Further details are available in the Jupyter notebooks.</p>
-    <p><strong>Phylogenetic Reconstruction and Patristic Distance Comparison.</strong> Phylogenetic reconstruction was done for a subset of H3N8 viruses isolated from Minto Flats, AK, between 2009 and 2010 as part of a separate study. Briefly, each segment of the viral genomes were individually aligned using Clustal Omega <span class="citation">(2)</span>, and their genealogies reconstructed using BEAST 1.8.0 <span class="citation">(37)</span>. A minimum of 3 MCMC runs that converged on a single optimal tree were chosen to compute the maximum clade credibility (MCC) tree. Burn-in ranged from 10 to 39 million steps out of 40, with median 24 million steps. Patristic distances were calculated using the DendroPy package <span class="citation">(38)</span>. In the graph reconstruction on the Minto Flats study, we extracted the edges and nodes involving only the H3N8 isolates, and computed the tree patristic distances between isolate pairs linked by an edge in the graph.</p>
+    <p><strong>Phylogenetic Reconstruction and Patristic Distance Comparison.</strong> Phylogenetic reconstruction was done for a subset of H3N8 viruses isolated from Minto Flats, AK, between 2009 and 2010 as part of a separate study. Briefly, each segment of the viral genomes were individually aligned using Clustal Omega <span class="citation">(3)</span>, and their genealogies reconstructed using BEAST 1.8.0 <span class="citation">(37)</span>. A minimum of 3 MCMC runs that converged on a single optimal tree were chosen to compute the maximum clade credibility (MCC) tree. Burn-in ranged from 10 to 39 million steps out of 40, with median 24 million steps. Patristic distances were calculated using the DendroPy package <span class="citation">(38)</span>. In the graph reconstruction on the Minto Flats study, we extracted the edges and nodes involving only the H3N8 isolates, and computed the tree patristic distances between isolate pairs linked by an edge in the graph.</p>
     <p><strong>Edge Weighting and Proportion Reassortment Calculations.</strong> The proportion of reassortment events was calculated by first weighting each incoming edge to every virus. The weighting procedure is described here: If the virus is detected to be plausibly clonally descended from n other viruses, as determined by maximal similarity, it is given a weight of <span class="math inline">\(\frac{1}{n}\)</span>. If the virus is detected to be a reassortant, then edges are weighted by the the fraction of times that it is involved in a max similarity source pair. (fig. <a href="#fig:fig-s5">11</a>) For example, if a given node A has a plausible source of segments in B, C, D, with (B and C) and (B and D) being plausible sources, then the edge B-A would be given a weight of 0.5, and the edge C-A and D-A would be given a weight of 0.25 each. (fig. <a href="#fig:fig-s5">11</a>) The proportion of reassortment edges was then calculated by taking the sum of weights across all reassortant edges (for a particular transition, e.g. between or within host species), divided by the sum of weights across all reassortant and clonal edges (for the same particular transition). With this weighting scheme, multiple plausible sources that lead to the same virus are not double-counted.</p>
     <div class="figure">
     <img src="./figures/pnas-fig-s5.jpg" alt="Figure 11: " id="fig:fig-s5" />
@@ -424,17 +429,17 @@
     <!-- insert here our current best knowledge on influenza packaging -->
     <h1 id="references" class="unnumbered">References</h1>
     <div id="refs" class="references">
+    <div id="ref-Feltenstein:2004ws">
+    <p>1. Feltenstein J (2004) <em>Inferring Phylogenies</em> (Sinauer).</p>
+    </div>
     <div id="ref-Jombart:2011iu">
-    <p>1. Jombart T, Eggo RM, Dodd PJ, Balloux F (2011) Reconstructing disease outbreaks from genetic data: a graph approach. <em>Heredity</em> 106(2):383–390.</p>
+    <p>2. Jombart T, Eggo RM, Dodd PJ, Balloux F (2011) Reconstructing disease outbreaks from genetic data: a graph approach. <em>Heredity</em> 106(2):383–390.</p>
     </div>
     <div id="ref-Sievers:2011fn">
-    <p>2. Sievers F, et al. (2011) Fast, scalable generation of high-quality protein multiple sequence alignments using Clustal Omega. <em>Molecular systems biology</em> 7(1):539–539.</p>
+    <p>3. Sievers F, et al. (2011) Fast, scalable generation of high-quality protein multiple sequence alignments using Clustal Omega. <em>Molecular systems biology</em> 7(1):539–539.</p>
     </div>
     <div id="ref-Frey:2007hs">
-    <p>3. Frey BJ, Dueck D (2007) Clustering by passing messages between data points. <em>Science (New York, NY)</em> 315(5814):972–976.</p>
-    </div>
-    <div id="ref-Feltenstein:2004ws">
-    <p>4. Feltenstein J (2004) <em>Inferring Phylogenies</em> (Sinauer).</p>
+    <p>4. Frey BJ, Dueck D (2007) Clustering by passing messages between data points. <em>Science (New York, NY)</em> 315(5814):972–976.</p>
     </div>
     <div id="ref-HernandezLopez:2013dd">
     <p>5. Hernández-López A, et al. (2013) To tree or not to tree? Genome-wide quantification of recombination and reticulate evolution during the diversification of strict intracellular bacteria. <em>Genome biology and evolution</em> 5(12):2305–2317.</p>
