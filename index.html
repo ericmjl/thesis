@@ -38,7 +38,7 @@
         <li><a href="#phylogenies">Phylogenies</a><ul>
         <li><a href="#maximum-parsimony">Maximum Parsimony</a></li>
         <li><a href="#maximum-likelihood">Maximum Likelihood</a></li>
-        <li><a href="#bayesian-inference">Bayesian Inference</a></li>
+        <li><a href="#bayesian-phylogenetic-inference">Bayesian Phylogenetic Inference</a></li>
         </ul></li>
         <li><a href="#inferring-reassortment">Inferring Reassortment</a></li>
         <li><a href="#genome-packaging">Genome Packaging</a></li>
@@ -74,8 +74,7 @@
     
     <h1 id="a-primer-on-the-influenza-a-virus">A Primer on the Influenza A Virus</h1>
     <h2 id="the-importance-of-studying-the-evolution-and-ecology-of-the-influenza-virus">The Importance of Studying the Evolution and Ecology of the Influenza Virus</h2>
-    <p>The influenza A virus has inflicted economic and social damage annually on the order of X billions of dollars (#factcheck, #cite). Being a pathogen with zoonotic origins,<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> it is imperative to study its circulation, evolution and pathogenesis not only in humans, but also in animals (domestic and wild).</p>
-    <p>In this thesis, I outline efforts with my colleagues to map out and identify reassortant viruses at a global scale, and use this systematic, global identification to learn more about influenza, reticulate evolution, and ecology.</p>
+    <p>The influenza A virus has inflicted economic and social damage annually on the order of X billions of dollars (#factcheck, #cite). Being a pathogen with zoonotic origins,<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> it is imperative to study its circulation, evolution and pathogenesis not only in humans, but also in animals (domestic and wild). One major problem of interest pertains to influenza's ability to shuffle its genome with other influenza viruses, and its implication in the ability of the virus to jump between host species. To address this, in this thesis I outline efforts with my colleagues to map out and identify these shuffled viruses at a global scale, and use this systematic, global identification to learn more about influenza, reticulate evolution, and ecology.</p>
     <h2 id="genome-structure-evolution">Genome Structure &amp; Evolution</h2>
     <p>The influenza A virus is a negative strand RNA virus, comprised of 8 genomic RNA segments. Its negative strandedness means that it encodes the strand opposite the messenger RNA (mRNA), implying that it needs to first be copied into mRNA before translation can occur. Together, the RNA segments encode its polymerase (PB2, PB1, PA, NP), viral entry and release proteins (HA, NA), a matrix protein (M) and a non-structural protein (NS) (#figure).</p>
     <p>Being an RNA virus that carries its own RNA-dependent RNA polymerase, the influenza A virus is prone to copying errors during replication inside a host cell (#cite). This 'sloppiness' allows the influenza virus to evolve rapidly, and can be thought of as an <strong>evolutionary drift</strong>.</p>
@@ -158,23 +157,86 @@
     <p class="caption">Figure 1: </p>
     </div>
     <h3 id="maximum-likelihood">Maximum Likelihood</h3>
+    <p>Molecular clock theory essentially states that the number of mutational events observed in a sequence is roughly linearly proportional with time. While in principle, this may seem to suggest that we can use the edit distance (maximum parsimony) to estimate the time of divergence between two sequences, there are problems with this logic.</p>
     <p>One of the problems with maximum parsimony methods is that mutational reversions can occur. When a nucleotide changes from A to T, it can continue to mutate to a G or a C, or can revert back to an A. Many generations of replication forward, the edit distance (Hamming or Levenshtein) between the progeny and the original reaches a plateau (fig. <a href="#fig:hamming">2</a>). When reversions occur, using maximum parsimony to infer evolutionary history masks these reversion events.</p>
     <div class="figure">
     <img src="./figures/hamming.png" alt="Figure 2: " id="fig:hamming" />
     <p class="caption">Figure 2: </p>
     </div>
-    <!-- If we assume, under neutral selection conditions[^neutral], that:
-    
-    1. mutations occur at a constant and equal rate, and
-    1. there is an equal probability of any nucleotide being mutated to any other nucleotide (including itself), then
-    
-    we arrive at the Jukes-Cantor model of nucleotide sequence evolution (#figure). -->
-    <p>Thus the concept of a &quot;molecular clock&quot; was developed. Molecular clock theory essentially states that observed sequence divergences are approximately linear with time.</p>
-    <p>DNA sequence transitions can be modelled using a continuous-time Markov chain<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>. Here,</p>
-    <ul>
-    <li>molecular clock</li>
-    </ul>
-    <h3 id="bayesian-inference">Bayesian Inference</h3>
+    <p>Maximum likelihood methods were developed to deal with this problem. Under the assumption that each site evolves independently, we require three ingredients to compute the likelihood of a given phylogeny: the structure of the tree, an assumed internal node sequence, and a probability of mutation between any given pair of nucleotide states.</p>
+    <p>Purely for illustrative purposes, I show a concrete example below.</p>
+    <p>Given the following three samples with the following states:</p>
+    <table>
+    <thead>
+    <tr class="header">
+    <th>Sample</th>
+    <th>seq_j</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="odd">
+    <td>1</td>
+    <td>A</td>
+    </tr>
+    <tr class="even">
+    <td>2</td>
+    <td>A</td>
+    </tr>
+    <tr class="odd">
+    <td>3</td>
+    <td>C</td>
+    </tr>
+    </tbody>
+    </table>
+    <p>and the following transition probabilities:</p>
+    <table>
+    <thead>
+    <tr class="header">
+    <th>A</th>
+    <th>T</th>
+    <th>G</th>
+    <th>C</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="odd">
+    <td>A</td>
+    <td>4/10</td>
+    <td>2/10</td>
+    <td>2/10</td>
+    <td>2/10</td>
+    </tr>
+    <tr class="even">
+    <td>T</td>
+    <td>2/10</td>
+    <td>4/10</td>
+    <td>2/10</td>
+    <td>2/10</td>
+    </tr>
+    <tr class="odd">
+    <td>G</td>
+    <td>2/10</td>
+    <td>2/10</td>
+    <td>4/10</td>
+    <td>2/10</td>
+    </tr>
+    <tr class="even">
+    <td>C</td>
+    <td>2/10</td>
+    <td>2/10</td>
+    <td>2/10</td>
+    <td>4/10</td>
+    </tr>
+    </tbody>
+    </table>
+    <p>and finally the following two possible trees for this given state:</p>
+    <div class="figure">
+    <img src="./figures/max_likelihood_trees.jpg" alt="Figure 3: " id="fig:mlt" />
+    <p class="caption">Figure 3: </p>
+    </div>
+    <p>We may compute the following probabilities for each of the trees:</p>
+    <p><span class="math display">\[L(T) = P(A_4 \rightarrow A_1) \times P(A_4 \rightarrow A_2) \times P(A_5 \rightarrow A_4) \times P(A_5 \rightarrow C_3)\]</span></p>
+    <h3 id="bayesian-phylogenetic-inference">Bayesian Phylogenetic Inference</h3>
     <ul>
     <li>Alexi Drummond's key paper in 2001</li>
     </ul>
@@ -183,13 +245,13 @@
     <h2 id="genome-packaging">Genome Packaging</h2>
     <p>In the study of the process of reassortment, one cannot escape from the topic of &quot;how viruses are packaged&quot;. I have detailed the current best knowledge in the field in the appendix, as it is not a central and necessary piece of knowledge for understanding influenza reassortment at a global scale. However, for the uninitiated, the major key points are as follows:</p>
     <ol style="list-style-type: decimal">
-    <li>There are &quot;packaging signals&quot; located in the coding sequence (imposing a further evolutionary constraint) that determine whether a piece of RNA is selectively packaged into the viral genome. (#cite) (fig. <a href="#fig:packaging">3</a>)</li>
+    <li>There are &quot;packaging signals&quot; located in the coding sequence (imposing a further evolutionary constraint) that determine whether a piece of RNA is selectively packaged into the viral genome. (#cite) (fig. <a href="#fig:packaging">4</a>)</li>
     <li>Selective packaging is shown via electron microscopy, where the vast majority of viral particles have a distinct &quot;7+1&quot; arrangement of segments. (#cite)</li>
     <li>Packaging signals have been exploited to generate influenza viruses that carry GFP rather than one of the genomic segments, allowing for tracking of viral replication. (#cite) This remains, to date, the strongest evidence in favour of the presence of packaging signals that are part of the coding sequence of each of the 8 genes.</li>
     </ol>
     <div class="figure">
-    <img src="./figures/packaging.jpg" alt="Figure 3: " id="fig:packaging" />
-    <p class="caption">Figure 3: </p>
+    <img src="./figures/packaging.jpg" alt="Figure 4: " id="fig:packaging" />
+    <p class="caption">Figure 4: </p>
     </div>
     <hr />
     <ol style="list-style-type: decimal">
@@ -288,54 +350,54 @@
     <p>Host switching, defined as a pathogen moving from one host species into another, represents a fitness barrier to microbial pathogens. The acquisition of adaptations through reticulate processes either before or after transmission from one species to another may serve to aid successful pathogen host switches by improving fitness and the likelihood of continued transmission <span class="citation">(10)</span>. In this sense, reticulate evolution may be viewed as an ecological strategy for switching between ecological niches (such as different host species), complementing but also standing in contrast to the clonal adaptation of a microbial pathogen by genetic drift under selection. To test this idea and its importance in host switch events, which are critical for (re)-emerging infectious disease, we provide a quantitative assessment of the relative importance of reticulate processes versus clonal adaptation in aiding the ecological niche switch of a viral pathogen.</p>
     <p>Data yielded from influenza genome sequencing projects provide a unique opportunity for quantitatively testing this concept and are suitable for the following reasons. First, the influenza A virus (IAV) has a broad host tropism <span class="citation">(11)</span> and is capable of infecting organisms spanning millennia of divergence on the tree of life. With different host-specific restriction factors forming an adaptive barrier, each host species may then be viewed as a unique ecological niche for the virus <span class="citation">(12)</span>. Second, IAV is capable of and frequently undergoes reassortment, which is a well-documented reticulate evolutionary process <span class="citation">(13–16)</span>. Reassortment has also been implicated as an adaptive evolutionary mechanism in host switching <span class="citation">(17, 18)</span>, although this is most prevalently observed for pandemic viruses of public health interest for which sequences are available <span class="citation">(19)</span>. Finally, as a result of surveillance efforts during the last 2 decades, whole-genome sequences have been intensively sampled during a long time frame, with corresponding host species metadata, available in an easily accessible and structured format <span class="citation">(20)</span>. Because reassortant viruses are the product of two or more genetically distinct viruses coinfecting the same host, a more complex process than clonal transmission and adaptation, they are expected to occur less frequently. Hence, the global IAV dataset, which stretches over time and space with large sample numbers, provides the necessary scope to detect reassortant viruses at a scale required to quantitatively assess the relative importance of reticulate events in viral host switching.</p>
     <h3 id="method-validation">Method Validation</h3>
-    <p>We used the phylogenetic heuristic algorithm (described in the Algorithm section) to reconstruct an approximate global phylogeny for all 18,000+ fully-sequenced viruses in the dataset. In this network of viral isolates, clonal descent is mostly structured by host species, with known global patterns of human-to-human (H3N2 &amp; H1N1, and rarer H5N1 &amp; H7N9), chicken-to-chicken (H9N2, H7N9, H5N1) and swine-to-swine (H3N2, H1N1, H1N2) viral circulation captured in the network reconstruction (fig. <a href="#fig:fig-s1">4</a>). Edges in the network connected viral isolates with a median genetic similarity of 99.7%, indicating a high degree of genetic similarity captured in the network-based reconstruction (fig. <a href="#fig:fig-s2">5</a>). As expected, no clonal descent was identified between viruses of different subtypes. Moreover, the network recreates the phylogeny of known reassortant viruses, including the 2009 pandemic H1N1 and the recent 2013 H7N9 viruses, further validating the accuracy of our reconstruction (a browser-based d3.js visualization is available in Zenodo archive of the Github repository (Materials &amp; Methods)). Small-world simulation studies validated our method as being accurate in detecting reassortment events (fig. <a href="#fig:fig-s4">7</a>), while a comparison of edges to a phylogenetic reconstruction on a subset of the data show that our method captures the shorter end of the distribution of patristic distances on a tree, indicating accurate approximation to phylogenetic reconstruction (fig. <a href="#fig:fig-s3">6</a>). Hence, our method is capable of detecting reassortment events, which are classically inferred by observing incongruences in phylogenetic tree clustering.</p>
+    <p>We used the phylogenetic heuristic algorithm (described in the Algorithm section) to reconstruct an approximate global phylogeny for all 18,000+ fully-sequenced viruses in the dataset. In this network of viral isolates, clonal descent is mostly structured by host species, with known global patterns of human-to-human (H3N2 &amp; H1N1, and rarer H5N1 &amp; H7N9), chicken-to-chicken (H9N2, H7N9, H5N1) and swine-to-swine (H3N2, H1N1, H1N2) viral circulation captured in the network reconstruction (fig. <a href="#fig:fig-s1">5</a>). Edges in the network connected viral isolates with a median genetic similarity of 99.7%, indicating a high degree of genetic similarity captured in the network-based reconstruction (fig. <a href="#fig:fig-s2">6</a>). As expected, no clonal descent was identified between viruses of different subtypes. Moreover, the network recreates the phylogeny of known reassortant viruses, including the 2009 pandemic H1N1 and the recent 2013 H7N9 viruses, further validating the accuracy of our reconstruction (a browser-based d3.js visualization is available in Zenodo archive of the Github repository (Materials &amp; Methods)). Small-world simulation studies validated our method as being accurate in detecting reassortment events (fig. <a href="#fig:fig-s4">8</a>), while a comparison of edges to a phylogenetic reconstruction on a subset of the data show that our method captures the shorter end of the distribution of patristic distances on a tree, indicating accurate approximation to phylogenetic reconstruction (fig. <a href="#fig:fig-s3">7</a>). Hence, our method is capable of detecting reassortment events, which are classically inferred by observing incongruences in phylogenetic tree clustering.</p>
     <div class="figure">
-    <img src="./figures/pnas-fig-s1.jpg" alt="Figure 4: " id="fig:fig-s1" />
-    <p class="caption">Figure 4: </p>
-    </div>
-    <div class="figure">
-    <img src="./figures/pnas-fig-s2.jpg" alt="Figure 5: " id="fig:fig-s2" />
+    <img src="./figures/pnas-fig-s1.jpg" alt="Figure 5: " id="fig:fig-s1" />
     <p class="caption">Figure 5: </p>
     </div>
     <div class="figure">
-    <img src="./figures/pnas-fig-s3.jpg" alt="Figure 6: " id="fig:fig-s3" />
+    <img src="./figures/pnas-fig-s2.jpg" alt="Figure 6: " id="fig:fig-s2" />
     <p class="caption">Figure 6: </p>
     </div>
     <div class="figure">
-    <img src="./figures/pnas-fig-s4.jpg" alt="Figure 7: " id="fig:fig-s4" />
+    <img src="./figures/pnas-fig-s3.jpg" alt="Figure 7: " id="fig:fig-s3" />
     <p class="caption">Figure 7: </p>
     </div>
-    <h3 id="results">Results</h3>
-    <p>To test whether reassortment or clonal descent was an advantageous strategy when switching hosts, we computed the weighted proportion of reassortant edges (out of all edges) occurring between hosts of the same or different species. When host species were different, reassortant edges were over-represented at 19 percentage points above a null permutation model (permutation test described in Materials &amp; Methods) (fig. <a href="#fig:fig-1">8</a> (a)), and when host species were the same, reassortant edges were under-represented by 7 percentage points relative to our null model. Thus, reassortment is a strongly favoured strategy when influenza crosses between different host species.</p>
     <div class="figure">
-    <img src="./figures/pnas-fig-1.jpg" alt="Figure 8: " id="fig:fig-1" />
+    <img src="./figures/pnas-fig-s4.jpg" alt="Figure 8: " id="fig:fig-s4" />
     <p class="caption">Figure 8: </p>
     </div>
-    <p>We further sought to explore whether the predominant use of reticulate evolutionary processes in host switch events were correlated with host phylogenetic relatedness and host ecology. To do this, we first computed the proportion of reassortment when switching between birds, non-human mammals, or humans, which are 3 divergent host groupings with distinct ecological behaviour. (For example, humans are the only known species to employ disease control measures, and affect the ecology of other species (birds and mammals through domestication) at scale.) We further sub-divided avian and mammalian categories into wild and domestic, to assess the impact of anthropological activity on the relative importance of reassortment in host switch interfaces (see Materials and Methods for how AIV was classified as domestic or wild). To ensure that the dataset was sufficient in scope to detect reassortant viruses, we only considered host group transitions with at least 1000 descent events (both clonal and reassortant), or at least 10 reassortment events (dashed yellow and green lines respectively in fig. <a href="#fig:fig-1">8</a> (b) &amp; (c)). Nonetheless, all data are displayed for completeness.</p>
+    <h3 id="results">Results</h3>
+    <p>To test whether reassortment or clonal descent was an advantageous strategy when switching hosts, we computed the weighted proportion of reassortant edges (out of all edges) occurring between hosts of the same or different species. When host species were different, reassortant edges were over-represented at 19 percentage points above a null permutation model (permutation test described in Materials &amp; Methods) (fig. <a href="#fig:fig-1">9</a> (a)), and when host species were the same, reassortant edges were under-represented by 7 percentage points relative to our null model. Thus, reassortment is a strongly favoured strategy when influenza crosses between different host species.</p>
+    <div class="figure">
+    <img src="./figures/pnas-fig-1.jpg" alt="Figure 9: " id="fig:fig-1" />
+    <p class="caption">Figure 9: </p>
+    </div>
+    <p>We further sought to explore whether the predominant use of reticulate evolutionary processes in host switch events were correlated with host phylogenetic relatedness and host ecology. To do this, we first computed the proportion of reassortment when switching between birds, non-human mammals, or humans, which are 3 divergent host groupings with distinct ecological behaviour. (For example, humans are the only known species to employ disease control measures, and affect the ecology of other species (birds and mammals through domestication) at scale.) We further sub-divided avian and mammalian categories into wild and domestic, to assess the impact of anthropological activity on the relative importance of reassortment in host switch interfaces (see Materials and Methods for how AIV was classified as domestic or wild). To ensure that the dataset was sufficient in scope to detect reassortant viruses, we only considered host group transitions with at least 1000 descent events (both clonal and reassortant), or at least 10 reassortment events (dashed yellow and green lines respectively in fig. <a href="#fig:fig-1">9</a> (b) &amp; (c)). Nonetheless, all data are displayed for completeness.</p>
     <p>Here, reassortment is over-represented relative to the null when host groups are different. Only two exceptions occur. The first is between wild birds, where reassortment is over-represented but host groups are not different. In this case, the “wild bird” label encompasses a wide range of host species, and as the natural reservoir for many diverse influenza viral subtypes, we expect to detect reassortment events more frequently between diverse species that may be distantly evolutionarily related.</p>
     <p>The second is the human-domestic mammal interface, where reassortment is not over-represented even though the host groups are different. In the case of human to domestic mammal host switches (reverse zoonosis), these are mostly well-documented reverse zoonotic events between human and swine hosts <span class="citation">(21)</span>), where shared cellular receptors for viral entry <span class="citation">(22)</span> facilitates zoonotic and reverse zoonotic transmission. This may be a case of host convergent evolution inadvertently lowering the adaptive barrier to host switching. Under representation of reassortment at human-to-human transitions is expected because of the limited number of viral subtypes circulating in human populations that undergo serial selective sweeps, resulting in high sequence similarity within the viral pool <span class="citation">(23)</span>, which likely obscures the distinction between reassortment and clonal descent. However, we also expect antibody-mediated immunity, whether from vaccination or prior exposure, to further limit the frequency of co-infection and likelihood of reassortment events happening amongst humans. Thus, despite the exceptions that may be explained by our current best knowledge of influenza biology (e.g. human to swine transmissions), reassortment is strongly favoured over clonal evolution when crossing between evolutionarily distant hosts.</p>
-    <p>To further explore the relationship between host evolutionary divergence and the predominance of reassortment in transmission events between species, we compared a common phylogenetic measure of species divergence, the cytochrome oxidase I (COI) gene, to the use of reassortment in host switch events. A subset of viral hosts, encompassing a variety of bird and mammal species, have had their cytochrome oxidase I (COI) gene sequenced as part of the barcode of life project <span class="citation">(24)</span>. For the subset of edges in the network for which both the source and sink hosts have a COI gene sequence that fulfilled our criteria for consideration (as described above), we computed the percentage evolutionary distance between the two hosts (Materials and Methods). Applying a similar permutation test and assessment criteria as described for host groups above, we found a trend of increasing over-representation at higher evolutionary distances (fig. <a href="#fig:fig-1">8</a> (c)). Thus, as host evolutionary distance, or more broadly, as quantitative niche dissimilarity increases, reticulate evolution becomes increasingly favoured for influenza virus niche switch events.</p>
+    <p>To further explore the relationship between host evolutionary divergence and the predominance of reassortment in transmission events between species, we compared a common phylogenetic measure of species divergence, the cytochrome oxidase I (COI) gene, to the use of reassortment in host switch events. A subset of viral hosts, encompassing a variety of bird and mammal species, have had their cytochrome oxidase I (COI) gene sequenced as part of the barcode of life project <span class="citation">(24)</span>. For the subset of edges in the network for which both the source and sink hosts have a COI gene sequence that fulfilled our criteria for consideration (as described above), we computed the percentage evolutionary distance between the two hosts (Materials and Methods). Applying a similar permutation test and assessment criteria as described for host groups above, we found a trend of increasing over-representation at higher evolutionary distances (fig. <a href="#fig:fig-1">9</a> (c)). Thus, as host evolutionary distance, or more broadly, as quantitative niche dissimilarity increases, reticulate evolution becomes increasingly favoured for influenza virus niche switch events.</p>
     <h3 id="discussion">Discussion</h3>
     <p>In this study, we have quantitatively defined the importance of reticulate evolutionary events in switching ecological niches, using an infectious disease data set with characteristics that are particularly well suited for answering this question. Beyond the viral world, recent reviews have asserted the importance of reticulate evolutionary events as a driver of speciation and niche diversification <span class="citation">(25, 26)</span>, and recent studies have illustrated heightened fitness effects in hybrid populations <span class="citation">(27, 28)</span>. However, none have quantitatively tested the importance of reticulate evolutionary strategies in enabling ecological niche switches at a global scale, especially in comparison to clonal adaptation under drift and selection (a task feasible only in fast evolving organisms). Additionally, no studies to date have examined reticulate evolutionary processes in the context of quantified niche differences, as we have done here by measuring reassortment in the context of host evolutionary distance. Our study provides strong quantitative evidence supporting the hypothesis that reticulate evolutionary processes are advantageous relative to adaptation by drift for pathogen transfer between host species, and therefore more broadly, ecological niche switching.</p>
     <p>There are four limitations to this study. Firstly, we recognize that in this study, we have considered only a single pathogen for which abundant genomic data are available, and whose genomic and host tropic characteristics are suitable for this analysis. To specifically answer whether reticulate processes are favoured over clonal transmission for other organisms, using these methods, depends on being able to acquire genome sequences with matched ecological niche metadata.</p>
     <p>Secondly, we also note that the global influenza dataset will have unavoidable sampling biases. For example, human isolates predominate in the dataset, and consequently the human-associated subtypes H3N2 and H1N1 also dominate the dataset. Sequences from viral outbreaks will also be over-represented relative to isolates collected through routine surveillance sampling, and will unavoidably lead to a heightened detection of clonal descent in a single host species. In order to deal with this sampling bias, our permutation tests (for the host species and group labels) involve class labels of equal sizes. This allows us to calculate an expected distribution of proportions under ideal assumptions of equal sampling, which in turn forms the baseline for our conclusions.</p>
-    <p>Thirdly, our choice to use “host species” as the defined and quantified ecological niche is, in part, borne out of data availability. We naturally expect exceptions to occur if differences between species do not constitute a major barrier, or if barriers are defined by other characteristics of the host. Mallards are one example of such an exception (fig. <a href="#fig:fig-s7">9</a>). Amongst mallards, pre-existing immunity (perhaps quantifiable by antibody landscapes <span class="citation">(29)</span>) and high subtype diversity may be a strong driving forces for reassortment <span class="citation">(30)</span>. We note that the necessary data do not currently exist to quantify barriers for other levels of defining and quantifying ecological niches, such as individuals or populations, at a global scale.</p>
+    <p>Thirdly, our choice to use “host species” as the defined and quantified ecological niche is, in part, borne out of data availability. We naturally expect exceptions to occur if differences between species do not constitute a major barrier, or if barriers are defined by other characteristics of the host. Mallards are one example of such an exception (fig. <a href="#fig:fig-s7">10</a>). Amongst mallards, pre-existing immunity (perhaps quantifiable by antibody landscapes <span class="citation">(29)</span>) and high subtype diversity may be a strong driving forces for reassortment <span class="citation">(30)</span>. We note that the necessary data do not currently exist to quantify barriers for other levels of defining and quantifying ecological niches, such as individuals or populations, at a global scale.</p>
     <div class="figure">
-    <img src="./figures/pnas-fig-s7.jpg" alt="Figure 9: " id="fig:fig-s7" />
-    <p class="caption">Figure 9: </p>
+    <img src="./figures/pnas-fig-s7.jpg" alt="Figure 10: " id="fig:fig-s7" />
+    <p class="caption">Figure 10: </p>
     </div>
     <p>Finally, we do not specifically identify whether reassortment occurs prior to or after host switching, but only identify host transitions across which reassortment is implicated. A reassortment event may occur within a host species, during transfer between two host species, or after the transfer; reassortment’s association with host switching will depend on when the reassortant virus is detected, and consequent clonal expansion of the reassortant strain will be identified as “clonally descended”. Our method does not identify when the reassortment event happens, and this is both a limitation of our method and of IAV surveillance being less dense than necessary to distinguish between these two scenarios. Without better prior knowledge on whether reassortment happens prior to or after host switching, our method assumes that the detected reassortment events are the best possible representation of ground truth. It is with this limitation in mind that we identify associations of reassortment events with host switches, or more broadly across ecological niches. Whether reticulate evolution is causal for ecological niche switching will require further study.</p>
     <p>In summary, using data available from a model zoonotic viral pathogen, we have shown that reticulate evolutionary processes are important in enabling pathogen host switches. For the influenza virus, reticulate evolution predominates when crossing between hosts. More broadly, the greater the quantitative difference between ecological niches, the greater the importance of reticulate evolutionary processes in enabling niche switches. While the quantitative importance of reticulate evolution may differ for different organisms evolving in different niches, we expect that further sequencing efforts from across broad domains of microbial life, and a further characterization and definition of their ecological niches, will elucidate whether this principle holds more broadly. Beyond its relevance to evolutionary ecology, reticulate evolution also has public health consequences. Reassortant influenza viruses have been implicated in all past human pandemic strains for which we have sequence data <span class="citation">(31–34)</span>, and the ancestry of HIV-1 involved a hybrid SIV <span class="citation">(35)</span>. Hence, knowing how reticulate events shape disease emergence may help the ecology and evolution of infectious disease become a more predictive science, leading to insight important to disease prevention and mitigation <span class="citation">(36)</span>.</p>
     <h3 id="methods">Methods</h3>
     <p>We describe here the methods specifically used for this application.</p>
-    <p><strong>Permutation tests.</strong> Null models were constructed by permuting node labels; equal class size permutation was performed for host species (for fig. <a href="#fig:fig-1">8</a> (a)) and host group (for fig. <a href="#fig:fig-1">8</a> (b)). For example, if there were 9 ‘human’, 4 ‘swine’ and 2 ‘chicken’ nodes (15 total), labels would be randomly shuffled amongst the nodes such that each label were equally represented (5 each).</p>
+    <p><strong>Permutation tests.</strong> Null models were constructed by permuting node labels; equal class size permutation was performed for host species (for fig. <a href="#fig:fig-1">9</a> (a)) and host group (for fig. <a href="#fig:fig-1">9</a> (b)). For example, if there were 9 ‘human’, 4 ‘swine’ and 2 ‘chicken’ nodes (15 total), labels would be randomly shuffled amongst the nodes such that each label were equally represented (5 each).</p>
     <p><strong>Host Group Labelling.</strong> Host species were manually classified into the “human”, “domestic animal” and “wild animal” groups, based on the country of isolation. For example, “ducks” would be considered a “wild animal” in North America, while it would be considered a “domestic animal” in East Asian countries. Ambiguous host species, while remaining in the dataset, were excluded from the analysis.</p>
     <p><strong>Host Evolutionary Distance.</strong> Host species’ scientific names were sourced from the Tree of Life database (www.tolweb.org). Only host species with unambiguous scientific names recorded were considered. Cytochrome oxidase I genes were sourced from the Barcode of Life Database (www.boldsystems.org) on 31 October 2015. Sequences had to be at least 600 n.t. long to be considered, and only positions with fewer than 3 gap characters were concatenated into the final trimmed alignment. Evolutionary distance was computed from the trimmed alignment as the proportion of mismatched nucleotides. Further details are available in the Jupyter notebooks.</p>
     <p><strong>Phylogenetic Reconstruction and Patristic Distance Comparison.</strong> Phylogenetic reconstruction was done for a subset of H3N8 viruses isolated from Minto Flats, AK, between 2009 and 2010 as part of a separate study. Briefly, each segment of the viral genomes were individually aligned using Clustal Omega <span class="citation">(2)</span>, and their genealogies reconstructed using BEAST 1.8.0 <span class="citation">(37)</span>. A minimum of 3 MCMC runs that converged on a single optimal tree were chosen to compute the maximum clade credibility (MCC) tree. Burn-in ranged from 10 to 39 million steps out of 40, with median 24 million steps. Patristic distances were calculated using the DendroPy package <span class="citation">(38)</span>. In the graph reconstruction on the Minto Flats study, we extracted the edges and nodes involving only the H3N8 isolates, and computed the tree patristic distances between isolate pairs linked by an edge in the graph.</p>
-    <p><strong>Edge Weighting and Proportion Reassortment Calculations.</strong> The proportion of reassortment events was calculated by first weighting each incoming edge to every virus. The weighting procedure is described here: If the virus is detected to be plausibly clonally descended from n other viruses, as determined by maximal similarity, it is given a weight of <span class="math inline">\(\frac{1}{n}\)</span>. If the virus is detected to be a reassortant, then edges are weighted by the the fraction of times that it is involved in a max similarity source pair. (fig. <a href="#fig:fig-s5">10</a>) For example, if a given node A has a plausible source of segments in B, C, D, with (B and C) and (B and D) being plausible sources, then the edge B-A would be given a weight of 0.5, and the edge C-A and D-A would be given a weight of 0.25 each. (fig. <a href="#fig:fig-s5">10</a>) The proportion of reassortment edges was then calculated by taking the sum of weights across all reassortant edges (for a particular transition, e.g. between or within host species), divided by the sum of weights across all reassortant and clonal edges (for the same particular transition). With this weighting scheme, multiple plausible sources that lead to the same virus are not double-counted.</p>
+    <p><strong>Edge Weighting and Proportion Reassortment Calculations.</strong> The proportion of reassortment events was calculated by first weighting each incoming edge to every virus. The weighting procedure is described here: If the virus is detected to be plausibly clonally descended from n other viruses, as determined by maximal similarity, it is given a weight of <span class="math inline">\(\frac{1}{n}\)</span>. If the virus is detected to be a reassortant, then edges are weighted by the the fraction of times that it is involved in a max similarity source pair. (fig. <a href="#fig:fig-s5">11</a>) For example, if a given node A has a plausible source of segments in B, C, D, with (B and C) and (B and D) being plausible sources, then the edge B-A would be given a weight of 0.5, and the edge C-A and D-A would be given a weight of 0.25 each. (fig. <a href="#fig:fig-s5">11</a>) The proportion of reassortment edges was then calculated by taking the sum of weights across all reassortant edges (for a particular transition, e.g. between or within host species), divided by the sum of weights across all reassortant and clonal edges (for the same particular transition). With this weighting scheme, multiple plausible sources that lead to the same virus are not double-counted.</p>
     <div class="figure">
-    <img src="./figures/pnas-fig-s5.jpg" alt="Figure 10: " id="fig:fig-s5" />
-    <p class="caption">Figure 10: </p>
+    <img src="./figures/pnas-fig-s5.jpg" alt="Figure 11: " id="fig:fig-s5" />
+    <p class="caption">Figure 11: </p>
     </div>
     <h2 id="application-2-viral-persistence.">Application 2: Viral persistence.</h2>
     <ul>
@@ -484,7 +546,6 @@
     <li id="fn1"><p>Being of zoonotic origin means that the virus' reservoir is in one or more animal hosts, but &quot;spills over&quot; into humans upon contact. As such, humans are the &quot;spillover host&quot;.<a href="#fnref1">↩</a></p></li>
     <li id="fn2"><p>Amongst influenza researchers, evolutionary shift almost always refers to the exchange of HA and NA genes to produce viruses with an immunologically novel HA/NA combination. However, in this thesis, evolutionary shift refers more broadly to the exchange of any of the genes resulting in a novel genotype combination.<a href="#fnref2">↩</a></p></li>
     <li id="fn3"><p>The assumption that character states evolve independently is still used in modern phylogenetic analyses, even though we know that this does not necessarily hold true, such as in the case of co-evolving sites due to epistatic interactions in a protein.<a href="#fnref3">↩</a></p></li>
-    <li id="fn4"><p>A Markov Chain is a stochastic process parameterized by <span class="math inline">\(n\)</span> number of states and the probability of transitioning between each of the states after a forward step in time/space is taken.<a href="#fnref4">↩</a></p></li>
     </ol>
     </div>
 

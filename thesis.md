@@ -10,9 +10,7 @@ numbersections: true
 
 ## The Importance of Studying the Evolution and Ecology of the Influenza Virus
 
-The influenza A virus has inflicted economic and social damage annually on the order of X billions of dollars (#factcheck, #cite). Being a pathogen with zoonotic origins [^zoonotic], it is imperative to study its circulation, evolution and pathogenesis not only in humans, but also in animals (domestic and wild).
-
-In this thesis, I outline efforts with my colleagues to map out and identify reassortant viruses at a global scale, and use this systematic, global identification to learn more about influenza, reticulate evolution, and ecology.
+The influenza A virus has inflicted economic and social damage annually on the order of X billions of dollars (#factcheck, #cite). Being a pathogen with zoonotic origins [^zoonotic], it is imperative to study its circulation, evolution and pathogenesis not only in humans, but also in animals (domestic and wild). One major problem of interest pertains to influenza's ability to shuffle its genome with other influenza viruses, and its implication in the ability of the virus to jump between host species. To address this, in this thesis I outline efforts with my colleagues to map out and identify these shuffled viruses at a global scale, and use this systematic, global identification to learn more about influenza, reticulate evolution, and ecology.
 
 [^zoonotic]: Being of zoonotic origin means that the virus' reservoir is in one or more animal hosts, but "spills over" into humans upon contact. As such, humans are the "spillover host".
 
@@ -58,26 +56,37 @@ Of the three possible trees that can be reconstructed, there are two that fit th
 
 ### Maximum Likelihood
 
+Molecular clock theory essentially states that the number of mutational events observed in a sequence is roughly linearly proportional with time. While in principle, this may seem to suggest that we can use the edit distance (maximum parsimony) to estimate the time of divergence between two sequences, there are problems with this logic.
+
 One of the problems with maximum parsimony methods is that mutational reversions can occur. When a nucleotide changes from A to T, it can continue to mutate to a G or a C, or can revert back to an A. Many generations of replication forward, the edit distance (Hamming or Levenshtein) between the progeny and the original reaches a plateau (+@fig:hamming). When reversions occur, using maximum parsimony to infer evolutionary history masks these reversion events.
 
 ![](./figures/hamming.png){#fig:hamming}
 
-<!-- If we assume, under neutral selection conditions[^neutral], that:
+Maximum likelihood methods were developed to deal with this problem. Under the assumption that each site evolves independently, we require three ingredients to compute the likelihood of a given phylogeny: the structure of the tree, an assumed internal node sequence, and a probability of mutation between any given pair of nucleotide states.
 
-1. mutations occur at a constant and equal rate, and
-1. there is an equal probability of any nucleotide being mutated to any other nucleotide (including itself), then
+Purely for illustrative purposes, I show a concrete example below.
 
-we arrive at the Jukes-Cantor model of nucleotide sequence evolution (#figure). -->
+Given the following three samples with the following states:
 
-Thus the concept of a "molecular clock" was developed. Molecular clock theory essentially states that observed sequence divergences are approximately linear with time.
+```{include.table=./tables/max_likelihood_sequence.md}
+```
 
-DNA sequence transitions can be modelled using a continuous-time Markov chain[^markovchain]. Here,
+and the following transition probabilities:
+
+```{include.table=./tables/max_likelihood_transitions.md}
+```
+
+and finally the following two possible trees for this given state:
+
+![](./figures/max_likelihood_trees.jpg){#fig:mlt}
+
+We may compute the following probabilities for each of the trees:
+
+$$L(T) = P(A_4 \rightarrow A_1) \times P(A_4 \rightarrow A_2) \times P(A_5 \rightarrow A_4) \times P(A_5 \rightarrow C_3)$$
 
 [^markovchain]: A Markov Chain is a stochastic process parameterized by $n$ number of states and the probability of transitioning between each of the states after a forward step in time/space is taken.
 
-- molecular clock
-
-### Bayesian Inference
+### Bayesian Phylogenetic Inference
 
 - Alexi Drummond's key paper in 2001
 
