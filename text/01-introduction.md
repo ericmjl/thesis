@@ -74,9 +74,13 @@ and finally the following two possible trees for this given state:
 
 We may compute the following log likelihood for each of the trees:
 
-$$L(T) = P(A_4 \rightarrow A_1) \times P(A_4 \rightarrow A_2) \times P(A_5 \rightarrow A_4) \times P(A_5 \rightarrow C_3)$$
+$$L_{tree1}(T) = P(A_4 \rightarrow A_1) \times P(A_4 \rightarrow A_2) \times P(A_5 \rightarrow A_4) \times P(A_5 \rightarrow C_3)$$
 
-$$log_{10}(L(T)) = log_{10}P(A_4 \rightarrow A_1) + log_{10}P(A_4 \rightarrow A_2) + log_{10}P(A_5 \rightarrow A_4) + log_{10}P(A_5 \rightarrow C_3)$$
+$$log_{10}(L_{tree1}(T)) = log_{10}P(A_4 \rightarrow A_1) + log_{10}P(A_4 \rightarrow A_2) + log_{10}P(A_5 \rightarrow A_4) + log_{10}P(A_5 \rightarrow C_3)$$
+
+$$log_{10}(L_{tree1}(T)) = 3log_{10}0.4 + log_{10}0.2$$
+
+
 
 [^markovchain]: A Markov Chain is a stochastic process parameterized by $n$ number of states and the probability of transitioning between each of the states after a forward step in time/space is taken.
 
