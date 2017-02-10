@@ -86,9 +86,13 @@ $$log(L_{tree1}(T)) = 3log0.4 + log0.2 = -1.89$$
 
 Doing an analogous computation for tree 2 yields a log likelihood score of -2.19.
 
-In principle, this procedure has to be for every possible nucleotide in the internal nodes. The sum of all log likelihood scores gives the likelihood of the tree, given the sequence at a position $i$ in a multiple sequence alignment. This computation is then repeated for a new tree topology. This makes maximum likelihood methods computationally more expensive than maximum parsimony methods.
+In principle, this procedure has to be for every possible nucleotide in the internal nodes. The sum of all log likelihood scores gives the log likelihood of the tree, given the sequence at a position $i$ in a multiple sequence alignment. This computation is then repeated for every position in a sequence alignment. This makes maximum likelihood methods computationally more expensive than maximum parsimony methods.
 
-In practice, the transition matrix is pre-specified, and the tree is iteratively built using a greedy algorithm, the details of which can be found in Feltenstein (2004) [@Feltenstein:2004ws]. Briefly, however, the steps  include greedily computing the best placement to add a new sequence, given the tree constructed for the existing sequences (#cite), and performing local rearrangements after addition of a sequence to see if there exists a better topology (#cite). In addition to finding the right topology, branch lengths (representing evolutionary distance) are also computed.
+Yet, we run into a problem: it is computationally infeasible to compute the likelihood for every single topology! This is because the total tree space possible, according to Feltenstein (2004) [@Feltenstein:2004ws], is:
+
+$$ \frac{(2n-3)!}{2^{n-2}(n-2)!} $$
+
+Thus, in practice, trees are iteratively built using a greedy algorithm, the details of which can be found in Feltenstein (2004) [@Feltenstein:2004ws]. Briefly, however, the steps  include greedily computing the best placement to add a new sequence, given the tree constructed for the existing sequences (#cite), and performing local rearrangements after addition of a sequence to see if there exists a better topology (#cite). In addition to finding the right topology, branch lengths (representing evolutionary distance) are also computed.
 
 ### Bayesian Phylogenetic Inference
 
