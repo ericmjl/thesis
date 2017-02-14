@@ -96,15 +96,17 @@ Doing an analogous computation for tree 2 yields a log likelihood score of -2.19
 
 In principle, this procedure has to be for every possible nucleotide in the internal nodes. The sum of all log likelihood scores gives the log likelihood of the tree, given the sequence at a position $i$ in a multiple sequence alignment. This computation is then repeated for every position in a sequence alignment. This makes maximum likelihood methods computationally more expensive than maximum parsimony methods.
 
-Yet, we run into a problem: it is computationally infeasible to compute the likelihood for every single topology! This is because the total tree space possible, according to Feltenstein (2004) [@Feltenstein:2004ws], is:
+Yet, we run into a problem: it is computationally infeasible to compute the likelihood for every single topology! Not only is the tree space large, according to Feltenstein (2004) [@Feltenstein:2004ws]
 
 $$ \frac{(2n-3)!}{2^{n-2}(n-2)!} $$
 
-Thus, in practice, trees are iteratively built using a greedy algorithm, the details of which can be found in Feltenstein (2004) [@Feltenstein:2004ws]. Briefly, however, the steps  include greedily computing the best placement to add a new sequence, given the tree constructed for the existing sequences (#cite), and performing local rearrangements after addition of a sequence to see if there exists a better topology (#cite). In addition to finding the right topology, branch lengths (representing evolutionary distance) are also computed.
+the likelihood over every possible reconstructed ancestral sequence has to be computed as well.
+
+Thus, in practice, trees are iteratively built using a greedy algorithm. For brevity, I do not detail the methods here, but they can be found in Feltenstein (2004) [@Feltenstein:2004ws]. This section merely provides an outline of the necessary concepts for Bayesian phylogenetic inference.
 
 ### Bayesian Phylogenetic Inference
 
-- Alexi Drummond's key paper in 2001
+Bayesian phylogenetic reconstruction methods extend likelihood tree reconstruction methods by allowing us to infer a probability distribution over the tree topology and coalescent times, given the data. When paired with phylogeographic inference [@Lemey:2010eu], where geography is modelled as another character state in addition to nucleotide sequence, it is possible to trace reconstruct and trace the movement of viruses. As is the case with Bayesian inference in general, the exponential increase in computational power along with advances in tree-space MCMC have been greatly enabling. Bayesian inference has been used successfully to infer the time of emergence of outbreak viruses such as the Ebola virus [@Gire:2014fk; @Park:2015cw] and movement swine influenza viruses [@Nelson:2015dy].
 
 ## Inferring Reassortment
 
