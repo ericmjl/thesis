@@ -1,3 +1,14 @@
+# Convert all CSV tables to Markdown
+cd tables
+for file in *.csv;
+do
+    csvtomd $file > ${file%%.*}.md;
+done
+cd ..
+
+# Script to compile thesis text files into a single PDF that is uploaded.
+python concatenate.py
+
 # Copy over PNAS stylesheet
 cp ../styles/pnas.csl .
 
