@@ -21,14 +21,6 @@ cp ../references-master/papers-library.bib .
 #
 # scp thesis.pdf doroot:/var/www/html/cv/.
 
-# Convert PDF images to JPG.
-cd figures
-for file in *.pdf;
-do
-    convert -density 300 $file -quality 100 ${file%%.*}.jpg;
-done
-cd ..
-
 # Convert Markdown to HTML
 pandoc thesis.md \
     -o index.html \
