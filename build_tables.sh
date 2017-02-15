@@ -7,6 +7,6 @@ done
 cd ..
 
 # Commit to repository.
-git add .
+git add tables/*
 git commit -m "auto commit raw tables"
 git push

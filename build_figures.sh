@@ -7,6 +7,6 @@ done
 cd ..
 
 # Commit to repository.
-git add .
+git add figures/*
 git commit -m "auto commit figures"
 git push

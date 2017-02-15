@@ -2,6 +2,6 @@
 python concatenate.py
 
 # Commit to repository.
-git add .
+git add text/*
 git commit -m "auto commit raw text"
 git push
