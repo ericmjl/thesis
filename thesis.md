@@ -54,7 +54,7 @@ Using the principle of parsimony, we may compute a distance matrix as follows:
 
 Of the three possible trees that can be reconstructed, there are two that fit the data best:
 
-![](./figures/parsimony-tree.jpg){#fig:parsimony-tree}
+![Maximum parsimony-based reconstruction of the character states.](./figures/parsimony-tree.jpg){#fig:parsimony-tree}
 
 ### Maximum Likelihood
 
@@ -62,7 +62,7 @@ Molecular clock theory essentially states that the number of mutational events o
 
 One of the problems with maximum parsimony methods is that mutational reversions can occur. When a nucleotide changes from A to T, it can continue to mutate to a G or a C, or can revert back to an A. Many generations of replication forward, the edit distance (Hamming or Levenshtein) between the progeny and the original reaches a plateau (+@fig:hamming). When reversions occur, using maximum parsimony to infer evolutionary history masks these reversion events.
 
-![](./figures/hamming.png){#fig:hamming}
+![Levenshtein distance of 100 simulated trajectories.](./figures/hamming.png){#fig:hamming}
 
 Maximum likelihood methods were developed to deal with this problem. Under the assumption that each site evolves independently, we require three ingredients to compute the likelihood of a given phylogeny: the structure of the tree, an assumed internal node sequence, and a probability of mutation between any given pair of nucleotide states.
 
@@ -78,9 +78,9 @@ and the following transition probabilities:
 ```{include.table=./tables/max_likelihood_transitions.md}
 ```
 
-and finally the following two possible trees for this given state:
+and two trees (out of many possible) for this given state:
 
-![](./figures/max_likelihood_trees.jpg){#fig:mlt}
+![Two trees with internal node reconstructions on which likelihood calculations are performed.](./figures/max_likelihood_trees.jpg){#fig:mlt}
 
 We may compute the following log likelihood for each of the trees: (#factcheck check these calculations!)
 
@@ -112,13 +112,13 @@ Bayesian phylogenetic reconstruction methods extend likelihood tree reconstructi
 
 ## Interpreting Trees
 
-A bifurcating phylogenetic tree is a directed acyclic graph comprised of leaf nodes (tips), internal nodes, and bifurcating branches at each internal node. Branch lengths indicate evolutionary time elapsed from an internal node to another internal node or leaf.
+A bifurcating phylogenetic tree is a directed acyclic graph comprised of leaf nodes (tips), internal nodes, and bifurcating branches at each **internal node** (+@fig:interpreting-trees). Branch lengths indicate evolutionary time elapsed from an internal node to another internal node or leaf.
 
-As with any hierarchical clustering method, the leaves can be organized into **clades**, which represent a cluster of isolates on the tree that are closely related. How a clade is defined is subjective, and visual observation is the most common way to define a clade.
+As with any hierarchical clustering method, the leaves can be organized into **clades** (+@fig:interpreting-trees), which represent a cluster of isolates on the tree that are closely related. How a clade is defined is subjective, and visual observation is the most common way to define a clade.
 
-A metric of evolutionary distance between any two given isolates is the **patristic distance** between them. The patristic distance is measured by the sum of branch lengths (in the units that the lengths are defined) from one isolate to another. As such, isolates that are more evolutionarily related will have a shorter patristic distance between them.
+A metric of evolutionary distance between any two given isolates is the **patristic distance** (+@fig:interpreting-trees) between them. The patristic distance is measured by the sum of branch lengths (in the units that the lengths are defined) from one isolate to another. As such, isolates that are more evolutionarily related will have a shorter patristic distance between them.
 
-(#figure?)
+![Visual definition of internal nodes, clades, and patristic distances.](./figures/interpreting-trees.jpg){#fig:interpreting-trees}
 
 ## Inferring Reassortment
 
@@ -133,7 +133,7 @@ In the study of the process of reassortment, one cannot escape from the topic of
 1. Packaging signals have been exploited to generate influenza viruses that carry GFP rather than one of the genomic segments, allowing for tracking of viral replication [@Goto:2013bc]. This remains, to date, the strongest evidence in favour of the presence of packaging signals that are part of the coding sequence of each of the 8 genes.
 
 
-![](./figures/packaging.jpg){#fig:packaging}
+![Summary of known results in influenza genome packaging. (a) Mutating the 3rd codon positions in the packaging regions reduces packaging efficiency, thus highlighting their importance. (b) Defective-interfering RNAs harbouring only the packaging signals can interfere with live virion production. (c) Foreign genes, such as GFP, have been packaged into the influenza virus by flanking them with packaging signals. (d) Packaging signals can be swapped between segments, but a packaging signal sequence must be present on each gene in order to rescue live virus.](./figures/packaging.jpg){#fig:packaging}
 
 
 ----
@@ -206,7 +206,7 @@ Pairwise identities were computed using Clustal Omega (version 1.2.1) [@Sievers:
 
 To check whether the algorithm was capable of correctly identifying reassortant viruses, simulation studies were conducted. To simplify the problem, we considered the case of a two-segment virus, with each of the two segments having a different nucleotide substitution rate, mirroring the different substitution rates on each of the influenza genome segments. Each simulation run was initialized with anywhere between one and five viruses. At each time step, one virus was chosen at random to replicate (with 0.75 probability) or reassort with another virus (with 0.25 probability). Simulations were run for 50 time steps.
 
-Regardless of replication or reassortment, the progeny virus was subjected to mutations, with the number of mutations in each segment being drawn from a binomial distribution with probability equal to the segment's substitution rate, and the exact positions drawn uniformly across the segment. This process is outlined in figure X (#figure).
+Regardless of replication or reassortment, the progeny virus was subjected to mutations, with the number of mutations in each segment being drawn from a binomial distribution with probability equal to the segment's substitution rate, and the exact positions drawn uniformly across the segment. This process is outlined in +@fig:fig-s4-simulation in the Applications section.
 
 The number of unique starting genotypes and total number of viral isolates being considered was much smaller than the real-world data. Therefore, our graph reconstruction procedure captured the essential parts of the method used in the global analysis, but differed in the details. Here, “full complements” involve only two segments. We did not perform affinity propagation clustering, as we started with completely randomly generated sequences of equal length. Our “null model” graph is where source isolates are chosen uniformly at random from the set of nodes occurring before the sink isolates.
 
@@ -250,15 +250,15 @@ Data yielded from influenza genome sequencing projects provide a unique opportun
 
 ### Method Validation
 
-We used the phylogenetic heuristic algorithm (described in the Algorithm section) to reconstruct an approximate global phylogeny for all 18,000+ fully-sequenced viruses in the dataset. In this network of viral isolates, clonal descent is mostly structured by host species, with known global patterns of human-to-human (H3N2 & H1N1, and rarer H5N1 & H7N9), chicken-to-chicken (H9N2, H7N9, H5N1) and swine-to-swine (H3N2, H1N1, H1N2) viral circulation captured in the network reconstruction (+@fig:fig-s1). Edges in the network connected viral isolates with a median genetic similarity of 99.7%, indicating a high degree of genetic similarity captured in the network-based reconstruction (+@fig:fig-s2). As expected, no clonal descent was identified between viruses of different subtypes. Moreover, the network recreates the phylogeny of known reassortant viruses, including the 2009 pandemic H1N1 and the recent 2013 H7N9 viruses, further validating the accuracy of our reconstruction (a browser-based d3.js visualization is available in Zenodo archive of the Github repository (Materials & Methods)). Small-world simulation studies validated our method as being accurate in detecting reassortment events  (+@fig:fig-s4), while a comparison of edges to a phylogenetic reconstruction on a subset of the data show that our method captures the shorter end of the distribution of patristic distances on a tree, indicating accurate approximation to phylogenetic reconstruction (+@fig:fig-s3). Hence, our method is capable of detecting reassortment events, which are classically inferred by observing incongruences in phylogenetic tree clustering.
+We used the phylogenetic heuristic algorithm (described in the Algorithm section) to reconstruct an approximate global phylogeny for all 18,000+ fully-sequenced viruses in the dataset. In this network of viral isolates, clonal descent is mostly structured by host species, with known global patterns of human-to-human (H3N2 & H1N1, and rarer H5N1 & H7N9), chicken-to-chicken (H9N2, H7N9, H5N1) and swine-to-swine (H3N2, H1N1, H1N2) viral circulation captured in the network reconstruction (+@fig:fig-s1-hosts). Edges in the network connected viral isolates with a median genetic similarity of 99.7%, indicating a high degree of genetic similarity captured in the network-based reconstruction (+@fig:fig-s2-pwi). As expected, no clonal descent was identified between viruses of different subtypes. Moreover, the network recreates the phylogeny of known reassortant viruses, including the 2009 pandemic H1N1 and the recent 2013 H7N9 viruses, further validating the accuracy of our reconstruction (a browser-based d3.js visualization is available in Zenodo archive of the Github repository (Materials & Methods)). Small-world simulation studies validated our method as being accurate in detecting reassortment events  (+@fig:fig-s4-simulation), while a comparison of edges to a phylogenetic reconstruction on a subset of the data show that our method captures the shorter end of the distribution of patristic distances on a tree, indicating accurate approximation to phylogenetic reconstruction (+@fig:fig-s3-patristic). Hence, our method is capable of detecting reassortment events, which are classically inferred by observing incongruences in phylogenetic tree clustering.
 
-![](./figures/pnas-fig-s1.jpg){#fig:fig-s1}
+![](./figures/pnas-fig-s1.jpg){#fig:fig-s1-hosts}
 
-![](./figures/pnas-fig-s2.jpg){#fig:fig-s2}
+![](./figures/pnas-fig-s2.jpg){#fig:fig-s2-pwi}
 
-![](./figures/pnas-fig-s3.jpg){#fig:fig-s3}
+![](./figures/pnas-fig-s3.jpg){#fig:fig-s3-patristic}
 
-![](./figures/pnas-fig-s4.jpg){#fig:fig-s4}
+![](./figures/pnas-fig-s4.jpg){#fig:fig-s4-simulation}
 
 
 ### Results

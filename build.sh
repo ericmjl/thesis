@@ -30,7 +30,7 @@ pandoc thesis.md \
     --toc \
     -H header.html
 
-# Commit to repository.
-git add .
-git commit
-git push
+# # Commit to repository.
+# git add .
+# git commit
+# git push

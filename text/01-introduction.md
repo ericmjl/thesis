@@ -46,7 +46,7 @@ Using the principle of parsimony, we may compute a distance matrix as follows:
 
 Of the three possible trees that can be reconstructed, there are two that fit the data best:
 
-![](./figures/parsimony-tree.jpg){#fig:parsimony-tree}
+![Maximum parsimony-based reconstruction of the character states.](./figures/parsimony-tree.jpg){#fig:parsimony-tree}
 
 ### Maximum Likelihood
 
@@ -54,7 +54,7 @@ Molecular clock theory essentially states that the number of mutational events o
 
 One of the problems with maximum parsimony methods is that mutational reversions can occur. When a nucleotide changes from A to T, it can continue to mutate to a G or a C, or can revert back to an A. Many generations of replication forward, the edit distance (Hamming or Levenshtein) between the progeny and the original reaches a plateau (+@fig:hamming). When reversions occur, using maximum parsimony to infer evolutionary history masks these reversion events.
 
-![](./figures/hamming.png){#fig:hamming}
+![Levenshtein distance of 100 simulated trajectories.](./figures/hamming.png){#fig:hamming}
 
 Maximum likelihood methods were developed to deal with this problem. Under the assumption that each site evolves independently, we require three ingredients to compute the likelihood of a given phylogeny: the structure of the tree, an assumed internal node sequence, and a probability of mutation between any given pair of nucleotide states.
 
@@ -70,9 +70,9 @@ and the following transition probabilities:
 ```{include.table=./tables/max_likelihood_transitions.md}
 ```
 
-and finally the following two possible trees for this given state:
+and two trees (out of many possible) for this given state:
 
-![](./figures/max_likelihood_trees.jpg){#fig:mlt}
+![Two trees with internal node reconstructions on which likelihood calculations are performed.](./figures/max_likelihood_trees.jpg){#fig:mlt}
 
 We may compute the following log likelihood for each of the trees: (#factcheck check these calculations!)
 
@@ -104,13 +104,13 @@ Bayesian phylogenetic reconstruction methods extend likelihood tree reconstructi
 
 ## Interpreting Trees
 
-A bifurcating phylogenetic tree is a directed acyclic graph comprised of leaf nodes (tips), internal nodes, and bifurcating branches at each internal node. Branch lengths indicate evolutionary time elapsed from an internal node to another internal node or leaf.
+A bifurcating phylogenetic tree is a directed acyclic graph comprised of leaf nodes (tips), internal nodes, and bifurcating branches at each **internal node** (+@fig:interpreting-trees). Branch lengths indicate evolutionary time elapsed from an internal node to another internal node or leaf.
 
-As with any hierarchical clustering method, the leaves can be organized into **clades**, which represent a cluster of isolates on the tree that are closely related. How a clade is defined is subjective, and visual observation is the most common way to define a clade.
+As with any hierarchical clustering method, the leaves can be organized into **clades** (+@fig:interpreting-trees), which represent a cluster of isolates on the tree that are closely related. How a clade is defined is subjective, and visual observation is the most common way to define a clade.
 
-A metric of evolutionary distance between any two given isolates is the **patristic distance** between them. The patristic distance is measured by the sum of branch lengths (in the units that the lengths are defined) from one isolate to another. As such, isolates that are more evolutionarily related will have a shorter patristic distance between them.
+A metric of evolutionary distance between any two given isolates is the **patristic distance** (+@fig:interpreting-trees) between them. The patristic distance is measured by the sum of branch lengths (in the units that the lengths are defined) from one isolate to another. As such, isolates that are more evolutionarily related will have a shorter patristic distance between them.
 
-(#figure?)
+![Visual definition of internal nodes, clades, and patristic distances.](./figures/interpreting-trees.jpg){#fig:interpreting-trees}
 
 ## Inferring Reassortment
 
@@ -125,7 +125,7 @@ In the study of the process of reassortment, one cannot escape from the topic of
 1. Packaging signals have been exploited to generate influenza viruses that carry GFP rather than one of the genomic segments, allowing for tracking of viral replication [@Goto:2013bc]. This remains, to date, the strongest evidence in favour of the presence of packaging signals that are part of the coding sequence of each of the 8 genes.
 
 
-![](./figures/packaging.jpg){#fig:packaging}
+![Summary of known results in influenza genome packaging. (a) Mutating the 3rd codon positions in the packaging regions reduces packaging efficiency, thus highlighting their importance. (b) Defective-interfering RNAs harbouring only the packaging signals can interfere with live virion production. (c) Foreign genes, such as GFP, have been packaged into the influenza virus by flanking them with packaging signals. (d) Packaging signals can be swapped between segments, but a packaging signal sequence must be present on each gene in order to rescue live virus.](./figures/packaging.jpg){#fig:packaging}
 
 
 ----
