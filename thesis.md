@@ -137,6 +137,11 @@ Is it possible to tell in which host a virus was isolated? Given the sparsity of
 
 #### Tree Incongruence
 
+
+#### Patristic Distances
+
+Patristic distance can be used as a measure of finding reassortant viruses.
+
 ### Inferring Reassortment Using Phylogeny-Independent Methods
 
 Phylogeny-independent methods do not require the construction of phylogenetic trees in order to identify reassortant viruses.
