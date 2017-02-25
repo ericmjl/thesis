@@ -59,7 +59,7 @@ Source code for the simulation studies is availble on Zenodo (DOI: 10.5281/zenod
 
 ### Tree Reconstruction Complexity
 
-According to Feltenstein [@Feltenstein:2004ws], given a set of $n$ labelled sequences, the number of possible rooted, bifurcating trees (which are used for inferring tree inconrguence) is
+According to Felsenstein [@Felsenstein:2004ws], given a set of $n$ labelled sequences, the number of possible rooted, bifurcating trees (which are used for inferring tree inconrguence) is
 
 $$ \frac{(2n-3)!}{2^{n-2}(n-2)!} $$
 

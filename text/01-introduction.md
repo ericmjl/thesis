@@ -90,13 +90,13 @@ Doing an analogous computation for tree 2 yields a log likelihood score of -2.19
 
 In principle, this procedure has to be for every possible nucleotide in the internal nodes. The sum of all log likelihood scores gives the log likelihood of the tree, given the sequence at a position $i$ in a multiple sequence alignment. This computation is then repeated for every position in a sequence alignment. This makes maximum likelihood methods computationally more expensive than maximum parsimony methods.
 
-Yet, we run into a problem: it is computationally infeasible to compute the likelihood for every single topology! Not only is the tree space large, according to Feltenstein (2004) [@Feltenstein:2004ws]
+Yet, we run into a problem: it is computationally infeasible to compute the likelihood for every single topology! Not only is the tree space large, according to Felsenstein (2004) [@Felsenstein:2004ws]
 
 $$ \frac{(2n-3)!}{2^{n-2}(n-2)!} $$
 
 the likelihood over every possible reconstructed ancestral sequence has to be computed as well.
 
-Thus, in practice, trees are iteratively built using a greedy algorithm. For brevity, I do not detail the methods here, but they can be found in Feltenstein (2004) [@Feltenstein:2004ws].
+Thus, in practice, trees are iteratively built using a greedy algorithm. For brevity, I do not detail the methods here, but they can be found in Felsenstein (2004) [@Felsenstein:2004ws].
 
 ### Bayesian Phylogenetic Inference
 
@@ -119,7 +119,7 @@ A metric of evolutionary distance between any two given isolates is the **patris
 
 #### Single Virus
 
-Reassortment is clasically inferred on a single virus of interest. The logic is essentially presented in +@fig:reassortment.
+Reassortment is classically inferred on a single virus of interest. The logic is essentially presented in +@fig:reassortment.
 
 ![An illustration of how reassortment is inferred for a single virus. ](./figures/reassortment.jpg){#fig:reassortment}
 

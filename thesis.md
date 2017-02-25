@@ -98,13 +98,13 @@ Doing an analogous computation for tree 2 yields a log likelihood score of -2.19
 
 In principle, this procedure has to be for every possible nucleotide in the internal nodes. The sum of all log likelihood scores gives the log likelihood of the tree, given the sequence at a position $i$ in a multiple sequence alignment. This computation is then repeated for every position in a sequence alignment. This makes maximum likelihood methods computationally more expensive than maximum parsimony methods.
 
-Yet, we run into a problem: it is computationally infeasible to compute the likelihood for every single topology! Not only is the tree space large, according to Feltenstein (2004) [@Feltenstein:2004ws]
+Yet, we run into a problem: it is computationally infeasible to compute the likelihood for every single topology! Not only is the tree space large, according to Felsenstein (2004) [@Felsenstein:2004ws]
 
 $$ \frac{(2n-3)!}{2^{n-2}(n-2)!} $$
 
 the likelihood over every possible reconstructed ancestral sequence has to be computed as well.
 
-Thus, in practice, trees are iteratively built using a greedy algorithm. For brevity, I do not detail the methods here, but they can be found in Feltenstein (2004) [@Feltenstein:2004ws].
+Thus, in practice, trees are iteratively built using a greedy algorithm. For brevity, I do not detail the methods here, but they can be found in Felsenstein (2004) [@Felsenstein:2004ws].
 
 ### Bayesian Phylogenetic Inference
 
@@ -127,7 +127,7 @@ A metric of evolutionary distance between any two given isolates is the **patris
 
 #### Single Virus
 
-Reassortment is clasically inferred on a single virus of interest. The logic is essentially presented in +@fig:reassortment.
+Reassortment is classically inferred on a single virus of interest. The logic is essentially presented in +@fig:reassortment.
 
 ![An illustration of how reassortment is inferred for a single virus. ](./figures/reassortment.jpg){#fig:reassortment}
 
@@ -259,7 +259,7 @@ Source code for the simulation studies is availble on Zenodo (DOI: 10.5281/zenod
 
 ### Tree Reconstruction Complexity
 
-According to Feltenstein [@Feltenstein:2004ws], given a set of $n$ labelled sequences, the number of possible rooted, bifurcating trees (which are used for inferring tree inconrguence) is
+According to Felsenstein [@Felsenstein:2004ws], given a set of $n$ labelled sequences, the number of possible rooted, bifurcating trees (which are used for inferring tree inconrguence) is
 
 $$ \frac{(2n-3)!}{2^{n-2}(n-2)!} $$
 
@@ -330,7 +330,7 @@ Thirdly, our choice to use “host species” as the defined and quantified ecol
 
 Finally, we do not specifically identify whether reassortment occurs prior to or after host switching, but only identify host transitions across which reassortment is implicated. A reassortment event may occur within a host species, during transfer between two host species, or after the transfer; reassortment’s association with host switching will depend on when the reassortant virus is detected, and consequent clonal expansion of the reassortant strain will be identified as “clonally descended”. Our method does not identify when the reassortment event happens, and this is both a limitation of our method and of IAV surveillance being less dense than necessary to distinguish between these two scenarios. Without better prior knowledge on whether reassortment happens prior to or after host switching, our method assumes that the detected reassortment events are the best possible representation of ground truth. It is with this limitation in mind that we identify associations of reassortment events with host switches, or more broadly across ecological niches. Whether reticulate evolution is causal for ecological niche switching will require further study.
 
-In summary, using data available from a model zoonotic viral pathogen, we have shown that reticulate evolutionary processes are important in enabling pathogen host switches. For the influenza virus, reticulate evolution predominates when crossing between hosts. More broadly, the greater the quantitative difference between ecological niches, the greater the importance of reticulate evolutionary processes in enabling niche switches. While the quantitative importance of reticulate evolution may differ for different organisms evolving in different niches, we expect that further sequencing efforts from across broad domains of microbial life, and a further characterization and definition of their ecological niches, will elucidate whether this principle holds more broadly. Beyond its relevance to evolutionary ecology, reticulate evolution also has public health consequences. Reassortant influenza viruses have been implicated in all past human pandemic strains for which we have sequence data [@Wu:2013jj; @Pu:2014jr; @Lam:2013ka; @Gao:2013es], and the ancestry of HIV-1 involved a hybrid SIV [@Bailes:2003fs]. Hence, knowing how reticulate events shape disease emergence may help the ecology and evolution of infectious disease become a more predictive science, leading to insight important to disease prevention and mitigation [@Wasik:2013bm].
+In summary, using data available from a model zoonotic viral pathogen, we have shown that reticulate evolutionary processes are important in enabling pathogen host switches. For the influenza virus, reticulate evolution predominates when crossing between hosts. More broadly, the greater the quantitative difference between ecological niches, the greater the importance of reticulate evolutionary processes in enabling niche switches. While the quantitative importance of reticulate evolution may differ for different organisms evolving in different niches, we expect that further sequencing efforts from across broad domains of microbial life, and a further characterization and definition of their ecological niches, will elucidate whether this principle holds more broadly. Beyond its relevance to evolutionary ecology, reticulate evolution also has public health consequences. Reassortant influenza viruses have been implicated in all past human pandemic strains for which we have sequence data [@Wu:2013wg; @Pu:2014jr; @Lam:2013ka; @Gao:2013es], and the ancestry of HIV-1 involved a hybrid SIV [@Bailes:2003fs]. Hence, knowing how reticulate events shape disease emergence may help the ecology and evolution of infectious disease become a more predictive science, leading to insight important to disease prevention and mitigation [@Wasik:2013bm].
 
 ### Methods
 

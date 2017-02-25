@@ -255,10 +255,10 @@
     <p><span class="math display">\[log(L_{tree1}(T)) = 3log0.4 + log0.2 = -1.89\]</span></p>
     <p>Doing an analogous computation for tree 2 yields a log likelihood score of -2.19.</p>
     <p>In principle, this procedure has to be for every possible nucleotide in the internal nodes. The sum of all log likelihood scores gives the log likelihood of the tree, given the sequence at a position <span class="math inline">\(i\)</span> in a multiple sequence alignment. This computation is then repeated for every position in a sequence alignment. This makes maximum likelihood methods computationally more expensive than maximum parsimony methods.</p>
-    <p>Yet, we run into a problem: it is computationally infeasible to compute the likelihood for every single topology! Not only is the tree space large, according to Feltenstein (2004) <span class="citation">(1)</span></p>
+    <p>Yet, we run into a problem: it is computationally infeasible to compute the likelihood for every single topology! Not only is the tree space large, according to Felsenstein (2004) <span class="citation">(1)</span></p>
     <p><span class="math display">\[ \frac{(2n-3)!}{2^{n-2}(n-2)!} \]</span></p>
     <p>the likelihood over every possible reconstructed ancestral sequence has to be computed as well.</p>
-    <p>Thus, in practice, trees are iteratively built using a greedy algorithm. For brevity, I do not detail the methods here, but they can be found in Feltenstein (2004) <span class="citation">(1)</span>.</p>
+    <p>Thus, in practice, trees are iteratively built using a greedy algorithm. For brevity, I do not detail the methods here, but they can be found in Felsenstein (2004) <span class="citation">(1)</span>.</p>
     <h3 id="bayesian-phylogenetic-inference">Bayesian Phylogenetic Inference</h3>
     <p>Bayesian phylogenetic reconstruction methods extend likelihood tree reconstruction methods by allowing us to infer a probability distribution over the tree topology and coalescent times, given the data. When paired with phylogeographic inference <span class="citation">(2)</span>, where geography is modelled as another character state in addition to nucleotide sequence, it is possible to trace reconstruct and trace the movement of viruses. As is the case with Bayesian inference in general, the exponential increase in computational power along with advances in tree-space MCMC have been greatly enabling. Bayesian phylogenetic inference has been used successfully to infer the time of emergence of outbreak viruses such as the Ebola virus <span class="citation">(3, 4)</span> and movement swine influenza viruses <span class="citation">(5)</span>.</p>
     <h2 id="interpreting-trees">Interpreting Trees</h2>
@@ -272,7 +272,7 @@
     <h2 id="inferring-reassortment">Inferring Reassortment</h2>
     <h3 id="inferring-reassortment-using-phylogeny-dependent-methods.">Inferring Reassortment using Phylogeny-Dependent Methods.</h3>
     <h4 id="single-virus">Single Virus</h4>
-    <p>Reassortment is clasically inferred on a single virus of interest. The logic is essentially presented in fig. <a href="#fig:reassortment">6</a>.</p>
+    <p>Reassortment is classically inferred on a single virus of interest. The logic is essentially presented in fig. <a href="#fig:reassortment">6</a>.</p>
     <div class="figure">
     <img src="./figures/reassortment.jpg" alt="Figure 6: An illustration of how reassortment is inferred for a single virus." id="fig:reassortment" />
     <p class="caption">Figure 6: An illustration of how reassortment is inferred for a single virus.</p>
@@ -388,7 +388,7 @@
     <p>Source code for the simulation studies is availble on Zenodo (DOI: 10.5281/zenodo.33427).</p>
     <h2 id="analysis-of-time-complexity">Analysis of Time Complexity</h2>
     <h3 id="tree-reconstruction-complexity">Tree Reconstruction Complexity</h3>
-    <p>According to Feltenstein <span class="citation">(1)</span>, given a set of <span class="math inline">\(n\)</span> labelled sequences, the number of possible rooted, bifurcating trees (which are used for inferring tree inconrguence) is</p>
+    <p>According to Felsenstein <span class="citation">(1)</span>, given a set of <span class="math inline">\(n\)</span> labelled sequences, the number of possible rooted, bifurcating trees (which are used for inferring tree inconrguence) is</p>
     <p><span class="math display">\[ \frac{(2n-3)!}{2^{n-2}(n-2)!} \]</span></p>
     <p>Under the assumption that a Bayesian reconstruction is only looking for the most optimal tree topologies and is not estimating times of divergence for internal nodes, then the worst case scenario is that the MCMC sampling algorithm has to search <span class="math inline">\(2^n\)</span> trees in order to find the best topology. As such, tree reconstruction methods have a worst-case time complexity of <span class="math inline">\(O(2^n)\)</span>.</p>
     <p>This is necessarily a simplified view of Bayesian tree construction.</p>
@@ -481,8 +481,8 @@
     <!-- insert here our current best knowledge on influenza packaging -->
     <h1 id="references" class="unnumbered">References</h1>
     <div id="refs" class="references">
-    <div id="ref-Feltenstein:2004ws">
-    <p>1. Feltenstein J (2004) <em>Inferring Phylogenies</em> (Sinauer).</p>
+    <div id="ref-Felsenstein:2004ws">
+    <p>1. Felsenstein J (2004) <em>Inferring Phylogenies</em> (Sinauer).</p>
     </div>
     <div id="ref-Lemey:2010eu">
     <p>2. Lemey P, Rambaut A, Welch JJ, Suchard MA (2010) Phylogeography takes a relaxed random walk in continuous space and time. <em>Molecular biology and evolution</em> 27(8):1877–1885.</p>
@@ -598,7 +598,7 @@
     <div id="ref-Wille:2013dw">
     <p>39. Wille M, et al. (2013) Frequency and patterns of reassortment in natural influenza A virus infection in a reservoir host. <em>Virology</em> 443(1):150–160.</p>
     </div>
-    <div id="ref-Wu:2013jj">
+    <div id="ref-Wu:2013wg">
     <p>40. Wu A, et al. (2013) Sequential Reassortments Underlie Diverse Influenza H7N9 Genotypes in China. <em>Cell host &amp; microbe</em> 14(4):446–452.</p>
     </div>
     <div id="ref-Pu:2014jr">

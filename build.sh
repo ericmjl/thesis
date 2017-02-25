@@ -1,14 +1,14 @@
-# Build tables
-bash build_tables.sh
-
-# Build text
-bash build_text.sh
-
 # Copy over PNAS stylesheet
 cp ../styles/pnas.csl .
 
 # Copy over references-master
 cp ../references-master/papers-library.bib .
+
+# Build tables
+bash build_tables.sh
+
+# Build text
+bash build_text.sh
 
 # pandoc thesis.md \
 #     --template=default.latex \
