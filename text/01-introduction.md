@@ -1,6 +1,6 @@
 # A Primer on the Influenza A Virus
 
-## The Importance of Studying the Evolution and Ecology of the Influenza Virus
+## The Importance of Studying Influenza Evolution & Ecology
 
 The influenza A virus has inflicted economic and social damage annually on the order of X billions of dollars (#factcheck, #cite). Being a pathogen with zoonotic origins [^zoonotic], it is imperative to study its circulation, evolution and pathogenesis not only in humans, but also in animals (domestic and wild). One major problem of interest pertains to influenza's ability to shuffle its genome with other influenza viruses, and its implication in the ability of the virus to jump between host species. To address this, in this thesis I outline efforts with my colleagues to map out and identify these shuffled viruses at a global scale, and use this systematic, global identification to learn more about influenza, reticulate evolution, and ecology.
 
@@ -108,14 +108,13 @@ A bifurcating phylogenetic tree is a directed acyclic graph comprised of leaf no
 
 As with any hierarchical clustering method, the leaves can be organized into **clades** (+@fig:interpreting-trees), which represent a cluster of isolates on the tree that are closely related. How a clade is defined is subjective, and visual observation is the most common way to define a clade.
 
-A metric of evolutionary distance between any two given isolates is the **patristic distance** (+@fig:interpreting-trees) between them. The patristic distance is measured by the sum of branch lengths (in the units that the lengths are defined) from one isolate to another. As such, isolates that are more evolutionarily related will have a shorter patristic distance between them.
+A metric of evolutionary distance between any two given isolates is the **patristic distance** (+@fig:interpreting-trees) between them. The patristic distance is measured by the sum of branch lengths (in the units that the lengths are defined, or else arbitrary distance) from one isolate to another. As such, isolates that are more evolutionarily related will have a shorter patristic distance between them.
 
 ![Visual definition of internal nodes, clades, and patristic distances.](./figures/interpreting-trees.jpg){#fig:interpreting-trees}
 
 ## Inferring Reassortment
 
-
-### Inferring Reassortment using Phylogeny-Dependent Methods.
+### Phylogeny-Dependent Methods.
 
 #### Single Virus
 
@@ -129,12 +128,40 @@ Is it possible to tell in which host a virus was isolated? Given the sparsity of
 
 #### Tree Incongruence
 
+Tree incongruence is another way of identifying reassortant influenza A viruses. Because a bifurcating phylogenetic tree can be defined as a set of splits partitioning the taxa into two sets, "incompatible splits" in the tree can be identified by looking at the partitioned sets and identifying partition sets that have non-null intersections.
+
+Let us look at +@fig:tree-splits for an elementary example. Suppose we had two trees with the same set of taxa, $\{t_1, t_2, t_3, t_4\}$. We observe the following splits:
+
+![Tree incongruence](./figures/tree-splits.jpg){#fig:tree-splits}
+
+- The tree with a red split defines a partition of the four taxa into two splits, $A = \{t_1, t_2\}$ and $B = \{t_3, t_4\}$.
+- The tree with a yellow split defines a partition of the four taxa into two splits, $X = \{t_1, t_3\}$ and $B = \{t_2, t_4\}$.
+
+If these two trees are incompatible, then all of the following criteria are true:
+
+- $A \cap X ≠ \varnothing$, (i.e. intersection of sets A and X, or set of common items, is not empty)
+- $A \cap Y ≠ \varnothing$,
+- $B \cap X ≠ \varnothing$, and
+- $B \cap Y ≠ \varnothing$.
+
+In the case of this pair of trees:
+
+- $A \cap X = \{t_1\} ≠ \varnothing$,
+- $A \cap Y = \{t_2\} ≠ \varnothing$,
+- $B \cap X = \{t_3\} ≠ \varnothing$, and
+- $B \cap Y = \{t_4\} ≠ \varnothing$.
+
+Hence, these trees are incompatible, and thus there is evidence that reassortment has happened.
+
+Tree incongruence is a generalization of the logic used to find individual reassortant viruses, and is implemented in the software, GiRaF [@Nagarajan:2011je]. In practice because Bayesian phylogenetic tree reconstructions are returned as ensembles of trees from MCMC sampling, splits are only counted if they appear in more than 95% of sampled trees.
 
 #### Patristic Distances
 
-Patristic distance can be used as a measure of finding reassortant viruses.
+Patristic distances can also be used as a way of finding reassortant viruses. The elementary logic is described below.
 
-### Inferring Reassortment Using Phylogeny-Independent Methods
+Suppose we have a 
+
+### Phylogeny-Independent Methods
 
 Phylogeny-independent methods do not require the construction of phylogenetic trees in order to identify reassortant viruses.
 
@@ -152,10 +179,6 @@ Plotting the distribution of $d_{iab}$ against $d_{jab}$ for all pairs of viruse
 As shown in +@fig:3rd-codon-distance (adpated from [@Rabadan:2008jm]), if no reassortment was present, the hamming distance between the 3rd codons should be correlated under the assumptions that (a) 3rd codons are under neutral selection, and (b) the segments drift at roughly the same rate under neutral conditions. This would result in only blue dots showing up. If reassortment was present, then the hamming distances between two viruses should be non-correlated, and the yellow dots will show up.
 
 This is a computationally simple method, as it only requires the computation of all pairwise edit distances, and as such has the advantage of being scalable to large numbers of sequences.
-
-#### Sequence Similarity Thresholding
-
-
 
 ## Genome Packaging
 
