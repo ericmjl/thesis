@@ -9,7 +9,7 @@ import os
 
 os.chdir('./text/')
 
-order = os.listdir()
+order = sorted(os.listdir())
 
 thesis = ''
 for text in order:
