@@ -22,6 +22,8 @@ The algorithm, as it stands right now, only provides a deterministic identificat
 
 A logical next step would be to extend the algorithm to identify not merely the parental sources that are of highest PWI, but to also assign a likelihood score to the parental source, given the evolutionary distance. The simplest thing that could be attempted is to use the summed PWI as a probability metric itself, as follows:
 
-$$ \frac{\sum\limits_{k=1}^S PWI_{k}}{S} $$
+$$ \frac{\sum\limits_{k=1}^S p_{k}}{S} $$
+
+where 
 
 and then apply a 'softmax' normalization across all valid parental combinations, thus normalizing the probability scores to sum to 1.
