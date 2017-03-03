@@ -1,3 +1,3 @@
-watchmedo shell-command --patterns="thesis.md" \
+watchmedo shell-command --patterns="*.md" \
     --command="bash build_pdf.sh" \
     .

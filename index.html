@@ -81,7 +81,7 @@
         </ul></li>
         <li><a href="#scientific">Scientific</a><ul>
         <li><a href="#homologous-reassortment">Homologous Reassortment</a></li>
-        <li><a href="#section"></a></li>
+        <li><a href="#probabilistic-identification-of-reassortant-viruses">Probabilistic Identification of Reassortant Viruses</a></li>
         </ul></li>
         </ul></li>
         <li><a href="#references">References</a></li>
@@ -476,14 +476,15 @@
     <p>Caveats common to both applications: always will have sampling issues with the current sequence database.</p>
     <h1 id="remaining-challenges-future-work">Remaining Challenges &amp; Future Work</h1>
     <h2 id="engineering">Engineering</h2>
-    <p>Algorithms developed in the academic world often require &quot;just some engineering&quot; to be made ready for deployment to the real-world. It remains on my personal wish-list to have turned this reassortment detection algorithm into a standalone software package, similar to BEAST or GiRaF. At the moment, the Influenza Research Database team, led by Prof. Richard Schuermann at the JCVI, is considering incorporating the reassortment detection code as part of their software.</p>
+    <p>Algorithms developed in the academic world often require &quot;just some engineering&quot; to be made ready for deployment to the real-world. It remains on my personal wish-list to have turned this reassortment detection algorithm into a standalone software package, similar to BEAST <span class="citation">(47)</span> or GiRaF <span class="citation">(6)</span>. It is also my desire to have a continually-updated monitoring system, similar to NextFlu <span class="citation">(49)</span>, to continually detect newly-sequenced reassortant viruses as they show up. At the moment, the Influenza Research Database team, led by Prof. Richard Schuermann at the JCVI, is considering incorporating the reassortment detection code as part of their data platform.</p>
     <h3 id="automation">Automation</h3>
     <p>The code, as it stands right now, was designed for execution on a Sun Grid Engine compute cluster. This design enabled manual parallelism wherever the code was embarrassingly parallel, in a map-reduce paradigm. For example, one key step is the creation of a multiple sequence alignment for each influenza A virus segment. Because the the alignment of one segment is not dependent on the alignment of another segment, they could be aligned in parallel, with the alignment of longer segments taking longer than the alignment of shorter segments. However, a few steps after that, there is a &quot;reduction&quot; step that is dependent on having all 8 evolutionary distance matrices computed fully, and this was one example of a step that was not automated because of (1) a lack of expertise in parallel computation and (2) the nature of the SGE scheduling system not being accessible from an external API.</p>
-    <p>With the development of Python-based software schedulers (e.g. Dask <span class="citation">(49)</span>) enabling automatic execution of complex, arbitrary computation graphs, a rework of the code could be performed to make it executable with a single command from the command line. Dask has the added advantage of being able to scale from single cores to cloud infrastructure, though at the moment SGE clusters are not supported.</p>
+    <p>With the development of Python-based software schedulers (e.g. Dask <span class="citation">(50)</span>) enabling automatic execution of complex, arbitrary computation graphs, a rework of the code could be performed to make it executable with a single command from the command line. Dask has the added advantage of being able to scale from single cores to cloud infrastructure, though at the moment SGE clusters are not supported.</p>
     <h2 id="scientific">Scientific</h2>
     <h3 id="homologous-reassortment">Homologous Reassortment</h3>
-    <p>Detection of reassortment between genotypically similar (but non-identical) viruses, which we might want to call &quot;homologous reassortment&quot;, remains an oft-cited challenge for reassortment detection. Reassortment frequency is high and fairly unbiased under neutral fitness conditions <span class="citation">(50)</span> (i.e. there is no change in viral protein sequence, but only nucleotide sequence). However, this knowledge also raises the question about the utility of knowing how much homologous reassortment happens - if there are minimal (or no) fitness differences, then is homologous reassortment consequential for the evolution of a virus? My own answer, based on intuition, is that homologous reassortment likely has little impact on the evolution of a virus, and that the surveillance community would be better concerned with heterologous reassortment.</p>
-    <h3 id="section"></h3>
+    <p>Detection of reassortment between genotypically similar (but non-identical) viruses, which we might want to call &quot;homologous reassortment&quot;, remains an oft-cited challenge for reassortment detection. Reassortment frequency is high and fairly unbiased under neutral fitness conditions <span class="citation">(51)</span> (i.e. there is no change in viral protein sequence, but only nucleotide sequence). However, this knowledge also raises the question about the utility of knowing how much homologous reassortment happens - if there are minimal (or no) fitness differences, then is homologous reassortment consequential for the evolution of a virus? My own answer, based on intuition, is that homologous reassortment likely has little impact on the evolution of a virus, and that the surveillance community would be better concerned with heterologous reassortment.</p>
+    <h3 id="probabilistic-identification-of-reassortant-viruses">Probabilistic Identification of Reassortant Viruses</h3>
+    <p>The algorithm, as it stands right now, only provides a deterministic identification of the parental sources, based on the evolutionary distance computed by Clustal Omega <span class="citation">(13)</span>.</p>
     <h1 id="references" class="unnumbered">References</h1>
     <div id="refs" class="references">
     <div id="ref-Felsenstein:2004ws">
@@ -630,11 +631,14 @@
     <div id="ref-Sukumaran:2010id">
     <p>48. Sukumaran J, Holder MT (2010) DendroPy: a Python library for phylogenetic computing. <em>Bioinformatics (Oxford, England)</em> 26(12):1569–1571.</p>
     </div>
+    <div id="ref-Neher:2015jr">
+    <p>49. Neher RA, Bedford T (2015) nextflu: real-time tracking of seasonal influenza virus evolution in humans. <em>Bioinformatics (Oxford, England)</em> 31(21):3546–3548.</p>
+    </div>
     <div id="ref-Team:2016wk">
-    <p>49. Team DD <em>Dask: Library for dynamic task scheduling</em>.</p>
+    <p>50. Team DD <em>Dask: Library for dynamic task scheduling</em>.</p>
     </div>
     <div id="ref-Marshall:2013kn">
-    <p>50. Marshall N, Priyamvada L, Ende Z, Steel J, Lowen AC (2013) Influenza virus reassortment occurs with high frequency in the absence of segment mismatch. <em>PLoS Pathogens</em> 9(6):e1003421.</p>
+    <p>51. Marshall N, Priyamvada L, Ende Z, Steel J, Lowen AC (2013) Influenza virus reassortment occurs with high frequency in the absence of segment mismatch. <em>PLoS Pathogens</em> 9(6):e1003421.</p>
     </div>
     </div>
     <div class="footnotes">
