@@ -24,4 +24,4 @@ A logical next step would be to extend the algorithm to identify not merely the 
 
 $$ \frac{\sum\limits_{s=1}^S PWI_{s}}{S} $$
 
-, and then apply a 'softmax' normalization across all valid parental combinations, thus
+and then apply a 'softmax' normalization across all valid parental combinations, thus
