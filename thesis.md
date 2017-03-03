@@ -388,7 +388,9 @@ Influenza A Viruses (IAV) in nature must overcome shifting transmission barriers
 
 ### Research Question
 
-The influenza A virus has to find ways to persist in wild birds over their annual cycles of migration, overcoming transmission barriers brought about by the ann
+The influenza A virus has to find ways to persist in wild birds over their annual cycles of migration. In particular, the barriers to transmission can be summarized in simple terms as such:
+
+- 
 
 - Research question: is reassortment a favoured strategy for viral gene persistence across wintering seasons?
     - Lead author: Nichola Hill (post-doc in lab).
