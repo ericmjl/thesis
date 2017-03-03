@@ -380,7 +380,7 @@ We describe here the methods specifically used for this application.
 
 ## Application 2: Viral persistence.
 
-The bulk of this study, including the writing, was led by Dr. Nichola J. Hill; as such, apart from the abstract, I provide a synopsis of the work rather than the original text. Additionally, much effort was dedicated to sample collection in Fairbanks, AK, led by Brandt Meixell, without which this study would not have been possible.
+The bulk of this study, including the writing, was led by Dr. Nichola J. Hill; as such, apart from the abstract, I provide a synopsis of the work rather than the original text. Additionally, much effort was dedicated to sample collection in Fairbanks, AK, led by Brandt Meixell, without which this study would not have been possible, and I would like to acknowledge the effort put in by the sample collection team in enabling this study.
 
 ### Abstract
 
