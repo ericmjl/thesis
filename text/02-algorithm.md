@@ -17,10 +17,12 @@ The algorithm is also expressed in the following three-part pseudocode.
 
 for each segment in all_segments:
     compute all pairwise identities (PWIs) between each pair of viral isolates
-    cluster all isolates based on segment's similarity scores
+    cluster all isolates based on segment similarity scores
     compute threshold score as the minimum of all minimum in-cluster PWI
     set to NULL all scores below threshold
+```
 
+```
 # Part 2: Find maximally similar isolates.
 
 initialize empty graph
@@ -30,10 +32,12 @@ for each isolate in all_isolates:
     filter isolates such that there are no NULL PWI values
     sum up PWI values
     find maximally similar isolate(s) and add edge between isolate(s)
+```
 
+```
 # Part 3: Re-check isolates for source pairs.
 for each edge in graph:
-    if edge PWI less than 10th percentile of all PWI scores:
+    if edge PWI < nth percentile of all PWI scores:
         get other isolates that occurred prior in time to this isolate
         filter isolates such that there are no NULL PWI values
         find pair of isolates whose complementary segments maximizes PWI

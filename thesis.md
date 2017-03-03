@@ -28,6 +28,12 @@ Evolutionary drift is not the only mechanism by which influenza evolves. Its seg
 
 [^evoshift]: Amongst influenza researchers, evolutionary shift almost always refers to the exchange of HA and NA genes to produce viruses with an immunologically novel HA/NA combination. However, in this thesis, evolutionary shift refers more broadly to the exchange of any of the genes resulting in a novel genotype combination.
 
+## Subtype Classification
+
+Influenza A viruses are classically known by their subtypes, e.g. H1N1, H5N1, H3N2. The "H" stands for the hemagglutinin subtype, for which there are 16 canonically known ones (H1-H16) and two new subtypes (H17 and H18) proposed (#cite). The "N" stands for the neuraminidase subtype, for which there are 9 canonically known ones (N1-N9) and two newly proposed subtypes (N10 and N11) (#cite).
+
+The hemagglutinin and neuraminidase are proteins expressed on the surface of the viral particle, and as such they are thought to be subject to immune selection and thus evolutionary pressure. This explains why there is such great diversity in the HA and NA genes.
+
 ## Phylogenies
 
 The evolutionary history of the influenza virus can be visualized using phylogenies. Phylogenetic trees are a reconstruction of the life history of a virus, and is based on two core concepts in evolutionary biology: common ancestry and descent with modification. There have been three major advances in the history of inference of phylogenies using gene sequence data:
@@ -194,11 +200,13 @@ Most generically, we may describe a "fit" virus as a virus that, under its evolu
 
 ## Evolutionary Consequences of Reassortment
 
-Reassortment can result in novel genotype combinations. Immune evasion.
+Reassortment can result in novel genotype combinations. An epidemiologically-relevant reassortment is one that occurs between viruses of different subtypes. As the HA and NA genes are the ones that elicit an immune response, novel HA/NA combinations, or the introduction of an antigenically distinct HA or NA of the same subtype, can result in a new virus with the ability to evade immune detection. This would, in turn, help the virus circumvent existing host (and population) immunity.
+
+In theory, it is also possible for other 'enhancements' to the influenza A virus to be acquired via reassortment. For example, polymorphisms correlated with enhanced polymerase replication capacity in human cells are found in viruses isolated in wild birds, raising the possibility that these mutations can occur naturally and, if reassorted with an immunologically-novel viral subtype, confer enhanced replication capacity, leading to a much riskier virus.
 
 ## Distribution of Influenza A Virus
 
-The influenza A virus has a broad geographic and trophic range. According to the 
+The influenza A virus has a broad geographic and trophic range. 
 
 ----
 
@@ -232,10 +240,12 @@ The algorithm is also expressed in the following three-part pseudocode.
 
 for each segment in all_segments:
     compute all pairwise identities (PWIs) between each pair of viral isolates
-    cluster all isolates based on segment's similarity scores
+    cluster all isolates based on segment similarity scores
     compute threshold score as the minimum of all minimum in-cluster PWI
     set to NULL all scores below threshold
+```
 
+```
 # Part 2: Find maximally similar isolates.
 
 initialize empty graph
@@ -245,10 +255,12 @@ for each isolate in all_isolates:
     filter isolates such that there are no NULL PWI values
     sum up PWI values
     find maximally similar isolate(s) and add edge between isolate(s)
+```
 
+```
 # Part 3: Re-check isolates for source pairs.
 for each edge in graph:
-    if edge PWI less than 10th percentile of all PWI scores:
+    if edge PWI < nth percentile of all PWI scores:
         get other isolates that occurred prior in time to this isolate
         filter isolates such that there are no NULL PWI values
         find pair of isolates whose complementary segments maximizes PWI
