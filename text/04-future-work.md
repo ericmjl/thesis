@@ -1,6 +1,8 @@
-# Future Work
+# Remaining Challenges & Future Work
 
-## Engineering work
+## Engineering
+
+Algorithms developed in the academic world often require "just some engineering" to be made ready for deployment to the real-world. It remains on my personal wish-list to have turned this reassortment detection algorithm into a standalone software package, not unlike BEAST or GiRaF. I am thankful for the Influenza Research Database for contacting us for a consultation as they consider implementing the software in their backend.
 
 ### Automation
 
@@ -8,14 +10,10 @@ The code, as it stands right now, was designed for execution on a Sun Grid Engin
 
 With the development of Python-based software schedulers (e.g. Dask [@Team:2016wk]) enabling automatic execution of complex, arbitrary computation graphs, a rework of the code could be performed to make it executable with a single command from the command line. Dask has the added advantage of being able to scale from single cores to cloud infrastructure, though at the moment SGE clusters are not supported.
 
-## Scientific questions
+## Scientific
 
-### Experimental Validation
+### Homologous Reassortment
 
-The principle that genome shuffling can confer advantages in crossing between niches that are quantitatively different is a broad and difficult question to answer, partly because it is a broad idea that requires well-defined boundaries to answer, and partly because the genetics of influenza itself, such as packaging signals [@Steel:2014ef], may confound the ecological study of reassortment.
+Detection of reassortment between genotypically similar (but non-identical) viruses, which we might want to call "homologous reassortment", remains an oft-cited challenge for reassortment detection. Reassortment frequency is high and fairly unbiased under neutral fitness conditions [@Marshall:2013kn] (i.e. there is no change in viral protein sequence, but only nucleotide sequence). However, this knowledge also raises the question about the utility of knowing how much homologous reassortment happens - if there are minimal (or no) fitness differences, then is homologous reassortment consequential for the evolution of a virus? My own answer, based on intuition, is that homologous reassortment likely has little impact on the evolution of a virus, and that the surveillance community would be better concerned with heterologous reassortment.
 
-Influenza genetics also complicate the matter. With 8 genomic segments, if there are two viruses being experimentally reassorted, there are $2^8$ possible unique viruses that could be individually tested for replication fitness in a new host. Factor in the number of possible viruses that could be reassorted, and the number of possible model host cell lines available, and it can become an intractable problem to test every single combination.
-
-Finally, we run into the issue of "gain-of-function" (GOF) studies. GOF studies are tricky because of the risk of creating a laboratory virus strain that (a) has the potential for human-to-human transmission, and (b) has the potential for lethality if a human is infected.
-
-A simpler experimental approach may be as follows. We may opt to test the effect of avian genes on the replication of human viruses in avian cell lines (rather than the other way around, to circumvent GOF issues).
+### 

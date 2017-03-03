@@ -55,7 +55,7 @@ To assess the accuracy of our reconstruction, we defined the path accuracy and r
 
 Source code for the simulation studies is availble on Zenodo (DOI: 10.5281/zenodo.33427).
 
-## Analysis of Time Complexity
+## Comparative Analysis of Time Complexity
 
 ### Tree Reconstruction Complexity
 
@@ -63,16 +63,26 @@ According to Felsenstein [@Felsenstein:2004ws], given a set of $n$ labelled sequ
 
 $$ \frac{(2n-3)!}{2^{n-2}(n-2)!} $$
 
-Under the assumption that a Bayesian reconstruction is only looking for the most optimal tree topologies and is not estimating times of divergence for internal nodes, then the worst case scenario is that the MCMC sampling algorithm has to search $2^n$ trees in order to find the best topology. As such, tree reconstruction methods have a worst-case time complexity of $O(2^n)$.
+This can be expanded to:
 
-This is necessarily a simplified view of Bayesian tree construction.
+$$\frac{(2n-3)(2n-4)(2n-5)...(n)(n-1)(n-2)(n-3)(n-4)...(1)}{2^{n-2}(n-2)(n-3)(n-4)...(1)}$$
 
-### Algorithm Complexity
+Cancelling the common terms in the numerator and denominator, we get:
+
+$$\frac{(2n-3)(2n-4)(2n-5)...(2n-n)(2n-(n+1))}{2^{n-2}}$$
+
+If we consider only the polynomial terms of n, we see that in the numerator, $2n$ is multiplied $k-2$ times, where $k$ is the term subtracted from $2n$. Therefore, the major term simplifies to:
+
+$$\frac{(2n)^{n-1}}{2^{n-2}} = \frac{2^{n-1}n^{n-1}}{2^{n-2}} = 2n^{n-1}$$
+
+Under the assumption that a Bayesian reconstruction is only looking for the most optimal tree topology and is not estimating times of divergence for internal nodes, then the worst case scenario is that the MCMC sampling algorithm has to search $O(n^{n})$ trees in order to find the best topology.
+
+### Network Reconstruction Complexity
 
 For each of the major steps in the algorithm developed in this thesis, the time complexity is outlined below:
 
 - Pairwise distance matrix computations require $n^2$ comparisons.
 - Finding maximal edges again requires $n^2$ comparisons to be made.
-- In the 2nd search for source pairs, given $s$ segments and $n$ isolates, in the worst case scenario, we have to check all isolates for the source pairs. Thus, we require ${s}\choose{2}$$n^2$ comparisons in the worst-case scenario. (#DOUBLECHECK!)
+- In the 2nd search for source pairs, given $s$ segments and $n$ isolates, in the worst case scenario, we have to check all isolates for the source pairs. Thus, we require ${s}\choose{2}$ $n^2$ comparisons in the worst-case scenario. (#DOUBLECHECK!)
 
-Given this analysis, the time complexity of the algorithm outlined in this thesis should be worst-case $O(n^2)$.
+Given this analysis, the time complexity of the algorithm outlined in this thesis should be $O(n^2)$.

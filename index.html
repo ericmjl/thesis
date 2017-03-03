@@ -42,21 +42,27 @@
         </ul></li>
         <li><a href="#interpreting-trees">Interpreting Trees</a></li>
         <li><a href="#inferring-reassortment">Inferring Reassortment</a><ul>
-        <li><a href="#phylogeny-dependent-methods.">Phylogeny-Dependent Methods.</a></li>
-        <li><a href="#phylogeny-independent-methods">Phylogeny-Independent Methods</a></li>
+        <li><a href="#single-virus">Single Virus</a></li>
+        <li><a href="#tree-incongruence">Tree Incongruence</a></li>
+        <li><a href="#rd-codon-biases">3rd Codon Biases</a></li>
         </ul></li>
         <li><a href="#genome-packaging">Genome Packaging</a></li>
+        <li><a href="#viral-fitness">Viral Fitness</a></li>
+        <li><a href="#evolutionary-consequences-of-reassortment">Evolutionary Consequences of Reassortment</a></li>
+        <li><a href="#distribution-of-influenza-a-virus">Distribution of Influenza A Virus</a></li>
         </ul></li>
         <li><a href="#algorithm">Algorithm</a><ul>
         <li><a href="#description">Description</a></li>
         <li><a href="#simulation-studies">Simulation Studies</a></li>
-        <li><a href="#analysis-of-time-complexity">Analysis of Time Complexity</a><ul>
+        <li><a href="#comparative-analysis-of-time-complexity">Comparative Analysis of Time Complexity</a><ul>
         <li><a href="#tree-reconstruction-complexity">Tree Reconstruction Complexity</a></li>
-        <li><a href="#algorithm-complexity">Algorithm Complexity</a></li>
+        <li><a href="#network-reconstruction-complexity">Network Reconstruction Complexity</a></li>
         </ul></li>
         </ul></li>
         <li><a href="#applications">Applications</a><ul>
         <li><a href="#application-1-global-reticulate-evolution-study.">Application 1: Global reticulate evolution study.</a><ul>
+        <li><a href="#abstract">Abstract</a></li>
+        <li><a href="#significance">Significance</a></li>
         <li><a href="#introduction">Introduction</a></li>
         <li><a href="#method-validation">Method Validation</a></li>
         <li><a href="#results">Results</a></li>
@@ -65,16 +71,14 @@
         </ul></li>
         <li><a href="#application-2-viral-persistence.">Application 2: Viral persistence.</a></li>
         </ul></li>
-        <li><a href="#future-work">Future Work</a><ul>
-        <li><a href="#engineering-work">Engineering work</a><ul>
+        <li><a href="#remaining-challenges-future-work">Remaining Challenges &amp; Future Work</a><ul>
+        <li><a href="#engineering">Engineering</a><ul>
         <li><a href="#automation">Automation</a></li>
         </ul></li>
-        <li><a href="#scientific-questions">Scientific questions</a><ul>
-        <li><a href="#experimental-validation">Experimental Validation</a></li>
+        <li><a href="#scientific">Scientific</a><ul>
+        <li><a href="#homologous-reassortment">Homologous Reassortment</a></li>
+        <li><a href="#section"></a></li>
         </ul></li>
-        </ul></li>
-        <li><a href="#appendices">Appendices</a><ul>
-        <li><a href="#influenza-packaging">Influenza Packaging</a></li>
         </ul></li>
         <li><a href="#references">References</a></li>
         </ul>
@@ -260,7 +264,7 @@
     <p>the likelihood over every possible reconstructed ancestral sequence has to be computed as well.</p>
     <p>Thus, in practice, trees are iteratively built using a greedy algorithm. For brevity, I do not detail the methods here, but they can be found in Felsenstein (2004) <span class="citation">(1)</span>.</p>
     <h3 id="bayesian-phylogenetic-inference">Bayesian Phylogenetic Inference</h3>
-    <p>Bayesian phylogenetic reconstruction methods extend likelihood tree reconstruction methods by allowing us to infer a probability distribution over the tree topology and coalescent times, given the data. When paired with phylogeographic inference <span class="citation">(2)</span>, where geography is modelled as another character state in addition to nucleotide sequence, it is possible to trace reconstruct and trace the movement of viruses. As is the case with Bayesian inference in general, the exponential increase in computational power along with advances in tree-space MCMC have been greatly enabling. Bayesian phylogenetic inference has been used successfully to infer the time of emergence of outbreak viruses such as the Ebola virus <span class="citation">(3, 4)</span> and movement swine influenza viruses <span class="citation">(5)</span>.</p>
+    <p>Bayesian phylogenetic reconstruction methods extend likelihood tree reconstruction methods by allowing us to infer a probability distribution over the tree topology and coalescent times, given the data. When paired with phylogeographic inference <span class="citation">(2)</span>, where geography is modelled as another character state in addition to nucleotide sequence, it is possible to trace reconstruct and trace the movement of viruses. As is the case with Bayesian inference in general, the exponential increase in computational power along with advances in tree-space MCMC have been greatly enabling. Bayesian phylogenetic inference has been used successfully to infer the time of emergence of outbreak viruses such as the Ebola virus <span class="citation">(3, 4)</span> and movement swine influenza viruses <span class="citation">(5)</span>. Nonetheless, Bayesian phylogenetic tree construction remains computationally expensive; typical real-world runtimes for tree reconstruction, given single core, GPU-enabled compute power, are on the order of weeks for hundreds of taxa and months for thousands of taxa.</p>
     <h2 id="interpreting-trees">Interpreting Trees</h2>
     <p>A bifurcating phylogenetic tree is a directed acyclic graph comprised of leaf nodes (tips), internal nodes, and bifurcating branches at each <strong>internal node</strong> (fig. <a href="#fig:interpreting-trees">5</a>). Branch lengths indicate evolutionary time elapsed from an internal node to another internal node or leaf.</p>
     <p>As with any hierarchical clustering method, the leaves can be organized into <strong>clades</strong> (fig. <a href="#fig:interpreting-trees">5</a>), which represent a cluster of isolates on the tree that are closely related. How a clade is defined is subjective, and visual observation is the most common way to define a clade.</p>
@@ -270,8 +274,7 @@
     <p class="caption">Figure 5: Visual definition of internal nodes, clades, and patristic distances.</p>
     </div>
     <h2 id="inferring-reassortment">Inferring Reassortment</h2>
-    <h3 id="phylogeny-dependent-methods.">Phylogeny-Dependent Methods.</h3>
-    <h4 id="single-virus">Single Virus</h4>
+    <h3 id="single-virus">Single Virus</h3>
     <p>Reassortment is classically inferred on a single virus of interest. The logic is essentially presented in fig. <a href="#fig:reassortment">6</a>.</p>
     <div class="figure">
     <img src="./figures/reassortment.jpg" alt="Figure 6: An illustration of how reassortment is inferred for a single virus." id="fig:reassortment" />
@@ -279,7 +282,7 @@
     </div>
     <p>Reassortment can be detected by looking for incongruence in the phylogenetic history of a virus. As a simple example, for the red flu of interest in fig. <a href="#fig:reassortment">6</a>, two of its three genes share closer evolutionary history with avian flu, while one gene shares closer evolutionary history with human flu. As such, we would infer that this avian virus acquired a human virus' gene through some process of reassortment.</p>
     <p>Is it possible to tell in which host a virus was isolated? Given the sparsity of sampling efforts, it is very difficult to tell whether this reassortment was more likely to have occurred inside a human host or an avian host or an intermediate host. The best that we can do is reconstruct the evolutionary history.</p>
-    <h4 id="tree-incongruence">Tree Incongruence</h4>
+    <h3 id="tree-incongruence">Tree Incongruence</h3>
     <p>Tree incongruence is another way of identifying reassortant influenza A viruses. Because a bifurcating phylogenetic tree can be defined as a set of splits partitioning the taxa into two sets, &quot;incompatible splits&quot; in the tree can be identified by looking at the partitioned sets and identifying partition sets that have non-null intersections.</p>
     <p>Let us look at fig. <a href="#fig:tree-splits">7</a> for an elementary example. Suppose we had two trees with the same set of taxa, <span class="math inline">\(\{t_1, t_2, t_3, t_4\}\)</span>. We observe the following splits:</p>
     <div class="figure">
@@ -306,12 +309,7 @@
     </ul>
     <p>Hence, these trees are incompatible, and thus there is evidence that reassortment has happened.</p>
     <p>Tree incongruence is a generalization of the logic used to find individual reassortant viruses, and is implemented in the software, GiRaF <span class="citation">(6)</span>. In practice because Bayesian phylogenetic tree reconstructions are returned as ensembles of trees from MCMC sampling, splits are only counted if they appear in more than 95% of sampled trees.</p>
-    <h4 id="patristic-distances">Patristic Distances</h4>
-    <p>Patristic distances can also be used as a way of finding reassortant viruses. The elementary logic is described below.</p>
-    <p>Suppose we have a</p>
-    <h3 id="phylogeny-independent-methods">Phylogeny-Independent Methods</h3>
-    <p>Phylogeny-independent methods do not require the construction of phylogenetic trees in order to identify reassortant viruses.</p>
-    <h4 id="rd-codon-biases">3rd Codon Biases</h4>
+    <h3 id="rd-codon-biases">3rd Codon Biases</h3>
     <p>3rd codon sequences are assumed to be under less selective pressure than 1st and 2nd codons in a sequence. If one considers two strains of virus <span class="math inline">\(v_a\)</span> and <span class="math inline">\(v_b\)</span>, and their respective pairs of segments, <span class="math inline">\(s_{ia}\)</span> and <span class="math inline">\(s_{ib}\)</span>, and <span class="math inline">\(s_{ja}\)</span> and <span class="math inline">\(s_{jb}\)</span>, we may compute the difference between their segments as follows:</p>
     <p><span class="math display">\[ d_{iab} = EditDistance(s_{ia}, s_{ib}) \]</span> <span class="math display">\[ d_{jab} = EditDistance(s_{ja}, s_{jb}) \]</span></p>
     <p>Plotting the distribution of <span class="math inline">\(d_{iab}\)</span> against <span class="math inline">\(d_{jab}\)</span> for all pairs of viruses <span class="math inline">\((v_a, v_b)\)</span> yields the following plot:</p>
@@ -332,26 +330,15 @@
     <img src="./figures/packaging.jpg" alt="Figure 9: Summary of known results in influenza genome packaging. (a) Mutating the 3rd codon positions in the packaging regions reduces packaging efficiency, thus highlighting their importance. (b) Defective-interfering RNAs harbouring only the packaging signals can interfere with live virion production. (c) Foreign genes, such as GFP, have been packaged into the influenza virus by flanking them with packaging signals. (d) Packaging signals can be swapped between segments, but a packaging signal sequence must be present on each gene in order to rescue live virus." id="fig:packaging" />
     <p class="caption">Figure 9: Summary of known results in influenza genome packaging. (a) Mutating the 3rd codon positions in the packaging regions reduces packaging efficiency, thus highlighting their importance. (b) Defective-interfering RNAs harbouring only the packaging signals can interfere with live virion production. (c) Foreign genes, such as GFP, have been packaged into the influenza virus by flanking them with packaging signals. (d) Packaging signals can be swapped between segments, but a packaging signal sequence must be present on each gene in order to rescue live virus.</p>
     </div>
+    <h2 id="viral-fitness">Viral Fitness</h2>
+    <p>In discussing the evolutionary trajectory of a virus, one inevitably touches on the topic of fitness.</p>
+    <p>Most generically, we may describe a &quot;fit&quot; virus as a virus that, under its evolutionary landscape, successfully replicated in a viral host and propagated to another host.</p>
+    <h2 id="evolutionary-consequences-of-reassortment">Evolutionary Consequences of Reassortment</h2>
+    <p>Reassortment can result in novel genotype combinations. Immune evasion.</p>
+    <h2 id="distribution-of-influenza-a-virus">Distribution of Influenza A Virus</h2>
+    <p>The influenza A virus has a broad geographic and trophic range. According to the</p>
     <hr />
     <ol style="list-style-type: decimal">
-    <li>Current best knowledge on reassortment mechanism at the cellular level.
-    <ol style="list-style-type: decimal">
-    <li>Summarize at a higher level of abstraction that the “host” level is what is necessary for understanding the problem.</li>
-    </ol></li>
-    <li>Phylogenetic trees: inference, structure, interpretation.
-    <ol style="list-style-type: decimal">
-    <li>Concepts to cover: patristic distance (branch length from isolate to isolate), very important for understanding algorithm claim 1.</li>
-    <li>Inference of branching, meaning of “time of most recent common ancestor”, how it’s inferred - evolutionary rate models.</li>
-    </ol></li>
-    <li>Reticulate evolution &amp; reassortment: inference by tree discordance.
-    <ol style="list-style-type: decimal">
-    <li>Current software available for doing so, and a brief summary of their logic.
-    <ol style="list-style-type: decimal">
-    <li>GiRaF</li>
-    <li>Reassortment Networks</li>
-    <li>3rd codon biases</li>
-    </ol></li>
-    </ol></li>
     <li>Importance of reassortant viruses: pandemics, immune evasion.
     <ol style="list-style-type: decimal">
     <li>Measures of fitness - “what is a “fit” virus?” relative to others? Quasispecies concept.</li>
@@ -412,22 +399,32 @@
     <p>The number of unique starting genotypes and total number of viral isolates being considered was much smaller than the real-world data. Therefore, our graph reconstruction procedure captured the essential parts of the method used in the global analysis, but differed in the details. Here, “full complements” involve only two segments. We did not perform affinity propagation clustering, as we started with completely randomly generated sequences of equal length. Our “null model” graph is where source isolates are chosen uniformly at random from the set of nodes occurring before the sink isolates.</p>
     <p>To assess the accuracy of our reconstruction, we defined the path accuracy and reassortant path identification accuracy metrics (#figure). Edge accuracy, which is not used for evaluation here, is whether a particular reconstruction transmission between two isolates exists in the simulation. Path accuracy is a generalization of edge accuracy, where a path existing between the source and sink nodes (without considering the direction of edges) in the reconstruction is sufficient for being considered accurate. Reassortant path identification accuracy measures how accurately we identified the reassortant paths, analogous to the regular path accuracy.</p>
     <p>Source code for the simulation studies is availble on Zenodo (DOI: 10.5281/zenodo.33427).</p>
-    <h2 id="analysis-of-time-complexity">Analysis of Time Complexity</h2>
+    <h2 id="comparative-analysis-of-time-complexity">Comparative Analysis of Time Complexity</h2>
     <h3 id="tree-reconstruction-complexity">Tree Reconstruction Complexity</h3>
     <p>According to Felsenstein <span class="citation">(1)</span>, given a set of <span class="math inline">\(n\)</span> labelled sequences, the number of possible rooted, bifurcating trees (which are used for inferring tree inconrguence) is</p>
     <p><span class="math display">\[ \frac{(2n-3)!}{2^{n-2}(n-2)!} \]</span></p>
-    <p>Under the assumption that a Bayesian reconstruction is only looking for the most optimal tree topologies and is not estimating times of divergence for internal nodes, then the worst case scenario is that the MCMC sampling algorithm has to search <span class="math inline">\(2^n\)</span> trees in order to find the best topology. As such, tree reconstruction methods have a worst-case time complexity of <span class="math inline">\(O(2^n)\)</span>.</p>
-    <p>This is necessarily a simplified view of Bayesian tree construction.</p>
-    <h3 id="algorithm-complexity">Algorithm Complexity</h3>
+    <p>This can be expanded to:</p>
+    <p><span class="math display">\[\frac{(2n-3)(2n-4)(2n-5)...(n)(n-1)(n-2)(n-3)(n-4)...(1)}{2^{n-2}(n-2)(n-3)(n-4)...(1)}\]</span></p>
+    <p>Cancelling the common terms in the numerator and denominator, we get:</p>
+    <p><span class="math display">\[\frac{(2n-3)(2n-4)(2n-5)...(2n-n)(2n-(n+1))}{2^{n-2}}\]</span></p>
+    <p>If we consider only the polynomial terms of n, we see that in the numerator, <span class="math inline">\(2n\)</span> is multiplied <span class="math inline">\(k-2\)</span> times, where <span class="math inline">\(k\)</span> is the term subtracted from <span class="math inline">\(2n\)</span>. Therefore, the major term simplifies to:</p>
+    <p><span class="math display">\[\frac{(2n)^{n-1}}{2^{n-2}} = \frac{2^{n-1}n^{n-1}}{2^{n-2}} = 2n^{n-1}\]</span></p>
+    <p>Under the assumption that a Bayesian reconstruction is only looking for the most optimal tree topology and is not estimating times of divergence for internal nodes, then the worst case scenario is that the MCMC sampling algorithm has to search <span class="math inline">\(O(n^{n})\)</span> trees in order to find the best topology.</p>
+    <h3 id="network-reconstruction-complexity">Network Reconstruction Complexity</h3>
     <p>For each of the major steps in the algorithm developed in this thesis, the time complexity is outlined below:</p>
     <ul>
     <li>Pairwise distance matrix computations require <span class="math inline">\(n^2\)</span> comparisons.</li>
     <li>Finding maximal edges again requires <span class="math inline">\(n^2\)</span> comparisons to be made.</li>
-    <li>In the 2nd search for source pairs, given <span class="math inline">\(s\)</span> segments and <span class="math inline">\(n\)</span> isolates, in the worst case scenario, we have to check all isolates for the source pairs. Thus, we require <span class="math inline">\({s}\choose{2}\)</span><span class="math inline">\(n^2\)</span> comparisons in the worst-case scenario. (#DOUBLECHECK!)</li>
+    <li>In the 2nd search for source pairs, given <span class="math inline">\(s\)</span> segments and <span class="math inline">\(n\)</span> isolates, in the worst case scenario, we have to check all isolates for the source pairs. Thus, we require <span class="math inline">\({s}\choose{2}\)</span> <span class="math inline">\(n^2\)</span> comparisons in the worst-case scenario. (#DOUBLECHECK!)</li>
     </ul>
-    <p>Given this analysis, the time complexity of the algorithm outlined in this thesis should be worst-case <span class="math inline">\(O(n^2)\)</span>.</p>
+    <p>Given this analysis, the time complexity of the algorithm outlined in this thesis should be <span class="math inline">\(O(n^2)\)</span>.</p>
     <h1 id="applications">Applications</h1>
     <h2 id="application-1-global-reticulate-evolution-study.">Application 1: Global reticulate evolution study.</h2>
+    <p>This study was conducted with much help from Dr. Nichola J. Hill (MIT Department of Biological Engineering &amp; Division of Comparative Medicine) who gave much technical mentorship on ecology, and two undergraduate students, Kyle Yuan and Justin Zabilansky, both of whom contributed analysis or code to the final paper.</p>
+    <h3 id="abstract">Abstract</h3>
+    <p>Reticulate evolution is thought to accelerate the process of evolution beyond simple genetic drift and selection, helping to rapidly generate novel hybrids with combinations of adaptive traits. However, the long-standing dogma that reticulate evolutionary processes are likewise advantageous for switching ecological niches, as in microbial pathogen host switch events, has not been explicitly tested. We use data from the influenza genome sequencing project and a phylogenetic heuristic approach to show that reassortment, a reticulate evolutionary mechanism, predominates over mutational drift in transmission between different host species. Moreover, as host evolutionary distance increases, reassortment is increasingly favoured. We conclude that the greater the quantitative difference between ecological niches, the greater the importance of reticulate evolutionary processes in overcoming niche barriers.</p>
+    <h3 id="significance">Significance</h3>
+    <p>Are the processes that result in the exchange of genes between microbes quantitatively advantageous for those microbes when switching between ecological niches? To address this question, we consider the influenza A virus as a model microbe, with its ability to infect multiple host species (ecological niches) and undergo reassortment (exchange genes) with one another. Through our analysis of sequence data from the Influenza Research Database and the Barcode of Life Database, we find that the greater the quantitative difference between influenza hosts, the greater the proportion of reassortment events were found. More broadly, for microbes, we infer that reticulate evolutionary processes should be quantitatively favoured when switching between ecological niches.</p>
     <h3 id="introduction">Introduction</h3>
     <p>Reticulate evolutionary processes, such as horizontal gene transfer and genomic reassortment, have been proposed as a major mechanism for microbial evolution <span class="citation">(15)</span>, aiding in the diversification into new ecological niches <span class="citation">(16)</span>. In contrast to clonal adaptation through genetic drift over time, reticulate evolutionary processes allow an organism to acquire independently evolved genetic material that can confer new fitness-enhancing traits. Examples include the acquisition of cell surface receptor adaptations (point mutations) in viruses <span class="citation">(17)</span> and antibiotic resistance (single genes) <span class="citation">(18)</span> and pathogenicity islands (or gene clusters) in bacteria <span class="citation">(19)</span>.</p>
     <p>Host switching, defined as a pathogen moving from one host species into another, represents a fitness barrier to microbial pathogens. The acquisition of adaptations through reticulate processes either before or after transmission from one species to another may serve to aid successful pathogen host switches by improving fitness and the likelihood of continued transmission <span class="citation">(20)</span>. In this sense, reticulate evolution may be viewed as an ecological strategy for switching between ecological niches (such as different host species), complementing but also standing in contrast to the clonal adaptation of a microbial pathogen by genetic drift under selection. To test this idea and its importance in host switch events, which are critical for (re)-emerging infectious disease, we provide a quantitative assessment of the relative importance of reticulate processes versus clonal adaptation in aiding the ecological niche switch of a viral pathogen.</p>
@@ -491,20 +488,16 @@
     <li>Results: reassortment is over-represented for persistence through winter, relative to random chance. Describe statistical test.</li>
     </ul>
     <p>Caveats common to both applications: always will have sampling issues with the current sequence database.</p>
-    <h1 id="future-work">Future Work</h1>
-    <h2 id="engineering-work">Engineering work</h2>
+    <h1 id="remaining-challenges-future-work">Remaining Challenges &amp; Future Work</h1>
+    <h2 id="engineering">Engineering</h2>
+    <p>Algorithms developed in the academic world often require &quot;just some engineering&quot; to be made ready for deployment to the real-world. It remains on my personal wish-list to have turned this reassortment detection algorithm into a standalone software package, not unlike BEAST or GiRaF. I am thankful for the Influenza Research Database for contacting us for a consultation as they consider implementing the software in their backend.</p>
     <h3 id="automation">Automation</h3>
     <p>The code, as it stands right now, was designed for execution on a Sun Grid Engine compute cluster. This design enabled manual parallelism wherever the code was embarrassingly parallel, in a map-reduce paradigm. For example, one key step is the creation of a multiple sequence alignment for each influenza A virus segment. Because the the alignment of one segment is not dependent on the alignment of another segment, they could be aligned in parallel, with the alignment of longer segments taking longer than the alignment of shorter segments. However, a few steps after that, there is a &quot;reduction&quot; step that is dependent on having all 8 evolutionary distance matrices computed fully, and this was one example of a step that was not automated because of (1) a lack of expertise in parallel computation and (2) the nature of the SGE scheduling system not being accessible from an external API.</p>
     <p>With the development of Python-based software schedulers (e.g. Dask <span class="citation">(49)</span>) enabling automatic execution of complex, arbitrary computation graphs, a rework of the code could be performed to make it executable with a single command from the command line. Dask has the added advantage of being able to scale from single cores to cloud infrastructure, though at the moment SGE clusters are not supported.</p>
-    <h2 id="scientific-questions">Scientific questions</h2>
-    <h3 id="experimental-validation">Experimental Validation</h3>
-    <p>The principle that genome shuffling can confer advantages in crossing between niches that are quantitatively different is a broad and difficult question to answer, partly because it is a broad idea that requires well-defined boundaries to answer, and partly because the genetics of influenza itself, such as packaging signals <span class="citation">(28)</span>, may confound the ecological study of reassortment.</p>
-    <p>Influenza genetics also complicate the matter. With 8 genomic segments, if there are two viruses being experimentally reassorted, there are <span class="math inline">\(2^8\)</span> possible unique viruses that could be individually tested for replication fitness in a new host. Factor in the number of possible viruses that could be reassorted, and the number of possible model host cell lines available, and it can become an intractable problem to test every single combination.</p>
-    <p>Finally, we run into the issue of &quot;gain-of-function&quot; (GOF) studies. GOF studies are tricky because of the risk of creating a laboratory virus strain that (a) has the potential for human-to-human transmission, and (b) has the potential for lethality if a human is infected.</p>
-    <p>A simpler experimental approach may be as follows. We may opt to test the effect of avian genes on the replication of human viruses in avian cell lines (rather than the other way around, to circumvent GOF issues).</p>
-    <h1 id="appendices">Appendices</h1>
-    <h2 id="influenza-packaging">Influenza Packaging</h2>
-    <!-- insert here our current best knowledge on influenza packaging -->
+    <h2 id="scientific">Scientific</h2>
+    <h3 id="homologous-reassortment">Homologous Reassortment</h3>
+    <p>Detection of reassortment between genotypically similar (but non-identical) viruses, which we might want to call &quot;homologous reassortment&quot;, remains an oft-cited challenge for reassortment detection. Reassortment frequency is high and fairly unbiased under neutral fitness conditions <span class="citation">(50)</span> (i.e. there is no change in viral protein sequence, but only nucleotide sequence). However, this knowledge also raises the question about the utility of knowing how much homologous reassortment happens - if there are minimal (or no) fitness differences, then is homologous reassortment consequential for the evolution of a virus? My own answer, based on intuition, is that homologous reassortment likely has little impact on the evolution of a virus, and that the surveillance community would be better concerned with heterologous reassortment.</p>
+    <h3 id="section"></h3>
     <h1 id="references" class="unnumbered">References</h1>
     <div id="refs" class="references">
     <div id="ref-Felsenstein:2004ws">
@@ -653,6 +646,9 @@
     </div>
     <div id="ref-Team:2016wk">
     <p>49. Team DD <em>Dask: Library for dynamic task scheduling</em>.</p>
+    </div>
+    <div id="ref-Marshall:2013kn">
+    <p>50. Marshall N, Priyamvada L, Ende Z, Steel J, Lowen AC (2013) Influenza virus reassortment occurs with high frequency in the absence of segment mismatch. <em>PLoS Pathogens</em> 9(6):e1003421.</p>
     </div>
     </div>
     <div class="footnotes">
