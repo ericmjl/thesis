@@ -10,41 +10,6 @@ We adapted the SeqTrack algorithm [@Jombart:2011iu] to perform graph constructio
 
 We then thresholded each segment’s similarity matrix on the basis of its segment’s threshold value, summed all eight thresholded similarity matrices, and then for each isolate, we identified the most similar isolate that occurred before it in time. This yielded the initial “full complement” graph without reassortant viruses. Each edge in this graph has an attached pair- wise identity (PWI), which is the sum of PWIs across all eight segments. Within this graph, there are isolates for which no “full complement” of segments could be identified, which are candidate reassortant viruses. In addition, among the isolates for which a full complement of segments could be found from another source, we identified those whose in-edges were weighted at the bottom 10% of all edges present in the graph, which we also identified as candidate reassortant viruses (1,357 of 1,368 such viruses were eventually identified as reassortant; the other 11 were considered to be clonally descended). For these viruses, we performed source pair searches, where we identified sources for a part of the genome from one virus and sources for the complementary part of the genome from another virus. If the summed PWI across the segments for the two viruses was greater than the single-source search, we accepted the source pair as the candidate reassortant.
 
-The algorithm is also expressed in the following three-part pseudocode.
-
-```
-# Part 1: Compute pairwise identities between all viral isolates' segments.
-
-for each segment in all_segments:
-    compute all pairwise identities (PWIs) between each pair of viral isolates
-    cluster all isolates based on segment similarity scores
-    compute threshold score as the minimum of all minimum in-cluster PWI
-    set to NULL all scores below threshold
-```
-
-```
-# Part 2: Find maximally similar isolates.
-
-initialize empty graph
-
-for each isolate in all_isolates:
-    get other isolates that occurred prior in time to this isolate
-    filter isolates such that there are no NULL PWI values
-    sum up PWI values
-    find maximally similar isolate(s) and add edge between isolate(s)
-```
-
-```
-# Part 3: Re-check isolates for source pairs.
-for each edge in graph:
-    if edge PWI < nth percentile of all PWI scores:
-        get other isolates that occurred prior in time to this isolate
-        filter isolates such that there are no NULL PWI values
-        find pair of isolates whose complementary segments maximizes PWI
-        if new max PWI score > existing edge PWI score:
-            replace single-source edge(s) with two-source edge(s)
-```
-
 Pairwise identities were computed using Clustal Omega (version 1.2.1) [@Sievers:2011fn]. The algorithm is implemented in the Python programming language (version 3.5); main packages used included NetworkX, `numpy`, `pandas`, and `matplotlib` for visualization. The source code is archived on Zenodo (DOI: 10.5281/zenodo.33421).
 
 ## Simulation Studies
@@ -71,7 +36,7 @@ $$ \frac{(2n-3)!}{2^{n-2}(n-2)!} $$
 
 This can be expanded to:
 
-$$\frac{(2n-3)(2n-4)(2n-5)...(2n-n)(2n-(n+1))(2n-(n+2))(2n-(n+3))(2n-(n+4))...(1)}{2^{n-2}(n-2)(n-3)(n-4)...(1)}$$
+$$\frac{(2n-3)(2n-4)(2n-5)...(n)(n-1)(n-2)(n-3)(n-4)...(1)}{2^{n-2}(n-2)(n-3)(n-4)...(1)}$$
 
 Cancelling the common terms in the numerator and denominator, we get:
 
@@ -91,4 +56,4 @@ For each of the major steps in the algorithm developed in this thesis, the time 
 - Finding maximal edges again requires $n^2$ comparisons to be made.
 - In the 2nd search for source pairs, given $s$ segments and $n$ isolates, in the worst case scenario, we have to check all isolates for the source pairs. Thus, we require ${s}\choose{2}$ $n^2$ comparisons in the worst-case scenario. (#DOUBLECHECK!)
 
-Given this analysis, and ignoring the $s$ term (which is the number of segments for a given virus), the time complexity of the algorithm outlined in this thesis should be $O(n^2)$.
+Given this analysis, and ignoring the $s$ term (which is the number of segments for a given virus), the time complexity of the SeqTrack-based algorithm described here should be $O(n^2)$.

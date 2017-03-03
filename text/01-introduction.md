@@ -42,13 +42,19 @@ Tree construction is done as follows: given a matrix of **character states** (co
 
 Maximum parsimony methods for phylogenetic reconstruction follow the logic of "the more similar we look, the closer our common ancestor is". A toy example is shown below. (#figure) Consider the example where we have the following three samples with 3 binary character states recorded:
 
-```{include.table=./tables/phylogenetics.md}
-```
+sample  |  char1  |  char2  |  char3
+--------|---------|---------|-------
+A       |  1      |  1      |  1
+B       |  1      |  1      |  0
+C       |  1      |  0      |  0
 
 Using the principle of parsimony, we may compute a distance matrix as follows:
 
-```{include.table=./tables/phylogenetics-distmat.md}
-```
+sample  |  A  |  B  |  C
+--------|-----|-----|---
+A       |  0  |  1  |  2
+B       |  1  |  0  |  1
+C       |  2  |  1  |  0
 
 Of the three possible trees that can be reconstructed, there are two that fit the data best:
 
@@ -68,13 +74,20 @@ Purely for illustrative purposes, and without going into further detail, I show 
 
 Given the following three samples with the following states:
 
-```{include.table=./tables/max_likelihood_sequence.md}
-```
+Sample  |  $seq_{j}$
+--------|------------
+1       |  A
+2       |  A
+3       |  C
 
 and the following transition probabilities:
 
-```{include.table=./tables/max_likelihood_transitions.md}
-```
+letter  |  A     |  T     |  G     |  C
+--------|--------|--------|--------|------
+A       |  4/10  |  2/10  |  2/10  |  2/10
+T       |  2/10  |  4/10  |  2/10  |  2/10
+G       |  2/10  |  2/10  |  4/10  |  2/10
+C       |  2/10  |  2/10  |  2/10  |  4/10
 
 and two trees (out of many possible) for this given state:
 

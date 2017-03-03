@@ -79,7 +79,7 @@ We describe here the methods specifically used for this application.
 
 ## Application 2: Viral persistence.
 
-
+The bulk of this study was led by Dr. Nichola J. Hill; in particular, sample collection and 
 
 - Research question: is reassortment a favoured strategy for viral gene persistence across wintering seasons?
     - Lead author: Nichola Hill (post-doc in lab).

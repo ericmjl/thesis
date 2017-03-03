@@ -5,4 +5,8 @@ author:
   affiliation: Department of Biological Engineering, MIT
 numbersections: true
 fontsize: 11pt
+header-includes:
+- \usepackage{setspace}
+- \doublespacing
+- \usepackage{amssymb}
 ---
