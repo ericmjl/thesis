@@ -422,7 +422,7 @@ A logical next step would be to extend the algorithm to identify not merely the 
 
 $$ \frac{\sum\limits_{k=1}^S p_{k}}{S} $$
 
-where $p$ is the PWI for any given segment, and $S$ is the number of segments. To retrieve a probability score, one would then apply a 'softmax' normalization across all valid parental combinations, thus normalizing the probability scores to sum to 1.
+where $p$ is the PWI for any given segment, and $S$ is the number of segments. To retrieve a probability score for any given PWI, one would then apply a 'softmax' normalization across all valid parental combinations, thus normalizing the probability scores to sum to 1.
 
 
 # References
