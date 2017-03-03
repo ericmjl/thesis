@@ -79,11 +79,11 @@ We describe here the methods specifically used for this application.
 
 ## Application 2: Viral persistence.
 
-The bulk of this study, including the writing, was led by Dr. Nichola J. Hill; as such, I provide a synopsis of the work rather than the original text. Additionally, much effort was dedicated to sample collection in Fairbanks, AK, without which this study would not have been possible.
+The bulk of this study, including the writing, was led by Dr. Nichola J. Hill; as such, I provide a synopsis of the work rather than the original text. Additionally, much effort was dedicated to sample collection in Fairbanks, AK, led by Brandt Meixell, without which this study would not have been possible.
 
 ### Research Question
 
-In this study, we sought to define the role of reassortment in viral persistence. 
+In this study, we sought to define the role of reassortment in viral persistence.
 
 - Research question: is reassortment a favoured strategy for viral gene persistence across wintering seasons?
     - Lead author: Nichola Hill (post-doc in lab).
