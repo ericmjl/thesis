@@ -91,8 +91,8 @@ The influenza A virus has a broad host range. Canonically, it is thought that th
 
 1. Mixing between host species at breeding grounds,
 1. Population immunity, and
+1. 
 1. Environmental degradation.
-
 
 
 [^reservoir]: The term "reservoir host" is typically defined as a host population in which a virus can persistently circulate in without the host incurring a (large degree of) fitness cost.
