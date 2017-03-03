@@ -418,7 +418,7 @@ Detection of reassortment between genotypically similar (but non-identical) viru
 
 The algorithm, as it stands right now, only provides a deterministic identification of the parental sources, based on the evolutionary distance computed by Clustal Omega [@Sievers:2011fn]. I define this as "deterministic" because only the viruses that (when taken together) give the highest summed PWI, will be chosen as parental viruses.
 
-A logical next step would be to extend the algorithm 
+A logical next step would be to extend the algorithm to 
 
 
 # References
