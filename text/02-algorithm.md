@@ -53,6 +53,8 @@ To check whether the algorithm was capable of correctly identifying reassortant 
 
 Regardless of replication or reassortment, the progeny virus was subjected to mutations, with the number of mutations in each segment being drawn from a binomial distribution with probability equal to the segment's substitution rate, and the exact positions drawn uniformly across the segment. This process is outlined in +@fig:fig-s4-simulation in the Applications section.
 
+![Viral simulation results. (a) Schematic of simulation studies conducted on a model two-segment virus with one segment capable of hypermutating in a short region of it. (b) In the null model, genomic information is ignored and a source virus is picked at random from isolates prior to it in time. Reassortants remain identified as reassortants, but sources are changed. In the proper reconstruction, sources are chosen to minimize genetic distance across two segments. (c) Distribution of proportion of reassortant viruses accurately identified under a proper reconstruction (blue bars) as opposed to a null model (green bars).](./figures/pnas-fig-s4.jpg){#fig:fig-s4-simulation}
+
 The number of unique starting genotypes and total number of viral isolates being considered was much smaller than the real-world data. Therefore, our graph reconstruction procedure captured the essential parts of the method used in the global analysis, but differed in the details. Here, “full complements” involve only two segments. We did not perform affinity propagation clustering, as we started with completely randomly generated sequences of equal length. Our “null model” graph is where source isolates are chosen uniformly at random from the set of nodes occurring before the sink isolates.
 
 To assess the accuracy of our reconstruction, we defined the path accuracy and reassortant path identification accuracy metrics (#figure). Edge accuracy, which is not used for evaluation here, is whether a particular reconstruction transmission between two isolates exists in the simulation. Path accuracy is a generalization of edge accuracy, where a path existing between the source and sink nodes (without considering the direction of edges) in the reconstruction is sufficient for being considered accurate. Reassortant path identification accuracy measures how accurately we identified the reassortant paths, analogous to the regular path accuracy.
@@ -69,13 +71,13 @@ $$ \frac{(2n-3)!}{2^{n-2}(n-2)!} $$
 
 This can be expanded to:
 
-$$\frac{(2n-3)(2n-4)(2n-5)...(n)(n-1)(n-2)(n-3)(n-4)...(1)}{2^{n-2}(n-2)(n-3)(n-4)...(1)}$$
+$$\frac{(2n-3)(2n-4)(2n-5)...(2n-n)(2n-(n+1))(2n-(n+2))(2n-(n+3))(2n-(n+4))...(1)}{2^{n-2}(n-2)(n-3)(n-4)...(1)}$$
 
 Cancelling the common terms in the numerator and denominator, we get:
 
 $$\frac{(2n-3)(2n-4)(2n-5)...(2n-n)(2n-(n+1))}{2^{n-2}}$$
 
-If we consider only the polynomial terms of n, we see that in the numerator, $2n$ is multiplied $k-2$ times, where $k$ is the term subtracted from $2n$. Therefore, the major term simplifies to:
+If we consider only the largest polynomial terms of n, we see that in the numerator, $2n$ is multiplied $k-2$ times, where $k$ is the term subtracted from $2n$. Therefore, the major term (ignoring the smaller polynomials) simplifies to:
 
 $$\frac{(2n)^{n-1}}{2^{n-2}} = \frac{2^{n-1}n^{n-1}}{2^{n-2}} = 2n^{n-1}$$
 
@@ -85,8 +87,8 @@ Under the assumption that a Bayesian reconstruction is only looking for the most
 
 For each of the major steps in the algorithm developed in this thesis, the time complexity is outlined below:
 
-- Pairwise distance matrix computations require $n^2$ comparisons.
+- Pairwise distance matrix computations is of $O(n^2)$ complexity.
 - Finding maximal edges again requires $n^2$ comparisons to be made.
 - In the 2nd search for source pairs, given $s$ segments and $n$ isolates, in the worst case scenario, we have to check all isolates for the source pairs. Thus, we require ${s}\choose{2}$ $n^2$ comparisons in the worst-case scenario. (#DOUBLECHECK!)
 
-Given this analysis, the time complexity of the algorithm outlined in this thesis should be $O(n^2)$.
+Given this analysis, and ignoring the $s$ term (which is the number of segments for a given virus), the time complexity of the algorithm outlined in this thesis should be $O(n^2)$.

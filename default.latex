@@ -1,4 +1,6 @@
 \documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$babel-lang$,$endif$$if(papersize)$$papersize$paper,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
+\usepackage{setspace}
+\doublespacing
 \usepackage{amssymb}  % for null set symbol "⌀"
 $if(beamerarticle)$
 \usepackage{beamerarticle} % needs to be loaded first
