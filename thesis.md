@@ -390,9 +390,9 @@ Influenza A Viruses (IAV) in nature must overcome shifting transmission barriers
 
 The influenza A virus has a broad host range. Canonically, it is thought that the virus' reservoir host [^reservoir] are wild birds, namely *Anseriformes* and *Charadriiformes* [@Webster:1992wl]. In the reservoir hosts' annual cycle, several factors may combine to form a transmission barrier [^transmission], namely:
 
-1. Mixing between host species.
-1. Population immunity.
-1. 
+1. Mixing between host species,
+1. Population immunity, and
+1. Environmental degradation.
 
 [^reservoir]: The term "reservoir host" is typically defined as a host population in which a virus can persistently circulate in without the host incurring a (large degree of) fitness cost.
 
