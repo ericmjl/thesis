@@ -390,7 +390,7 @@ Influenza A Viruses (IAV) in nature must overcome shifting transmission barriers
 
 The influenza A virus has a broad host range. Canonically, it is thought that the virus' reservoir host [^reservoir]
 
-[^reservoir]: The term "reservoir host" is typically defined as a host population in which a virus can persistently circulate in without causing a large degree of 
+[^reservoir]: The term "reservoir host" is typically defined as a host population in which a virus can persistently circulate in without the host incurring a (large degree of) fitness cost.
 
 - Research question: is reassortment a favoured strategy for viral gene persistence across wintering seasons?
     - Lead author: Nichola Hill (post-doc in lab).
