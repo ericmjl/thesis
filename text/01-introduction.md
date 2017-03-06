@@ -215,7 +215,7 @@ Influenza viruses have been isolated in large and small mammals, including cows,
 
 Additionally, cases of **reverse zoonosis** [^rev_zoonosis] have been reported, where viruses jump back into swine hosts from humans [@Nelson:2015cg]. Humans, therefore, are not a "dead-end" host for the virus.
 
-[^rev_zoonosis]: Zoonotic diseases typically have animal reservoir hosts, and humans are the "spillover" host. 
+[^rev_zoonosis]: Zoonotic viruses typically have animal reservoir hosts, and humans are the "spillover" host. Reverse zoonosis occurs when viruses 
 
 A little detail on influenza biology is necessary to understand reverse zoonosis. Based on studies of the glycans [^glycans] that decorate the surface of cell membranes, human hosts generally have $\alpha$-(2,3) glycans, while avian hosts generally have $\alpha$-(2,6) glycans [@Gagneux:2003fs; @Matrosovich:1999ux]. The hemagglutinin latches on to the glycans, thus mediating viral entry.
 
