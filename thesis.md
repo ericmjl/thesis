@@ -35,7 +35,7 @@ Evolutionary drift is not the only mechanism by which influenza evolves. Its seg
 
 ## Subtype Classification
 
-Influenza A viruses are classically known by their subtypes, e.g. H1N1, H5N1, H3N2. The "H" stands for the hemagglutinin subtype, for which there are 16 canonically known ones (H1-H16) and two new subtypes (H17 and H18) proposed (#cite). The "N" stands for the neuraminidase subtype, for which there are 9 canonically known ones (N1-N9) and two newly proposed subtypes (N10 and N11) (#cite).
+Influenza A viruses are classically known by their subtypes, e.g. H1N1, H5N1, H3N2. The "H" stands for the hemagglutinin subtype, for which there are 16 canonically known ones (H1-H16). The "N" stands for the neuraminidase subtype, for which there are 9 canonically known ones (N1-N9) and two newly proposed subtypes (N10 and N11) (#cite).
 
 The hemagglutinin and neuraminidase are proteins expressed on the surface of the viral particle, and as such they are thought to be subject to immune selection and thus evolutionary pressure. This explains why there is such great diversity in the HA and NA genes.
 
