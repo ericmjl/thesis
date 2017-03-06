@@ -228,7 +228,7 @@ The influenza A virus has a broad geographic and trophic range. Viral flow is ca
 
 Thought ducks, pigs, chickens and humans are the canonical places we think of flu, influenza is neither solely restricted to these hosts, nor is the flow of virus uni-directional.
 
-Influenza viruses have been isolated in large and small mammals, including cows, horses, dogs, cats, seals, ostriches, donkeys, penguins and more (#cite!!!). The newest influenza viral subtypes, H17N9 and H18N10, have been isolated from bats (#cite). 
+Influenza viruses have been isolated in large and small mammals, including cows, horses, dogs, cats, seals, ostriches, donkeys, penguins and more (#cite!!!). The newest influenza viral subtypes, H17N9 and H18N10, have been isolated from bats (#cite). Moreover, the influenza A virus is globally distributed, with 
 ----
 
 1. Importance of reassortant viruses: pandemics, immune evasion.
