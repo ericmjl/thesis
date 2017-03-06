@@ -211,7 +211,11 @@ In theory, it is also possible for other 'enhancements' to the influenza A virus
 
 ## Distribution of Influenza A Virus
 
-The influenza A virus has a broad geographic and trophic range. Viral flow is canonically thought to start in the influenza A virus' reservoir hosts, wild ducks; wild duck migration patterns are strongly correlated with viral flow (#cite). Viruses can occasionally **spillover** from wild birds into domestic animals, such as pigs and chickens. Because of the close proximity of humans to domestic animals, these viruses can also jump from domestic animals into humans, thus leading to pandemics (#cite). 
+The influenza A virus has a broad geographic and trophic range. Viral flow is canonically thought to start in the influenza A virus' reservoir hosts, wild ducks; wild duck migration patterns are strongly correlated with viral flow (#cite). Viruses can occasionally **spillover** from wild birds into domestic animals, such as pigs and chickens. Because of the close proximity of humans to domestic animals, these viruses can also jump from domestic animals into humans, thus leading to pandemics (#cite).
+
+Thought ducks, pigs, chickens and humans are the canonical places we think of flu, influenza is neither solely restricted to these hosts, nor is the flow of virus uni-directional.
+
+
 
 ----
 
