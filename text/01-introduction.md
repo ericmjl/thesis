@@ -215,7 +215,7 @@ The influenza A virus has a broad geographic and trophic range. Viral flow is ca
 
 Thought ducks, pigs, chickens and humans are the canonical places we think of flu, influenza is neither solely restricted to these hosts, nor is the flow of virus uni-directional.
 
-According to the Influenza Research Database, there are over 
+
 
 ----
 
