@@ -230,10 +230,6 @@ In theory, it is also possible for other 'enhancements' to the influenza A virus
 1. Importance of reassortant viruses: pandemics, immune evasion.
     1. Measures of fitness - “what is a “fit” virus?” relative to others? Quasispecies concept.
     1. What barriers to replication and infection do the host provide that the virus needs to overcome?
-1. Influenza geographical distribution & host range - provides necessary background knowledge for Application 2.
-    1. Reservoir hosts - wild animals
-    1. Spillover hosts - humans
-    1. Intermediate hosts - farm animals
 1. Problem description:
     1. Can we identify reassortant viruses at scale?
     1. What can we learn from the detection of reassortant viruses at scale?
