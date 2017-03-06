@@ -200,7 +200,9 @@ As shown in +@fig:3rd-codon-distance (adpated from [@Rabadan:2008jm]), if no rea
 
 This is a computationally simple method, as it only requires the computation of all pairwise edit distances, and as such has the advantage of being scalable to large numbers of sequences.
 
-## Genome Packaging
+## Influenza Biology
+
+### Genome Packaging
 
 In the study of the process of reassortment, one cannot escape from the topic of "how viruses are packaged". This is because when two viruses co-infect the same host cell, the resulting mixed pool of genomic segments have to undergo packaging into another live virus. The level of abstraction required for understanding this thesis is at the host species level. As such, the details of packaging are not a central and necessary piece of knowledge for understanding influenza reassortment at a global scale. Thus, in lieu of a full description of the current state of knowledge, I have listed the major key points below as follows:
 
@@ -243,7 +245,7 @@ In theory, it is also possible for other 'enhancements' to the influenza A virus
 While the details of the research questions tackled in this thesis are written in the two Applications section, I outline here at a high level the questions that my colleagues and I tackled.
 
 1. Are reticulate evolutionary processes, such as reassortment, important for host switches? If so, can we quantify the importance? Is the principle generalizable?
-1. Is reassortment an evolutionary strategy that influenza genes can employ to persist against barriers to transmission? 
+1. Is reassortment an evolutionary strategy that influenza genes can employ to persist against barriers to transmission?
 
 ----
 
