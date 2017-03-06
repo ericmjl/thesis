@@ -25,7 +25,7 @@ The influenza A virus is a negative strand RNA virus, comprised of 8 genomic RNA
 
 ![](./figures/genome-structure-reassortment.jpg){#fig:genome-structure-reassortment}
 
-Being an RNA virus that carries its own RNA-dependent RNA polymerase, the influenza A virus is prone to copying errors during replication inside a host cell . This 'sloppiness' allows the influenza virus to evolve rapidly, and can be thought of as an **evolutionary drift**.
+Being an RNA virus that carries its own RNA-dependent RNA polymerase, the influenza A virus is prone to copying errors during replication inside a host cell [@Holmes:2003wl]. This 'sloppiness' allows the influenza virus to evolve rapidly, and can be thought of as an **evolutionary drift**.
 
 Evolutionary drift coupled with selection contributes to the difference in evolutionary rates that are observed between the external and internal genes. The HA and NA genes are thought to be under immune selection, as they are the external proteins that are targeted by the immune system. The HA and NA proteins, therefore, evolve under dual constraints: they have to continue functioning for cellular entry and release, while also evolve novel epitopes that can successfully evade immune system detection. Evolutionary drift in the HA and NA genes contribute to **antigenic drift**, in which the antigenic characteristics of these two proteins slowly evolve over time. On the other hand, the internal proteins do not function under such selective pressures, and as such are much more highly conserved.
 
