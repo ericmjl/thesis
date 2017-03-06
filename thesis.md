@@ -224,7 +224,7 @@ In theory, it is also possible for other 'enhancements' to the influenza A virus
 
 ## Distribution of Influenza A Virus
 
-The influenza A virus has a broad geographic and trophic range. Viral flow is canonically thought to start in the influenza A virus' reservoir hosts, wild ducks; 
+The influenza A virus has a broad geographic and trophic range. Viral flow is canonically thought to start in the influenza A virus' reservoir hosts, wild ducks; wild duck migration patterns essentially dictate 
 
 ----
 
