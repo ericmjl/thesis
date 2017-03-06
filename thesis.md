@@ -224,7 +224,7 @@ In theory, it is also possible for other 'enhancements' to the influenza A virus
 
 ## Distribution of Influenza A Virus
 
-The influenza A virus has a broad geographic and trophic range. The canonical reservoir host is the 
+The influenza A virus has a broad geographic and trophic range. Canonically, the influenza A virus' reservoir hosts are wild ducks, 
 
 ----
 
