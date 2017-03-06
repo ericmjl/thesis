@@ -228,7 +228,7 @@ The influenza A virus has a broad geographic and trophic range. Viral flow is ca
 
 Thought ducks, pigs, chickens and humans are the canonical places we think of flu, influenza is neither solely restricted to these hosts, nor is the flow of virus uni-directional.
 
-Influenza viruses have been isolated in large and small mammals, including cows, horses, dogs, cats, seals, 
+Influenza viruses have been isolated in large and small mammals, including cows, horses, dogs, cats, seals, ostriches, donkeys, and more. 
 
 ----
 
