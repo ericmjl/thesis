@@ -217,7 +217,7 @@ Thought ducks, pigs, chickens and humans are the canonical places we think of fl
 
 Influenza viruses have been isolated in large and small mammals, including cows, horses, dogs, cats, seals, ostriches, donkeys, penguins and more (#cite!!!). The newest influenza viral subtypes, H17N9 and H18N10, have been isolated from bats (#cite).
 
-Additionally ,
+Additionally, cases of **reverse zoonosis** have been reported, where viruses jump back into animals from humans (#cite). 
 ----
 
 1. Importance of reassortant viruses: pandemics, immune evasion.
