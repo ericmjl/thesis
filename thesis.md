@@ -240,7 +240,9 @@ In theory, it is also possible for other 'enhancements' to the influenza A virus
 
 ## Research Questions
 
-While the details of the research questions tackled in this thesis are written in the two Applications section, I outline here at a high level the questions that my colleagues and I tackled
+While the details of the research questions tackled in this thesis are written in the two Applications section, I outline here at a high level the questions that my colleagues and I tackled.
+
+
 
 ----
 
