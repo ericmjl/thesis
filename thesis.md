@@ -234,7 +234,7 @@ Pigs have been shown to have both glycans on their cells (#cite). As such, virus
 
 [^glycans]: Glycans are branched chains of sugar molecules that have been identified on cell surface membranes. Glycans are also post-translationally added to proteins.
 
-## Evolutionary Consequences of Reassortment
+### Evolutionary Consequences of Reassortment
 
 Reassortment can result in novel genotype combinations. An epidemiologically-relevant reassortment is one that occurs between viruses of different subtypes. As the HA and NA genes are the ones that elicit an immune response, novel HA/NA combinations, or the introduction of an antigenically distinct HA or NA of the same subtype, can result in a new virus with the ability to evade immune detection. This would, in turn, help the virus circumvent existing host (and population) immunity.
 
