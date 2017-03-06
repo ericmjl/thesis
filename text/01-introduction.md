@@ -217,7 +217,14 @@ Thought ducks, pigs, chickens and humans are the canonical places we think of fl
 
 Influenza viruses have been isolated in large and small mammals, including cows, horses, dogs, cats, seals, ostriches, donkeys, penguins and more (#cite!!!). The newest influenza viral subtypes, H17N9 and H18N10, have been isolated from bats (#cite).
 
-Additionally, cases of **reverse zoonosis** have been reported, where viruses jump back into animals from humans (#cite). 
+Additionally, cases of **reverse zoonosis** have been reported, where viruses jump back into swine hosts from humans [@Nelson:2015cg]. Humans, therefore, are not a "dead-end" host for the virus.
+
+A little detail on influenza biology is necessary to understand reverse zoonosis. Based on studies of the glycans [^glycans] that decorate the surface of cell membranes, human hosts generally have $\alpha$-(2,3) glycans, while avian hosts generally have $\alpha$-(2,6) glycans (#cite). The hemagglutinin latches on to the glycans, thus mediating viral entry.
+
+Pigs have been shown to have both glycans on their cells (#cite). As such, viruses that are capable of infecting birds can also infect pigs, where they may acquire mutations that allow them to enter human cells; additionally, human viruses are also thus capable of replicating in swine hosts. As such, this knowledge has led to the conclusion that swine hosts may play the role of "mixing vessels" (#cite), allowing influenza A viruses to reassort in pigs. 
+
+[^glycans]: Glycans are branched chains of sugar molecules that have been identified on cell surface membranes. Glycans are also post-translationally added to proteins.
+
 ----
 
 1. Importance of reassortant viruses: pandemics, immune evasion.
