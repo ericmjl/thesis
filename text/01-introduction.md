@@ -225,6 +225,8 @@ Reassortment can result in novel genotype combinations. An epidemiologically-rel
 
 In theory, it is also possible for other 'enhancements' to the influenza A virus to be acquired via reassortment. For example, polymorphisms correlated with enhanced polymerase replication capacity in human cells are found in viruses isolated in wild birds, raising the possibility that these mutations can occur naturally and, if reassorted with an immunologically-novel viral subtype, confer enhanced replication capacity, leading to a much riskier virus.
 
+## Questions Tackled in this Thesis
+
 ----
 
 1. Importance of reassortant viruses: pandemics, immune evasion.
