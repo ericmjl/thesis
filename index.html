@@ -98,8 +98,8 @@
     <h2 id="genome-structure-evolution">Genome Structure &amp; Evolution</h2>
     <p>The influenza A virus is a negative strand RNA virus, comprised of 8 genomic RNA segments. Its negative strandedness means that it encodes the strand opposite the messenger RNA (mRNA), implying that it needs to first be copied into mRNA before translation can occur. Together, the RNA segments encode its polymerase (PB2, PB1, PA, NP), viral entry and release proteins (HA, NA), a matrix protein (M) and a non-structural protein (NS) fig. <a href="#fig:genome-structure-reassortment">1</a>.</p>
     <div class="figure">
-    <img src="./figures/genome-structure-reassortment.jpg" alt="Figure 1: " id="fig:genome-structure-reassortment" />
-    <p class="caption">Figure 1: </p>
+    <img src="./figures/genome-structure-reassortment.jpg" alt="Figure 1: (a) Influenza A virus genome structure. The influenza virus is comprised of 8 RNA segments. (b) Reassortment. Reassortment is the process by which two viruses co-infect the same host cell and produce progeny virus that contain segments from both parental viruses." id="fig:genome-structure-reassortment" />
+    <p class="caption">Figure 1: (a) Influenza A virus genome structure. The influenza virus is comprised of 8 RNA segments. (b) Reassortment. Reassortment is the process by which two viruses co-infect the same host cell and produce progeny virus that contain segments from both parental viruses.</p>
     </div>
     <p>Being an RNA virus that carries its own RNA-dependent RNA polymerase, the influenza A virus is prone to copying errors during replication inside a host cell <span class="citation">(1)</span>. This 'sloppiness' allows the influenza virus to evolve rapidly, and can be thought of as an <strong>evolutionary drift</strong>.</p>
     <p>Evolutionary drift coupled with selection contributes to the difference in evolutionary rates that are observed between the external and internal genes. The HA and NA genes are thought to be under immune selection, as they are the external proteins that are targeted by the immune system. The HA and NA proteins, therefore, evolve under dual constraints: they have to continue functioning for cellular entry and release, while also evolve novel epitopes that can successfully evade immune system detection. Evolutionary drift in the HA and NA genes contribute to <strong>antigenic drift</strong>, in which the antigenic characteristics of these two proteins slowly evolve over time. On the other hand, the internal proteins do not function under such selective pressures, and as such are much more highly conserved.</p>
@@ -180,8 +180,8 @@
     </table>
     <p>Of the three possible trees that can be reconstructed, there are two that fit the data best:</p>
     <div class="figure">
-    <img src="./figures/parsimony-tree.jpg" alt="Figure 2: Maximum parsimony-based reconstruction of the character states." id="fig:parsimony-tree" />
-    <p class="caption">Figure 2: Maximum parsimony-based reconstruction of the character states.</p>
+    <img src="./figures/parsimony-tree.jpg" alt="Figure 2: Maximum parsimony-based reconstruction of the character states. The non-parsimonious tree (Tree 3) is greyed out." id="fig:parsimony-tree" />
+    <p class="caption">Figure 2: Maximum parsimony-based reconstruction of the character states. The non-parsimonious tree (Tree 3) is greyed out.</p>
     </div>
     <h3 id="maximum-likelihood">Maximum Likelihood</h3>
     <p>Molecular clock theory essentially states that the number of mutational events observed in a sequence is roughly linearly proportional with time. While in principle, this may seem to suggest that we can use the edit distance (maximum parsimony) to estimate the time of divergence between two sequences, there are problems with this logic.</p>
@@ -498,7 +498,9 @@
     <p>where <span class="math inline">\(p\)</span> is the PWI for any given segment, and <span class="math inline">\(S\)</span> is the number of segments. To retrieve a probability score for any given PWI, one would then apply a 'softmax' normalization across all valid parental combinations, thus normalizing the probability scores to sum to 1. No doubt this still requires the assumption of the algorithm being a phylogenetic heuristic, rather than an attempt at ground truth reconstruction.</p>
     <h1 id="references">References</h1>
     <h1 id="acknowledgments">Acknowledgments</h1>
-    <p>First and foremost, I would like to thank my advisor, Prof. Jonathan Runstadler, for providing guidance and mentorship. I entered the world of infectious disease research from scratch,</p>
+    <p>First and foremost, I would like to thank my advisor, Prof. Jonathan Runstadler, for providing guidance and mentorship. I entered both worlds of infectious disease and computational research from scratch, and Jon provided the support and environment that enabled me to grow in both fields.</p>
+    <p>Secondly, I would like to thank my committee for their unwavering support. Profs. Mark Bathe (MIT) and Jukka-Pekka Onnela (Harvard School of Public Health) both provided me with opportunities to interact with their research groups. These opportunities were valuable to my learning process.</p>
+    <p>Thirdly, I would like to thank my wife, Dr. Nan Li, for her unwavering support and companionship.</p>
     <div id="refs" class="references">
     <div id="ref-Holmes:2003wl">
     <p>1. Holmes EC (2003) Error thresholds and the constraints to RNA virus evolution. <em>Trends in microbiology</em> 11(12):543–546.</p>

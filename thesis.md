@@ -23,7 +23,7 @@ The influenza A virus has inflicted economic and social damage annually on the o
 
 The influenza A virus is a negative strand RNA virus, comprised of 8 genomic RNA segments. Its negative strandedness means that it encodes the strand opposite the messenger RNA (mRNA), implying that it needs to first be copied into mRNA before translation can occur. Together, the RNA segments encode its polymerase (PB2, PB1, PA, NP), viral entry and release proteins (HA, NA), a matrix protein (M) and a non-structural protein (NS) +@fig:genome-structure-reassortment.
 
-![](./figures/genome-structure-reassortment.jpg){#fig:genome-structure-reassortment}
+![(a) Influenza A virus genome structure. The influenza virus is comprised of 8 RNA segments. (b) Reassortment. Reassortment is the process by which two viruses co-infect the same host cell and produce progeny virus that contain segments from both parental viruses.](./figures/genome-structure-reassortment.jpg){#fig:genome-structure-reassortment}
 
 Being an RNA virus that carries its own RNA-dependent RNA polymerase, the influenza A virus is prone to copying errors during replication inside a host cell [@Holmes:2003wl]. This 'sloppiness' allows the influenza virus to evolve rapidly, and can be thought of as an **evolutionary drift**.
 
@@ -71,7 +71,7 @@ C       |  2  |  1  |  0
 
 Of the three possible trees that can be reconstructed, there are two that fit the data best:
 
-![Maximum parsimony-based reconstruction of the character states.](./figures/parsimony-tree.jpg){#fig:parsimony-tree}
+![Maximum parsimony-based reconstruction of the character states. The non-parsimonious tree (Tree 3) is greyed out.](./figures/parsimony-tree.jpg){#fig:parsimony-tree}
 
 ### Maximum Likelihood
 
@@ -453,5 +453,9 @@ where $p$ is the PWI for any given segment, and $S$ is the number of segments. T
 
 # Acknowledgments
 
-First and foremost, I would like to thank my advisor, Prof. Jonathan Runstadler, for providing guidance and mentorship. I entered the world of infectious disease research from scratch, 
+First and foremost, I would like to thank my advisor, Prof. Jonathan Runstadler, for providing guidance and mentorship. I entered both worlds of infectious disease and computational research from scratch, and Jon provided the support and environment that enabled me to grow in both fields.
+
+Secondly, I would like to thank my committee for their unwavering support. Profs. Mark Bathe (MIT) and Jukka-Pekka Onnela (Harvard School of Public Health) both provided me with opportunities to interact with their research groups. These opportunities were valuable to my learning process.
+
+Thirdly, I would like to thank my wife, Dr. Nan Li, for her unwavering support and companionship. 
 
