@@ -87,6 +87,7 @@
         <li><a href="#probabilistic-identification-of-reassortant-viruses">Probabilistic Identification of Reassortant Viruses</a></li>
         </ul></li>
         </ul></li>
+        <li><a href="#acknowledgments">Acknowledgments</a></li>
         <li><a href="#references">References</a></li>
         </ul>
         </div>
@@ -476,11 +477,8 @@
     <li>Environmental degradation, and</li>
     <li>Fluctuations in environmental conditions along bird migration route.</li>
     </ol>
+    <p>TO BE CONTINUED!</p>
     <ul>
-    <li>Research question: is reassortment a favoured strategy for viral gene persistence across wintering seasons?
-    <ul>
-    <li>Lead author: Nichola Hill (post-doc in lab).</li>
-    </ul></li>
     <li>Results: reassortment is over-represented for persistence through winter, relative to random chance. Describe statistical test.</li>
     </ul>
     <p>Caveats common to both applications: always will have sampling issues with the current sequence database.</p>
@@ -498,6 +496,7 @@
     <p>A logical next step would be to extend the algorithm to identify not merely the parental sources that are of highest PWI, but to also assign a likelihood score to the parental source, given the evolutionary distance. The simplest thing that could be attempted is to use the summed PWI as a probability metric itself, as follows:</p>
     <p><span class="math display">\[ \frac{\sum\limits_{k=1}^S p_{k}}{S} \]</span></p>
     <p>where <span class="math inline">\(p\)</span> is the PWI for any given segment, and <span class="math inline">\(S\)</span> is the number of segments. To retrieve a probability score for any given PWI, one would then apply a 'softmax' normalization across all valid parental combinations, thus normalizing the probability scores to sum to 1. No doubt this still requires the assumption of the algorithm being a phylogenetic heuristic, rather than an attempt at ground truth reconstruction.</p>
+    <h1 id="acknowledgments">Acknowledgments</h1>
     <h1 id="references" class="unnumbered">References</h1>
     <div id="refs" class="references">
     <div id="ref-Holmes:2003wl">

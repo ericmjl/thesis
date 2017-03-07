@@ -94,14 +94,12 @@ The influenza A virus has a broad host range. Canonically, it is thought that th
 1. Environmental degradation, and
 1. Fluctuations in environmental conditions along bird migration route.
 
-
+TO BE CONTINUED!
 
 [^reservoir]: The term "reservoir host" is typically defined as a host population in which a virus can persistently circulate in without the host incurring a (large degree of) fitness cost.
 
 [^transmission]: A "transmission barrier" is here defined as a biological or ecological factor that may impede the success of a virus in moving from one host to another.
 
-- Research question: is reassortment a favoured strategy for viral gene persistence across wintering seasons?
-    - Lead author: Nichola Hill (post-doc in lab).
 - Results: reassortment is over-represented for persistence through winter, relative to random chance. Describe statistical test.
 
 Caveats common to both applications: always will have sampling issues with the current sequence database.
