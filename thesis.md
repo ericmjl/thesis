@@ -162,7 +162,7 @@ Tree incongruence is another way of identifying reassortant influenza A viruses.
 
 Let us look at +@fig:tree-splits for an elementary example. Suppose we had two trees with the same set of taxa, $\{t_1, t_2, t_3, t_4\}$. We observe the following splits:
 
-![Tree incongruence. Splits are denoted as red or yellow circles on the trees. ](./figures/tree-splits.jpg){#fig:tree-splits}
+![Tree incongruence. Splits are denoted as red or yellow circles on the trees; they are also denoted as nodes in the split incompatibility graph on teh right. ](./figures/tree-splits.jpg){#fig:tree-splits}
 
 - The tree with a red split defines a partition of the four taxa into two splits, $A = \{t_1, t_2\}$ and $B = \{t_3, t_4\}$.
 - The tree with a yellow split defines a partition of the four taxa into two splits, $X = \{t_1, t_3\}$ and $B = \{t_2, t_4\}$.
