@@ -453,5 +453,5 @@ where $p$ is the PWI for any given segment, and $S$ is the number of segments. T
 
 # Acknowledgments
 
-First and foremost, I would like to thank my advisor, Prof. Jonathan Runstadler, for providing guidance, mentorship, and 
+First and foremost, I would like to thank my advisor, Prof. Jonathan Runstadler, for providing guidance and mentorship. I entered the world of infectious disease research from scratch, 
 
