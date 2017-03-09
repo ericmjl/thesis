@@ -212,12 +212,6 @@ In the study of the process of reassortment, one cannot escape from the topic of
 
 ![Summary of known results in influenza genome packaging. (a) Mutating the 3rd codon positions in the packaging regions reduces packaging efficiency, thus highlighting their importance. (b) Defective-interfering RNAs harbouring only the packaging signals can interfere with live virion production. (c) Foreign genes, such as GFP, have been packaged into the influenza virus by flanking them with packaging signals. (d) Packaging signals can be swapped between segments, but a packaging signal sequence must be present on each gene in order to rescue live virus.](./figures/packaging.jpg){#fig:packaging}
 
-### Viral Fitness
-
-In discussing the evolutionary trajectory of a virus, one inevitably touches on the topic of fitness.
-
-Most generically, we may describe a "fit" virus as a virus that, under its evolutionary landscape, successfully replicated in a viral host and propagated to another host.
-
 ### Host Distribution of Influenza A Virus
 
 The influenza A virus has a broad geographic and trophic range. Viral flow is canonically thought to start in the influenza A virus' reservoir hosts, wild ducks [@Webster:1992wl]. Viruses can occasionally **spillover** from wild birds into domestic animals, such as pigs and chickens. Because of the close proximity of humans to domestic animals, these viruses can also jump from domestic animals into humans, thus leading to pandemics [@Webster:1992wl].
@@ -481,5 +475,5 @@ Thirdly, I would like to thank my wife, Dr. Nan Li, for her unwavering support a
 
 I would also like to acknowledge the financial support of the Department of Biological Engineering, the BioMicroCenter, and the Broad Institute of Harvard and MIT. The research funds provided and access to compute resources have been instrumental in conducting my research, including research projects done outside of this thesis.
 
-Finally, all praise be to the Lord Jesus Christ, who has graciously provided all that I needed throughout my time in graduate school. My research has given me a nuanced view on the divine, while simultaneously leaving me in awe at the complexity of nature, good and evil, and our worship of Him through excellence in our work. While we continue the fight against infectious disease, I look forward to that day, when "there will be no more death or mourning or crying or pain, for the old order of things has passed away" (Revelation 21:4), and influenza, the virus that has given me a topic for work, will finally be done with and be no more.
+Finally, all praise be to the Lord Jesus Christ, who has graciously provided all that I needed throughout my time in graduate school. My research has helped me refine a much more nuanced view on the relationship between the divine and our physical world, while simultaneously leaving me in awe at the complexity of nature. I have also learned worship of Jesus Christ through excellence in our work. While we continue the fight against infectious disease, I look forward to that day, when "there will be no more death or mourning or crying or pain, for the old order of things has passed away" (Revelation 21:4), and infectious diseases, which have given me a topic for work, will finally be done with and be no more.
 

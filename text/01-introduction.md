@@ -199,12 +199,6 @@ In the study of the process of reassortment, one cannot escape from the topic of
 
 ![Summary of known results in influenza genome packaging. (a) Mutating the 3rd codon positions in the packaging regions reduces packaging efficiency, thus highlighting their importance. (b) Defective-interfering RNAs harbouring only the packaging signals can interfere with live virion production. (c) Foreign genes, such as GFP, have been packaged into the influenza virus by flanking them with packaging signals. (d) Packaging signals can be swapped between segments, but a packaging signal sequence must be present on each gene in order to rescue live virus.](./figures/packaging.jpg){#fig:packaging}
 
-### Viral Fitness
-
-In discussing the evolutionary trajectory of a virus, one inevitably touches on the topic of fitness.
-
-Most generically, we may describe a "fit" virus as a virus that, under its evolutionary landscape, successfully replicated in a viral host and propagated to another host.
-
 ### Host Distribution of Influenza A Virus
 
 The influenza A virus has a broad geographic and trophic range. Viral flow is canonically thought to start in the influenza A virus' reservoir hosts, wild ducks [@Webster:1992wl]. Viruses can occasionally **spillover** from wild birds into domestic animals, such as pigs and chickens. Because of the close proximity of humans to domestic animals, these viruses can also jump from domestic animals into humans, thus leading to pandemics [@Webster:1992wl].
