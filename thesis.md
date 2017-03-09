@@ -410,14 +410,26 @@ The influenza A virus has a broad host range. Canonically, it is thought that th
 
 [^transmission]: A "transmission barrier" is here defined as a biological or ecological factor that may impede the success of a virus in moving from one host to another.
 
-1. Mixing between host species at breeding grounds,
 1. Population immunity,
-1. Environmental degradation, and
+1. Environmental degradation,
+1. Mixing between host species at breeding grounds, and
 1. Fluctuations in environmental conditions along bird migration route.
 
 Population immunity should not be difficult to intuit; a virus' success will depend on finding immunologically naïve hosts. If population immunity is growing, viral transmission success may become an issue.
 
 As the influenza A virus is a gastro-intestinal infection in wild birds, it will be shed into the environment through fecal matter, sometimes landing in the water that birds drink from. In order for successful re-infection to occur, the virus must survive environmental degradation. Some ways that the virus may be damaged include thermal degradation (when the water heats up) or UV radiation (from sunlight, damaging the RNA genome).
+
+Composing these two basic factors, emergent barriers to transmission may happen. When host species mix at breeding grounds, the new host species may not be immediately receptive to infection, or the new host species may carry existing immunity against the virus.
+
+As another factor against transmission, as the bird matures, young, newborn hosts become immune to the virus, and the virus (anthropomorphically) "has to wait" till the next annual cycle before it can infect new hosts.
+
+Against these transmission barriers, what do our time-stamped sequence data and source-sink reconstruction (from genomic sequence) of influenza transmission tell us about reassortment and its role in viral persistence?
+
+Working with Dr. Nichola Hill, we integrated densely-sampled influenza A virus sequence data from the Minto Flats State Game Refuge (AK). Data were collected over 4 years from 2008-2012, with 14004 wild birds sampled yielding 545 influenza genomes. To interrogate migration patterns of the virus, we also included 1242 fully sequenced influenza viruses sampled across North America between 2008 and 2012, yielding 1787 viruses that were used for network reconstruction.
+
+A modification to the algorithm was done to make the virus epidemiologically-relevant for this study; because the date of sampling may not necessarily correspond to the date of infection, we modified the network reconstruction algorithm to permit sources to occur after sinks by up to 6 days, which is roughly the length of time that an infected bird sheds viruses.
+
+What we found 
 
 - Results: reassortment is over-represented for persistence through winter, relative to random chance. Describe statistical test.
 
