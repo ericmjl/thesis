@@ -406,16 +406,18 @@ Influenza A Viruses (IAV) in nature must overcome shifting transmission barriers
 
 The influenza A virus has a broad host range. Canonically, it is thought that the virus' reservoir host [^reservoir] are wild birds, namely *Anseriformes* and *Charadriiformes* [@Webster:1992wl]. In the reservoir hosts' annual cycle, several factors may combine to form a transmission barrier [^transmission], namely:
 
+[^reservoir]: The term "reservoir host" is typically defined as a host population in which a virus can persistently circulate in without the host incurring a (large degree of) fitness cost.
+
+[^transmission]: A "transmission barrier" is here defined as a biological or ecological factor that may impede the success of a virus in moving from one host to another.
+
 1. Mixing between host species at breeding grounds,
 1. Population immunity,
 1. Environmental degradation, and
 1. Fluctuations in environmental conditions along bird migration route.
 
-TO BE CONTINUED!
+Population immunity should not be difficult to intuit; a virus' success will depend on finding immunologically naïve hosts. If population immunity is growing, viral transmission success may become an issue.
 
-[^reservoir]: The term "reservoir host" is typically defined as a host population in which a virus can persistently circulate in without the host incurring a (large degree of) fitness cost.
-
-[^transmission]: A "transmission barrier" is here defined as a biological or ecological factor that may impede the success of a virus in moving from one host to another.
+As the influenza A virus is a gastro-intestinal infection in wild birds, it will be shed into the environment through fecal matter, sometimes landing in the water that birds drink from. In order for successful re-infection to occur, the virus must survive environmental degradation. Some ways that the virus may be damaged include thermal degradation (when the water heats up) or UV radiation (from sunlight, damaging the RNA genome).
 
 - Results: reassortment is over-represented for persistence through winter, relative to random chance. Describe statistical test.
 
@@ -461,5 +463,5 @@ Thirdly, I would like to thank my wife, Dr. Nan Li, for her unwavering support a
 
 I would also like to acknowledge the financial support of the Department of Biological Engineering, the BioMicroCenter, and the Broad Institute of Harvard and MIT. The research funds provided and access to compute resources have been instrumental in conducting my research, including research projects done outside of this thesis.
 
-Finally, all praise be to the Lord Jesus Christ, who has graciously provided all that I needed throughout my time in graduate school. My research has given me a nuanced view on the divine, while simultaneously leaving me in awe at the complexity of nature, good and evil, and our role to play by worshipping Him through our work. While we continue the fight against infectious disease, I look forward to that day, when "there will be no more death' or mourning or crying or pain, for the old order of things has passed away" (Revelation 21:4).
+Finally, all praise be to the Lord Jesus Christ, who has graciously provided all that I needed throughout my time in graduate school. My research has given me a nuanced view on the divine, while simultaneously leaving me in awe at the complexity of nature, good and evil, and our worship of Him through excellence in our work. While we continue the fight against infectious disease, I look forward to that day, when "there will be no more death or mourning or crying or pain, for the old order of things has passed away" (Revelation 21:4), and influenza, the topic that has given me a topic for work, will finally be done with and be no more.
 
