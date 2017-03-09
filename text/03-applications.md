@@ -102,7 +102,7 @@ Population immunity should not be difficult to intuit; a virus' success will dep
 
 As the influenza A virus is a gastro-intestinal infection in wild birds, it will be shed into the environment through fecal matter, sometimes landing in the water that birds drink from. In order for successful re-infection to occur, the virus must survive environmental degradation. Some ways that the virus may be damaged include thermal degradation (when the water heats up) or UV radiation (from sunlight, damaging the RNA genome).
 
-Composing these two basic factors, emergent barriers to transmission may happen. When host species mix at breeding grounds, the new host species may not be immediately receptive to infection, or the new host species may carry existing immunity against the virus.
+Composing these two basic factors, emergent barriers to transmission may happen. When host species mix at breeding grounds, the new host species may not be immediately receptive to infection, or the new host species may carry existing immunity against the virus. On the other hand, if the new host species is receptive to infection, then the presence of a new host species is not only less of a transmission barrier but also an expansion of the transmission space for the virus.
 
 As another factor against transmission, as the bird matures, young, newborn hosts become immune to the virus, and the virus (anthropomorphically) "has to wait" till the next annual cycle before it can infect new hosts.
 
@@ -110,10 +110,16 @@ Against these transmission barriers, what do our time-stamped sequence data and 
 
 Working with Dr. Nichola Hill, we integrated densely-sampled influenza A virus sequence data from the Minto Flats State Game Refuge (AK). Data were collected over 4 years from 2008-2012, with 14004 wild birds sampled yielding 545 influenza genomes. To interrogate migration patterns of the virus, we also included 1242 fully sequenced influenza viruses sampled across North America between 2008 and 2012, yielding 1787 viruses that were used for network reconstruction.
 
-A modification to the algorithm was done to make the virus epidemiologically-relevant for this study; because the date of sampling may not necessarily correspond to the date of infection, we modified the network reconstruction algorithm to permit sources to occur after sinks by up to 6 days, which is roughly the length of time that an infected bird sheds viruses.
+A modification to the algorithm was done to make the virus epidemiologically-relevant for this study; because the date of sampling may not necessarily correspond to the date of infection, we modified the network reconstruction algorithm to permit sources to occur after sinks by up to 6 days, which is roughly the length of time that an infected bird sheds viruses. The resultant graph had two types of edges, "full complement" (whole genome) transmissions, and "reassortment" transmissions, similar to our global study.
 
-What we found 
+What we found was that full complement edges spanned short time scales, dominating short chain transmissions, while reassortment edges spanned annual seasons (#figure:3). Additionally, we observed that reassortment edges spanned greater geographic scales (#figure:5) than full complement edges. Integrating this observation with the increase of inter-species transmissions later in the summer breeding season, we think that the data supports a model where reassortment and expansion of host species is a way for the influenza A virus to persist in wild birds, especially when direct transmission becomes progressively harder as the seasonal cycle progresses.
 
-- Results: reassortment is over-represented for persistence through winter, relative to random chance. Describe statistical test.
+## Caveats
 
-Caveats common to both applications: always will have sampling issues with the current sequence database.
+A caveat common to this study and the global influenza study before is that sampling efforts are ad-hoc (often in response to a new outbreak or directed towards testing some hypothesis), non-uniform over space and time (owing to the movement of viral hosts and logistical issues), and yield varying amounts of sequence data (owing to differences in prevalence over time). It would be both politically and financially difficult to re-structure sampling efforts to be constant over space and time.
+
+We have used permutation tests (global study) and chi-square tests (viral migration study) [^chi_sq] to test whether the what we observed was likely to happen by random chance. However, this nonetheless raises the question, "What is the most appropriate null model?" This is admittedly a difficult philosophical question itself, as with network models there potentially many different "nulls" to compare against [^nullmodel].
+
+[^chi_sq]: Intuitively, I believe that the permutation test can be simplified to a chi-square test itself, but at the time of paper writing I was not sufficiently confident in concluding this, and so I stuck with the permutation test.
+
+[^nullmodel]: As an example, rather than shuffling the node labels in a graph, one may instead choose to rewire the connectivity of the graph randomly instead.
