@@ -15,7 +15,7 @@ header-includes:
 
 ## The Importance of Studying Influenza Evolution & Ecology
 
-The influenza A virus has inflicted economic and social damage annually on the order of X billions of dollars (#factcheck, #cite). Being a pathogen with zoonotic origins [^zoonotic], it is imperative to study its circulation, evolution and pathogenesis not only in humans, but also in animals (domestic and wild). One major problem of interest pertains to influenza's ability to shuffle its genome with other influenza viruses, and its implication in the ability of the virus to jump between host species. To address this, in this thesis I outline efforts with my colleagues to map out and identify these shuffled viruses at a global scale, and use this systematic, global identification to learn more about influenza, reticulate evolution, and ecology.
+The influenza A virus has inflicted economic damage annually on the order of billions of dollars [@Molinari:2007en]. Being a pathogen with zoonotic origins [^zoonotic], it is imperative to study its circulation, evolution and pathogenesis not only in humans, but also in animals (domestic and wild). One major problem of interest pertains to influenza's ability to shuffle its genome with other influenza viruses, and its implication in the ability of the virus to jump between host species. To address this, in this thesis I outline efforts with my colleagues to map out and identify these shuffled viruses at a global scale, and use this systematic, global identification to learn more about influenza, reticulate evolution, and ecology.
 
 [^zoonotic]: Being of zoonotic origin means that the virus' reservoir is in one or more animal hosts, but "spills over" into humans upon contact. As such, humans are the "spillover host".
 
@@ -29,7 +29,7 @@ Being an RNA virus that carries its own RNA-dependent RNA polymerase, the influe
 
 Evolutionary drift coupled with selection contributes to the difference in evolutionary rates that are observed between the external and internal genes. The HA and NA genes are thought to be under immune selection, as they are the external proteins that are targeted by the immune system. The HA and NA proteins, therefore, evolve under dual constraints: they have to continue functioning for cellular entry and release, while also evolve novel epitopes that can successfully evade immune system detection. Evolutionary drift in the HA and NA genes contribute to **antigenic drift**, in which the antigenic characteristics of these two proteins slowly evolve over time. On the other hand, the internal proteins do not function under such selective pressures, and as such are much more highly conserved.
 
-Evolutionary drift is not the only mechanism by which influenza evolves. Its segmented and independently assorting genome allows for **reassortment** as a complementary mode of genomic evolution. Reassortment is thought to be the process resulting from co-infection of two viruses infecting the same host at the same time. If, for example, a red virus and a blue virus were to co-infect the same host cell, the progeny virus would contain any one of 2<sup>8</sup> combinations of red and blue segments (inclusive of the original viruses themselves) (#figure). Reassortment, thus, can be viewed as a form of **evolutionary shift**[^evoshift] in the genomic structure of the virus.
+Evolutionary drift is not the only mechanism by which influenza evolves. Its segmented and independently assorting genome allows for **reassortment** as a complementary mode of genomic evolution. Reassortment is thought to be the process resulting from co-infection of two viruses infecting the same host at the same time. If, for example, a red virus and a blue virus were to co-infect the same host cell, the progeny virus would contain any one of 2<sup>8</sup> combinations of red and blue segments (inclusive of the original viruses themselves) (+@fig:genome-structure-reassortment). Reassortment, thus, can be viewed as a form of **evolutionary shift**[^evoshift] in the genomic structure of the virus.
 
 [^evoshift]: Amongst influenza researchers, evolutionary shift almost always refers to the exchange of HA and NA genes to produce viruses with an immunologically novel HA/NA combination. However, in this thesis, evolutionary shift refers more broadly to the exchange of any of the genes resulting in a novel genotype combination.
 
@@ -53,7 +53,7 @@ Tree construction is done as follows: given a matrix of **character states** (co
 
 ### Maximum Parsimony
 
-Maximum parsimony methods for phylogenetic reconstruction follow the logic of "the more similar we look, the closer our common ancestor is". A toy example is shown below. (#figure) Consider the example where we have the following three samples with 3 binary character states recorded:
+Maximum parsimony methods for phylogenetic reconstruction follow the logic of "the more similar we look, the closer our common ancestor is". A toy example is shown below. Consider the example where we have the following three samples with 3 binary character states recorded:
 
 sample  |  char1  |  char2  |  char3
 --------|---------|---------|-------
@@ -106,7 +106,7 @@ and two trees (out of many possible) for this given state:
 
 ![Two trees with internal node reconstructions on which likelihood calculations are performed.](./figures/max_likelihood_trees.jpg){#fig:mlt}
 
-We may compute the following log likelihood for each of the trees: (#factcheck check these calculations!)
+We may compute the following log likelihood for each of the trees:
 
 $$L_{tree1}(T) = P(A_4 \rightarrow A_1) \times P(A_4 \rightarrow A_2) \times P(A_5 \rightarrow A_4) \times P(A_5 \rightarrow C_3)$$
 
@@ -118,21 +118,21 @@ And evaluating the result, we get:
 
 $$log(L_{tree1}(T)) = 3log0.4 + log0.2 = -1.89$$
 
-Doing an analogous computation for tree 2 yields a log likelihood score of -2.19.
+Doing an analogous computation for tree 2 yields a log likelihood score of -2.19. With maximum likelihood estimation, we would want to find the tree topology that maximizes the log likelihood score, given the underlying transition model.
 
 In principle, this procedure has to be for every possible nucleotide in the internal nodes. The sum of all log likelihood scores gives the log likelihood of the tree, given the sequence at a position $i$ in a multiple sequence alignment. This computation is then repeated for every position in a sequence alignment. This makes maximum likelihood methods computationally more expensive than maximum parsimony methods.
 
-Yet, we run into a problem: it is computationally infeasible to compute the likelihood for every single topology! Not only is the tree space large, according to Felsenstein (2004) [@Felsenstein:2004ws]
+Yet, we run into a problem: it is computationally infeasible to compute the likelihood for every single topology! Not only is the tree space large, according to Felsenstein [@Felsenstein:2004ws]:
 
 $$ \frac{(2n-3)!}{2^{n-2}(n-2)!} $$
 
 the likelihood over every possible reconstructed ancestral sequence has to be computed as well.
 
-Thus, in practice, trees are iteratively built using a greedy algorithm. For brevity, I do not detail the methods here, but they can be found in Felsenstein (2004) [@Felsenstein:2004ws].
+Thus, in practice, trees are iteratively built using a greedy algorithm. For brevity, and because it is not relevant to understanding the reassortant virus detection algorithm, here, I do not provide extra detail, though they are available in Felsenstein's book, Inferring Phylogenies [@Felsenstein:2004ws].
 
 ### Bayesian Phylogenetic Inference
 
-Bayesian phylogenetic reconstruction methods extend likelihood tree reconstruction methods by allowing us to infer a probability distribution over the tree topology and coalescent times, given the data. When paired with phylogeographic inference [@Lemey:2010eu], where geography is modelled as another character state in addition to nucleotide sequence, it is possible to trace reconstruct and trace the movement of viruses. As is the case with Bayesian inference in general, the exponential increase in computational power along with advances in tree-space MCMC have been greatly enabling. Bayesian phylogenetic inference has been used successfully to infer the time of emergence of outbreak viruses such as the Ebola virus [@Gire:2014fk; @Park:2015cw] and movement swine influenza viruses [@Nelson:2015dy]. Nonetheless, Bayesian phylogenetic tree construction remains computationally expensive; typical real-world runtimes for tree reconstruction, given single core, GPU-enabled compute power, are on the order of weeks for hundreds of taxa and months for thousands of taxa.
+Bayesian phylogenetic reconstruction methods extend likelihood tree reconstruction methods by allowing us to infer a probability distribution over the tree topology and coalescent times, given the data. When paired with phylogeographic inference [@Lemey:2010eu], where geography is modelled as another character state in addition to nucleotide sequence, it is possible to reconstruct and trace the movement of viruses. As is the case with Bayesian inference in general, the exponential increase in computational power along with advances in tree-space MCMC have been greatly enabling. Bayesian phylogenetic inference has been used successfully to infer the time of emergence of outbreak viruses such as the Ebola virus [@Gire:2014fk; @Park:2015cw] and movement swine influenza viruses [@Nelson:2015dy]. Nonetheless, Bayesian phylogenetic tree construction remains computationally expensive; typical real-world runtimes for tree reconstruction, given single core, GPU-enabled compute power, are on the order of weeks for hundreds of taxa and months for thousands of taxa.
 
 ## Interpreting Trees
 
@@ -183,7 +183,7 @@ In the case of this pair of trees:
 
 Hence, these trees are incompatible, and thus there is evidence that reassortment has happened.
 
-Tree incongruence is a generalization of the logic used to find individual reassortant viruses, and is implemented in the software, GiRaF [@Nagarajan:2011je]. In practice because Bayesian phylogenetic tree reconstructions are returned as ensembles of trees from MCMC sampling, splits are only counted if they appear in more than 95% of sampled trees.
+Tree incongruence is a generalization of the logic used to find individual reassortant viruses, and is implemented in the software, GiRaF [@Nagarajan:2011je]. Bayesian phylogenetic tree reconstructions are returned as ensembles of trees from MCMC sampling; hence, in practice the majority of time spent detecting reassortant viruses is actually spent on tree reconstruction. On the other hand, a nice statistical outcome of sampling tree space is that splits are only counted if they appear in more than 95% of sampled trees, leading to a natural "95% confidence" for any given reassortment event detected.
 
 ### 3rd Codon Biases
 
@@ -273,7 +273,9 @@ Regardless of replication or reassortment, the progeny virus was subjected to mu
 
 The number of unique starting genotypes and total number of viral isolates being considered was much smaller than the real-world data. Therefore, our graph reconstruction procedure captured the essential parts of the method used in the global analysis, but differed in the details. Here, “full complements” involve only two segments. We did not perform affinity propagation clustering, as we started with completely randomly generated sequences of equal length. Our “null model” graph is where source isolates are chosen uniformly at random from the set of nodes occurring before the sink isolates.
 
-To assess the accuracy of our reconstruction, we defined the path accuracy and reassortant path identification accuracy metrics (#figure). Edge accuracy, which is not used for evaluation here, is whether a particular reconstruction transmission between two isolates exists in the simulation. Path accuracy is a generalization of edge accuracy, where a path existing between the source and sink nodes (without considering the direction of edges) in the reconstruction is sufficient for being considered accurate. Reassortant path identification accuracy measures how accurately we identified the reassortant paths, analogous to the regular path accuracy.
+To assess the accuracy of our reconstruction, we defined the path accuracy and reassortant path identification accuracy metrics (+@fig:accuracy-metrics). Edge accuracy, which is not used for evaluation here, is whether a particular reconstruction transmission between two isolates exists in the simulation. Path accuracy is a generalization of edge accuracy, where a path existing between the source and sink nodes (without considering the direction of edges) in the reconstruction is sufficient for being considered accurate. Reassortant path identification accuracy measures how accurately we identified the reassortant paths, analogous to the regular path accuracy.
+
+![Accuracy scores for simulation studies. Simulations were conducted under (a) complete sampling and (b) incomplete sampling scenarios. Top row: Reconstruction using the algorithm described (blue background) and under a null reconstruction (green background). Middle row: Distribution of edge accuracy metrics (fraction incorrect vs. fraction correct) under null reconstruction (green scatter points) and algorithm reconstruction (blue scatter points). Bottom row: Distribution of path accuracy under a null reconstruction (green) and algorithm reconstruction (blue). The algorithm reconstruction has a consistently higher accuracy in identifying reassortant viruses. ](./figures/accuracy-metrics.jpg){#fig:accuracy-metrics}
 
 Source code for the simulation studies is available on Zenodo (DOI: 10.5281/zenodo.33427).
 
@@ -305,9 +307,9 @@ For each of the major steps in the algorithm developed in this thesis, the time 
 
 - Pairwise distance matrix computations is of $O(n^2)$ complexity.
 - Finding maximal edges again requires $n^2$ comparisons to be made.
-- In the 2nd search for source pairs, given $s$ segments and $n$ isolates, in the worst case scenario, we have to check all isolates for the source pairs. Thus, we require ${s}\choose{2}$ $n^2$ comparisons in the worst-case scenario. (#DOUBLECHECK!)
+- In the 2nd search for source pairs, given $s$ segments and $n$ isolates, in the worst case scenario, we have to check all isolates for the source pairs. Thus, we require ${s}\choose{2}$ $n^2$ comparisons in the worst-case scenario.
 
-Given this analysis, and ignoring the $s$ term (which is the number of segments for a given virus), the time complexity of the SeqTrack-based algorithm described here should be $O(n^2)$.
+Given this analysis, and ignoring the $s$ term (which is the number of segments for a given virus), the worst-case time complexity of the SeqTrack-based algorithm described here should be $O(n^2)$.
 
 # Applications
 
