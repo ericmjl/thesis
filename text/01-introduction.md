@@ -229,9 +229,3 @@ While the details of the research questions tackled in this thesis are written i
 
 1. Are reticulate evolutionary processes, such as reassortment, important for host switches? If so, can we quantify the importance? Is the principle generalizable?
 1. Is reassortment an evolutionary strategy that influenza genes can employ to persist against barriers to transmission?
-
-----
-
-1. Importance of reassortant viruses: pandemics, immune evasion.
-    1. Measures of fitness - “what is a “fit” virus?” relative to others? Quasispecies concept.
-    1. What barriers to replication and infection do the host provide that the virus needs to overcome?
