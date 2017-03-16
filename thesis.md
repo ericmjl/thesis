@@ -427,7 +427,11 @@ Working with Dr. Nichola Hill, we integrated densely-sampled influenza A virus s
 
 A modification to the algorithm was done to make the virus epidemiologically-relevant for this study; because the date of sampling may not necessarily correspond to the date of infection, we modified the network reconstruction algorithm to permit sources to occur after sinks by up to 6 days, which is roughly the length of time that an infected bird sheds viruses. The resultant graph had two types of edges, "full complement" (whole genome) transmissions, and "reassortment" transmissions, similar to our global study.
 
-What we found was that full complement edges spanned short time scales, dominating short chain transmissions, while reassortment edges spanned annual seasons (#figure:3). Additionally, we observed that reassortment edges spanned greater geographic scales (#figure:5) than full complement edges. Integrating this observation with the increase of inter-species transmissions later in the summer breeding season, we think that the data supports a model where reassortment and expansion of host species is a way for the influenza A virus to persist in wild birds, especially when direct transmission becomes progressively harder as the seasonal cycle progresses.
+What we found was that full complement edges spanned short time scales, dominating short chain transmissions, while reassortment edges spanned annual seasons (+@fig:ecoletters-fig3). Additionally, we observed that reassortment edges spanned greater geographic scales (+@fig:ecoletters-fig5) than full complement edges. Integrating this observation with the increase of inter-species transmissions later in the summer breeding season, we think that the data supports a model where reassortment and expansion of host species is a way for the influenza A virus to persist in wild birds, especially when direct transmission becomes progressively harder as the seasonal cycle progresses.
+
+![](./figures/ecoletters-fig3.jpg){#fig:ecoletters-fig3}
+
+![](./figures/ecoletters-fig5.jpg){#fig:ecoletters-fig5}
 
 ## Caveats
 
