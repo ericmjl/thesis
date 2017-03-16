@@ -392,7 +392,7 @@ We describe here the methods specifically used for this application.
 
 ## Application 2: Viral persistence.
 
-The bulk of this study, including the writing, was led by Dr. Nichola J. Hill; as such, apart from the abstract, I provide a synopsis of the work rather than the original text. Additionally, much effort was dedicated to sample collection in Fairbanks, AK, led by Brandt Meixell, without which this study would not have been possible, and I would like to acknowledge the effort put in by the sample collection team in enabling this study.
+The bulk of this study, including the writing, was led by Dr. Nichola J. Hill; as such, apart from the abstract and figures, I provide a synopsis of the work rather than the original text. Additionally, much effort was dedicated to sample collection in Fairbanks, AK, led by Brandt Meixell, without which this study would not have been possible, and I would like to acknowledge the effort put in by the sample collection team in enabling this study.
 
 ### Abstract
 
@@ -429,9 +429,9 @@ A modification to the algorithm was done to make the virus epidemiologically-rel
 
 What we found was that full complement edges spanned short time scales, dominating short chain transmissions, while reassortment edges spanned annual seasons (+@fig:ecoletters-fig3). Additionally, we observed that reassortment edges spanned greater geographic scales (+@fig:ecoletters-fig5) than full complement edges. Integrating this observation with the increase of inter-species transmissions later in the summer breeding season, we think that the data supports a model where reassortment and expansion of host species is a way for the influenza A virus to persist in wild birds, especially when direct transmission becomes progressively harder as the seasonal cycle progresses.
 
-![](./figures/ecoletters-fig3.jpg){#fig:ecoletters-fig3}
+![The distribution of transmissions at Minto Flats, Alaska according to (a) time and (b) latitude. Temporal analysis (a) depicts the density of transmissions among ducks at Minto Flats (grey concentric circles) during 2009–2011. The majority of full complement transmissions (top panel) were sourced locally from Minto Flats and involved ducks with source and sink dates that overlapped (i.e. transmission within the same breeding season). However, reassortant viruses at Minto Flats (lower panel) were also seeded from virus shed by ducks up to two years earlier, originating primarily in autumn and winter from prior annual cycles. Data from 2008 is included but not depicted as this year was a source, but not sink of interannual transmissions. Spatial analysis (b) indicates the latitudinal span of locations that were sourced by virus originating at Minto Flats. The majority of viruses introduced into lower latitudes were detected as reassortants.](./figures/ecoletters-fig3.jpg){#fig:ecoletters-fig3}
 
-![](./figures/ecoletters-fig5.jpg){#fig:ecoletters-fig5}
+![Spatial pattern of viral transmissions between wild birds in North America, 2008–2011 according to (a) latitude and (b) longitude. Heatmaps indicate the number of transmission events highlighted by colour (blue: latitude, purple: longitude) and the shaded areas (90% ellipse) where transmissions are concentrated. Full complement transmissions are localized both latitudinally and longitudinally, indicated by the source and sink locations overlapping. In contrast, transmissions involving reassortment are more spatially diffuse. The combination of reassortant and interspecies transmission resulted in greatest dispersal both latitudinally and longitudinally.](./figures/ecoletters-fig5.jpg){#fig:ecoletters-fig5}
 
 ## Caveats
 
