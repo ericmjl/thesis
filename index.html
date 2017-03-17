@@ -385,7 +385,7 @@
     <p>Source code for the simulation studies is available on Zenodo (DOI: 10.5281/zenodo.33427).</p>
     <h2 id="comparative-analysis-of-time-complexity">Comparative Analysis of Time Complexity</h2>
     <h3 id="tree-reconstruction-complexity">Tree Reconstruction Complexity</h3>
-    <p>According to Felsenstein <span class="citation">(4)</span>, given a set of <span class="math inline">\(n\)</span> labelled sequences, the number of possible rooted, bifurcating trees (which are used for inferring tree inconrguence) is</p>
+    <p>According to the GiRaF developers, the time required to identify reassortant viruses is dominated by the time to construct the phylogenetic trees for each gene <span class="citation">(9)</span>. Thus, in calculating the complexity required for phylogeny-based reassortment detection algorithms, tree reconstruction is the major term we need to account for. According to Felsenstein <span class="citation">(4)</span>, given a set of <span class="math inline">\(n\)</span> labelled sequences, the number of possible rooted, bifurcating trees (which are used for inferring tree inconrguence) is</p>
     <p><span class="math display">\[ \frac{(2n-3)!}{2^{n-2}(n-2)!} \]</span></p>
     <p>This can be expanded to:</p>
     <p><span class="math display">\[\frac{(2n-3)(2n-4)(2n-5)...(n)(n-1)(n-2)(n-3)(n-4)...(1)}{2^{n-2}(n-2)(n-3)(n-4)...(1)}\]</span></p>

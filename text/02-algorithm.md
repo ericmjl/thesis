@@ -32,7 +32,7 @@ Source code for the simulation studies is available on Zenodo (DOI: 10.5281/zeno
 
 ### Tree Reconstruction Complexity
 
-According to Felsenstein [@Felsenstein:2004ws], given a set of $n$ labelled sequences, the number of possible rooted, bifurcating trees (which are used for inferring tree inconrguence) is
+According to the GiRaF developers, the time required to identify reassortant viruses is dominated by the time to construct the phylogenetic trees for each gene [@Nagarajan:2011je]. Thus, in calculating the complexity required for phylogeny-based reassortment detection algorithms, tree reconstruction is the major term we need to account for. According to Felsenstein [@Felsenstein:2004ws], given a set of $n$ labelled sequences, the number of possible rooted, bifurcating trees (which are used for inferring tree inconrguence) is
 
 $$ \frac{(2n-3)!}{2^{n-2}(n-2)!} $$
 
