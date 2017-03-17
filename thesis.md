@@ -6,6 +6,8 @@ author:
 numbersections: true
 fontsize: 11pt
 header-includes:
+- \usepackage{lineno}
+- \linenumbers
 - \usepackage{setspace}
 - \doublespacing
 - \usepackage{amssymb}
@@ -15,7 +17,7 @@ header-includes:
 
 ## The Importance of Studying Influenza Evolution & Ecology
 
-The influenza A virus has inflicted economic damage annually on the order of billions of dollars [@Molinari:2007en]. Being a pathogen with zoonotic origins [^zoonotic], it is imperative to study its circulation, evolution and pathogenesis not only in humans, but also in animals (domestic and wild). One major problem of interest pertains to influenza's ability to shuffle its genome with other influenza viruses, and its implication in the ability of the virus to jump between host species. To address this, in this thesis I outline efforts with my colleagues to map out and identify these shuffled viruses at a global scale, and use this systematic, global identification to learn more about influenza, reticulate evolution, and ecology.
+The influenza A virus has inflicted economic damage annually on the order of billions of dollars [@Molinari:2007en]. Being a pathogen with zoonotic origins [^zoonotic], it is imperative to study its circulation, evolution and pathogenesis not only in humans, but also in animals (domestic and wild). One major problem of interest pertains to influenza's ability to shuffle its genome with other influenza viruses, and its implication in the ability of the virus to jump between host species. To address this, in this thesis I outline efforts with my colleagues to map out and identify these shuffled viruses at a global scale, and use this systematic, global identification study influenza, reticulate evolution, and ecology.
 
 [^zoonotic]: Being of zoonotic origin means that the virus' reservoir is in one or more animal hosts, but "spills over" into humans upon contact. As such, humans are the "spillover host".
 
@@ -25,17 +27,17 @@ The influenza A virus is a negative strand RNA virus, comprised of 8 genomic RNA
 
 ![(a) Influenza A virus genome structure. The influenza virus is comprised of 8 RNA segments. (b) Reassortment. Reassortment is the process by which two viruses co-infect the same host cell and produce progeny virus that contain segments from both parental viruses.](./figures/genome-structure-reassortment.jpg){#fig:genome-structure-reassortment}
 
-Being an RNA virus that carries its own RNA-dependent RNA polymerase, the influenza A virus is prone to copying errors during replication inside a host cell [@Holmes:2003wl]. This 'sloppiness' allows the influenza virus to evolve rapidly, and can be thought of as an **evolutionary drift**.
+Being an RNA virus that carries its own RNA-dependent RNA polymerase, the influenza A virus is prone to copying errors during replication inside a host cell [@Holmes:2003wl]. This 'sloppiness' allows the influenza virus to evolve rapidly under neutral conditions, resulting in **evolutionary drift**.
 
-Evolutionary drift coupled with selection contributes to the difference in evolutionary rates that are observed between the external and internal genes. The HA and NA genes are thought to be under immune selection, as they are the external proteins that are targeted by the immune system. The HA and NA proteins, therefore, evolve under dual constraints: they have to continue functioning for cellular entry and release, while also evolve novel epitopes that can successfully evade immune system detection. Evolutionary drift in the HA and NA genes contribute to **antigenic drift**, in which the antigenic characteristics of these two proteins slowly evolve over time. On the other hand, the internal proteins do not function under such selective pressures, and as such are much more highly conserved.
+Evolutionary drift coupled with selection contributes to the difference in evolutionary rates that are observed between the external and internal genes. The HA and NA genes are thought to be under immune selection, as they are the external proteins that are targeted by the immune system. The HA and NA proteins, therefore, evolve under dual constraints: they have to continue functioning for cellular entry and release, while also evolving novel epitopes that can successfully evade immune system detection. Evolutionary drift in the HA and NA genes contribute to **antigenic drift**, in which the antigenic characteristics of these two proteins continually evolve under selection. By contrast, the internal proteins do not function under such selective pressures, and as such are much more highly conserved.
 
-Evolutionary drift is not the only mechanism by which influenza evolves. Its segmented and independently assorting genome allows for **reassortment** as a complementary mode of genomic evolution. Reassortment is thought to be the process resulting from co-infection of two viruses infecting the same host at the same time. If, for example, a red virus and a blue virus were to co-infect the same host cell, the progeny virus would contain any one of 2<sup>8</sup> combinations of red and blue segments (inclusive of the original viruses themselves) (+@fig:genome-structure-reassortment). Reassortment, thus, can be viewed as a form of **evolutionary shift**[^evoshift] in the genomic structure of the virus.
+Evolutionary drift is not the only mechanism by which influenza evolves. Its segmented and independently assorting genome allows for **reassortment** as a complementary mode of genomic evolution. Reassortment is thought to be the process resulting from co-infection of two viruses infecting the same host at the same time. If, for example, a red virus and a blue virus were to co-infect the same host cell, the progeny virus would contain any one of $2^8$ combinations of red and blue segments (inclusive of the original viruses themselves) (+@fig:genome-structure-reassortment). Reassortment, thus, can be viewed as a form of **evolutionary shift**[^evoshift] in the genomic structure of the virus.
 
 [^evoshift]: Amongst influenza researchers, evolutionary shift almost always refers to the exchange of HA and NA genes to produce viruses with an immunologically novel HA/NA combination. However, in this thesis, evolutionary shift refers more broadly to the exchange of any of the genes resulting in a novel genotype combination.
 
 ## Subtype Classification
 
-Influenza A viruses are classically known by their subtypes, e.g. H1N1, H5N1, H3N2. The "H" stands for the hemagglutinin subtype, for which there are 16 canonically known ones (H1-H16). The "N" stands for the neuraminidase subtype, for which there are 9 canonically known ones (N1-N9). H17N10 and H18N11, two new subtypes that expand our canonical view of the number of viral subtypes, have been isolated from bats [@Wu:2014by].
+Influenza A viruses are classically known by their subtypes, e.g. H1N1, H5N1, H3N2. The "H" represents the hemagglutinin subtype, for which there are 16 canonically known ones (H1-H16). The "N" stands for the neuraminidase subtype, for which there are 9 canonically known ones (N1-N9). H17N10 and H18N11, two new subtypes that expand our canonical view of the number of viral subtypes, have been isolated from bats [@Wu:2014by].
 
 The hemagglutinin and neuraminidase are proteins expressed on the surface of the viral particle, and as such they are thought to be subject to immune selection and thus evolutionary pressure. This is the best current explanation as to why there is such great diversity in the HA and NA genes, and less diversity in the internal genes (e.g. polymerase genes)
 
@@ -81,11 +83,11 @@ One of the problems with maximum parsimony methods is that mutational reversions
 
 ![Levenshtein distance of 100 simulated trajectories.](./figures/hamming.png){#fig:hamming}
 
-Maximum likelihood methods were developed to deal with this problem. Under the assumption that each site evolves independently, we require three ingredients to compute the likelihood of a given phylogeny: the structure of the tree, an assumed internal node sequence, and a probability of mutation between any given pair of nucleotide states.
+Maximum likelihood methods help deal with this problem, by allowing us to calculate the likelihood that a given tree topology fits the sequence data, under an assumed model of sequence evolution that explicitly takes into account mutational reversion.
 
-Purely for illustrative purposes, and without going into further detail, I show an example with concrete numbers below.
+To illustrate how the likelihood calculations are performed, I show a toy example below on how tree likelihoods are computed.
 
-Given the following three samples with the following states:
+Given the following three samples with the sequence states at a given position $j$.
 
 Sample  |  $seq_{j}$
 --------|------------
@@ -93,7 +95,7 @@ Sample  |  $seq_{j}$
 2       |  A
 3       |  C
 
-and the following transition probabilities:
+We may assume a model of evolution that follows the following sequence mutation (transition) probabilities:
 
 letter  |  A     |  T     |  G     |  C
 --------|--------|--------|--------|------
@@ -102,25 +104,23 @@ T       |  2/10  |  4/10  |  2/10  |  2/10
 G       |  2/10  |  2/10  |  4/10  |  2/10
 C       |  2/10  |  2/10  |  2/10  |  4/10
 
-and two trees (out of many possible) for this given state:
+Finally, let us consider the following tree topology with two internal node reconstructions, as shown in +@fig:mlt.
 
 ![Two trees with internal node reconstructions on which likelihood calculations are performed.](./figures/max_likelihood_trees.jpg){#fig:mlt}
 
-We may compute the following log likelihood for each of the trees:
+We may compute the following log likelihood for the left tree:
 
 $$L_{tree1}(T) = P(A_4 \rightarrow A_1) \times P(A_4 \rightarrow A_2) \times P(A_5 \rightarrow A_4) \times P(A_5 \rightarrow C_3)$$
 
-Taking a log transform to prevent underflow in computation:
+Taking a log transform to prevent underflow in computation yields:
 
 $$log(L_{tree1}(T)) = logP(A_4 \rightarrow A_1) + logP(A_4 \rightarrow A_2) + logP(A_5 \rightarrow A_4) + logP(A_5 \rightarrow C_3)$$
 
-And evaluating the result, we get:
+Finally, evaluating the result, we get:
 
 $$log(L_{tree1}(T)) = 3log0.4 + log0.2 = -1.89$$
 
-Doing an analogous computation for tree 2 yields a log likelihood score of -2.19. With maximum likelihood estimation, we would want to find the tree topology that maximizes the log likelihood score, given the underlying transition model.
-
-In principle, this procedure has to be for every possible nucleotide in the internal nodes. The sum of all log likelihood scores gives the log likelihood of the tree, given the sequence at a position $i$ in a multiple sequence alignment. This computation is then repeated for every position in a sequence alignment. This makes maximum likelihood methods computationally more expensive than maximum parsimony methods.
+Doing an analogous computation for the right tree yields a log likelihood score of -2.19. The same computation is performed over all possible nucleotide identities at the internal nodes, given the tree topology, and the log likelihoods are summed up. Tree topologies are compared with respect to their likelihood scores, and the one with the highest score is returned as the "maximum likelihood" tree.
 
 Yet, we run into a problem: it is computationally infeasible to compute the likelihood for every single topology! Not only is the tree space large, according to Felsenstein [@Felsenstein:2004ws]:
 
@@ -128,17 +128,19 @@ $$ \frac{(2n-3)!}{2^{n-2}(n-2)!} $$
 
 the likelihood over every possible reconstructed ancestral sequence has to be computed as well.
 
-Thus, in practice, trees are iteratively built using a greedy algorithm. For brevity, and because it is not relevant to understanding the reassortant virus detection algorithm, here, I do not provide extra detail, though they are available in Felsenstein's book, Inferring Phylogenies [@Felsenstein:2004ws].
+Thus, in practice, tree space is searched iteratively using a greedy algorithm. For brevity, and because it is not relevant to understanding the reassortant virus detection algorithm, here, I do not provide extra detail, though they are available in Felsenstein's book, Inferring Phylogenies [@Felsenstein:2004ws].
 
 ### Bayesian Phylogenetic Inference
 
-Bayesian phylogenetic reconstruction methods extend likelihood tree reconstruction methods by allowing us to infer a probability distribution over the tree topology and coalescent times, given the data. When paired with phylogeographic inference [@Lemey:2010eu], where geography is modelled as another character state in addition to nucleotide sequence, it is possible to reconstruct and trace the movement of viruses. As is the case with Bayesian inference in general, the exponential increase in computational power along with advances in tree-space MCMC have been greatly enabling. Bayesian phylogenetic inference has been used successfully to infer the time of emergence of outbreak viruses such as the Ebola virus [@Gire:2014fk; @Park:2015cw] and movement swine influenza viruses [@Nelson:2015dy]. Nonetheless, Bayesian phylogenetic tree construction remains computationally expensive; typical real-world runtimes for tree reconstruction, given single core, GPU-enabled compute power, are on the order of weeks for hundreds of taxa and months for thousands of taxa.
+Bayesian phylogenetic reconstruction methods extend likelihood tree reconstruction methods by allowing us to infer a probability distribution over the tree topology, given the data and an assumed evolutionary model. This yields an ensemble of trees. When paired with phylogeographic inference [@Lemey:2010eu], where geography is modelled as another character state in addition to nucleotide sequence, it is possible to reconstruct an inferred movement of viruses.
+
+As is the case with Bayesian inference in general, the exponential increase in computational power along with advances in tree-space MCMC have been greatly enabling. Bayesian phylogenetic inference has been used successfully to infer the time of emergence of outbreak viruses such as the Ebola virus [@Gire:2014fk; @Park:2015cw] and movement swine influenza viruses [@Nelson:2015dy]. Nonetheless, while it is the state-of-the-art method, Bayesian phylogenetic tree construction remains computationally expensive; typical real-world runtimes for tree reconstruction, given single core, GPU-enabled compute power, are on the order of weeks for hundreds of taxa and months for thousands of taxa.
 
 ## Interpreting Trees
 
 A bifurcating phylogenetic tree is a directed acyclic graph comprised of leaf nodes (tips), internal nodes, and bifurcating branches at each **internal node** (+@fig:interpreting-trees). Branch lengths indicate evolutionary time elapsed from an internal node to another internal node or leaf.
 
-As with any hierarchical clustering method, the leaves can be organized into **clades** (+@fig:interpreting-trees), which represent a cluster of isolates on the tree that are closely related. How a clade is defined is subjective, and visual observation is the most common way to define a clade.
+As with any hierarchical clustering method, the leaves can be organized into **clades** (+@fig:interpreting-trees), which represent a cluster of isolates on the tree that are closely related. How a clade is defined is often subjective; visual observation is the most common heuristic employed.
 
 A metric of evolutionary distance between any two given isolates is the **patristic distance** (+@fig:interpreting-trees) between them. The patristic distance is measured by the sum of branch lengths (in the units that the lengths are defined, or else arbitrary distance) from one isolate to another. As such, isolates that are more evolutionarily related will have a shorter patristic distance between them.
 
@@ -146,15 +148,13 @@ A metric of evolutionary distance between any two given isolates is the **patris
 
 ## Inferring Reassortment
 
-### Single Virus
+Now that the basics of phylogenetic inference have been covered, we will move on to discuss the current methods available for finding reassortant viruses, and their core logic.
 
-Reassortment is classically inferred on a single virus of interest. The logic is essentially presented in +@fig:reassortment.
+### Single Virus
 
 ![An illustration of how reassortment is inferred for a single virus. ](./figures/reassortment.jpg){#fig:reassortment}
 
-Reassortment can be detected by looking for incongruence in the phylogenetic history of a virus. As a simple example, for the red virus of interest in +@fig:reassortment, two of its three genes share closer evolutionary history with avian-isolated viruses, while one gene shares closer evolutionary history with human-isolated viruses. As such, we would infer that this avian virus acquired a human virus' gene through some process of reassortment.
-
-Is it possible to tell in which host a virus was isolated? Given the sparsity of sampling efforts, it is very difficult to tell whether this reassortment was more likely to have occurred inside a human host or an avian host or an intermediate host. The best that we can do is reconstruct the evolutionary history.
+Reassortment is classically inferred on a single virus of interest. Reassortment can be detected by looking for incongruence in the phylogenetic history of a virus. As a simple example, for the red virus of interest in +@fig:reassortment, two of its three genes share closer evolutionary history with avian-isolated viruses, while one gene shares closer evolutionary history with human-isolated viruses. As such, we would infer that this avian virus acquired a human virus' gene through some process of reassortment.
 
 ### Tree Incongruence
 
@@ -183,28 +183,28 @@ In the case of this pair of trees:
 
 Hence, these trees are incompatible, and thus there is evidence that reassortment has happened.
 
-Tree incongruence is a generalization of the logic used to find individual reassortant viruses, and is implemented in the software, GiRaF [@Nagarajan:2011je]. Bayesian phylogenetic tree reconstructions are returned as ensembles of trees from MCMC sampling; hence, in practice the majority of time spent detecting reassortant viruses is actually spent on tree reconstruction. On the other hand, a nice statistical outcome of sampling tree space is that splits are only counted if they appear in more than 95% of sampled trees, leading to a natural "95% confidence" for any given reassortment event detected.
+Tree incongruence is a generalization of the logic used to find individual reassortant viruses, and is implemented in the software, GiRaF [@Nagarajan:2011je]. GiRaF relies on the ensemble of trees returned from Bayesian phylogenetic tree reconstructions; hence, in practice the majority of time spent detecting reassortant viruses is actually spent on tree reconstruction. On the other hand, a nice statistical outcome of sampling tree space is that splits are only counted if they appear in more than 95% of sampled trees, leading to a natural "95% confidence" for any given reassortment event detected.
 
 ### 3rd Codon Biases
 
-3rd codon sequences are assumed to be under less selective pressure than 1st and 2nd codons in a sequence. If one considers two strains of virus $v_a$ and $v_b$, and their respective pairs of segments, $s_{ia}$ and $s_{ib}$, and $s_{ja}$ and $s_{jb}$, we may compute the difference between their segments as follows:
+3rd codon sequences are assumed to be under less selective pressure than 1st and 2nd codons in a sequence. If one considers two strains of virus $v_a$ and $v_b$, and their respective pairs of segments, $s_{i,a}$ and $s_{i,b}$, and $s_{j,a}$ and $s_{j,b}$, we may compute the difference between their segments as follows:
 
-$$ d_{iab} = EditDistance(s_{ia}, s_{ib}) $$
-$$ d_{jab} = EditDistance(s_{ja}, s_{jb}) $$
+$$ d_{i,(a,b)} = EditDistance(s_{i,a}, s_{i,b}) $$
+$$ d_{j,(a,b)} = EditDistance(s_{j,a}, s_{j,b}) $$
 
-Plotting the distribution of $d_{iab}$ against $d_{jab}$ for all pairs of viruses $(v_a, v_b)$ yields the following plot:
+Plotting the distribution of $d_{i,(a,b)}$ against $d_{j,(a,b)}$ for all pairs of viruses $(v_a, v_b)$ yields +@fig:3rd-codon-distance.
 
 ![Toy distribution of all pairwise 3rd codon hamming distances between viral isolates. Blue dots: comparisons between viruses that yielded correlated 3rd codon hamming distances. Yellow dots: comparisons between viruses that yielded non-correlated 3rd codon hamming distances.](./figures/3rd-codon-distance.jpg){#fig:3rd-codon-distance .class max-height=200px}
 
 As shown in +@fig:3rd-codon-distance (adpated from [@Rabadan:2008jm]), if no reassortment was present, the hamming distance between the 3rd codons should be correlated under the assumptions that (a) 3rd codons are under neutral selection, and (b) the segments drift at roughly the same rate under neutral conditions. This would result in only blue dots showing up. If reassortment was present, then the hamming distances between two viruses should be non-correlated, and the yellow dots will show up.
 
-This is a computationally simple method, as it only requires the computation of all pairwise edit distances, and as such has the advantage of being scalable to large numbers of sequences.
+This is a computationally simple method, as it only requires the computation of all pairwise edit distances, and as such has the advantage of being scalable to large numbers of sequences. However, it ignores the evolutionary history of the virus, making no inference about the source of segments, unless paired with time-stamped data.
 
 ## Influenza Biology
 
 ### Genome Packaging
 
-In the study of the process of reassortment, one cannot escape from the topic of "how viruses are packaged". This is because when two viruses co-infect the same host cell, the resulting mixed pool of genomic segments have to undergo packaging into another live virus. The level of abstraction required for understanding this thesis is at the host species level. As such, the details of packaging are not a central and necessary piece of knowledge for understanding influenza reassortment at a global scale. Thus, in lieu of a full description of the current state of knowledge, I have listed the major key points below as follows:
+In the study of the process of reassortment, one cannot escape from the topic of "how viruses are packaged". This is because when two viruses co-infect the same host cell, the resulting mixed pool of genomic segments have to undergo packaging into another live virus. However, the level of abstraction required for understanding this thesis is at the host species level. As such, the details of packaging are not a central and necessary piece of knowledge for understanding influenza reassortment at a global scale. Thus, in lieu of a full description of the current state of knowledge, I have listed the major key points below as follows:
 
 1. There are "packaging signals" located in the coding sequence (imposing a further evolutionary constraint) that determine whether a piece of RNA is selectively packaged into the viral genome. [@Goto:2013bc; @Hutchinson:2009hd; @Gog:2007ie] (+@fig:packaging)
 1. Selective packaging is shown via electron microscopy, where the vast majority of viral particles have a distinct "7+1" arrangement of segments. Only a minority have extra segments. [@Gerber:2014hp]
@@ -214,31 +214,33 @@ In the study of the process of reassortment, one cannot escape from the topic of
 
 ### Host Distribution of Influenza A Virus
 
+In order to understand reassortment in ecological contexts, we need to know the known host range and movement patterns of the influenza A virus.
+
 The influenza A virus has a broad geographic and trophic range. Viral flow is canonically thought to start in the influenza A virus' reservoir hosts, wild ducks [@Webster:1992wl]. Viruses can occasionally **spillover** from wild birds into domestic animals, such as pigs and chickens. Because of the close proximity of humans to domestic animals, these viruses can also jump from domestic animals into humans, thus leading to pandemics [@Webster:1992wl].
 
-Thought ducks, pigs, chickens and humans are the canonical places we think of flu, influenza is neither solely restricted to these hosts, nor is the flow of virus uni-directional.
+Though ducks, pigs, chickens and humans are the canonical places we think of flu, influenza is neither solely restricted to these hosts, nor is the flow of virus uni-directional.
 
 Influenza viruses have been isolated in large and small mammals, including cows, horses, dogs, cats [@Kuiken:2004cs], seals [@Hussein:2016cj; @Anthony:2012dda; @Lang:1981tj; @Fereidouni:2014df], penguins [@Wallensten:2006kl] and more. The newest influenza viral subtypes, H17N10 and H18N11, have been isolated from bats [@Wu:2014by].
 
-Additionally, cases of **reverse zoonosis** [^rev_zoonosis] have been reported, where viruses jump back into swine hosts from humans [@Nelson:2015cg]. Humans, therefore, are not a "dead-end" host for the virus.
+Additionally, cases of **reverse zoonosis** [^rev_zoonosis] have been reported, where viruses jump back into swine hosts from humans [@Nelson:2015cg]. Humans, therefore, are not a "dead-end" host for the virus, as was once thought.
 
 [^rev_zoonosis]: Zoonotic viruses typically have animal reservoir hosts, and humans are the "spillover" host. Reverse zoonosis occurs when these viruses jump from humans back into animal hosts.
 
-A little detail on influenza biology is necessary to understand reverse zoonosis. Based on studies of the glycans [^glycans] that decorate the surface of cell membranes, human hosts generally have $\alpha$-(2,3) glycans, while avian hosts generally have $\alpha$-(2,6) glycans [@Gagneux:2003fs; @Matrosovich:1999ux]. The hemagglutinin latches on to the glycans, thus mediating viral entry.
+A little detail on influenza biology is necessary to understand reverse zoonosis. Based on studies of the glycans [^glycans] that decorate the surface of cell membranes, human hosts generally have $\alpha$-(2,3) glycans, while avian hosts generally have $\alpha$-(2,6) glycans [@Gagneux:2003fs; @Matrosovich:1999ux]. The hemagglutinin attaches to the glycans in the first step of viral infection, thus mediating viral entry.
 
-Pigs have been shown to have both glycans on their cells [@Ito:1998tm]. As such, viruses that are capable of infecting birds can also infect pigs, where they may acquire mutations that allow them to enter human cells; additionally, human viruses are also thus capable of replicating in swine hosts. As such, this knowledge has led to the conclusion that swine hosts may play the role of "mixing vessels" [@Ito:1998tm], allowing influenza A viruses to reassort in pigs.
+Pigs have been shown to have both glycans distributed on their cells [@Ito:1998tm]. As such, viruses that are capable of infecting birds can also infect pigs, where they may acquire mutations that allow them to enter human cells; additionally, human viruses are also thus capable of replicating in swine hosts. As such, this knowledge has led to the conclusion that swine hosts may play the role of "mixing vessels" [@Ito:1998tm], allowing influenza A viruses to reassort in pigs.
 
 [^glycans]: Glycans are branched chains of sugar molecules that have been identified on cell surface membranes. Glycans are also post-translationally added to proteins through glycosylating enzymes.
 
 ### Evolutionary Consequences of Reassortment
 
-Reassortment can result in novel genotype combinations. An epidemiologically-relevant reassortment is one that occurs between viruses of different subtypes. As the HA and NA genes are the ones that elicit an immune response, novel HA/NA combinations, or the introduction of an antigenically distinct HA or NA of the same subtype, can result in a new virus with the ability to evade immune detection. This would, in turn, help the virus circumvent existing host (and population) immunity.
+Reassortment can result in novel genotype combinations. An epidemiologically-relevant reassortment is one that occurs between viruses of different subtypes. This is because the HA and NA proteins elicit host immune responses. Thus, novel HA/NA combinations, or the introduction of an antigenically distinct HA or NA of the same subtype, can result in a new virus with the ability to evade immune detection. This would, in turn, help the virus circumvent existing host (and population) immunity.
 
-In theory, it is also possible for other 'enhancements' to the influenza A virus to be acquired via reassortment. For example, polymorphisms correlated with enhanced polymerase replication capacity in human cells are found in viruses isolated in wild birds, raising the possibility that these mutations can occur naturally and, if reassorted with an immunologically-novel viral subtype, confer enhanced replication capacity, leading to a much riskier virus.
+In theory, it is also possible for other 'enhancements' to the influenza A virus to be acquired via reassortment. For example, polymorphisms correlated with enhanced polymerase replication capacity in human cells are found in viruses isolated in wild birds, raising the possibility that these mutations can occur naturally and, if reassorted with an immunologically-novel viral subtype, can confer enhanced replication capacity, leading to a much riskier virus.
 
 ## Research Questions
 
-While the details of the research questions tackled in this thesis are written in the two Applications section, I outline here at a high level the questions that my colleagues and I tackled.
+Given what we currently know about the ecology of influenza, a key gap in our knowledge is the role that reassortment plays in flu movement and survival. Grounded on this theme, I set out with colleagues to tackle the following questions:
 
 1. Are reticulate evolutionary processes, such as reassortment, important for host switches? If so, can we quantify the importance? Is the principle generalizable?
 1. Is reassortment an evolutionary strategy that influenza genes can employ to persist against barriers to transmission?
@@ -261,7 +263,7 @@ Pairwise identities were computed using Clustal Omega (version 1.2.1) [@Sievers:
 
 To check whether the algorithm was capable of correctly identifying reassortant viruses, simulation studies were conducted. To simplify the problem, we considered the case of a two-segment virus, with each of the two segments having a different nucleotide substitution rate, mirroring the different substitution rates on each of the influenza genome segments. Each simulation run was initialized with anywhere between one and five viruses. At each time step, one virus was chosen at random to replicate (with 0.75 probability) or reassort with another virus (with 0.25 probability). Simulations were run for 50 time steps.
 
-Regardless of replication or reassortment, the progeny virus was subjected to mutations, with the number of mutations in each segment being drawn from a binomial distribution with probability equal to the segment's substitution rate, and the exact positions drawn uniformly across the segment. This process is outlined in +@fig:fig-s4-simulation in the Applications section.
+Regardless of replication or reassortment, the progeny virus was subjected to mutations, with the number of mutations in each segment being drawn from a binomial distribution with probability equal to the segment's substitution rate, and the exact positions drawn uniformly across the segment. This process is outlined in +@fig:fig-s4-simulation.
 
 ![Viral simulation results. (a) Schematic of simulation studies conducted on a model two-segment virus with one segment capable of hypermutating in a short region of it. (b) In the null model, genomic information is ignored and a source virus is picked at random from isolates prior to it in time. Reassortants remain identified as reassortants, but sources are changed. In the proper reconstruction, sources are chosen to minimize genetic distance across two segments. (c) Distribution of proportion of reassortant viruses accurately identified under a proper reconstruction (blue bars) as opposed to a null model (green bars).](./figures/pnas-fig-s4.jpg){#fig:fig-s4-simulation}
 
@@ -274,6 +276,8 @@ To assess the accuracy of our reconstruction, we defined the path accuracy and r
 Source code for the simulation studies is available on Zenodo (DOI: 10.5281/zenodo.33427).
 
 ## Comparative Analysis of Time Complexity
+
+In inferring reassortment, the key step is to identify how viruses are related, given the sequence data. Thus, we compare here the time complexity for inferring the topology of phylogenetic trees vs. the topology of networks, as applied to the detection of reassortant viruses.
 
 ### Tree Reconstruction Complexity
 
@@ -293,7 +297,7 @@ If we consider only the largest polynomial terms of n, we see that in the numera
 
 $$\frac{(2n)^{n-1}}{2^{n-2}} = \frac{2^{n-1}n^{n-1}}{2^{n-2}} = 2n^{n-1}$$
 
-Under the assumption that a Bayesian reconstruction is only looking for the most optimal tree topology and is not estimating times of divergence for internal nodes, then the worst case scenario is that the MCMC sampling algorithm has to search $O(n^{n})$ trees in order to find the best topology.
+Under the assumption that a Bayesian reconstruction is only looking for the most optimal tree topologies and is not estimating times of divergence for internal nodes, then the worst case scenario is that the MCMC sampling algorithm has to search $O(n^{n})$ trees in order to find the best topology.
 
 ### Network Reconstruction Complexity
 
@@ -431,7 +435,7 @@ Taken together, the data support a model where reassortment and expansion of hos
 
 ## Caveats
 
-A caveat common to this study and the global influenza study before is that sampling efforts are ad-hoc (often in response to a new outbreak or directed towards testing some hypothesis), non-uniform over space and time (owing to the movement of viral hosts and logistical issues), and yield varying amounts of sequence data (owing to differences in prevalence over time). It would be both politically and financially difficult to re-structure sampling efforts to be constant over space and time.
+A caveat common to this study and the global influenza study before is that sampling efforts are ad-hoc (often in response to a new outbreak or directed towards testing some hypothesis), non-uniform over space and time (owing to the movement of viral hosts and logistical issues), and yield varying amounts of sequence data (owing to differences in prevalence over time). This potentially could bias the inference of reassortment events. To tackle this in the first application, we tested the sensitivity of the inferences to biased vs. equal sampling in our null model; the conclusions did not change. In the second application, we progressively sub-sampled an increasing maximum number of sequences for a host species, and investigated how it affected the metrics quantified. No trends were observed, indicating that sampling bias did not affect our conclusions. Nonetheless, while resampling and permutation tests can help us measure how sampling biases may change the conclusion, the gold standard (and politically/financially tougher) method would be to re-structure sampling efforts to be constant over space and time.
 
 We have used permutation tests (global study) and chi-square tests (viral migration study) [^chi_sq] to test whether the what we observed was likely to happen by random chance. However, this nonetheless raises the question, "What is the most appropriate null model?" This is admittedly a difficult philosophical question itself, as with network models there potentially many different "nulls" to compare against [^nullmodel].
 
@@ -443,11 +447,11 @@ We have used permutation tests (global study) and chi-square tests (viral migrat
 
 ## Engineering
 
-Algorithms developed in the academic world often require "just some engineering" to be made ready for deployment to the real-world. It remains on my personal wish-list to have turned this reassortment detection algorithm into a standalone software package, similar to BEAST [@Drummond:2012cs] or GiRaF [@Nagarajan:2011je]. It is also my desire to have a continually-updated monitoring system, similar to NextFlu [@Neher:2015jr], to continually detect newly-sequenced reassortant viruses as they show up. At the moment, the Influenza Research Database team, led by Prof. Richard Schuermann at the JCVI, is considering incorporating the reassortment detection code as part of their data platform.
+Algorithms developed in the academic world often require "just some engineering" to be made ready for deployment to the real-world. It remains on my personal wish-list to have turned this reassortment detection algorithm into a standalone software package, similar to BEAST [@Drummond:2012cs] or GiRaF [@Nagarajan:2011je]. It is also my desire to have a continually-updated monitoring system, similar to NextFlu [@Neher:2015jr], to continually detect newly-sequenced reassortant viruses as they show up. At the moment, the Influenza Research Database team, led by Prof. Richard Schuermann at the JCVI, is considering incorporating the reassortment detection code as part of their data platform, and I would like to thank them for their interest.
 
 ### Automation
 
-The code, as it stands right now, was designed for execution on a Sun Grid Engine compute cluster. This design enabled manual parallelism wherever the code was embarrassingly parallel, in a map-reduce paradigm. For example, one key step is the creation of a multiple sequence alignment for each influenza A virus segment. Because the the alignment of one segment is not dependent on the alignment of another segment, they could be aligned in parallel, with the alignment of longer segments taking longer than the alignment of shorter segments. However, a few steps after that, there is a "reduction" step that is dependent on having all 8 evolutionary distance matrices computed fully, and this was one example of a step that was not automated because of (1) a lack of expertise in parallel computation and (2) the nature of the SGE scheduling system not being accessible from an external API.
+The code, as it stands right now, was designed for execution on a Sun Grid Engine (SGE) compute cluster. This design enabled manual parallelism wherever the code was embarrassingly parallel, in a map-reduce paradigm. For example, one key step is the creation of a multiple sequence alignment for each influenza A virus segment. Because the the alignment of one segment is not dependent on the alignment of another segment, they could be aligned in parallel, with the alignment of longer segments taking longer than the alignment of shorter segments. However, a few steps after that, there is a "reduction" step that is dependent on having all 8 evolutionary distance matrices computed fully, and this was one example of a step that was not automated because of (1) a lack of expertise in parallel computation and (2) the nature of the SGE scheduling system not being accessible from an external API.
 
 With the development of Python-based software schedulers (e.g. Dask [@Team:2016wk]) enabling automatic execution of complex, arbitrary computation graphs, a rework of the code could be performed to make it executable with a single command from the command line. Dask has the added advantage of being able to scale from single cores to cloud infrastructure, though at the moment SGE clusters are not supported.
 
@@ -467,8 +471,6 @@ $$ \frac{\sum\limits_{k=1}^S p_{k}}{S} $$
 
 where $p$ is the PWI for any given segment, and $S$ is the number of segments. To retrieve a probability score for any given PWI, one would then apply a 'softmax' normalization across all valid parental combinations, thus normalizing the probability scores to sum to 1. No doubt this still requires the assumption of the algorithm being a phylogenetic heuristic, rather than an attempt at ground truth reconstruction.
 
-# References
-
 # Acknowledgments
 
 First and foremost, I would like to thank my advisor, Prof. Jonathan Runstadler, for providing guidance and mentorship. I entered both worlds of infectious disease and computational research from scratch, and Jon provided the support and environment that enabled me to grow in both fields.
@@ -482,4 +484,6 @@ Fourthly, I would like to acknowledge colleagues with whom I have worked closely
 I would also like to acknowledge the financial support and provision of resources by the Department of Biological Engineering, the BioMicroCenter, and the Broad Institute of Harvard and MIT. The research funds provided and access to compute resources have been instrumental in conducting my research, including research projects done outside of this thesis.
 
 Finally, all praise be to the Lord Jesus Christ, who has graciously provided all that I needed throughout my time in graduate school. My research has helped me refine a much more nuanced view on the relationship between the divine and our physical world, while simultaneously leaving me in awe at the complexity of nature. I have also learned the meaning of worship through excellence in our work. While we continue the fight against infectious disease, I look forward to that day, when "there will be no more death or mourning or crying or pain, for the old order of things has passed away" (Revelation 21:4), and infectious diseases, which have given me a topic for work, will finally be done with and be no more.
+
+# References
 

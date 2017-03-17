@@ -6,6 +6,8 @@ author:
 numbersections: true
 fontsize: 11pt
 header-includes:
+- \usepackage{lineno}
+- \linenumbers
 - \usepackage{setspace}
 - \doublespacing
 - \usepackage{amssymb}
