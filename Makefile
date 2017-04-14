@@ -2,7 +2,7 @@ SHELL = /bin/sh
 
 FIGURES = ./figures
 
-all: index.html thesis.md thesis.pdf commit
+all: index.html thesis.md thesis.pdf 
 
 thesis.md: text/*.md concatenate.py
 	python concatenate.py
