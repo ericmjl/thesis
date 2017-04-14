@@ -2,7 +2,7 @@ SHELL = /bin/sh
 
 FIGURES = ./figures
 
-all: index.html thesis.md thesis.pdf %.md
+all: index.html thesis.md thesis.pdf commit
 
 thesis.md: text/*.md concatenate.py
 	python concatenate.py
@@ -35,7 +35,7 @@ thesis.pdf: thesis.md default.latex pnas.csl papers-library.bib
 	    --toc \
 	    -o thesis.pdf
 
-%.md:
+commit: index.html thesis.md
 	git add .
 	git commit -m "autocommit"
 	git push
