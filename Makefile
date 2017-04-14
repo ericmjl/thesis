@@ -2,12 +2,16 @@ SHELL = /bin/sh
 
 FIGURES = ./figures
 
-all: index.html thesis.md thesis.pdf 
+TABLES = ./tables
 
-thesis.md: text/*.md concatenate.py
+TEXT = ./text
+
+all: figures/*.jpg tables/*md thesis.md index.html thesis.pdf
+
+thesis.md: text/*.md concatenate.py Makefile
 	python concatenate.py
 
-index.html: thesis.md default.html styles.css pnas.csl header.html
+index.html: thesis.md default.html styles.css pnas.csl header.html Makefile
 	pandoc thesis.md \
 	    -o index.html \
 	    --template=default.html \
@@ -15,25 +19,32 @@ index.html: thesis.md default.html styles.css pnas.csl header.html
 	    --csl pnas.csl \
 	    --mathjax \
 	    --filter pandoc-fignos \
+		--filter pandoc-tablenos \
 	    --filter pandoc-citeproc \
 	    --filter include.py \
 	    --bibliography papers-library.bib \
 	    --toc \
 	    -H header.html
 
-$FIGURES/%.jpg: $FIGURES/%.pdf
+$FIGURES/%.jpg: $FIGURES/%.pdf Makefile
 	convert -density 300 $< -quality 100 $@
 
-thesis.pdf: thesis.md default.latex pnas.csl papers-library.bib
+$TABLES/%.md: %TABLES/%.csv Makefile
+	csvtomd $< > $@.md
+
+thesis.pdf: thesis.md default.latex pnas.csl papers-library.bib Makefile
 	pandoc thesis.md \
 	    --template=default.latex \
 	    --latex-engine=xelatex \
 	    --filter pandoc-fignos \
+		--filter pandoc-tablenos \
 	    --csl pnas.csl \
 	    --filter pandoc-citeproc \
 	    --bibliography papers-library.bib \
 	    --toc \
 	    -o thesis.pdf
+	scp thesis.pdf doroot:/var/www/html/cv/.
+
 
 commit: index.html thesis.md
 	git add .

@@ -1,5 +1,3 @@
-\newpage
-
 # A Primer on the Influenza A Virus
 
 ## The Importance of Studying Influenza Evolution & Ecology
@@ -82,6 +80,8 @@ Sample  |  $seq_{j}$
 2       |  A
 3       |  C
 
+Table: Toy example of sequence states at a position in a multiple sequence alignment. {#tbl:seq-stats}
+
 We may assume a model of evolution that follows the following sequence mutation (transition) probabilities:
 
 letter  |  A     |  T     |  G     |  C
@@ -90,6 +90,9 @@ A       |  4/10  |  2/10  |  2/10  |  2/10
 T       |  2/10  |  4/10  |  2/10  |  2/10
 G       |  2/10  |  2/10  |  4/10  |  2/10
 C       |  2/10  |  2/10  |  2/10  |  4/10
+
+Table: Toy example of transition probabilities. {#tbl:transition-probabilities}
+
 
 Finally, let us consider the following tree topology with two internal node reconstructions, as shown in +@fig:mlt.
 
@@ -156,17 +159,17 @@ Let us look at +@fig:tree-splits for an elementary example. Suppose we had two t
 
 If these two trees are incompatible, then all of the following criteria are true:
 
-- $A \cap X ≠ \varnothing$, (i.e. intersection of sets A and X, or set of common items, is not empty)
-- $A \cap Y ≠ \varnothing$,
-- $B \cap X ≠ \varnothing$, and
-- $B \cap Y ≠ \varnothing$.
+- $A \cap X \ne \varnothing$, (i.e. intersection of sets A and X, or set of common items, is not empty)
+- $A \cap Y \ne \varnothing$,
+- $B \cap X \ne \varnothing$, and
+- $B \cap Y \ne \varnothing$.
 
 In the case of this pair of trees:
 
-- $A \cap X = \{t_1\} ≠ \varnothing$,
-- $A \cap Y = \{t_2\} ≠ \varnothing$,
-- $B \cap X = \{t_3\} ≠ \varnothing$, and
-- $B \cap Y = \{t_4\} ≠ \varnothing$.
+- $A \cap X = \{t_1\} \ne \varnothing$,
+- $A \cap Y = \{t_2\} \ne \varnothing$,
+- $B \cap X = \{t_3\} \ne \varnothing$, and
+- $B \cap Y = \{t_4\} \ne \varnothing$.
 
 Hence, these trees are incompatible, and thus there is evidence that reassortment has happened.
 

@@ -32,7 +32,6 @@
             <div class="TOC" id="TOC">
         <h3 class="toc">Outline</h3>
         <ul>
-        <li><a href="#abstract">Abstract</a></li>
         <li><a href="#a-primer-on-the-influenza-a-virus">A Primer on the Influenza A Virus</a><ul>
         <li><a href="#the-importance-of-studying-influenza-evolution-ecology">The Importance of Studying Influenza Evolution &amp; Ecology</a></li>
         <li><a href="#genome-structure-evolution">Genome Structure &amp; Evolution</a></li>
@@ -65,7 +64,7 @@
         </ul></li>
         <li><a href="#applications">Applications</a><ul>
         <li><a href="#application-1-global-reticulate-evolution-study.">Application 1: Global reticulate evolution study.</a><ul>
-        <li><a href="#abstract-1">Abstract</a></li>
+        <li><a href="#abstract">Abstract</a></li>
         <li><a href="#significance">Significance</a></li>
         <li><a href="#introduction">Introduction</a></li>
         <li><a href="#method-validation">Method Validation</a></li>
@@ -74,7 +73,7 @@
         <li><a href="#methods">Methods</a></li>
         </ul></li>
         <li><a href="#application-2-viral-persistence.">Application 2: Viral persistence.</a><ul>
-        <li><a href="#abstract-2">Abstract</a></li>
+        <li><a href="#abstract-1">Abstract</a></li>
         <li><a href="#research-question">Research Question</a></li>
         <li><a href="#research-methods-and-findings">Research Methods and Findings</a></li>
         </ul></li>
@@ -84,6 +83,7 @@
         <li><a href="#scientific">Scientific</a><ul>
         <li><a href="#quantification-of-ecological-niche-differences">Quantification of Ecological Niche Differences</a></li>
         <li><a href="#observation-of-viral-subtypes">Observation of Viral Subtypes</a></li>
+        <li><a href="#denser-sampling">Denser Sampling</a></li>
         <li><a href="#homologous-reassortment">Homologous Reassortment</a></li>
         <li><a href="#probabilistic-identification-of-reassortant-viruses">Probabilistic Identification of Reassortant Viruses</a></li>
         </ul></li>
@@ -96,10 +96,6 @@
         <li><a href="#references">References</a></li>
         </ul>
         </div>
-    
-    
-    <h1 id="abstract">Abstract</h1>
-    <p>Reassortment is a reticulate evolutionary process that results in genome shuffling; the most prominent virus known to reassort is the influenza A virus. Methods to identify reassortant influenza viruses do not scale well beyond hundreds of isolates at a time, because they rely on phylogenetic reconstruction, a computationally expensive method. This thus hampers our ability to test whether on whether reassortment is systematically associated for host switching events. In this thesis, I use phylogenetic heuristics to develop a new reassortment finding algorithm, and use it to test whether reassortment events are over-represented relative to a null model.</p>
     
     <h1 id="a-primer-on-the-influenza-a-virus">A Primer on the Influenza A Virus</h1>
     <h2 id="the-importance-of-studying-influenza-evolution-ecology">The Importance of Studying Influenza Evolution &amp; Ecology</h2>
@@ -202,7 +198,9 @@
     <p>Maximum likelihood methods help deal with this problem, by allowing us to calculate the likelihood that a given tree topology fits the sequence data, under an assumed model of sequence evolution that explicitly takes into account mutational reversion.</p>
     <p>To illustrate how the likelihood calculations are performed, I show a toy example below on how tree likelihoods are computed.</p>
     <p>Given the following three samples with the sequence states at a given position <span class="math inline">\(j\)</span>.</p>
+    <a name="tbl:seq-stats"></a>
     <table>
+    <caption>Table 1: Toy example of sequence states at a position in a multiple sequence alignment. </caption>
     <thead>
     <tr class="header">
     <th>Sample</th>
@@ -225,7 +223,9 @@
     </tbody>
     </table>
     <p>We may assume a model of evolution that follows the following sequence mutation (transition) probabilities:</p>
+    <a name="tbl:transition-probabilities"></a>
     <table>
+    <caption>Table 2: Toy example of transition probabilities. </caption>
     <thead>
     <tr class="header">
     <th>letter</th>
@@ -314,17 +314,17 @@
     </ul>
     <p>If these two trees are incompatible, then all of the following criteria are true:</p>
     <ul>
-    <li><span class="math inline">\(A \cap X ≠ \varnothing\)</span>, (i.e. intersection of sets A and X, or set of common items, is not empty)</li>
-    <li><span class="math inline">\(A \cap Y ≠ \varnothing\)</span>,</li>
-    <li><span class="math inline">\(B \cap X ≠ \varnothing\)</span>, and</li>
-    <li><span class="math inline">\(B \cap Y ≠ \varnothing\)</span>.</li>
+    <li><span class="math inline">\(A \cap X \ne \varnothing\)</span>, (i.e. intersection of sets A and X, or set of common items, is not empty)</li>
+    <li><span class="math inline">\(A \cap Y \ne \varnothing\)</span>,</li>
+    <li><span class="math inline">\(B \cap X \ne \varnothing\)</span>, and</li>
+    <li><span class="math inline">\(B \cap Y \ne \varnothing\)</span>.</li>
     </ul>
     <p>In the case of this pair of trees:</p>
     <ul>
-    <li><span class="math inline">\(A \cap X = \{t_1\} ≠ \varnothing\)</span>,</li>
-    <li><span class="math inline">\(A \cap Y = \{t_2\} ≠ \varnothing\)</span>,</li>
-    <li><span class="math inline">\(B \cap X = \{t_3\} ≠ \varnothing\)</span>, and</li>
-    <li><span class="math inline">\(B \cap Y = \{t_4\} ≠ \varnothing\)</span>.</li>
+    <li><span class="math inline">\(A \cap X = \{t_1\} \ne \varnothing\)</span>,</li>
+    <li><span class="math inline">\(A \cap Y = \{t_2\} \ne \varnothing\)</span>,</li>
+    <li><span class="math inline">\(B \cap X = \{t_3\} \ne \varnothing\)</span>, and</li>
+    <li><span class="math inline">\(B \cap Y = \{t_4\} \ne \varnothing\)</span>.</li>
     </ul>
     <p>Hence, these trees are incompatible, and thus there is evidence that reassortment has happened.</p>
     <p>Tree incongruence is a generalization of the logic used to find individual reassortant viruses, and is implemented in the software, GiRaF <span class="citation">(9)</span>. GiRaF relies on the ensemble of trees returned from Bayesian phylogenetic tree reconstructions; hence, in practice the majority of time spent detecting reassortant viruses is actually spent on tree reconstruction. On the other hand, a nice statistical outcome of sampling tree space is that splits are only counted if they appear in more than 95% of sampled trees, leading to a natural &quot;95% confidence&quot; for any given reassortment event detected.</p>
@@ -414,7 +414,7 @@
     <h1 id="applications">Applications</h1>
     <h2 id="application-1-global-reticulate-evolution-study.">Application 1: Global reticulate evolution study.</h2>
     <p>This study was conducted with much help from Dr. Nichola J. Hill (MIT Department of Biological Engineering &amp; Division of Comparative Medicine) who gave much technical mentorship on ecology, and two undergraduate students, Kyle Yuan and Justin Zabilansky, both of whom contributed analysis or code to the final paper.</p>
-    <h3 id="abstract-1">Abstract</h3>
+    <h3 id="abstract">Abstract</h3>
     <p>Reticulate evolution is thought to accelerate the process of evolution beyond simple genetic drift and selection, helping to rapidly generate novel hybrids with combinations of adaptive traits. However, the long-standing dogma that reticulate evolutionary processes are likewise advantageous for switching ecological niches, as in microbial pathogen host switch events, has not been explicitly tested. We use data from the influenza genome sequencing project and a phylogenetic heuristic approach to show that reassortment, a reticulate evolutionary mechanism, predominates over mutational drift in transmission between different host species. Moreover, as host evolutionary distance increases, reassortment is increasingly favoured. We conclude that the greater the quantitative difference between ecological niches, the greater the importance of reticulate evolutionary processes in overcoming niche barriers.</p>
     <h3 id="significance">Significance</h3>
     <p>Are the processes that result in the exchange of genes between microbes quantitatively advantageous for those microbes when switching between ecological niches? To address this question, we consider the influenza A virus as a model microbe, with its ability to infect multiple host species (ecological niches) and undergo reassortment (exchange genes) with one another. Through our analysis of sequence data from the Influenza Research Database and the Barcode of Life Database, we find that the greater the quantitative difference between influenza hosts, the greater the proportion of reassortment events were found. More broadly, for microbes, we infer that reticulate evolutionary processes should be quantitatively favoured when switching between ecological niches.</p>
@@ -470,7 +470,7 @@
     </div>
     <h2 id="application-2-viral-persistence.">Application 2: Viral persistence.</h2>
     <p>The bulk of this study, including the writing, was led by Dr. Nichola J. Hill; as such, apart from the abstract and figures, I provide a synopsis of the work rather than the original text. Additionally, much effort was dedicated to sample collection in Fairbanks, AK, led by Brandt Meixell, without which this study would not have been possible, and I would like to acknowledge the effort put in by the sample collection team in enabling this study.</p>
-    <h3 id="abstract-2">Abstract</h3>
+    <h3 id="abstract-1">Abstract</h3>
     <p>Influenza A Viruses (IAV) in nature must overcome shifting transmission barriers caused by the mobility of their primary host, migratory wild birds, that change throughout the annual cycle. Using a phylogenetic network of viral sequences from North American wild birds (2008–2011) we demonstrate a shift from intraspecific to interspecific transmission that along with reassortment, allows IAV to achieve viral flow across successive seasons from summer to winter. Our study sup- ports amplification of IAV during summer breeding seeded by overwintering virus persisting locally and virus introduced from a wide range of latitudes. As birds migrate from breeding sites to lower latitudes, they become involved in transmission networks with greater connectivity to other bird species, with interspecies transmission of reassortant viruses peaking during the winter. We propose that switching transmission dynamics may be a critical strategy for pathogens that infect mobile hosts inhabiting regions with strong seasonality.</p>
     <h3 id="research-question">Research Question</h3>
     <p>The influenza A virus has a broad host range. Canonically, it is thought that the virus' reservoir host<a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a> are wild birds, namely <em>Anseriformes</em> and <em>Charadriiformes</em> <span class="citation">(15)</span>. Being migratory birds, they do not form stable and geographically-restricted populations; rather, their migration patterns are seasonal, and their movement depends heavily on environmental cues. Given the influenza A virus' dependence on its viral hosts, the fluctuating host environment gives rise to transmission barriers,<a href="#fn7" class="footnoteRef" id="fnref7"><sup>7</sup></a> namely:</p>
@@ -505,15 +505,17 @@
     <h2 id="scientific">Scientific</h2>
     <h3 id="quantification-of-ecological-niche-differences">Quantification of Ecological Niche Differences</h3>
     <p>Ecological niches are defined as being the set of activities that help an organism survive and reproduce, and is influenced by abiotic (e.g. temperature, sunlight) and biotic factors (presence or absence of predators). Biotic factors are traditionally described in qualitative or categorical terms: predation (X eats Y) and symbiosis (A helps B which also helps A) being the two most common categories, in addition to parasitism, neutral interactions, and more. As a global population, the influenza A virus lives essentially in a parasitic relationship with its hosts (as far as we can observe), and one idea put forth in the global reticulate evolutionary study was the idea of quantitative niche differences, as quantified by host evolutionary distance.</p>
-    <p>This idea has a few ways that it may be extended. Firstly, I recognize that cytochrome oxidase I sequence is a crude approximation of virus host differences; mechanistically speaking, it is more likely that quantitative differences in the immune system repertoire between each hosts would play a larger role in viral fitness. As an example, one might opt to sequence the B-cell receptor (BCR) repertoire of two viral hosts, and pass their sequences through a dimensionality reduction algorithm (e.g. multi-dimensional scaling, variational autoencoders), and use that lower-dimension representation as a way of quantifying differences in the immune system of a variety of hosts.</p>
+    <p>I recognize that cytochrome oxidase I sequence is a crude approximation of virus host differences; mechanistically speaking, it is more likely that quantitative differences in the immune system repertoire between each hosts would play a greater functional role in viral fitness. As an example, one might opt to sequence the B-cell receptor (BCR) repertoire of two viral hosts, and pass their sequences through a dimensionality reduction algorithm (e.g. multi-dimensional scaling, variational autoencoders), and use that lower-dimension representation as a way of quantifying differences in the immune system of a variety of hosts.</p>
     <h3 id="observation-of-viral-subtypes">Observation of Viral Subtypes</h3>
     <p>With 16 canonical hemagglutinin and 9 neuraminidase subtypes identified, there are theoretically 144 possible influenza subtypes that can form. Of them, we have observed (in the sequence dataset) about only <span class="math inline">\(\frac{2}{3}\)</span> of them (+<strong>???</strong>). One may wonder, then, why we have not observed all 144 of them yet? Can we forecast</p>
     <div class="figure">
     <img src="./figures/circos.jpg" alt="Circos panel depicting the connectivity of a particular HA &amp; NA subtype combination with other subtypes. Within each circos plot, subtypes are ordered from the 12 o’clock position in increasing connectivity, starting with the lowest-ranked at 12 o’clock and increasing clockwise. The highest-connected subtype, H3N8, is found just before the 12 o’clock position. Mx: “mixed subtype”." />
     <p class="caption">Circos panel depicting the connectivity of a particular HA &amp; NA subtype combination with other subtypes. Within each circos plot, subtypes are ordered from the 12 o’clock position in increasing connectivity, starting with the lowest-ranked at 12 o’clock and increasing clockwise. The highest-connected subtype, H3N8, is found just before the 12 o’clock position. Mx: “mixed subtype”.</p>
     </div>
-    <p>A naive model of new subtype emergence would assume that reassortment between subtypes happens only by chance, and that us not having observed all subtypes would merely be a function of time. This would assume that new subtype emergence is essentially unpredictable.</p>
-    <p>Another more sophisticated model of new subtype emergence would take greater advantage of the observation that certain subtypes of virus are more heavily associated with particular viral hosts. Because viruses have a very strong reliance on hosts for movement, it would make sense that where hosts overlap geographically, and even interact at a &quot;host ecological niche&quot; level, there would be a greater probability of viral subtypes associated with those host pairs to reassort, and hence produce new viral subtypes.</p>
+    <p>A naive statistical model of new subtype emergence would assume that reassortment between subtypes happens only by chance, and that us not having observed all subtypes would merely be a function of time. This would assume that new subtype emergence is essentially unpredictable.</p>
+    <p>Another more sophisticated statistical model of new subtype emergence would take greater advantage of the observation that certain subtypes of virus are more heavily associated with particular viral hosts. Because viruses have a very strong reliance on hosts for movement, it would make sense that where hosts overlap geographically, and even interact at a &quot;host ecological niche&quot; level, there would be a greater probability of viral subtypes associated with those host pairs to reassort, and hence produce new viral subtypes.</p>
+    <h3 id="denser-sampling">Denser Sampling</h3>
+    <p>As things stand right now, we do not detect whether a reassortment event happens prior to or after the host switch event. This caveat was addressed in Application 1, where we argued that it did not matter whether reassortment was helpful prior to or after host switching, as . In theory, denser sampling is required to be able to identify whether a reassortment event happened prior to or after a host switch event. Single viral particle sequencing from a viral host would be a very enabling technology here, and if paired with denser sampling, would open the doors to quantifying the relative viral load in a mixed infection, including reassortant viruses that emerge from the coinfection.</p>
     <h3 id="homologous-reassortment">Homologous Reassortment</h3>
     <p>Detection of reassortment between genotypically similar (but non-identical) viruses, which we might want to call &quot;homologous reassortment&quot;, remains an oft-cited challenge for reassortment detection. Reassortment frequency is high and fairly unbiased under neutral fitness conditions <span class="citation">(61)</span> (i.e. there is no change in viral protein sequence, but only nucleotide sequence). However, this knowledge also raises the question about the utility of knowing how much homologous reassortment happens - if there are minimal (or no) fitness differences, then is homologous reassortment consequential for the evolution of a virus? My own answer, based on intuition, is that homologous reassortment likely has little impact on the evolution of a virus, and that the surveillance community would be better concerned with heterologous reassortment.</p>
     <h3 id="probabilistic-identification-of-reassortant-viruses">Probabilistic Identification of Reassortant Viruses</h3>

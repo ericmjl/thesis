@@ -203,36 +203,105 @@ $for(header-includes)$
 $header-includes$
 $endfor$
 
+\begin{document}
+
+\begin{titlepage}
+
 $if(title)$
-\title{$title$$if(thanks)$\thanks{$thanks$}$endif$}
+\title{$title$}
 $endif$
-$if(subtitle)$
-  \providecommand{\subtitle}[1]{}
-  \subtitle{$subtitle$}
-$endif$
+
 $if(author)$
-  \author{$for(author)$$author.name$ ($author.affiliation$) \and $endfor$}
-  $endif$
+\author{$for(author)$$author.name$ \and $endfor$}
+$endif$
 $if(institute)$
 \providecommand{\institute}[1]{}
 \institute{$for(institute)$$institute$$sep$ \and $endfor$}
 $endif$
 \date{$date$}
 
-\begin{document}
+
 $if(title)$
 \maketitle
 $endif$
+
+\begin{center}
+Submitted to the Department of Biological Engineering in
+Partial Fulfillment of the Requirements for the Degree of
+
+Doctor of Science
+
+at the
+
+MASSACHUSETTS INSTITUTE OF TECHNOLOGY
+
+$date-submitted$
+
+Copyright 2017 Massachusetts Institute of Technology. All rights reserved.
+
+\newcommand{\signature}[2][12cm]{%
+  \begin{tabular}{@{}p{#1}@{}}
+    #2 \\[2\normalbaselineskip] \hrule \\[0pt]
+    {\small \textit{Signature}} \\[0pt]
+  \end{tabular}
+}
+
+\newpage
+
+\signature{Author: Eric J. Ma, Department of Biological Engineering}
+
+\signature{Accepted by: Professor Mark Bathe, Graduate Program Chair, Department of Biological Engineering}
+
+\signature{Certified by: Professor Jonathan A. Runstadler, Thesis Advisor, Department of Biological Engineering}
+
+\signature{Certified by: Professor Jukka-Pekka Onnela, Thesis Committee Member, Department of Biostatistics, Harvard School of Public Health}
+
+\end{center}
+
+\end{titlepage}
+
+\newpage
+
+\begin{center}
+    $if(title)$
+    \begin{large}
+        \title{$title$}
+    \end{large}
+    $endif$
+
+    by
+
+    $for(author)$
+        $author.name$
+    $endfor$
+
+    Submitted to the Department of Biological Engineering on
+    on $date-submitted$ in Partial fulfillment of the
+    requirements for the Degree of Doctor of Science in
+    Biological Engineering
+
+\end{center}
+
 $if(abstract)$
 \begin{abstract}
 $abstract$
 \end{abstract}
 $endif$
 
+$if(supervisor-name)$
+Thesis Supervisor: $supervisor-name$
+$endif$
+
+$if(supervisor-title)$
+Title: $supervisor-title$
+$endif$
+
+\newpage
+
 $for(include-before)$
 $include-before$
-
 $endfor$
+
 $if(toc)$
 {
 $if(colorlinks)$
@@ -242,12 +311,9 @@ $endif$
 \tableofcontents
 }
 $endif$
-$if(lot)$
-\listoftables
-$endif$
-$if(lof)$
-\listoffigures
-$endif$
+
+\newpage
+
 $body$
 
 $if(natbib)$
@@ -271,4 +337,17 @@ $for(include-after)$
 $include-after$
 
 $endfor$
+
+\newpage
+
+$if(lot)$
+\listoftables
+$endif$
+
+\newpage
+
+$if(lof)$
+\listoffigures
+$endif$
+
 \end{document}

@@ -6,19 +6,18 @@ author:
 numbersections: true
 fontsize: 11pt
 header-includes:
-- \usepackage{lineno}
-- \linenumbers
-- \usepackage{setspace}
-- \doublespacing
+# - \usepackage{lineno}  # for line numbers
+# - \linenumbers         # for line numbers
+- \usepackage{setspace}  # for double spacing
+- \doublespacing         # for double spacing
 - \usepackage{amssymb}
+lot: true
+lof: true
+abstract: "Reassortment is a reticulate evolutionary process that results in genome shuffling; the most prominent virus known to reassort is the influenza A virus. Methods to identify reassortant influenza viruses do not scale well beyond hundreds of isolates at a time, because they rely on phylogenetic reconstruction, a computationally expensive method. This thus hampers our ability to test whether on whether reassortment is systematically associated for host switching events. In this thesis, I use phylogenetic heuristics to develop a new reassortment finding algorithm capable of finding reassortant viruses in tens of thousands viral isolates, and use it to test whether reassortment events are over-represented in host switching events."
+supervisor-name: Jonathan A. Runstadler
+supervisor-title: Assistant Professor of Biological Engineering
+date-submitted: June 2017
 ---
-\newpage
-
-# Abstract
-
-Reassortment is a reticulate evolutionary process that results in genome shuffling; the most prominent virus known to reassort is the influenza A virus. Methods to identify reassortant influenza viruses do not scale well beyond hundreds of isolates at a time, because they rely on phylogenetic reconstruction, a computationally expensive method. This thus hampers our ability to test whether on whether reassortment is systematically associated for host switching events. In this thesis, I use phylogenetic heuristics to develop a new reassortment finding algorithm, and use it to test whether reassortment events are over-represented relative to a null model.
-
-\newpage
 
 # A Primer on the Influenza A Virus
 
@@ -102,6 +101,8 @@ Sample  |  $seq_{j}$
 2       |  A
 3       |  C
 
+Table: Toy example of sequence states at a position in a multiple sequence alignment. {#tbl:seq-stats}
+
 We may assume a model of evolution that follows the following sequence mutation (transition) probabilities:
 
 letter  |  A     |  T     |  G     |  C
@@ -110,6 +111,9 @@ A       |  4/10  |  2/10  |  2/10  |  2/10
 T       |  2/10  |  4/10  |  2/10  |  2/10
 G       |  2/10  |  2/10  |  4/10  |  2/10
 C       |  2/10  |  2/10  |  2/10  |  4/10
+
+Table: Toy example of transition probabilities. {#tbl:transition-probabilities}
+
 
 Finally, let us consider the following tree topology with two internal node reconstructions, as shown in +@fig:mlt.
 
@@ -176,17 +180,17 @@ Let us look at +@fig:tree-splits for an elementary example. Suppose we had two t
 
 If these two trees are incompatible, then all of the following criteria are true:
 
-- $A \cap X ≠ \varnothing$, (i.e. intersection of sets A and X, or set of common items, is not empty)
-- $A \cap Y ≠ \varnothing$,
-- $B \cap X ≠ \varnothing$, and
-- $B \cap Y ≠ \varnothing$.
+- $A \cap X \ne \varnothing$, (i.e. intersection of sets A and X, or set of common items, is not empty)
+- $A \cap Y \ne \varnothing$,
+- $B \cap X \ne \varnothing$, and
+- $B \cap Y \ne \varnothing$.
 
 In the case of this pair of trees:
 
-- $A \cap X = \{t_1\} ≠ \varnothing$,
-- $A \cap Y = \{t_2\} ≠ \varnothing$,
-- $B \cap X = \{t_3\} ≠ \varnothing$, and
-- $B \cap Y = \{t_4\} ≠ \varnothing$.
+- $A \cap X = \{t_1\} \ne \varnothing$,
+- $A \cap Y = \{t_2\} \ne \varnothing$,
+- $B \cap X = \{t_3\} \ne \varnothing$, and
+- $B \cap Y = \{t_4\} \ne \varnothing$.
 
 Hence, these trees are incompatible, and thus there is evidence that reassortment has happened.
 
@@ -458,7 +462,7 @@ We have used permutation tests (global study) and chi-square tests (viral migrat
 
 Ecological niches are defined as being the set of activities that help an organism survive and reproduce, and is influenced by abiotic (e.g. temperature, sunlight) and biotic factors (presence or absence of predators). Biotic factors are traditionally described in qualitative or categorical terms: predation (X eats Y) and symbiosis (A helps B which also helps A) being the two most common categories, in addition to parasitism, neutral interactions, and more. As a global population, the influenza A virus lives essentially in a parasitic relationship with its hosts (as far as we can observe), and one idea put forth in the global reticulate evolutionary study was the idea of quantitative niche differences, as quantified by host evolutionary distance.
 
-This idea has a few ways that it may be extended. Firstly, I recognize that cytochrome oxidase I sequence is a crude approximation of virus host differences; mechanistically speaking, it is more likely that quantitative differences in the immune system repertoire between each hosts would play a larger role in viral fitness. As an example, one might opt to sequence the B-cell receptor (BCR) repertoire of two viral hosts, and pass their sequences through a dimensionality reduction algorithm (e.g. multi-dimensional scaling, variational autoencoders), and use that lower-dimension representation as a way of quantifying differences in the immune system of a variety of hosts.
+I recognize that cytochrome oxidase I sequence is a crude approximation of virus host differences; mechanistically speaking, it is more likely that quantitative differences in the immune system repertoire between each hosts would play a greater functional role in viral fitness. As an example, one might opt to sequence the B-cell receptor (BCR) repertoire of two viral hosts, and pass their sequences through a dimensionality reduction algorithm (e.g. multi-dimensional scaling, variational autoencoders), and use that lower-dimension representation as a way of quantifying differences in the immune system of a variety of hosts.
 
 ### Observation of Viral Subtypes
 
@@ -466,9 +470,13 @@ With 16 canonical hemagglutinin and 9 neuraminidase subtypes identified, there a
 
 ![Circos panel depicting the connectivity of a particular HA & NA subtype combination with other subtypes. Within each circos plot, subtypes are ordered from the 12 o’clock position in increasing connectivity, starting with the lowest-ranked at 12 o’clock and increasing clockwise.  The highest-connected subtype, H3N8, is found just before the 12 o’clock position. Mx: “mixed subtype”.](./figures/circos.jpg)
 
-A naive model of new subtype emergence would assume that reassortment between subtypes happens only by chance, and that us not having observed all subtypes would merely be a function of time. This would assume that new subtype emergence is essentially unpredictable.
+A naive statistical model of new subtype emergence would assume that reassortment between subtypes happens only by chance, and that us not having observed all subtypes would merely be a function of time. This would assume that new subtype emergence is essentially unpredictable.
 
-Another more sophisticated model of new subtype emergence would take greater advantage of the observation that certain subtypes of virus are more heavily associated with particular viral hosts. Because viruses have a very strong reliance on hosts for movement, it would make sense that where hosts overlap geographically, and even interact at a "host ecological niche" level, there would be a greater probability of viral subtypes associated with those host pairs to reassort, and hence produce new viral subtypes.
+Another more sophisticated statistical model of new subtype emergence would take greater advantage of the observation that certain subtypes of virus are more heavily associated with particular viral hosts. Because viruses have a very strong reliance on hosts for movement, it would make sense that where hosts overlap geographically, and even interact at a "host ecological niche" level, there would be a greater probability of viral subtypes associated with those host pairs to reassort, and hence produce new viral subtypes.
+
+### Denser Sampling
+
+As things stand right now, we do not detect whether a reassortment event happens prior to or after the host switch event. This caveat was addressed in Application 1, where we argued that it did not matter whether reassortment was helpful prior to or after host switching, as . In theory, denser sampling is required to be able to identify whether a reassortment event happened prior to or after a host switch event. Single viral particle sequencing from a viral host would be a very enabling technology here, and if paired with denser sampling, would open the doors to quantifying the relative viral load in a mixed infection, including reassortant viruses that emerge from the coinfection.
 
 ### Homologous Reassortment
 
@@ -513,3 +521,4 @@ I would also like to acknowledge the financial support and provision of resource
 Finally, all praise be to the Lord Jesus Christ, who has graciously provided all that I needed throughout my time in graduate school. My research has helped me refine a much more nuanced view on the relationship between the divine and our physical world, while simultaneously leaving me in awe at the complexity of nature. I have also learned the meaning of worship through excellence in our work. While we continue the fight against infectious disease, I look forward to that day, when "there will be no more death or mourning or crying or pain, for the old order of things has passed away" (Revelation 21:4), and infectious diseases, which have given me a topic for work, will finally be done with and be no more.
 
 # References
+
