@@ -1,4 +1,5 @@
 # Convert PDF images to JPG.
+echo "Building figures."
 cd figures
 for file in *.pdf;
 do

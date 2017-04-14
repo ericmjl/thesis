@@ -1,3 +1,5 @@
+\newpage
+
 # A Primer on the Influenza A Virus
 
 ## The Importance of Studying Influenza Evolution & Ecology

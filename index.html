@@ -32,6 +32,7 @@
             <div class="TOC" id="TOC">
         <h3 class="toc">Outline</h3>
         <ul>
+        <li><a href="#abstract">Abstract</a></li>
         <li><a href="#a-primer-on-the-influenza-a-virus">A Primer on the Influenza A Virus</a><ul>
         <li><a href="#the-importance-of-studying-influenza-evolution-ecology">The Importance of Studying Influenza Evolution &amp; Ecology</a></li>
         <li><a href="#genome-structure-evolution">Genome Structure &amp; Evolution</a></li>
@@ -64,7 +65,7 @@
         </ul></li>
         <li><a href="#applications">Applications</a><ul>
         <li><a href="#application-1-global-reticulate-evolution-study.">Application 1: Global reticulate evolution study.</a><ul>
-        <li><a href="#abstract">Abstract</a></li>
+        <li><a href="#abstract-1">Abstract</a></li>
         <li><a href="#significance">Significance</a></li>
         <li><a href="#introduction">Introduction</a></li>
         <li><a href="#method-validation">Method Validation</a></li>
@@ -73,25 +74,32 @@
         <li><a href="#methods">Methods</a></li>
         </ul></li>
         <li><a href="#application-2-viral-persistence.">Application 2: Viral persistence.</a><ul>
-        <li><a href="#abstract-1">Abstract</a></li>
+        <li><a href="#abstract-2">Abstract</a></li>
         <li><a href="#research-question">Research Question</a></li>
         <li><a href="#research-methods-and-findings">Research Methods and Findings</a></li>
         </ul></li>
         <li><a href="#caveats">Caveats</a></li>
         </ul></li>
         <li><a href="#remaining-challenges-future-work">Remaining Challenges &amp; Future Work</a><ul>
-        <li><a href="#engineering">Engineering</a><ul>
-        <li><a href="#automation">Automation</a></li>
-        </ul></li>
         <li><a href="#scientific">Scientific</a><ul>
+        <li><a href="#quantification-of-ecological-niche-differences">Quantification of Ecological Niche Differences</a></li>
+        <li><a href="#observation-of-viral-subtypes">Observation of Viral Subtypes</a></li>
         <li><a href="#homologous-reassortment">Homologous Reassortment</a></li>
         <li><a href="#probabilistic-identification-of-reassortant-viruses">Probabilistic Identification of Reassortant Viruses</a></li>
+        </ul></li>
+        <li><a href="#engineering">Engineering</a><ul>
+        <li><a href="#deployment">Deployment</a></li>
+        <li><a href="#automation">Automation</a></li>
         </ul></li>
         </ul></li>
         <li><a href="#acknowledgments">Acknowledgments</a></li>
         <li><a href="#references">References</a></li>
         </ul>
         </div>
+    
+    
+    <h1 id="abstract">Abstract</h1>
+    <p>Reassortment is a reticulate evolutionary process that results in genome shuffling; the most prominent virus known to reassort is the influenza A virus. Methods to identify reassortant influenza viruses do not scale well beyond hundreds of isolates at a time, because they rely on phylogenetic reconstruction, a computationally expensive method. This thus hampers our ability to test whether on whether reassortment is systematically associated for host switching events. In this thesis, I use phylogenetic heuristics to develop a new reassortment finding algorithm, and use it to test whether reassortment events are over-represented relative to a null model.</p>
     
     <h1 id="a-primer-on-the-influenza-a-virus">A Primer on the Influenza A Virus</h1>
     <h2 id="the-importance-of-studying-influenza-evolution-ecology">The Importance of Studying Influenza Evolution &amp; Ecology</h2>
@@ -406,7 +414,7 @@
     <h1 id="applications">Applications</h1>
     <h2 id="application-1-global-reticulate-evolution-study.">Application 1: Global reticulate evolution study.</h2>
     <p>This study was conducted with much help from Dr. Nichola J. Hill (MIT Department of Biological Engineering &amp; Division of Comparative Medicine) who gave much technical mentorship on ecology, and two undergraduate students, Kyle Yuan and Justin Zabilansky, both of whom contributed analysis or code to the final paper.</p>
-    <h3 id="abstract">Abstract</h3>
+    <h3 id="abstract-1">Abstract</h3>
     <p>Reticulate evolution is thought to accelerate the process of evolution beyond simple genetic drift and selection, helping to rapidly generate novel hybrids with combinations of adaptive traits. However, the long-standing dogma that reticulate evolutionary processes are likewise advantageous for switching ecological niches, as in microbial pathogen host switch events, has not been explicitly tested. We use data from the influenza genome sequencing project and a phylogenetic heuristic approach to show that reassortment, a reticulate evolutionary mechanism, predominates over mutational drift in transmission between different host species. Moreover, as host evolutionary distance increases, reassortment is increasingly favoured. We conclude that the greater the quantitative difference between ecological niches, the greater the importance of reticulate evolutionary processes in overcoming niche barriers.</p>
     <h3 id="significance">Significance</h3>
     <p>Are the processes that result in the exchange of genes between microbes quantitatively advantageous for those microbes when switching between ecological niches? To address this question, we consider the influenza A virus as a model microbe, with its ability to infect multiple host species (ecological niches) and undergo reassortment (exchange genes) with one another. Through our analysis of sequence data from the Influenza Research Database and the Barcode of Life Database, we find that the greater the quantitative difference between influenza hosts, the greater the proportion of reassortment events were found. More broadly, for microbes, we infer that reticulate evolutionary processes should be quantitatively favoured when switching between ecological niches.</p>
@@ -462,7 +470,7 @@
     </div>
     <h2 id="application-2-viral-persistence.">Application 2: Viral persistence.</h2>
     <p>The bulk of this study, including the writing, was led by Dr. Nichola J. Hill; as such, apart from the abstract and figures, I provide a synopsis of the work rather than the original text. Additionally, much effort was dedicated to sample collection in Fairbanks, AK, led by Brandt Meixell, without which this study would not have been possible, and I would like to acknowledge the effort put in by the sample collection team in enabling this study.</p>
-    <h3 id="abstract-1">Abstract</h3>
+    <h3 id="abstract-2">Abstract</h3>
     <p>Influenza A Viruses (IAV) in nature must overcome shifting transmission barriers caused by the mobility of their primary host, migratory wild birds, that change throughout the annual cycle. Using a phylogenetic network of viral sequences from North American wild birds (2008–2011) we demonstrate a shift from intraspecific to interspecific transmission that along with reassortment, allows IAV to achieve viral flow across successive seasons from summer to winter. Our study sup- ports amplification of IAV during summer breeding seeded by overwintering virus persisting locally and virus introduced from a wide range of latitudes. As birds migrate from breeding sites to lower latitudes, they become involved in transmission networks with greater connectivity to other bird species, with interspecies transmission of reassortant viruses peaking during the winter. We propose that switching transmission dynamics may be a critical strategy for pathogens that infect mobile hosts inhabiting regions with strong seasonality.</p>
     <h3 id="research-question">Research Question</h3>
     <p>The influenza A virus has a broad host range. Canonically, it is thought that the virus' reservoir host<a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a> are wild birds, namely <em>Anseriformes</em> and <em>Charadriiformes</em> <span class="citation">(15)</span>. Being migratory birds, they do not form stable and geographically-restricted populations; rather, their migration patterns are seasonal, and their movement depends heavily on environmental cues. Given the influenza A virus' dependence on its viral hosts, the fluctuating host environment gives rise to transmission barriers,<a href="#fn7" class="footnoteRef" id="fnref7"><sup>7</sup></a> namely:</p>
@@ -494,24 +502,37 @@
     <p>A caveat common to this study and the global influenza study before is that sampling efforts are ad-hoc (often in response to a new outbreak or directed towards testing some hypothesis), non-uniform over space and time (owing to the movement of viral hosts and logistical issues), and yield varying amounts of sequence data (owing to differences in prevalence over time). This potentially could bias the inference of reassortment events. To tackle this in the first application, we tested the sensitivity of the inferences to biased vs. equal sampling in our null model; the conclusions did not change. In the second application, we progressively sub-sampled an increasing maximum number of sequences for a host species, and investigated how it affected the metrics quantified. No trends were observed, indicating that sampling bias did not affect our conclusions. Nonetheless, while resampling and permutation tests can help us measure how sampling biases may change the conclusion, the gold standard (and politically/financially tougher) method would be to re-structure sampling efforts to be constant over space and time.</p>
     <p>We have used permutation tests (global study) and chi-square tests (viral migration study)<a href="#fn8" class="footnoteRef" id="fnref8"><sup>8</sup></a> to test whether the what we observed was likely to happen by random chance. However, this nonetheless raises the question, &quot;What is the most appropriate null model?&quot; This is admittedly a difficult philosophical question itself, as with network models there potentially many different &quot;nulls&quot; to compare against.<a href="#fn9" class="footnoteRef" id="fnref9"><sup>9</sup></a></p>
     <h1 id="remaining-challenges-future-work">Remaining Challenges &amp; Future Work</h1>
-    <h2 id="engineering">Engineering</h2>
-    <p>Algorithms developed in the academic world often require &quot;just some engineering&quot; to be made ready for deployment to the real-world. It remains on my personal wish-list to have turned this reassortment detection algorithm into a standalone software package, similar to BEAST <span class="citation">(59)</span> or GiRaF <span class="citation">(9)</span>. It is also my desire to have a continually-updated monitoring system, similar to NextFlu <span class="citation">(61)</span>, to continually detect newly-sequenced reassortant viruses as they show up. At the moment, the Influenza Research Database team, led by Prof. Richard Schuermann at the JCVI, is considering incorporating the reassortment detection code as part of their data platform, and I would like to thank them for their interest.</p>
-    <h3 id="automation">Automation</h3>
-    <p>The code, as it stands right now, was designed for execution on a Sun Grid Engine (SGE) compute cluster. This design enabled manual parallelism wherever the code was embarrassingly parallel, in a map-reduce paradigm. For example, one key step is the creation of a multiple sequence alignment for each influenza A virus segment. Because the the alignment of one segment is not dependent on the alignment of another segment, they could be aligned in parallel, with the alignment of longer segments taking longer than the alignment of shorter segments. However, a few steps after that, there is a &quot;reduction&quot; step that is dependent on having all 8 evolutionary distance matrices computed fully, and this was one example of a step that was not automated because of (1) a lack of expertise in parallel computation and (2) the nature of the SGE scheduling system not being accessible from an external API.</p>
-    <p>With the development of Python-based software schedulers (e.g. Dask <span class="citation">(62)</span>) enabling automatic execution of complex, arbitrary computation graphs, a rework of the code could be performed to make it executable with a single command from the command line. Dask has the added advantage of being able to scale from single cores to cloud infrastructure, though at the moment SGE clusters are not supported.</p>
     <h2 id="scientific">Scientific</h2>
+    <h3 id="quantification-of-ecological-niche-differences">Quantification of Ecological Niche Differences</h3>
+    <p>Ecological niches are defined as being the set of activities that help an organism survive and reproduce, and is influenced by abiotic (e.g. temperature, sunlight) and biotic factors (presence or absence of predators). Biotic factors are traditionally described in qualitative or categorical terms: predation (X eats Y) and symbiosis (A helps B which also helps A) being the two most common categories, in addition to parasitism, neutral interactions, and more. As a global population, the influenza A virus lives essentially in a parasitic relationship with its hosts (as far as we can observe), and one idea put forth in the global reticulate evolutionary study was the idea of quantitative niche differences, as quantified by host evolutionary distance.</p>
+    <p>This idea has a few ways that it may be extended. Firstly, I recognize that cytochrome oxidase I sequence is a crude approximation of virus host differences; mechanistically speaking, it is more likely that quantitative differences in the immune system repertoire between each hosts would play a larger role in viral fitness. As an example, one might opt to sequence the B-cell receptor (BCR) repertoire of two viral hosts, and pass their sequences through a dimensionality reduction algorithm (e.g. multi-dimensional scaling, variational autoencoders), and use that lower-dimension representation as a way of quantifying differences in the immune system of a variety of hosts.</p>
+    <h3 id="observation-of-viral-subtypes">Observation of Viral Subtypes</h3>
+    <p>With 16 canonical hemagglutinin and 9 neuraminidase subtypes identified, there are theoretically 144 possible influenza subtypes that can form. Of them, we have observed (in the sequence dataset) about only <span class="math inline">\(\frac{2}{3}\)</span> of them (+<strong>???</strong>). One may wonder, then, why we have not observed all 144 of them yet? Can we forecast</p>
+    <div class="figure">
+    <img src="./figures/circos.jpg" alt="Circos panel depicting the connectivity of a particular HA &amp; NA subtype combination with other subtypes. Within each circos plot, subtypes are ordered from the 12 o’clock position in increasing connectivity, starting with the lowest-ranked at 12 o’clock and increasing clockwise. The highest-connected subtype, H3N8, is found just before the 12 o’clock position. Mx: “mixed subtype”." />
+    <p class="caption">Circos panel depicting the connectivity of a particular HA &amp; NA subtype combination with other subtypes. Within each circos plot, subtypes are ordered from the 12 o’clock position in increasing connectivity, starting with the lowest-ranked at 12 o’clock and increasing clockwise. The highest-connected subtype, H3N8, is found just before the 12 o’clock position. Mx: “mixed subtype”.</p>
+    </div>
+    <p>A naive model of new subtype emergence would assume that reassortment between subtypes happens only by chance, and that us not having observed all subtypes would merely be a function of time. This would assume that new subtype emergence is essentially unpredictable.</p>
+    <p>Another more sophisticated model of new subtype emergence would take greater advantage of the observation that certain subtypes of virus are more heavily associated with particular viral hosts. Because viruses have a very strong reliance on hosts for movement, it would make sense that where hosts overlap geographically, and even interact at a &quot;host ecological niche&quot; level, there would be a greater probability of viral subtypes associated with those host pairs to reassort, and hence produce new viral subtypes.</p>
     <h3 id="homologous-reassortment">Homologous Reassortment</h3>
-    <p>Detection of reassortment between genotypically similar (but non-identical) viruses, which we might want to call &quot;homologous reassortment&quot;, remains an oft-cited challenge for reassortment detection. Reassortment frequency is high and fairly unbiased under neutral fitness conditions <span class="citation">(63)</span> (i.e. there is no change in viral protein sequence, but only nucleotide sequence). However, this knowledge also raises the question about the utility of knowing how much homologous reassortment happens - if there are minimal (or no) fitness differences, then is homologous reassortment consequential for the evolution of a virus? My own answer, based on intuition, is that homologous reassortment likely has little impact on the evolution of a virus, and that the surveillance community would be better concerned with heterologous reassortment.</p>
+    <p>Detection of reassortment between genotypically similar (but non-identical) viruses, which we might want to call &quot;homologous reassortment&quot;, remains an oft-cited challenge for reassortment detection. Reassortment frequency is high and fairly unbiased under neutral fitness conditions <span class="citation">(61)</span> (i.e. there is no change in viral protein sequence, but only nucleotide sequence). However, this knowledge also raises the question about the utility of knowing how much homologous reassortment happens - if there are minimal (or no) fitness differences, then is homologous reassortment consequential for the evolution of a virus? My own answer, based on intuition, is that homologous reassortment likely has little impact on the evolution of a virus, and that the surveillance community would be better concerned with heterologous reassortment.</p>
     <h3 id="probabilistic-identification-of-reassortant-viruses">Probabilistic Identification of Reassortant Viruses</h3>
     <p>The algorithm, as it stands right now, only provides a deterministic identification of the parental sources, based on the evolutionary distance computed by Clustal Omega <span class="citation">(27)</span>. I define this as &quot;deterministic&quot; because only the viruses that (when taken together) give the highest summed PWI, will be chosen as parental viruses.</p>
     <p>A logical next step would be to extend the algorithm to identify not merely the parental sources that are of highest PWI, but to also assign a likelihood score to the parental source, given the evolutionary distance. The simplest thing that could be attempted is to use the summed PWI as a probability metric itself, as follows:</p>
     <p><span class="math display">\[ \frac{\sum\limits_{k=1}^S p_{k}}{S} \]</span></p>
     <p>where <span class="math inline">\(p\)</span> is the PWI for any given segment, and <span class="math inline">\(S\)</span> is the number of segments. To retrieve a probability score for any given PWI, one would then apply a 'softmax' normalization across all valid parental combinations, thus normalizing the probability scores to sum to 1. No doubt this still requires the assumption of the algorithm being a phylogenetic heuristic, rather than an attempt at ground truth reconstruction.</p>
+    <h2 id="engineering">Engineering</h2>
+    <h3 id="deployment">Deployment</h3>
+    <p>Algorithms developed in the academic world often require &quot;just some engineering&quot; to be made ready for deployment to the real-world. It remains on my personal wish-list to have turned this reassortment detection algorithm into a standalone software package, similar to BEAST <span class="citation">(59)</span> or GiRaF <span class="citation">(9)</span>. It is also my desire to have a continually-updated monitoring system, similar to NextFlu <span class="citation">(62)</span>, to continually detect newly-sequenced reassortant viruses as they show up. These goals were hampered by my personal lack of software engineering training, and as such I never got around to doing a proper refactoring of the code into reusable modules. Thankfully, at the moment, the Influenza Research Database team, led by Prof. Richard Schuermann at the JCVI, is considering incorporating the reassortment detection code as part of their data platform, and I would like to thank them for their interest.</p>
+    <h3 id="automation">Automation</h3>
+    <p>The code, as it stands right now, was designed for execution on a Sun Grid Engine (SGE) compute cluster. This design enabled manual parallelism wherever the code was embarrassingly parallel, in a map-reduce paradigm. For example, one key step is the creation of a multiple sequence alignment for each influenza A virus segment. Because the the alignment of one segment is not dependent on the alignment of another segment, they could be aligned in parallel, with the alignment of longer segments taking longer than the alignment of shorter segments. However, a few steps after that, there is a &quot;reduction&quot; step that is dependent on having all 8 evolutionary distance matrices computed fully, and this was one example of a step that was not automated because of (1) a lack of expertise in parallel computation and (2) the nature of the SGE scheduling system not being accessible from an external API.</p>
+    <p>With the development of Python-based software schedulers (e.g. Dask <span class="citation">(63)</span>) enabling automatic execution of complex, arbitrary computation graphs, a rework of the code could be performed to make it executable with a single command from the command line. Dask has the added advantage of being able to scale from single cores to cloud infrastructure, though at the moment SGE clusters are not supported.</p>
     <h1 id="acknowledgments">Acknowledgments</h1>
     <p>First and foremost, I would like to thank my advisor, Prof. Jonathan Runstadler, for providing guidance and mentorship. I entered both worlds of infectious disease and computational research from scratch, and Jon provided the support and environment that enabled me to grow in both fields.</p>
     <p>Secondly, I would like to thank my committee for their support and mentorship. Profs. Mark Bathe (MIT) and Jukka-Pekka Onnela (Harvard School of Public Health) both provided me with opportunities to interact with their research groups. These opportunities were valuable to my learning during tenure as a graduate student.</p>
     <p>Thirdly, I would like to thank my wife, Dr. Nan Li, for her unwavering support and companionship. Her intelligence is a constant source of inspiration, and her patience has been a source of comfort for me.</p>
     <p>Fourthly, I would like to acknowledge colleagues with whom I have worked closely on research both described here and not described here. Dr. Nichola Hill has been a wonderful collaborator and has taught me many ecology concepts, a topic I was not deeply trained in. Dr. Islam Hussein has been a close collaborator on experimental work; alongside Mia Lieberman (DCM), I have had much fun helping them with statistical analysis problems. Drs. David Duvenaud and Matthew Johnson, now at U Toronto and Google Brain respectively, gave me a wonderful introduction to the world of deep learning when I camped myself up at their office in Harvard.</p>
+    <p>Fifthly, I would like to acknowledge the undergraduate students that I have had a privilege to work with: Andrea Nickerson, Justin Zabilansky, Kyle Yuan, Ellie Laukitis, and Vivian Zhong. You are an amazing bunch, and have gone on to do wonderful things. I wish you all the best for your careers - continue doing amazing stuff!</p>
     <p>I would also like to acknowledge the financial support and provision of resources by the Department of Biological Engineering, the BioMicroCenter, and the Broad Institute of Harvard and MIT. The research funds provided and access to compute resources have been instrumental in conducting my research, including research projects done outside of this thesis.</p>
     <p>Finally, all praise be to the Lord Jesus Christ, who has graciously provided all that I needed throughout my time in graduate school. My research has helped me refine a much more nuanced view on the relationship between the divine and our physical world, while simultaneously leaving me in awe at the complexity of nature. I have also learned the meaning of worship through excellence in our work. While we continue the fight against infectious disease, I look forward to that day, when &quot;there will be no more death or mourning or crying or pain, for the old order of things has passed away&quot; (Revelation 21:4), and infectious diseases, which have given me a topic for work, will finally be done with and be no more.</p>
     <h1 id="references" class="unnumbered">References</h1>
@@ -696,14 +717,14 @@
     <div id="ref-Sukumaran:2010id">
     <p>60. Sukumaran J, Holder MT (2010) DendroPy: a Python library for phylogenetic computing. <em>Bioinformatics (Oxford, England)</em> 26(12):1569–1571.</p>
     </div>
+    <div id="ref-Marshall:2013kn">
+    <p>61. Marshall N, Priyamvada L, Ende Z, Steel J, Lowen AC (2013) Influenza virus reassortment occurs with high frequency in the absence of segment mismatch. <em>PLoS Pathogens</em> 9(6):e1003421.</p>
+    </div>
     <div id="ref-Neher:2015jr">
-    <p>61. Neher RA, Bedford T (2015) nextflu: real-time tracking of seasonal influenza virus evolution in humans. <em>Bioinformatics (Oxford, England)</em> 31(21):3546–3548.</p>
+    <p>62. Neher RA, Bedford T (2015) nextflu: real-time tracking of seasonal influenza virus evolution in humans. <em>Bioinformatics (Oxford, England)</em> 31(21):3546–3548.</p>
     </div>
     <div id="ref-Team:2016wk">
-    <p>62. Team DD <em>Dask: Library for dynamic task scheduling</em>.</p>
-    </div>
-    <div id="ref-Marshall:2013kn">
-    <p>63. Marshall N, Priyamvada L, Ende Z, Steel J, Lowen AC (2013) Influenza virus reassortment occurs with high frequency in the absence of segment mismatch. <em>PLoS Pathogens</em> 9(6):e1003421.</p>
+    <p>63. Team DD <em>Dask: Library for dynamic task scheduling</em>.</p>
     </div>
     </div>
     <div class="footnotes">

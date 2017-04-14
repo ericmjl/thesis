@@ -1,3 +1,5 @@
+echo "Building PDF."
+
 pandoc thesis.md \
     --template=default.latex \
     --latex-engine=xelatex \
@@ -9,5 +11,3 @@ pandoc thesis.md \
     -o thesis.pdf
 #
 scp thesis.pdf doroot:/var/www/html/cv/.
-
-
