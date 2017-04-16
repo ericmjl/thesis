@@ -1,3 +1,5 @@
+\newpage
+
 # Applications
 
 ## Application 1: Global reticulate evolution study.

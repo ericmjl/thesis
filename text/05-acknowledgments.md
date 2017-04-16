@@ -1,3 +1,5 @@
+\newpage
+
 # Acknowledgments
 
 First and foremost, I would like to thank my advisor, Prof. Jonathan Runstadler, for providing guidance and mentorship. I entered both worlds of infectious disease and computational research from scratch, and Jon provided the support and environment that enabled me to grow in both fields.

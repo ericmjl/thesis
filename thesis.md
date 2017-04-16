@@ -11,6 +11,7 @@ header-includes:
 - \usepackage{setspace}  # for double spacing
 - \doublespacing         # for double spacing
 - \usepackage{amssymb}
+- \usepackage{ccaption}  # for continued captions on next page
 lot: true
 lof: true
 abstract: "Reassortment is a reticulate evolutionary process that results in genome shuffling; the most prominent virus known to reassort is the influenza A virus. Methods to identify reassortant influenza viruses do not scale well beyond hundreds of isolates at a time, because they rely on phylogenetic reconstruction, a computationally expensive method. This thus hampers our ability to test whether on whether reassortment is systematically associated for host switching events. In this thesis, I use phylogenetic heuristics to develop a new reassortment finding algorithm capable of finding reassortant viruses in tens of thousands viral isolates, and use it to test whether reassortment events are over-represented in host switching events."
@@ -18,6 +19,8 @@ supervisor-name: Jonathan A. Runstadler
 supervisor-title: Assistant Professor of Biological Engineering
 date-submitted: June 2017
 ---
+
+\newpage
 
 # A Primer on the Influenza A Virus
 
@@ -105,6 +108,8 @@ Table: Toy example of sequence states at a position in a multiple sequence align
 
 We may assume a model of evolution that follows the following sequence mutation (transition) probabilities:
 
+\newpage
+
 letter  |  A     |  T     |  G     |  C
 --------|--------|--------|--------|------
 A       |  4/10  |  2/10  |  2/10  |  2/10
@@ -113,7 +118,6 @@ G       |  2/10  |  2/10  |  4/10  |  2/10
 C       |  2/10  |  2/10  |  2/10  |  4/10
 
 Table: Toy example of transition probabilities. {#tbl:transition-probabilities}
-
 
 Finally, let us consider the following tree topology with two internal node reconstructions, as shown in +@fig:mlt.
 
@@ -256,6 +260,8 @@ Given what we currently know about the ecology of influenza, a key gap in our kn
 1. Are reticulate evolutionary processes, such as reassortment, important for host switches? If so, can we quantify the importance? Is the principle generalizable?
 1. Is reassortment an evolutionary strategy that influenza genes can employ to persist against barriers to transmission?
 
+\newpage
+
 # Algorithm
 
 ## Description
@@ -319,6 +325,8 @@ For each of the major steps in the algorithm developed in this thesis, the time 
 - In the 2nd search for source pairs, given $s$ segments and $n$ isolates, in the worst case scenario, we have to check all isolates for the source pairs. Thus, we require ${s}\choose{2}$ $n^2$ comparisons in the worst-case scenario.
 
 Given this analysis, and ignoring the $s$ term (which is the number of segments for a given virus), the worst-case time complexity of the SeqTrack-based algorithm described here should be $O(n^2)$.
+
+\newpage
 
 # Applications
 
@@ -454,6 +462,8 @@ We have used permutation tests (global study) and chi-square tests (viral migrat
 
 [^nullmodel]: As an example, rather than shuffling the node labels in a graph, one may instead choose to rewire the connectivity of the graph randomly instead.
 
+\newpage
+
 # Remaining Challenges & Future Work
 
 ## Scientific
@@ -504,6 +514,8 @@ The code, as it stands right now, was designed for execution on a Sun Grid Engin
 
 With the development of Python-based software schedulers (e.g. Dask [@Team:2016wk]) enabling automatic execution of complex, arbitrary computation graphs, a rework of the code could be performed to make it executable with a single command from the command line. Dask has the added advantage of being able to scale from single cores to cloud infrastructure, though at the moment SGE clusters are not supported.
 
+\newpage
+
 # Acknowledgments
 
 First and foremost, I would like to thank my advisor, Prof. Jonathan Runstadler, for providing guidance and mentorship. I entered both worlds of infectious disease and computational research from scratch, and Jon provided the support and environment that enabled me to grow in both fields.
@@ -519,6 +531,8 @@ Fifthly, I would like to acknowledge the undergraduate students that I have had 
 I would also like to acknowledge the financial support and provision of resources by the Department of Biological Engineering, the BioMicroCenter, and the Broad Institute of Harvard and MIT. The research funds provided and access to compute resources have been instrumental in conducting my research, including research projects done outside of this thesis.
 
 Finally, all praise be to the Lord Jesus Christ, who has graciously provided all that I needed throughout my time in graduate school. My research has helped me refine a much more nuanced view on the relationship between the divine and our physical world, while simultaneously leaving me in awe at the complexity of nature. I have also learned the meaning of worship through excellence in our work. While we continue the fight against infectious disease, I look forward to that day, when "there will be no more death or mourning or crying or pain, for the old order of things has passed away" (Revelation 21:4), and infectious diseases, which have given me a topic for work, will finally be done with and be no more.
+
+\newpage
 
 # References
 

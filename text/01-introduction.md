@@ -1,3 +1,5 @@
+\newpage
+
 # A Primer on the Influenza A Virus
 
 ## The Importance of Studying Influenza Evolution & Ecology
@@ -84,6 +86,8 @@ Table: Toy example of sequence states at a position in a multiple sequence align
 
 We may assume a model of evolution that follows the following sequence mutation (transition) probabilities:
 
+\newpage
+
 letter  |  A     |  T     |  G     |  C
 --------|--------|--------|--------|------
 A       |  4/10  |  2/10  |  2/10  |  2/10
@@ -92,7 +96,6 @@ G       |  2/10  |  2/10  |  4/10  |  2/10
 C       |  2/10  |  2/10  |  2/10  |  4/10
 
 Table: Toy example of transition probabilities. {#tbl:transition-probabilities}
-
 
 Finally, let us consider the following tree topology with two internal node reconstructions, as shown in +@fig:mlt.
 
