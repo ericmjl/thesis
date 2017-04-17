@@ -262,6 +262,9 @@ Copyright 2017 Massachusetts Institute of Technology. All rights reserved.
 
 \newpage
 
+\clearpage
+\setcounter{page}{3}
+
 \begin{center}
     $if(title)$
     \begin{large}
@@ -313,8 +316,6 @@ $endif$
 $endif$
 
 \newpage
-
-\setcounter{page}{3}
 
 $body$
 
