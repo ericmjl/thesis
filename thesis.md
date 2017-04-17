@@ -12,6 +12,7 @@ header-includes:
 - \doublespacing         # for double spacing
 - \usepackage{amssymb}
 - \usepackage{ccaption}  # for continued captions on next page
+- \hyphenpenalty=10000   # disable hyphenation
 lot: true
 lof: true
 abstract: "Reassortment is a reticulate evolutionary process that results in genome shuffling; the most prominent virus known to reassort is the influenza A virus. Methods to identify reassortant influenza viruses do not scale well beyond hundreds of isolates at a time, because they rely on phylogenetic reconstruction, a computationally expensive method. This thus hampers our ability to test whether on whether reassortment is systematically associated for host switching events. In this thesis, I use phylogenetic heuristics to develop a new reassortment finding algorithm capable of finding reassortant viruses in tens of thousands viral isolates, and use it to test whether reassortment events are over-represented in host switching events."
@@ -32,7 +33,7 @@ The influenza A virus has inflicted economic damage annually on the order of bil
 
 ## Genome Structure & Evolution
 
-The influenza A virus is a negative strand RNA virus, comprised of 8 genomic RNA segments. Its negative strandedness means that it encodes the strand opposite the messenger RNA (mRNA), implying that it needs to first be copied into mRNA before translation can occur. Together, the RNA segments encode its polymerase (PB2, PB1, PA, NP), viral entry and release proteins (HA, NA), a matrix protein (M) and a non-structural protein (NS) +@fig:genome-structure-reassortment.
+The influenza A virus is a negative strand RNA virus, comprised of 8 genomic RNA segments. Its negative strandedness means that it encodes the strand opposite the messenger RNA (mRNA), implying that it needs to first be copied into mRNA before translation can occur. Together, the RNA segments encode its polymerase (PB2, PB1, PA, NP), viral entry and release proteins (HA, NA), a matrix protein (M) and a non-structural protein (NS) (+@fig:genome-structure-reassortment).
 
 ![(a) Influenza A virus genome structure. The influenza virus is comprised of 8 RNA segments. (b) Reassortment. Reassortment is the process by which two viruses co-infect the same host cell and produce progeny virus that contain segments from both parental viruses.](./figures/genome-structure-reassortment.jpg){#fig:genome-structure-reassortment}
 
@@ -72,6 +73,8 @@ A       |  1      |  1      |  1
 B       |  1      |  1      |  0
 C       |  1      |  0      |  0
 
+Table: Toy example of binary character states. {#tbl:distmat}
+
 Using the principle of parsimony, we may compute a distance matrix as follows:
 
 sample  |  A  |  B  |  C
@@ -79,6 +82,9 @@ sample  |  A  |  B  |  C
 A       |  0  |  1  |  2
 B       |  1  |  0  |  1
 C       |  2  |  1  |  0
+
+Table: Distance matrix computed from character states. {#tbl:distmat}
+
 
 Of the three possible trees that can be reconstructed, there are two that fit the data best:
 
@@ -107,8 +113,6 @@ Sample  |  $seq_{j}$
 Table: Toy example of sequence states at a position in a multiple sequence alignment. {#tbl:seq-stats}
 
 We may assume a model of evolution that follows the following sequence mutation (transition) probabilities:
-
-\newpage
 
 letter  |  A     |  T     |  G     |  C
 --------|--------|--------|--------|------
@@ -143,7 +147,7 @@ $$ \frac{(2n-3)!}{2^{n-2}(n-2)!} $$
 
 the likelihood over every possible reconstructed ancestral sequence has to be computed as well.
 
-Thus, in practice, tree space is searched iteratively using a greedy algorithm. For brevity, and because it is not relevant to understanding the reassortant virus detection algorithm, here, I do not provide extra detail, though they are available in Felsenstein's book, Inferring Phylogenies [@Felsenstein:2004ws].
+Thus, in practice, tree space is searched iteratively using a greedy algorithm, which is detailed in Felsenstein's book, Inferring Phylogenies [@Felsenstein:2004ws].
 
 ### Bayesian Phylogenetic Inference
 
@@ -152,6 +156,8 @@ Bayesian phylogenetic reconstruction methods extend likelihood tree reconstructi
 As is the case with Bayesian inference in general, the exponential increase in computational power along with advances in tree-space MCMC have been greatly enabling. Bayesian phylogenetic inference has been used successfully to infer the time of emergence of outbreak viruses such as the Ebola virus [@Gire:2014fk; @Park:2015cw] and movement swine influenza viruses [@Nelson:2015dy]. Nonetheless, while it is the state-of-the-art method, Bayesian phylogenetic tree construction remains computationally expensive; typical real-world runtimes for tree reconstruction, given single core, GPU-enabled compute power, are on the order of weeks for hundreds of taxa and months for thousands of taxa.
 
 ## Interpreting Trees
+
+In order to understand how reassortment is detected, we need to first begin with some basic definitions of phylogenetic tree structure.
 
 A bifurcating phylogenetic tree is a directed acyclic graph comprised of leaf nodes (tips), internal nodes, and bifurcating branches at each **internal node** (+@fig:interpreting-trees). Branch lengths indicate evolutionary time elapsed from an internal node to another internal node or leaf.
 
@@ -163,7 +169,7 @@ A metric of evolutionary distance between any two given isolates is the **patris
 
 ## Inferring Reassortment
 
-Now that the basics of phylogenetic inference have been covered, we will move on to discuss the current methods available for finding reassortant viruses, and their core logic.
+Now that the basics of phylogenetic tree construction and interpretation have been covered, we will move on to discuss the current methods available for finding reassortant viruses, and their core logic.
 
 ### Single Virus
 
@@ -184,7 +190,7 @@ Let us look at +@fig:tree-splits for an elementary example. Suppose we had two t
 
 If these two trees are incompatible, then all of the following criteria are true:
 
-- $A \cap X \ne \varnothing$, (i.e. intersection of sets A and X, or set of common items, is not empty)
+- $A \cap X \ne \varnothing$, (i.e. intersection of sets A and X, or set of common items, is not an empty set)
 - $A \cap Y \ne \varnothing$,
 - $B \cap X \ne \varnothing$, and
 - $B \cap Y \ne \varnothing$.
@@ -246,6 +252,10 @@ A little detail on influenza biology is necessary to understand reverse zoonosis
 Pigs have been shown to have both glycans distributed on their cells [@Ito:1998tm]. As such, viruses that are capable of infecting birds can also infect pigs, where they may acquire mutations that allow them to enter human cells; additionally, human viruses are also thus capable of replicating in swine hosts. As such, this knowledge has led to the conclusion that swine hosts may play the role of "mixing vessels" [@Ito:1998tm], allowing influenza A viruses to reassort in pigs.
 
 [^glycans]: Glycans are branched chains of sugar molecules that have been identified on cell surface membranes. Glycans are also post-translationally added to proteins through glycosylating enzymes.
+
+### Viral and Host Movement
+
+Viruses are obligate parasites, in the sense that they cannot reproduce without the presence of a host to infect. As such, it should also be evident that their mobility is determined by their host's movement range. This has implications for detecting and forecasting reassortment: reassortment between two viruses cannot happen unless their host ranges overlap, or their host geographic ranges overlap.
 
 ### Evolutionary Consequences of Reassortment
 
@@ -476,9 +486,9 @@ I recognize that cytochrome oxidase I sequence is a crude approximation of virus
 
 ### Observation of Viral Subtypes
 
-With 16 canonical hemagglutinin and 9 neuraminidase subtypes identified, there are theoretically 144 possible influenza subtypes that can form. Of them, we have observed (in the sequence dataset) about only $\frac{2}{3}$ of them (+@fig:subtypes). One may wonder, then, why we have not observed all 144 of them yet? Can we forecast
+With 16 canonical hemagglutinin and 9 neuraminidase subtypes identified, there are theoretically 144 possible influenza subtypes that can form. Of them, we have observed (in the sequence dataset) about only $\frac{2}{3}$ of them (+@fig:circos). One may wonder, then, why we have not observed all 144 of them yet? Can we forecast which subtypes (or reassortant viruses) could be detected next?
 
-![Circos panel depicting the connectivity of a particular HA & NA subtype combination with other subtypes. Within each circos plot, subtypes are ordered from the 12 o’clock position in increasing connectivity, starting with the lowest-ranked at 12 o’clock and increasing clockwise.  The highest-connected subtype, H3N8, is found just before the 12 o’clock position. Mx: “mixed subtype”.](./figures/circos.jpg)
+![Circos panel depicting the connectivity of a particular HA & NA subtype combination with other subtypes. Within each circos plot, subtypes are ordered from the 12 o’clock position in increasing connectivity, starting with the lowest-ranked at 12 o’clock and increasing clockwise.  The highest-connected subtype, H3N8, is found just before the 12 o’clock position. Mx: “mixed subtype”.](./figures/circos.jpg){#fig:circos width=40%}
 
 A naive statistical model of new subtype emergence would assume that reassortment between subtypes happens only by chance, and that us not having observed all subtypes would merely be a function of time. This would assume that new subtype emergence is essentially unpredictable.
 

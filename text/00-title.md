@@ -12,6 +12,7 @@ header-includes:
 - \doublespacing         # for double spacing
 - \usepackage{amssymb}
 - \usepackage{ccaption}  # for continued captions on next page
+- \hyphenpenalty=10000   # disable hyphenation
 lot: true
 lof: true
 abstract: "Reassortment is a reticulate evolutionary process that results in genome shuffling; the most prominent virus known to reassort is the influenza A virus. Methods to identify reassortant influenza viruses do not scale well beyond hundreds of isolates at a time, because they rely on phylogenetic reconstruction, a computationally expensive method. This thus hampers our ability to test whether on whether reassortment is systematically associated for host switching events. In this thesis, I use phylogenetic heuristics to develop a new reassortment finding algorithm capable of finding reassortant viruses in tens of thousands viral isolates, and use it to test whether reassortment events are over-represented in host switching events."

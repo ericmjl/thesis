@@ -1,12 +1,10 @@
 SHELL = /bin/sh
 
-FIGURES = ./figures
-
 TABLES = ./tables
 
 TEXT = ./text
 
-all: figures/*.jpg tables/*md thesis.md index.html thesis.pdf
+all: figures/*.jpg tables/*.md thesis.md index.html thesis.pdf commit
 
 thesis.md: text/*.md concatenate.py Makefile
 	python concatenate.py
@@ -30,11 +28,11 @@ index.html: thesis.md default.html styles.css pnas.csl header.html ../styles/pna
 	    --toc \
 	    -H header.html
 
-$FIGURES/%.jpg: $FIGURES/%.pdf Makefile
+figures/%.jpg: figures/%.pdf Makefile
 	convert -density 300 $< -quality 100 $@
 
-$TABLES/%.md: $TABLES/%.csv Makefile
-	csvtomd $< > $@.md
+tables/%.md: tables/%.csv Makefile
+	csvtomd $< > $@
 
 thesis.pdf: thesis.md default.latex pnas.csl papers-library.bib Makefile
 	pandoc thesis.md \
