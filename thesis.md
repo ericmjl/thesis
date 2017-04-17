@@ -488,7 +488,7 @@ I recognize that cytochrome oxidase I sequence is a crude approximation of virus
 
 With 16 canonical hemagglutinin and 9 neuraminidase subtypes identified, there are theoretically 144 possible influenza subtypes that can form. Of them, we have observed (in the sequence dataset) about only $\frac{2}{3}$ of them (+@fig:circos). One may wonder, then, why we have not observed all 144 of them yet? Can we forecast which subtypes (or reassortant viruses) could be detected next?
 
-![Circos panel depicting the connectivity of a particular HA & NA subtype combination with other subtypes. Within each circos plot, subtypes are ordered from the 12 o’clock position in increasing connectivity, starting with the lowest-ranked at 12 o’clock and increasing clockwise.  The highest-connected subtype, H3N8, is found just before the 12 o’clock position. Mx: “mixed subtype”.](./figures/circos.jpg){#fig:circos width=50%}
+![Circos panel depicting the connectivity of a particular HA & NA subtype combination with other subtypes. Within each circos plot, subtypes are ordered from the 12 o’clock position in increasing connectivity, starting with the lowest-ranked at 12 o’clock and increasing clockwise.  The highest-connected subtype, H3N8, is found just before the 12 o’clock position. Mx: “mixed subtype”.](./figures/circos.jpg){#fig:circos width=60%}
 
 A naive statistical model of new subtype emergence would assume that reassortment between subtypes happens only by chance, and that us not having observed all subtypes would merely be a function of time. This would assume that new subtype emergence is essentially unpredictable.
 
