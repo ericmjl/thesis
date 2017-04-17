@@ -314,6 +314,8 @@ $endif$
 
 \newpage
 
+\setcounter{page}{3}
+
 $body$
 
 $if(natbib)$
