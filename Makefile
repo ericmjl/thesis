@@ -1,9 +1,5 @@
 SHELL = /bin/sh
 
-TABLES = ./tables
-
-TEXT = ./text
-
 all: figures/*.jpg tables/*.md thesis.md index.html thesis.pdf commit
 
 thesis.md: text/*.md concatenate.py Makefile
