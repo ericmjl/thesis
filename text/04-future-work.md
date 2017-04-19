@@ -4,6 +4,12 @@
 
 ## Scientific
 
+### Viral Packaging and Reassortment
+
+An open question that has not been addressed is whether packaging signals can bias the segments that co-assort with one another. In exploratory work conducted on the side, I observed that the polymerase segments had a tendency to co-assort with one another, concurring with observations made before [@Chan:2013dk]. One hypothesis is that the polymerase segments tend to co-assort because they have to work together; there is negative selective pressure against polymerase segments from different viruses, because they may not confer high fitness (e.g. fast replication rate). On the other hand, another hypothesis may be the compatibility of packaging signals from two viruses. The relative contributions of the two to packaging compatibility, and hence co-assortment frequencies, are unclear, and it remains an open question to be investigated.
+
+![Coassortment frequencies between influenza genome segments as observed in the global analysis of reassortment.](./figures/coassortment-freq.jpg){#fig:coassortment}
+
 ### Quantification of Ecological Niche Differences
 
 Ecological niches are defined as being the set of activities that help an organism survive and reproduce, and is influenced by abiotic (e.g. temperature, sunlight) and biotic factors (presence or absence of predators). Biotic factors are traditionally described in qualitative or categorical terms: predation (X eats Y) and symbiosis (A helps B which also helps A) being the two most common categories, in addition to parasitism, neutral interactions, and more. As a global population, the influenza A virus lives essentially in a parasitic relationship with its hosts (as far as we can observe), and one idea put forth in the global reticulate evolutionary study was the idea of quantitative niche differences, as quantified by host evolutionary distance.
