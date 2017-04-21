@@ -66,4 +66,6 @@ Given this analysis, and ignoring the $s$ term (which is the number of segments 
 
 ### Anecdotal Comparisons
 
-In other work not recorded in this thesis, 
+In other work not recorded in this thesis, I have helped construct phylogenies for individual virus segments. Anecdotally, it takes on the order of days to sample tree space for tens of isolates, and weeks for hundreds of isolates, using BEAST [@Drummond:2012cs] on the Koch Institute's Sun Grid Engine compute cluster. Part of this is the serial nature of BEAST's MCMC sampling algorithm implementation, though the space complexity that has to be explored is surely the dominating term.
+
+By contrast, even with the manual steps involved, the reassortment finding algorithm takes about 1 week of time to operate on tens of thousands of isolates, and about a day's worth of compute time on thousands of isolates, utilizing roughly the same resources.
