@@ -81,6 +81,8 @@ To illustrate how the likelihood calculations are performed, I show a toy exampl
 
 Given the following three samples with the sequence states at a given position $j$.
 
+\newpage
+
 Sample  |  $seq_{j}$
 --------|------------
 1       |  A
