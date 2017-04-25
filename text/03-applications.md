@@ -4,7 +4,7 @@
 
 ## Application 1: Global reticulate evolution study.
 
-This study was conducted with much help from Dr. Nichola J. Hill (MIT Department of Biological Engineering & Division of Comparative Medicine) who gave much technical mentorship on ecology, and two undergraduate students, Kyle Yuan and Justin Zabilansky, both of whom contributed analysis or code to the final paper.
+This study was conducted with much help from Dr. Nichola J. Hill (MIT Department of Biological Engineering & Division of Comparative Medicine) who gave much technical mentorship on ecology, and two undergraduate students, Kyle Yuan and Justin Zabilansky, both of whom contributed analysis or code to the final paper, which was published in the Proceedings of the National Academy of Science.
 
 ### Abstract
 
@@ -81,7 +81,7 @@ We describe here the methods specifically used for this application.
 
 ## Application 2: Viral persistence.
 
-The bulk of this study, including the writing, was led by Dr. Nichola J. Hill; as such, apart from the abstract and figures, I provide a synopsis of the work rather than the original text. Additionally, much effort was dedicated to sample collection in Fairbanks, AK, led by Brandt Meixell, without which this study would not have been possible, and I would like to acknowledge the effort put in by the sample collection team in enabling this study.
+The bulk of this study, including the writing, was led by Dr. Nichola J. Hill and published in Ecology Letters [@Hill:2016dh]; as such, apart from the abstract and figures, I provide a synopsis of the work rather than the original text. Additionally, much effort was dedicated to sample collection in Fairbanks, AK, led by Brandt Meixell, without which this study would not have been possible, and I would like to acknowledge the effort put in by the sample collection team in enabling this study.
 
 ### Abstract
 
