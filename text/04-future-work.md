@@ -28,7 +28,7 @@ Another more sophisticated statistical model of new subtype emergence would take
 
 ### Denser Sampling
 
-As things stand right now, we do not detect whether a reassortment event happens prior to or after the host switch event. This caveat was addressed in Application 1, where we argued that it did not matter whether reassortment was helpful prior to or after host switching, as the fitness gains in the new host could be acquired at either step. In theory, denser sampling is required to be able to identify whether a reassortment event happened prior to or after a host switch event. Single viral particle sequencing from a viral host would be a very enabling technology here, and if paired with denser sampling, would open the doors to quantifying the relative viral load in a mixed infection, including reassortant viruses that emerge from the coinfection.
+As things stand right now, we do not detect whether a reassortment event happens prior to or after the host switch event. This caveat was addressed in Application 1, where we argued that it did not matter whether reassortment was helpful prior to or after host switching, as the fitness gains in the new host could be acquired at either step. Nonetheless, it may be of scientific interest to decide between these two hypotheses, in which case denser sampling is required to be able to identify whether a reassortment event happened prior to or after a host switch event. Additionally, single viral particle sequencing from a viral host would be a very enabling technology here, and if paired with denser sampling, would open the doors to quantifying the relative viral load in a mixed infection, including reassortant viruses that emerge from the coinfection.
 
 ### Homologous Reassortment
 
