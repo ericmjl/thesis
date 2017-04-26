@@ -427,7 +427,7 @@ We describe here the methods specifically used for this application.
 
 ## Application 2: Viral persistence.
 
-The bulk of this study, including the writing, was led by Dr. Nichola J. Hill and published in Ecology Letters [@Hill:2016dh]; as such, apart from the abstract and figures, I provide a synopsis of the work rather than the original text. Additionally, much effort was dedicated to sample collection in Fairbanks, AK, led by Brandt Meixell, without which this study would not have been possible, and I would like to acknowledge the effort put in by the sample collection team in enabling this study.
+The bulk of this study, including the writing, was led by Dr. Nichola J. Hill and published in Ecology Letters [@Hill:2016dh]; as such, apart from the abstract and two of the figures, I provide a synopsis of the work rather than the original text. Additionally, much effort was dedicated to sample collection in Fairbanks, AK, led by Brandt Meixell, without which this study would not have been possible, and I would like to acknowledge the effort put in by the sample collection team in enabling this study.
 
 ### Abstract
 
@@ -435,24 +435,11 @@ Influenza A Viruses (IAV) in nature must overcome shifting transmission barriers
 
 ### Research Question
 
-The influenza A virus has a broad host range. Canonically, it is thought that the virus' reservoir host [^reservoir] are wild birds, namely *Anseriformes* and *Charadriiformes* [@Webster:1992wl]. Being migratory birds, they do not form stable and geographically-restricted populations; rather, their migration patterns are seasonal, and their movement depends heavily on environmental cues. Given the influenza A virus' dependence on its viral hosts, the fluctuating host environment gives rise to  transmission barriers [^transmission], namely:
+The influenza A virus has a broad host range. Canonically, it is thought that the virus' reservoir host [^reservoir] are wild birds, namely *Anseriformes* and *Charadriiformes* [@Webster:1992wl]. Being migratory birds, they do not form stable and geographically-restricted populations; rather, their migration patterns are seasonal, and their movement depends heavily on environmental cues. Given the influenza A virus' dependence on its viral hosts, the fluctuating host environment gives rise to the question of whether host seasonality changes the virus' transmission strategy, here defined as being clonal descent or through reassortment. For example, does reassortment predominate during the breeding state of wild birds, or does it predominate during the stages after the birds have left their breeding grounds?
 
 [^reservoir]: The term "reservoir host" is typically defined as a host population in which a virus can persistently circulate in without the host incurring a (large degree of) fitness cost.
 
-[^transmission]: A "transmission barrier" is here defined as a biological or ecological factor that may impede the success of a virus in moving from one host to another.
-
-1. Population immunity preventing successful reinfection of a particular viral strain, and thus leading to depletion of immuno-naïve hosts,
-1. Environmental degradation of the virus,
-1. Encounters with new host species that a virus is not pre-adapted to, and
-1. Fluctuations in temperature along bird migration route.
-
-Population immunity is not difficult to intuit; a virus' success will depend on finding immunologically naïve hosts. As a young/newborn bird matures, it also encounters the currently circulating population of viruses, and may gain immunity (or otherwise die of infection). This contributes to population immunity; if population immunity is growing, viral transmission success will diminish as the number of infection-competent hosts decrease. The virus thus  (anthropomorphically) "has to wait" till the next annual cycle before it can infect new, immunologically-naïve hosts.
-
-As the influenza A virus is a gastro-intestinal infection in wild birds, it will be shed into the environment through fecal matter, sometimes landing in the water that birds drink from. In order for successful re-infection to occur, the virus must survive environmental degradation. Some ways that the virus may be damaged include thermal degradation (when the water heats up) or UV radiation (from sunlight, damaging the RNA genome).
-
-Composing these two basic factors, emergent barriers to transmission may happen. When host species mix at breeding grounds, the new host species may not be immediately receptive to infection, or the new host species may carry existing immunity against the virus. On the other hand, if the new host species is receptive to infection, then the presence of a new host species is not only less of a transmission barrier but also an expansion of the transmission space for the virus. Additionally, as wild birds mature and migrate southwards, the climates that the virus encounters also correspondingly become warmer, thus reducing the probability of successful transmission through the environment.
-
-Against these transmission barriers, what do our time-stamped sequence data and source-sink reconstruction (from genomic sequence) of influenza transmission tell us about reassortment and its role in viral persistence?
+What do our time-stamped sequence data and source-sink reconstruction (from genomic sequence) of influenza transmission tell us about reassortment and its role in viral persistence?
 
 ### Research Methods and Findings
 
@@ -460,7 +447,7 @@ Working with Dr. Nichola Hill, we integrated densely-sampled influenza A virus s
 
 A modification to the algorithm was done to make the virus epidemiologically-relevant for this study; because the date of sampling may not necessarily correspond to the date of infection, we modified the network reconstruction algorithm to permit sources to occur after sinks by up to 6 days, which is roughly the length of time that an infected bird sheds viruses. The resultant graph had two types of edges, "full complement" (whole genome) transmissions, and "reassortment" transmissions, similar to our global study.
 
-Through analysis of the time-distribution of edges, we found that full complement edges mostly spanned short time scales, dominating short chain transmissions, while reassortment edges spanned annual seasons. As shown in +@fig:ecoletters-fig3 (a), full complement edges (top panel) generally started and ended in viruses isolated from the same years. On the other hand, while the majority of reassortment edges (bottom panel) were also constrained to the same season, there was a greater proportion that spanned longer time frames, as shown by the cluster of off-diagonal scatter points that begin at an early source date and end at a sink date separated by hundreds of days. One additional novel finding, which was previously difficult to quantify, was the presence of inter-annual persistence of viruses.
+Through analysis of the time-span of edges, we found that full complement edges mostly spanned short time scales, dominating short chain transmissions, while reassortment edges spanned annual seasons. As shown in +@fig:ecoletters-fig3 (a), full complement edges (top panel) generally started and ended in viruses isolated from the same years. On the other hand, while the majority of reassortment edges (bottom panel) were also constrained to the same season, there was a greater proportion that spanned longer time frames, as shown by the cluster of off-diagonal scatter points that begin at an early source date and end at a sink date separated by hundreds of days. One additional novel finding, which was previously difficult to quantify, was the presence of inter-annual persistence of viruses, mediated primarily through reassortment.
 
 ![The distribution of transmissions at Minto Flats, Alaska according to (a) time and (b) latitude. Temporal analysis (a) depicts the density of transmissions among ducks at Minto Flats (grey concentric circles) during 2009–2011. The majority of full complement transmissions (top panel) were sourced locally from Minto Flats and involved ducks with source and sink dates that overlapped (i.e. transmission within the same breeding season). However, reassortant viruses at Minto Flats (lower panel) were also seeded from virus shed by ducks up to two years earlier, originating primarily in autumn and winter from prior annual cycles. Data from 2008 is included but not depicted as this year was a source, but not sink of interannual transmissions. Spatial analysis (b) indicates the latitudinal span of locations that were sourced by virus originating at Minto Flats. The majority of viruses introduced into lower latitudes were detected as reassortants.](./figures/ecoletters-fig3.jpg){#fig:ecoletters-fig3}
 
@@ -468,7 +455,9 @@ Additionally, we observed that reassortment edges spanned greater geographic sca
 
 ![Spatial pattern of viral transmissions between wild birds in North America, 2008–2011 according to (a) latitude and (b) longitude. Heatmaps indicate the number of transmission events highlighted by colour (blue: latitude, purple: longitude) and the shaded areas (90% ellipse) where transmissions are concentrated. Full complement transmissions are localized both latitudinally and longitudinally, indicated by the source and sink locations overlapping. In contrast, transmissions involving reassortment are more spatially diffuse. The combination of reassortant and interspecies transmission resulted in greatest dispersal both latitudinally and longitudinally.](./figures/ecoletters-fig5.jpg){#fig:ecoletters-fig5}
 
-Taken together, the data support a model where reassortment and expansion of host species is a way for the influenza A virus to persist in wild birds, especially when direct transmission becomes progressively harder as the seasonal cycle progresses.
+Taken together, the data support a model where reassortment and expansion of host species is a way for the influenza A virus to persist in wild birds. This may be because direct transmission becomes progressively harder as the seasonal cycle progresses, due to transmission barriers that may arise [^transmission].
+
+[^transmission]: By transmission barriers, we refer to biotic factors such as population immunity, and abiotic factors such as an unfavourable climate for environmental persistence.
 
 ## Caveats
 
